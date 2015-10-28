@@ -1,5 +1,8 @@
 """Representação de um roteador na simulação de rede."""
 
+# -------------------------------------------------------------
+
+
 class Roteador:
 
     def __init__(self, nome, numInterfaces):
@@ -29,3 +32,8 @@ class Roteador:
     def setTempoProcessa(self, tempoProc):
         """Define o tempo para processar um pacote."""
         self.tempoProc = tempoProc
+
+    def executa(self):
+        """Loop infinito do roteador. Recebe e trata pacotes."""
+        while True:
+            pass
