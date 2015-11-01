@@ -36,4 +36,4 @@ class Roteador:
     def executa(self):
         """Loop infinito do roteador. Recebe e trata pacotes."""
         while True:
-            pass
+            # TODO: Bastante coisa aqui...
