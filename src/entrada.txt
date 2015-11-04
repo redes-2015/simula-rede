@@ -56,9 +56,11 @@ set ip r1 0 192.168.3.4 1 192.168.2.3 2 192.168.1.2
 # porta. Não há roteador padrão no roteador. Não se preocupe com o
 # caso de comunicações com endereços inexistentes na
 # rede)
-set route r0 10.0.0.0 0 10.1.1.0 1 192.168.3.0 2 192.168.2.0 192.168.3.4 192.168.1.0 192.168.3.4
+set route r0 10.0.0.0 0 10.1.1.0 1 192.168.3.0 2 192.168.2.0 \
+192.168.3.4 192.168.1.0 192.168.3.4
 
-set route r1 192.168.3.0 0 192.168.2.0 1 192.168.1.0 2 10.0.0.0 192.168.3.3 10.1.1.0 192.168.3.3
+set route r1 192.168.3.0 0 192.168.2.0 1 192.168.1.0 2 10.0.0.0 \
+192.168.3.3 10.1.1.0 192.168.3.3
 
 # Configuração dos roteadores: tempo para processar 1 pacote, porta,
 # tamanho da fila da porta em quantidade de pacotes, [[porta, tamanho
