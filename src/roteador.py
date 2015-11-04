@@ -37,3 +37,4 @@ class Roteador:
         """Loop infinito do roteador. Recebe e trata pacotes."""
         while True:
             # TODO: Bastante coisa aqui...
+            print()

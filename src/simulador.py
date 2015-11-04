@@ -1,25 +1,41 @@
-
+from computador import Computador
+from roteador import Roteador
 
 """Cria e executa a simulação a partir do arquivo"""
 class Simulador:
 
     def __init__(self, entrada):
         self.entrada = entrada
+        self.dict_computador = {}
+        self.dict_roteador = {}
 
     def criarComputador(self, nome):
         print ("Criando computador de nome " + nome)
+        computador = Computador(nome)
+        dict_computador[nome] = computador
 
     def criarRoteador (self, nome, numInterfaces):
         print ("Criando roteador de nome " + nome + " com " + numInterfaces + " interfaces.")
+        roteador = Roteador(nome, numInterfaces)
+        dict_roteador[nome] = roteador
+
+    def configuraComputador (self, nome, enderecoIp, enderecoRoteador, enderecoDNS):
+        dict_computador[nome].setIp(enderecoIp, enderecoRoteador, enderecoDNS)
 
     def criarDuplexLink (self, lado1, lado2, banda, atraso):
         print ("Criando duplex link entre " + lado1 + " e " + lado2 + ": " + banda + ", " + atraso)
 
     def criarRota(self, nome, subrede, rota):
         print ("Criando rota no roteador " + nome + " para a rede " + subrede + " : " + rota)
+        dict_roteador[nome].adicionaRota(subrede, rota)
 
-    def definePerformance(self, nome, tempo, porta, tamanhoPorta):
-        print ("Performance do roteador " + nome)
+    def definePerformanceTempo(self, nome, tempo):
+        print ("Performance do roteador " + nome + " com tempo: " + tempo)
+        dict_roteador[nome].setTempoProcessa(tempo)
+
+    def definePerformancePorta(self, nome, porta, tamanhoPorta):
+        print ("Tamanho do buffer do roteador " + nome + " na porta " + porta)
+        dict_roteador[nome].setTamanhoBuffer(porta, tamanhoPorta)
 
     def iniciaAplicacao(self, nomeComputador, nomeAplicacao, tipo):
         print ("Inicia aplicacao " + nomeAplicacao + " do tipo " + tipo + " em " + nomeComputador)
@@ -80,10 +96,11 @@ class Simulador:
                     elif msg[1] == 'performance':
                         nome = msg[2]
                         tempo = msg[3]
+                        self.definePerformanceTempo(nome, tempo)
                         for x in range(4, len(msg),2):
                             porta = msg[x]
                             tamanhoPorta = msg[x+1]
-                            self.definePerformance(nome, tempo, porta, tamanhoPorta)
+                            self.definePerformancePorta(nome, porta, tamanhoPorta)
 
                     elif msg[1] == 'ircc' or msg[1] == 'ircs' or msg[1] == 'dnss':
                         nomeComputador = msg[2]
