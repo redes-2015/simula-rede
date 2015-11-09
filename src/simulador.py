@@ -2,6 +2,7 @@
 
 from computador import Computador
 from roteador import Roteador
+from threading import Thread
 
 """Cria e executa a simulação a partir do arquivo"""
 class Simulador:
@@ -162,8 +163,16 @@ class Simulador:
                     print (linha)
 
     def inicia(self):
+        # processar a entrada
         self.processaEntrada()
-        # proximos passos...
+        print("---FIM DA LEITURA DA ENTRADA---")
+
+        # iniciar a simulação
+        for x in self.dict_computador:
+            self.dict_computador[x].thread = Thread(target=self.dict_computador[x].funcThread)
+            self.dict_computador[x].thread.start()
+
+        # mesmo para roteadores
 
 
 def main():
