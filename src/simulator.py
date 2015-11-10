@@ -1,7 +1,7 @@
 """Creates and executes a network simulation based on a file."""
 
-from host      import Host
-from router    import Router
+from host import Host
+from router import Router
 from threading import Thread
 
 # -------------------------------------------------------------
@@ -25,40 +25,42 @@ class Simulator:
         self.routers[name] = router
 
     def configHost(self, name, ipAddr, routerAddr, dnsAddr):
-        print("(IP) Host %s: %s, (R) %s, (DNS) %s" % (name, ipAddr, routerAddr, dnsAddr))
+        print("{IP} Host %s: %s, [Router] %s, [DNS] %s" %
+              (name, ipAddr, routerAddr, dnsAddr))
         self.hosts[name].setIp(ipAddr, routerAddr, dnsAddr)
 
     def configRouter(self, name, port, ipAddr):
-        print("(IP) Router %s.%d: %s" % (name, port, ipAddr))
-        self.routers[name].adicionaPorta(port, ipAddr)
+        print("{IP} Router %s.%d: %s" % (name, port, ipAddr))
+        self.routers[name].addPort(port, ipAddr)
 
     def createDuplexLink(self, side1, side2, bandwidth, delay):
-        print("(Link) %s <=> %s (%g Mbps, %g ms)" % (side1, side2, bandwidth, delay))
+        print("{Link} %s <=> %s [%g Mbps, %g ms]" %
+              (side1, side2, bandwidth, delay))
 
     def createRoute(self, name, subnetwork, route):
-        print("(Route) %s -> %s:%s" % (name, subnetwork, route))
-        self.routers[name].adicionaRota(subnetwork, route)
+        print("{Route} %s -> %s:%s" % (name, subnetwork, route))
+        self.routers[name].addRoute(subnetwork, route)
 
     def defineTimePerformance(self, name, time):
-        print("(Time) %s: %g us" % (name, time))
-        self.routers[name].setTempoProcessa(time)
+        print("{Time} %s: %g us" % (name, time))
+        self.routers[name].setTimePerformance(time)
 
-    def definePortPerformance(self, name, port, portSize):
-        print("(Buffer) %s.%d: %g" % (name, port, portSize))
-        self.routers[name].setTamanhoBuffer(port, portSize)
+    def definePortPerformance(self, name, port, bufferSize):
+        print("{Buffer} %s.%d: %g" % (name, port, bufferSize))
+        self.routers[name].setBufferSize(port, bufferSize)
 
     def startApplication(self, hostname, appName, appType):
-        print("(Application) %s: %s {%s}" % (hostname, appName, appType))
+        print("{Application} %s: %s [%s]" % (hostname, appName, appType))
 
     def createSniffer(self, name, target, outputFile):
         # Sniffer name? Shouldn't it be link? (TODO: Check this)
-        print("(Sniffer) %s <-> %s {Output '%s'}" % (name, target, outputFile))
+        print("{Sniffer} %s <-> %s [Output '%s']" % (name, target, outputFile))
 
     def simulateCommand(self, time, appName, command):
-        print("(Simulate) %s %s (t = %g)" % (appName, command, time))
+        print("{Simulate} %s %s [t = %g]" % (appName, command, time))
 
     def finish(self, time):
-        print("FINISH (t = %g)" % time)
+        print("**FINISH [t = %g]**" % time)
 
     def parseFile(self):
         with open(self.filename, 'r') as simulFile:
@@ -96,12 +98,13 @@ class Simulator:
                         self.createRouter(name, numInterfaces)
 
                     elif msg[1] == 'duplex-link':
-                        side1     = msg[2]
-                        side2     = msg[3]
+                        side1 = msg[2]
+                        side2 = msg[3]
 
-                        # Removes 'Mbps' and 'ms' at end of string before converting to float
+                        # Removes 'Mbps' and 'ms' at end of string before
+                        # converting to float
                         bandwidth = float(msg[4][:-4])
-                        delay     = float(msg[5][:-2])
+                        delay = float(msg[5][:-2])
 
                         self.createDuplexLink(side1, side2, bandwidth, delay)
 
@@ -129,19 +132,20 @@ class Simulator:
                     elif msg[1] == 'performance':
                         name = msg[2]
 
-                        # Removes "us" at end of string before converting to float
+                        # Removes "us" at end of string before
+                        # converting to float
                         time = float(msg[3][:-2])
 
                         self.defineTimePerformance(name, time)
                         for x in range(4, len(msg), 2):
-                            port     = int(msg[x])
-                            portSize = float(msg[x+1])
-                            self.definePortPerformance(name, port, portSize)
+                            port = int(msg[x])
+                            bufferSize = float(msg[x+1])
+                            self.definePortPerformance(name, port, bufferSize)
 
-                    elif msg[1] == 'ircc' or msg[1] == 'ircs' or msg[1] == 'dnss':
+                    elif msg[1] in ['ircc', 'ircs', 'dnss']:
                         hostname = msg[2]
-                        appName  = msg[3]
-                        appType  = msg[1]
+                        appName = msg[3]
+                        appType = msg[1]
                         self.startApplication(hostname, appName, appType)
 
                     elif msg[1] == 'sniffer':
@@ -177,7 +181,6 @@ class Simulator:
 
         # Begin simulation
         for pc in self.hosts:
-            self.hosts[pc].thread = Thread(target=self.hosts[pc].funcThread)
+            self.hosts[pc].thread = Thread(target=self.hosts[pc].runThread)
             self.hosts[pc].thread.start()
-
         # TODO: Simulate routers

@@ -1,40 +1,40 @@
-"""Representação de um roteador na simulação de rede."""
+"""Represents a router on the network simulation."""
 
 # -------------------------------------------------------------
 
 
 class Router:
 
-    def __init__(self, nome, numInterfaces):
-        """Inicializa o roteador com um nome e o número de interfaces."""
-        self.nome = nome
+    def __init__(self, name, numInterfaces):
+        """Initializes the router with a name and number of interfaces."""
+        self.name = name
         self.numInterfaces = numInterfaces
 
-        # Inicializa atributos vazios
-        self.tempoProc = None
+        # Initializes empty attributes
+        self.timePerformance = None
         self.interfaces = {}
-        self.rotas = {}
-        self.tamanhoBuffers = {}
+        self.routes = {}
+        self.bufferSizes = {}
 
-    def adicionaPorta(self, porta, ip):
-        """Adiciona uma nova porta, com seu respectivo ip, ao roteador."""
-        self.interfaces[porta] = ip
+    def addPort(self, port, ip):
+        """Adds a new port, with its respective IP, to the router."""
+        self.interfaces[port] = ip
 
-    def adicionaRota(self, rede, porta):
-        """Configura uma nova rota para a rede especificada numa dada
-           porta do roteador."""
-        self.rotas[rede] = porta
+    def addRoute(self, subnetwork, port):
+        """Configures a new subnetwork to the router's specified port."""
+        self.routes[subnetwork] = port
 
-    def setTamanhoBuffer(self, porta, tamanho):
-        """Define o tamanho do buffer para a porta indicada."""
-        self.tamanhoBuffers[porta] = tamanho
+    def setBufferSize(self, port, bufferSize):
+        """Sets the router's specified port to have a certain buffer size."""
+        self.bufferSizes[port] = bufferSize
 
-    def setTempoProcessa(self, tempoProc):
-        """Define o tempo para processar um pacote."""
-        self.tempoProc = tempoProc
+    def setTimePerformance(self, timePerformance):
+        """Sets the time to process a package."""
+        self.timePerformance = timePerformance
 
-    def executa(self):
-        """Loop infinito do roteador. Recebe e trata pacotes."""
+    def runThread(self):
+        """Router's infinite thread loop. Receives and sends packages
+           to hosts/routers."""
         while True:
-            # TODO: Bastante coisa aqui...
+            # TODO: Many things here...
             print()

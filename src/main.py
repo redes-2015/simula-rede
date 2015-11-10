@@ -2,8 +2,8 @@
 
 """Main module. Checks command line arguments."""
 
-from simulator import Simulator
 import sys
+from simulator import Simulator
 
 # -------------------------------------------------------------
 
