@@ -23,7 +23,7 @@ class IrcServidor:
     def executa(self):
         """Loop infinito do servidor IRC."""
         while True:
-            # TODO: Checar sockets para novas conexões ou mensagens
+            pass  # TODO: Checar sockets para novas conexões ou mensagens
 
     def parseMsg(self, endereco, msg):
         """Interpreta a mensagem enviada por um cliente."""

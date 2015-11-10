@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 
 
-class Roteador:
+class Router:
 
     def __init__(self, nome, numInterfaces):
         """Inicializa o roteador com um nome e o número de interfaces."""

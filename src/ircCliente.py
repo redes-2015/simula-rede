@@ -18,8 +18,7 @@ class IrcCliente:
         """Loop infinito do servidor IRC."""
         separa = msg.split(' ')
         if separa[0] == "CONNECT":
-            # TODO: Criar socket TCP e se conectar ao servidor IRC
-        else
-            # TODO: Enviar msg pelo socket
-
+            pass  # TODO: Criar socket TCP e se conectar ao servidor IRC
+        else:
+            pass  # TODO: Enviar msg pelo socket
         # TODO: Receber resposta do servidor

@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 
-"""Módulo principal.
-   Verificação dos argumentos por linha de comando."""
+"""Main module. Checks command line arguments."""
 
-from simulador import Simulador
+from simulator import Simulator
 import sys
 
 # -------------------------------------------------------------
 
 try:
-    simulador = Simulador(sys.argv[1])
-    simulador.inicia()
+    simulator = Simulator(sys.argv[1])
+    simulator.start()
 except IndexError:
-    print("Arquivo de simulação não especificado!")
+    print("Simulation file not specified!")
 except FileNotFoundError:
-    print("Arquivo de simulação '%s' não encontrado!" % sys.argv[1])
+    print("Simulation file '%s' not found!" % sys.argv[1])

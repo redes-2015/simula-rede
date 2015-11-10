@@ -1,10 +1,11 @@
 """Representação de um computador (host) na simulação de rede."""
 
-# -------------------------------------------------------------
-
 import time
 
-class Computador:
+# -------------------------------------------------------------
+
+
+class Host:
 
     def __init__(self, nome):
         """Inicializa um computador com seu nome e endereço IP."""
