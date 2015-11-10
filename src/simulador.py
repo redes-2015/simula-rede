@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from computador import Computador
 from roteador import Roteador
 from threading import Thread
@@ -173,12 +171,3 @@ class Simulador:
             self.dict_computador[x].thread.start()
 
         # mesmo para roteadores
-
-
-def main():
-    sim = Simulador('entrada.txt')
-    sim.inicia()
-
-if __name__ == "__main__":
-    main()
-

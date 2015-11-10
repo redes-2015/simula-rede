@@ -14,7 +14,7 @@ class Roteador:
         self.tempoProc = None
         self.interfaces = {}
         self.rotas = {}
-        self.tamBuffers = {}
+        self.tamanhoBuffers = {}
 
     def adicionaPorta(self, porta, ip):
         """Adiciona uma nova porta, com seu respectivo ip, ao roteador."""
@@ -27,7 +27,7 @@ class Roteador:
 
     def setTamanhoBuffer(self, porta, tamanho):
         """Define o tamanho do buffer para a porta indicada."""
-        self.tamBuffers[porta] = tamanho
+        self.tamanhoBuffers[porta] = tamanho
 
     def setTempoProcessa(self, tempoProc):
         """Define o tempo para processar um pacote."""
