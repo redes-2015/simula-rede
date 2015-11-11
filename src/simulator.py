@@ -3,6 +3,8 @@
 from host import Host
 from router import Router
 from threading import Thread
+from queue import Queue
+import time
 
 # -------------------------------------------------------------
 
@@ -14,6 +16,8 @@ class Simulator:
         self.filename = filename
         self.hosts = {}
         self.routers = {}
+        self.apps = {}
+        self.currentTime = 0
 
     def start(self):
         """Starts the simulation."""
@@ -21,17 +25,13 @@ class Simulator:
         self.__parseFile()
         print("<-- End of File -->")
 
-        # Begin simulation
-        for pc in self.hosts:
-            self.hosts[pc].thread = Thread(target=self.hosts[pc].runThread)
-            self.hosts[pc].thread.start()
-        # TODO: Simulate routers
-
     def createHost(self, name):
         """Creates a host with the given name."""
         print("Host: %s" % name)
         host = Host(name)
         self.hosts[name] = host
+        host.thread = Thread(target=host.runThread, daemon=True)
+        host.thread.start()
 
     def createRouter(self, name, numInterfaces):
         """Creates a router with the given name and number of interfaces."""
@@ -76,6 +76,8 @@ class Simulator:
     def startApplication(self, hostname, appName, appType):
         """Defines an application level protocol on the given host."""
         print("{Application} %s: %s [%s]" % (hostname, appName, appType))
+        self.apps[appName] = hostname
+        self.hosts[hostname].addApp(appName, appType)
 
     def createSniffer(self, name, target, outputFile):
         """Creates a sniffer between 'name' and 'target'. Information its
@@ -83,13 +85,20 @@ class Simulator:
         # Sniffer name? Shouldn't it be link? (TODO: Check this)
         print("{Sniffer} %s <-> %s [Output '%s']" % (name, target, outputFile))
 
-    def simulateCommand(self, time, appName, command):
+    def simulateCommand(self, newTime, appName, command):
         """Runs 'appName' with the given command at the specified time."""
-        print("{Simulate} %s %s [t = %g]" % (appName, command, time))
+        print("{Simulate} [t = %g] %s %s" % (newTime, appName, command))
+        delta = newTime - self.currentTime
+        #delta = delta/100.0
+        time.sleep(delta)
+        self.currentTime = newTime
+        host = self.apps[appName]
+        self.hosts[host].addSimQueue(command)
 
     def finish(self, time):
         """Ends the simulation at the specified time."""
         print("**FINISH [t = %g]**" % time)
+        exit(0)
 
     def __parseFile(self):
         with open(self.filename, 'r') as simulFile:
