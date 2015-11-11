@@ -2,6 +2,8 @@
 
 from host import Host
 from router import Router
+from link import Link
+
 from threading import Thread
 from queue import Queue
 import time
@@ -57,6 +59,26 @@ class Simulator:
            delay (in ms)."""
         print("{Link} %s <=> %s [%g Mbps, %g ms]" %
               (side1, side2, bandwidth, delay))
+
+        if '.' in side1 and '.' in side2:
+            port1 = int(side1.split('.')[1])
+            port2 = int(side2.split('.')[1])
+            queue1 = self.routers[side1.split('.')[0]].getBufferQueue(port1)
+            queue2 = self.routers[side2.split('.')[0]].getBufferQueue(port2)
+            self.routers[side1.split('.')[0]].addLink(port1, Link(queue2, bandwidth, delay))
+            self.routers[side2.split('.')[0]].addLink(port2, Link(queue1, bandwidth, delay))
+
+        else: 
+            if not '.' in side1:
+                aux = side1
+                side1 = side2
+                side2 = aux
+            # 1 is router, 2 is host
+            port1 = int(side1.split('.')[1])
+            queue1 = self.routers[side1.split('.')[0]].getBufferQueue(port1)
+            queue2 = self.hosts[side2].getSimQueue()
+            self.routers[side1.split('.')[0]].addLink(port1, Link(queue2, bandwidth, delay))
+            self.hosts[side2].addLink(Link(queue1, bandwidth, delay))
 
     def createRoute(self, name, subnetwork, route):
         """Creates a specified route from a router to a subnetwork."""

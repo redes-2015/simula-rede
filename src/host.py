@@ -16,9 +16,11 @@ class Host:
         # Initializes empty attributes
         self.ipAddr = self.routerAddr = self.dnsAddr = None
         self.thread = None
+
         self.apps = {}
         self.simQueue = queue.LifoQueue()
         self.netQueue = queue.LifoQueue()
+        self.link = None
         # TODO: Check if application must be inserted in host
 
     def setIp(self, ipAddr, routerAddr, dnsAddr):
@@ -36,8 +38,14 @@ class Host:
             pass
             #self.apps[appName] = DnsServer()
 
+    def getSimQueue(self):
+        return self.simQueue
+
     def addSimQueue(self, msg):
         self.simQueue.put(msg)
+
+    def addLink(self, link):
+        self.link = link
 
     def proc(self, item):
         print("DEBUG: comando na thread", item)
