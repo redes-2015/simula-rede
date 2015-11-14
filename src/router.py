@@ -7,25 +7,24 @@ import queue
 
 class Router:
 
-    def __init__(self, name, numInterfaces):
-        """Initializes the router with a name and number of interfaces."""
+    def __init__(self, name, numPorts):
+        """Initializes the router with a name and number of ports."""
         self.name = name
-        self.numInterfaces = numInterfaces
+        self.numPorts = numPorts
 
-        # Initialize each port
-        self.interfaces = {}
-        self.portBuffer = {}
-        for x in range(numInterfaces):
+        self.ports = {}       # port number -> IP
+        self.portBuffer = {}  # port number -> queue
+        for x in range(numPorts):
             self.addPort(x, None)
 
         # Initializes empty attributes
         self.timePerformance = None
-        self.routes = {}
-        self.links = {}
+        self.routes = {}  # subnetwork -> port
+        self.links = {}   # port -> queue of linked host or router port
 
     def addPort(self, port, ip):
         """Adds a new port, with its respective IP, to the router."""
-        self.interfaces[port] = ip
+        self.ports[port] = ip
         self.portBuffer[port] = queue.LifoQueue()
 
     def addRoute(self, subnetwork, port):
@@ -41,16 +40,21 @@ class Router:
         self.timePerformance = timePerformance
 
     def getBufferQueue(self, port):
+        """Returns the router's buffer queue for a given port."""
         print(self.portBuffer.keys())
         return self.portBuffer[port]
 
     def addBufferQueue(self, port, packet):
+        """Adds a packet to the buffer of a given port on the router."""
         self.portBuffer[port].put(packet)
 
     def addLink(self, port, link):
+        """Links the router's port to a host's queue or
+           another router's buffer."""
         self.links[port] = link
 
-    def proc(self, port, packet):
+    def process(self, port, packet):
+        """Processes a packet received from the network."""
         destination = packet.getDestination()
         subnetwork = __findSubnetwork(destination)
         # TODO: Send the packet to who is connected to self.routes[subnetwork]
@@ -60,9 +64,11 @@ class Router:
            to hosts/routers."""
         while True:
             packet = self.portBuffer[port].get()
-            self.proc(port, packet)
+            self.process(port, packet)
             self.portBuffer[port].task_done()
 
     def __findSubnetwork(destination):
+        """Returns the subnetwork (ends with ".0") of a given
+           IP destination."""
         finalDot = destination.rfind('.')
         return destination[0:finalDot] + ".0"

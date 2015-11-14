@@ -13,49 +13,54 @@ class Host:
     def __init__(self, name):
         """Initializes a computer with the given hostname."""
         self.name = name
-        # Initializes empty attributes
-        self.ipAddr = self.routerAddr = self.dnsAddr = None
-        self.thread = None
 
-        self.apps = {}
+        # Addresses
+        self.ipAddr = self.routerAddr = self.dnsAddr = None
+
+        # Application running on host and link to a router
+        self.application = None
+        self.link = None
+
+        # Simulator and network itself queues
         self.simQueue = queue.LifoQueue()
         self.netQueue = queue.LifoQueue()
-        self.link = None
-        # TODO: Check if application must be inserted in host
 
     def setIp(self, ipAddr, routerAddr, dnsAddr):
-        """Define atributos da configuração de IP do computador."""
+        """Defines IP numbers for host, its router and DNS server."""
         self.ipAddr = ipAddr
         self.routerAddr = routerAddr
         self.dnsAddr = dnsAddr
 
-    def addApp(self, appName, appType):
+    def addApplication(self, appName, appType):
+        """Creates an application 'appName' of the specified type."""
         if appType == 'ircc':
-            self.apps[appName] = IrcClient()
+            self.application = IrcClient()
         elif appType == 'ircs':
-            self.apps[appName] = IrcServer()
+            self.application = IrcServer()
         elif appType == 'dnss':
             pass
-            #self.apps[appName] = DnsServer()
+            # TODO: self.application = DnsServer()
 
     def getSimQueue(self):
+        """Returns the host's simulator queue."""
         return self.simQueue
 
     def addSimQueue(self, msg):
+        """Adds a message to the host's simulator queue."""
         self.simQueue.put(msg)
 
     def addLink(self, link):
+        """Links the host to a router's buffer queue."""
         self.link = link
 
-    def proc(self, item):
-        print("DEBUG: comando na thread", item)
+    def process(self, packet):
+        """Processes a packet received from the network."""
+        print("DEBUG: Processing ", packet)
 
     def runThread(self):
         """Host's infinite thread loop. Receives and sends messages
            to other hosts."""
-        #print("Host '%s' started!" % self.name)
         while(True):
-            item = self.simQueue.get()
-            self.proc(item)
+            packet = self.simQueue.get()
+            self.process(packet)
             self.simQueue.task_done()
-

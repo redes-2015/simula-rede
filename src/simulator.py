@@ -65,10 +65,12 @@ class Simulator:
             port2 = int(side2.split('.')[1])
             queue1 = self.routers[side1.split('.')[0]].getBufferQueue(port1)
             queue2 = self.routers[side2.split('.')[0]].getBufferQueue(port2)
-            self.routers[side1.split('.')[0]].addLink(port1, Link(queue2, bandwidth, delay))
-            self.routers[side2.split('.')[0]].addLink(port2, Link(queue1, bandwidth, delay))
+            self.routers[side1.split('.')[0]].addLink(
+                port1, Link(queue2, bandwidth, delay))
+            self.routers[side2.split('.')[0]].addLink(
+                port2, Link(queue1, bandwidth, delay))
 
-        else: 
+        else:
             if not '.' in side1:
                 aux = side1
                 side1 = side2
@@ -77,7 +79,8 @@ class Simulator:
             port1 = int(side1.split('.')[1])
             queue1 = self.routers[side1.split('.')[0]].getBufferQueue(port1)
             queue2 = self.hosts[side2].getSimQueue()
-            self.routers[side1.split('.')[0]].addLink(port1, Link(queue2, bandwidth, delay))
+            self.routers[side1.split('.')[0]].addLink(
+                port1, Link(queue2, bandwidth, delay))
             self.hosts[side2].addLink(Link(queue1, bandwidth, delay))
 
     def createRoute(self, name, subnetwork, route):
@@ -99,7 +102,7 @@ class Simulator:
         """Defines an application level protocol on the given host."""
         print("{Application} %s: %s [%s]" % (hostname, appName, appType))
         self.apps[appName] = hostname
-        self.hosts[hostname].addApp(appName, appType)
+        self.hosts[hostname].addApplication(appName, appType)
 
     def createSniffer(self, name, target, outputFile):
         """Creates a sniffer between 'name' and 'target'. Information its
@@ -123,6 +126,8 @@ class Simulator:
         exit(0)
 
     def __parseFile(self):
+        """Parses the file containing simulation info, setting
+           up objects during the process."""
         with open(self.filename, 'r') as simulFile:
             while True:
                 line = simulFile.readline()
