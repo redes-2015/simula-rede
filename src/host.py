@@ -53,9 +53,13 @@ class Host:
         """Links the host to a router's buffer queue."""
         self.link = link
 
-    def process(self, packet):
+    def processCommand(self, command):
+        """Processes a command received from the simulation."""
+        print("DEBUG: Processing command ", command)
+
+    def processPacket(self, packet):
         """Processes a packet received from the network."""
-        print("DEBUG: Processing ", packet)
+        print("DEBUG: Processing packet ", packet)
 
     def runThread(self):
         """Host's infinite thread loop. Receives and sends messages
