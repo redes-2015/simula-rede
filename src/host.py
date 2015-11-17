@@ -1,7 +1,7 @@
 """Represents a computer (host) on the network simulation."""
 
 import time
-import queue
+from queue import LifoQueue, Empty, Full
 from ircClient import IrcClient
 from ircServer import IrcServer
 
@@ -22,8 +22,8 @@ class Host:
         self.link = None
 
         # Simulator and network itself queues
-        self.simQueue = queue.LifoQueue()
-        self.netQueue = queue.LifoQueue()
+        self.simQueue = LifoQueue()
+        self.netQueue = LifoQueue()
 
     def setIp(self, ipAddr, routerAddr, dnsAddr):
         """Defines IP numbers for host, its router and DNS server."""
@@ -55,7 +55,7 @@ class Host:
 
     def processCommand(self, command):
         """Processes a command received from the simulation."""
-        print("DEBUG: Processing command ", command)
+        print("DEBUG: ", self.name, " Processing command ", command)
 
     def processPacket(self, packet):
         """Processes a packet received from the network."""
@@ -65,6 +65,16 @@ class Host:
         """Host's infinite thread loop. Receives and sends messages
            to other hosts."""
         while(True):
-            packet = self.simQueue.get()
-            self.process(packet)
-            self.simQueue.task_done()
+            try:
+                command = self.simQueue.get_nowait()
+                self.processCommand(command)
+                self.simQueue.task_done()
+            except Empty:
+                pass
+
+            try:
+                packet = self.netQueue.get_nowait()
+                self.processPacket(packet)
+                self.netQueue.task_done()
+            except Empty:
+                pass
