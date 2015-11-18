@@ -13,14 +13,14 @@ class Router:
         self.numPorts = numPorts
 
         self.ports = {}       # port number -> IP
-        self.portBuffer = {}  # port number -> queue
+        self.portBuffer = {}  # port number -> the port's buffer queue
         for x in range(numPorts):
             self.addPort(x, None)
 
         # Initializes empty attributes
         self.timePerformance = None
         self.routes = {}  # subnetwork -> port
-        self.links = {}   # port -> queue of linked host or router port
+        self.links = {}   # port number -> queue of an other host or router port
 
     def addPort(self, port, ip):
         """Adds a new port, with its respective IP, to the router."""

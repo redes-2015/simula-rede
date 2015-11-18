@@ -25,7 +25,7 @@ class IrcServer:
         while True:
             pass  # TODO: Check sockets for new connections/messages
 
-    def parseMsg(self, addr, msg):
+    def parseMessage(self, addr, msg):
         """Parses a message received by a client with the given address
            'addr' (which is a list [IP, Port])."""
         addrStr = addr[0] + ':' + addr[1]

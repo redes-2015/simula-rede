@@ -11,17 +11,18 @@ class Packet:
         self.transport = None
         self.network = None
 
-    def addMsg(self, msg):
+    def addMessage(self, msg):
         """Adds the specified msg to the packet (application layer)."""
         self.msg = msg
 
     def addTransport(self):
+        """???"""
         pass  # TODO
 
     def addNetwork(self):
         pass  # TODO
 
-    def getMsg(self):
+    def getMessage(self):
         """Returns the msg stored in the packet (application layer)."""
         return self.msg
 
