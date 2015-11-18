@@ -22,6 +22,8 @@ class Simulator:
         self.apps = {}
         self.currentTime = 0
 
+        self.dnsTable = {}
+
     def start(self):
         """Starts the simulation."""
         # Process file
@@ -183,14 +185,20 @@ class Simulator:
 
                         try:
                             port = int(msg[3])
+                            # Is a router
                             for x in range(3, len(msg), 2):
                                 self.configRouter(name, int(msg[x]), msg[x+1])
 
                         except ValueError:
+                            # Is a host
                             ipAddr = msg[3]
                             routerAddr = msg[4]
                             dnsAddr = msg[5]
                             self.configHost(name, ipAddr, routerAddr, dnsAddr)
+                            self.dnsTable[name] = ipAddr
+                            # TODO: Check what happens if DNS server isn't the last entry
+                            if dnsAddr == "1.1.1.1":
+                                self.hosts[name].dnsTable = self.dnsTable  # TODO: Create a setter
 
                     elif msg[1] == 'route':
                         routerName = msg[2]

@@ -28,6 +28,10 @@ class IPDatagram:
         """Returns the IP address of who will receive the datagram."""
         return self.destinationIP
 
+    def getTransportSegment(self):
+        """Returns the transport and application layers part of the datagram."""
+        return self.transport
+
     def getTransportNumber(self):
         """Returns a number identifying the type of transport layer."""
         if type(self.transport) is TCPSegment:

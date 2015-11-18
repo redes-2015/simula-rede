@@ -28,6 +28,15 @@ class Host:
         self.simQueue = LifoQueue()
         self.netQueue = LifoQueue()
 
+        # DNS table storing the corresponding IP for each host
+        self.dnsTable = None
+
+        # Usable ports in the host
+        self.portCounter = 1025
+
+        # 'IP:Port -> Username' for IRC server
+        self.ircs_connections = {}
+
     def setIp(self, ipAddr, routerAddr, dnsAddr):
         """Defines IP numbers for host, its router and DNS server."""
         self.ipAddr = ipAddr
@@ -37,12 +46,13 @@ class Host:
     def addApplication(self, appName, appType):
         """Creates an application 'appName' of the specified type."""
         if appType == 'ircc':
-            self.application = IrcClient()
+            self.application = self.ircc_process
         elif appType == 'ircs':
             self.application = IrcServer()
         elif appType == 'dnss':
             pass
             # TODO: self.application = DnsServer()
+        print(self.name, self.dnsTable)
 
     def getNetQueue(self):
         """Returns the host's network queue."""
@@ -58,7 +68,8 @@ class Host:
 
     def processCommand(self, command):
         """Processes a command received from the simulation."""
-        packet = IPDatagram(self.ipAddr, command[1], TCPSegment(command[0], 5000, 667))
+        packet = IPDatagram(self.ipAddr, command[1], TCPSegment(command[0], 5000, 6667))
+
         self.link.putTargetQueue(packet)
         print("DEBUG:", self.name, " Processing command", command)
 
@@ -83,3 +94,50 @@ class Host:
                 self.netQueue.task_done()
             except Empty:
                 pass
+
+    def getAddressInfo(self, name):
+        """???"""
+        packet = IPDatagram(self.ipAddr, self.dnsAddr, UDPSegment(name, self.portCounter, 53))
+        self.portCounter += 1
+        if self.portCounter >= 60000:
+            self.portCounter = 1025
+        return packet
+
+    def ircc_process(self, msgList):
+        """Sends the specified message to an IRC server
+           This method supposes that the message is correct!."""
+        if msgList[0] == self.CONNECT:
+            msg = ' '.join(msgList)
+            transport = TCPSegment(msg, self.portCounter, 6667)
+            transport.setSYN()
+            datagram = IPDatagram(self.ipAddr, msgList[1], transport)
+        else:
+            pass  # TODO: Send message through socket
+        # TODO: Receive response from server
+
+    def ircs_process(self, packet):
+        """Parses a message received by a client with the given address
+           'addr' (which is a list [IP, Port])."""
+        msg = packet.getTransportSegment().getMessage()
+        separate = msg.split(' ')
+
+        if separate[0] == CONNECT:
+            response = "Connection successful!"
+            self.connections[addrStr] = None
+
+        elif separate[0] == USER:
+            # Supposes that a client won't try
+            # to use an already defined username
+            self.connections[addrStr] = username
+            response = "Username '" + username + "' successfully defined!"
+
+        elif separate[0] == QUIT:
+            # 'None' is the returning value
+            # in case 'addrStr' key doesn't exist
+            self.connections.pop(addrStr, None)
+            response = "You have left the server."
+
+        return response
+
+    def dnss_process(self):
+        """???"""

@@ -20,7 +20,7 @@ class TCPSegment(TransportSegment):
             return 0
         return ord(msg[0])
 
-    def setAcknowledgementNumber(self, ackNumber):
+    def setAckNumber(self, ackNumber):
         """???"""
         self.ackNumber = ackNumber
 
