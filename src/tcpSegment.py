@@ -1,11 +1,11 @@
 """Represents the TCP protocol on the simulated network."""
 
-from transport import Transport
+from transportSegment import TransportSegment
 
 # -------------------------------------------------------------
 
 
-class TCP(Transport):
+class TCPSegment(TransportSegment):
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data on TCP header."""

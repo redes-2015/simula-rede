@@ -1,7 +1,7 @@
 """Represents a router on the network simulation."""
 
 from queue import LifoQueue, Empty
-from ip import IP
+from ipDatagram import IPDatagram
 
 # -------------------------------------------------------------
 

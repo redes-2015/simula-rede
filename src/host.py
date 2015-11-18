@@ -5,8 +5,8 @@ from queue import LifoQueue, Empty, Full
 
 from ircClient import IrcClient
 from ircServer import IrcServer
-from ip import IP
-from tcp import TCP
+from ipDatagram import IPDatagram
+from tcpSegment import TCPSegment
 
 # -------------------------------------------------------------
 
@@ -58,7 +58,7 @@ class Host:
 
     def processCommand(self, command):
         """Processes a command received from the simulation."""
-        packet = IP(self.ipAddr, command[1], TCP(command[0], 5000, 667))
+        packet = IPDatagram(self.ipAddr, command[1], TCPSegment(command[0], 5000, 667))
         self.link.putTargetQueue(packet)
         print("DEBUG:", self.name, " Processing command", command)
 

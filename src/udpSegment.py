@@ -1,11 +1,11 @@
 """Represents the UDP protocol on the simulated network."""
 
-from transport import Transport
+from transportSegment import TransportSegment
 
 # -------------------------------------------------------------
 
 
-class UDP(Transport):
+class UDPSegment(TransportSegment):
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data on UDP header."""

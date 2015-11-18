@@ -1,7 +1,7 @@
 """Represents the IP protocol on the simulated network."""
 
-from tcp import TCP
-from udp import UDP
+from tcpSegment import TCPSegment
+from udpSegment import UDPSegment
 
 # Initial TTL values for different systems
 UNIX_TTL = 64
@@ -10,29 +10,29 @@ WINDOWS_TTL = 128
 # -------------------------------------------------------------
 
 
-class IP:
+class IPDatagram:
 
-    def __init__(self, originIp, destinationIp, transport):
+    def __init__(self, originIP, destinationIP, transport):
         """Initializes datagram values."""
-        self.originIp = originIp
-        self.destinationIp = destinationIp
+        self.originIP = originIP
+        self.destinationIP = destinationIP
         self.transport = transport
         self.TTL = UNIX_TTL
         # TODO: Checksum
 
     def getOriginIP(self):
         """Returns the IP address of who sent the datagram."""
-        return self.originIp
+        return self.originIP
 
     def getDestinationIP(self):
         """Returns the IP address of who will receive the datagram."""
-        return self.destinationIp
+        return self.destinationIP
 
     def getTransportNumber(self):
         """Returns a number identifying the type of transport layer."""
-        if type(self.transport) is TCP:
+        if type(self.transport) is TCPSegment:
             return 6
-        elif type(self.transport) is UDP:
+        elif type(self.transport) is UDPSegment:
             return 17
         else:
             raise Exception("Unexpected type of transport protocol!")

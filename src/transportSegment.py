@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 
 
-class Transport:
+class TransportSegment:
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data common for all transport layer protocols."""
