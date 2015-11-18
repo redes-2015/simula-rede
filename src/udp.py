@@ -13,7 +13,7 @@ class UDP(Transport):
         # TODO: Checksum
 
     def messageSize(self):
-        """Returns size of application message. in bytes."""
+        """Returns size of application message, in bytes."""
         return sys.getsizeof(self.msg)
 
     def headerSize(self):
