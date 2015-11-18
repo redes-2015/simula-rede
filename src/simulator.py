@@ -3,6 +3,10 @@
 from host import Host
 from router import Router
 from link import Link
+from application import Application
+from ircClient import IrcClient
+from ircServer import IrcServer
+from dnsServer import DnsServer
 
 import sys
 from threading import Thread
@@ -35,8 +39,8 @@ class Simulator:
         print("Host: %s" % name)
         host = Host(name)
         self.hosts[name] = host
-        host.thread = Thread(target=host.runThread, daemon=True)
-        host.thread.start()
+        #host.thread = Thread(target=host.runThread, daemon=True)
+        #host.thread.start()
 
     def createRouter(self, name, numInterfaces):
         """Creates a router with the given name and number of interfaces."""
@@ -107,8 +111,17 @@ class Simulator:
     def startApplication(self, hostname, appName, appType):
         """Defines an application level protocol on the given host."""
         print("{Application} %s: %s [%s]" % (hostname, appName, appType))
-        self.apps[appName] = hostname
-        self.hosts[hostname].addApplication(appName, appType)
+        if appType == 'ircc':
+            app = IrcClient(appName, hostname)
+            self.apps[appName] = app
+        elif appType == 'ircs':
+            app = IrcServer(appName, hostname)
+            self.apps[appName] = app
+        elif appType == 'dnss':
+            app = DnsServer(appName, hostname)
+            self.apps[appName] = app
+        #self.apps[appName] = hostname
+        #self.hosts[hostname].addApplication(appName, appType)
 
     def createSniffer(self, name, target, outputFile):
         """Creates a sniffer between 'name' and 'target'. Information its
@@ -123,8 +136,9 @@ class Simulator:
         #delta = delta/100.0
         sleep(delta)
         self.currentTime = newTime
-        host = self.apps[appName]
-        self.hosts[host].addSimQueue(command)
+        #host = self.apps[appName]
+        #self.hosts[host].addSimQueue(command)
+        self.apps[appName].addSimQueue(command)
 
     def finish(self, time):
         """Ends the simulation at the specified time."""
@@ -225,7 +239,7 @@ class Simulator:
                         hostname = msg[2]
                         appName = msg[3]
                         appType = msg[1]
-                        self.startApplication(hostname, appName, appType)
+                        self.startApplication(self.hosts[hostname], appName, appType)
 
                     elif msg[1] == 'sniffer':
                         name = msg[2]

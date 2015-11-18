@@ -2,7 +2,7 @@ from application import Application
 from threading import Thread
 from queue import LifoQueue, Empty, Full
 
-class IrcServer(Application):
+class DnsServer(Application):
 
     def __init__(self, name, host):
         Application.__init__(self, name, host);
