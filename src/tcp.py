@@ -9,7 +9,7 @@ class TCP(Transport):
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data on TCP header."""
-        super(msg, originPort, destinationPort)
+        super().__init__(msg, originPort, destinationPort);
         self.SYN = self.ACK = self.FIN = False
         self.ackNumber = 0
 
@@ -30,7 +30,7 @@ class TCP(Transport):
 
     def setACK(self):
         """Sets the ACK bit, related to checking data received."""
-        self.SYN = True
+        self.ACK = True
 
     def setFIN(self):
         """Sets the FIN bit, informing that the TCP connection can be closed."""

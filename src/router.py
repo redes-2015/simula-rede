@@ -1,6 +1,7 @@
 """Represents a router on the network simulation."""
 
-import queue
+from queue import LifoQueue, Empty
+from ip import IP
 
 # -------------------------------------------------------------
 
@@ -25,11 +26,21 @@ class Router:
     def addPort(self, port, ip):
         """Adds a new port, with its respective IP, to the router."""
         self.ports[port] = ip
-        self.portBuffer[port] = queue.LifoQueue()
+        self.portBuffer[port] = LifoQueue()
 
     def addRoute(self, subnetwork, port):
         """Configures a new subnetwork to the router's specified port."""
         self.routes[subnetwork] = port
+
+    def updateRoute(self):
+        """???"""
+        for key in self.routes:
+            try:
+                int(self.routes[key])
+            except ValueError:
+                address = self.routes[key]
+                subnetwork = self.__findSubnetwork(address)
+                self.routes[key] = self.routes[subnetwork]
 
     def setBufferSize(self, port, bufferSize):
         """Sets the router's specified port to have a certain buffer size."""
@@ -41,7 +52,6 @@ class Router:
 
     def getBufferQueue(self, port):
         """Returns the router's buffer queue for a given port."""
-        print(self.portBuffer.keys())
         return self.portBuffer[port]
 
     def addBufferQueue(self, port, packet):
@@ -55,19 +65,23 @@ class Router:
 
     def process(self, port, packet):
         """Processes a packet received from the network."""
-        destination = packet.getDestination()
-        subnetwork = __findSubnetwork(destination)
-        # TODO: Send the packet to who is connected to self.routes[subnetwork]
+        destination = packet.getDestinationIP();
+        print("DEBUG: Chegou um packet de", packet.getOriginIP(), "no router", self.name)
+        subnetwork = self.__findSubnetwork(destination)
+        self.links[int(self.routes[subnetwork])].putTargetQueue(packet)
 
     def runThread(self, port):
         """Router's infinite thread loop. Receives and sends packages
            to hosts/routers."""
         while True:
-            packet = self.portBuffer[port].get()
-            self.process(port, packet)
-            self.portBuffer[port].task_done()
+            try:
+                packet = self.portBuffer[port].get()
+                self.process(port, packet)
+                # self.portBuffer[port].task_done()
+            except Empty:
+                pass
 
-    def __findSubnetwork(destination):
+    def __findSubnetwork(self, destination):
         """Returns the subnetwork (ends with ".0") of a given
            IP destination."""
         finalDot = destination.rfind('.')

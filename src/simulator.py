@@ -4,9 +4,10 @@ from host import Host
 from router import Router
 from link import Link
 
+import sys
 from threading import Thread
 from queue import Queue
-import time
+from time import sleep
 
 # -------------------------------------------------------------
 
@@ -40,6 +41,9 @@ class Simulator:
         print("Router: %s [%d interfaces]" % (name, numInterfaces))
         router = Router(name, numInterfaces)
         self.routers[name] = router
+        for x in range(numInterfaces):
+            router.thread = Thread(target=router.runThread, args=(x,), daemon=True)
+            router.thread.start()
 
     def configHost(self, name, ipAddr, routerAddr, dnsAddr):
         """Configures the host's and its default router's IP.
@@ -78,7 +82,7 @@ class Simulator:
             # 1 is router, 2 is host
             port1 = int(side1.split('.')[1])
             queue1 = self.routers[side1.split('.')[0]].getBufferQueue(port1)
-            queue2 = self.hosts[side2].getSimQueue()
+            queue2 = self.hosts[side2].getNetQueue()
             self.routers[side1.split('.')[0]].addLink(
                 port1, Link(queue2, bandwidth, delay))
             self.hosts[side2].addLink(Link(queue1, bandwidth, delay))
@@ -115,15 +119,16 @@ class Simulator:
         print("{Simulate} [t = %g] %s %s" % (newTime, appName, command))
         delta = newTime - self.currentTime
         #delta = delta/100.0
-        time.sleep(delta)
+        sleep(delta)
         self.currentTime = newTime
         host = self.apps[appName]
         self.hosts[host].addSimQueue(command)
 
     def finish(self, time):
         """Ends the simulation at the specified time."""
+        sleep(1)  # TODO: Check how to control time
         print("**FINISH [t = %g]**" % time)
-        exit(0)
+        sys.exit(0)
 
     def __parseFile(self):
         """Parses the file containing simulation info, setting
@@ -193,6 +198,7 @@ class Simulator:
                         # Reads two arguments (subnetwork, route) at a time
                         for x in range(3, len(msg), 2):
                             self.createRoute(routerName, msg[x], msg[x+1])
+                        self.routers[routerName].updateRoute()
 
                     elif msg[1] == 'performance':
                         name = msg[2]

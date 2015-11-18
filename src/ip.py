@@ -4,7 +4,7 @@ from tcp import TCP
 from udp import UDP
 
 # Initial TTL values for different systems
-UNIT_TTL = 64
+UNIX_TTL = 64
 WINDOWS_TTL = 128
 
 # -------------------------------------------------------------
@@ -20,7 +20,7 @@ class IP:
         self.TTL = UNIX_TTL
         # TODO: Checksum
 
-    def getOriginIp(self):
+    def getOriginIP(self):
         """Returns the IP address of who sent the datagram."""
         return self.originIp
 

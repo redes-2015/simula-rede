@@ -18,7 +18,7 @@ class IrcClient:
         """Sends the specified message to an IRC server
            This method supposes that the message is correct!."""
         separate = msg.split(' ')
-        if separate[0] == "CONNECT":
+        if separate[0] == self.CONNECT:
             pass  # TODO: Create TCP socket and connect to IRC server
         else:
             pass  # TODO: Send message through socket

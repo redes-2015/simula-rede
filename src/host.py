@@ -2,8 +2,11 @@
 
 import time
 from queue import LifoQueue, Empty, Full
+
 from ircClient import IrcClient
 from ircServer import IrcServer
+from ip import IP
+from tcp import TCP
 
 # -------------------------------------------------------------
 
@@ -41,9 +44,9 @@ class Host:
             pass
             # TODO: self.application = DnsServer()
 
-    def getSimQueue(self):
-        """Returns the host's simulator queue."""
-        return self.simQueue
+    def getNetQueue(self):
+        """Returns the host's network queue."""
+        return self.netQueue
 
     def addSimQueue(self, msg):
         """Adds a message to the host's simulator queue."""
@@ -55,11 +58,13 @@ class Host:
 
     def processCommand(self, command):
         """Processes a command received from the simulation."""
-        print("DEBUG: ", self.name, " Processing command ", command)
+        packet = IP(self.ipAddr, command[1], TCP(command[0], 5000, 667))
+        self.link.putTargetQueue(packet)
+        print("DEBUG:", self.name, " Processing command", command)
 
     def processPacket(self, packet):
         """Processes a packet received from the network."""
-        print("DEBUG: Processing packet ", packet)
+        print("DEBUG:", self.name, "received packet from", packet.getOriginIP())
 
     def runThread(self):
         """Host's infinite thread loop. Receives and sends messages
