@@ -113,6 +113,9 @@ class Simulator:
         self.apps[appName] = hostname
         host = self.hosts[hostname]
         host.addApplication(appName, appType)
+        if appType == "dnss":
+            host.setDnsTable(self.dnsTable)
+
         # Start host thread
         host.thread = Thread(name=hostname,
                              target=host.runThread,
@@ -221,9 +224,6 @@ class Simulator:
                             dnsAddr = msg[5]
                             self.configHost(name, ipAddr, routerAddr, dnsAddr)
                             self.dnsTable[name] = ipAddr
-                            # TODO: Check what happens if DNS server isn't the last entry
-                            if dnsAddr == "1.1.1.1":
-                                self.hosts[name].dnsTable = self.dnsTable  # TODO: Create a setter
 
                     elif msg[1] == 'route':
                         routerName = msg[2]

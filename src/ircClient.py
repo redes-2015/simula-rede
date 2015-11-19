@@ -1,5 +1,7 @@
 """Represents an IRC client on the network simulation."""
 
+import re
+
 from tcpSegment import TCPSegment
 from ipDatagram import IPDatagram
 
@@ -12,7 +14,8 @@ class IrcClient:
         """Initializes client's attributes."""
         self.clientIP = clientIP
         self.clientPort = 1025
-        self.serverPort = 6667  # Default port for IRC servers
+        self.ircPort = 6667  # Default port for IRC servers
+        self.dnsPort = 53    # Default port for DNS servers
         self.serverIP = None
 
         # Comandos parseados no cliente
@@ -27,8 +30,8 @@ class IrcClient:
             self.serverIP = msgList[1]
              # TODO: Check TCP handshake
 
-        transport = TCPSegment(msg, self.clientPort, self.serverPort)
-        datagram = IPDatagram(self.clientIP, self.serverIP, transport)
+        segment = TCPSegment(msg, self.clientPort, self.ircPort)
+        datagram = IPDatagram(self.clientIP, self.serverIP, segment)
         return datagram
 
     def receive(self, packet):
@@ -45,6 +48,14 @@ class IrcClient:
         elif msg[0] == '2':
             self.serverIP = None
 
+        return None
+
+    def requireDns(self, msgList):
+        """Checks if the client command is a CONNECT that requires
+           the DNS server."""
+        if msgList[0] == self.CONNECT and not \
+           re.match("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", msgList[1]):
+                return msgList[1]
         return None
 
     def __updateClientPort(self):

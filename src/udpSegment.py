@@ -9,7 +9,7 @@ class UDPSegment(TransportSegment):
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data on UDP header."""
-        super(msg, originPort, destinationPort)
+        super().__init__(msg, originPort, destinationPort)
         # TODO: Checksum
 
     def messageSize(self):

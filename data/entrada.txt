@@ -87,7 +87,7 @@ set sniffer h1 r0.1 "/tmp/sniffer2"
 # consulta DNS não deverá ser realizada.
 
 simulate 0.5 irc1 "CONNECT h2 6667"
-simulate 0.6 irc2 "CONNECT 192.168.2.2 6667"
+simulate 0.5 irc2 "CONNECT 192.168.2.2 6667"
 simulate 2.0 irc1 "USER usuario1"
 simulate 4.0 irc2 "USER usuario2"
 simulate 4.1 irc1 "QUIT"

@@ -1,7 +1,6 @@
 """Represents a router on the network simulation."""
 
 from queue import Queue, Empty
-from ipDatagram import IPDatagram
 
 # -------------------------------------------------------------
 
@@ -71,18 +70,17 @@ class Router:
     def process(self, port, packet):
         """Processes a packet received from the network."""
         destination = packet.getDestinationIP();
-        # print("DEBUG: Chegou um packet de", packet.getOriginIP(), "no router", self.name + "." + str(port))
         subnetwork = self.__findSubnetwork(destination)
         self.links[int(self.routes[subnetwork])].putTargetQueue(packet)
 
     def runThread(self, port):
         """Router's infinite thread loop. Receives and sends packages
            to hosts/routers."""
-        q = self.portBuffer[port]
+        queue = self.portBuffer[port]
         while True:
-            packet = q.get()
+            packet = queue.get()
             self.process(port, packet)
-            q.task_done()
+            queue.task_done()
 
     def __findSubnetwork(self, destination):
         """Returns the subnetwork (ends with ".0") of a given
