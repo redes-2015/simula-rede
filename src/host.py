@@ -1,7 +1,7 @@
 """Represents a computer (host) on the network simulation."""
 
 import time
-from queue import LifoQueue, Empty, Full
+from queue import Queue, Empty, Full
 
 from ircClient import IrcClient
 from ircServer import IrcServer
@@ -24,9 +24,9 @@ class Host:
         self.application = None
         self.link = None
 
-        # Simulator and network itself queues
-        self.simQueue = LifoQueue()
-        self.netQueue = LifoQueue()
+        # Network queue that receives commands from linked entities
+        self.simQueue = Queue()
+        self.netQueue = Queue()
 
         # DNS table storing the corresponding IP for each host
         self.dnsTable = None
@@ -47,12 +47,16 @@ class Host:
         """Creates an application 'appName' of the specified type."""
         if appType == 'ircc':
             self.application = IrcClient(self.ipAddr)
+            # Only the IRC client can be controlled
+            # directly by simulation commands
         elif appType == 'ircs':
             self.application = IrcServer(self.ipAddr)
+            self.simQueue = None
         elif appType == 'dnss':
-            pass
             # TODO: self.application = DnsServer()
-        print(self.name, self.dnsTable)
+            self.simQueue = None
+           
+        # print(self.name, self.dnsTable)
 
     def getNetQueue(self):
         """Returns the host's network queue."""
@@ -68,34 +72,37 @@ class Host:
 
     def processCommand(self, command):
         """Processes a command received from the simulation."""
+        print(self.name + ": Processing command", command)
         packet = self.application.send(command)
+        packet()
         self.link.putTargetQueue(packet)
-        print("DEBUG:", self.name, " Processing command", command)
+        print("Packet sent to router!")
 
     def processPacket(self, packet):
         """Processes a packet received from the network."""
         respPacket = self.application.receive(packet)
+        print(self.name + " received a packet!")
+        # packet()
         if respPacket is not None:
+            # respPacket()
             self.link.putTargetQueue(respPacket)
-        print("DEBUG:", self.name, "received packet from", packet.getOriginIP())
+            # print("DEBUG:", self.name, "received packet from", packet.getOriginIP())
+            # respPacket()
 
     def runThread(self):
         """Host's infinite thread loop. Receives and sends messages
            to other hosts."""
         while(True):
             try:
-                command = self.simQueue.get_nowait()
+                command = self.simQueue.get()
                 self.processCommand(command)
                 self.simQueue.task_done()
-            except Empty:
+            except AttributeError:
                 pass
 
-            try:
-                packet = self.netQueue.get_nowait()
-                self.processPacket(packet)
-                self.netQueue.task_done()
-            except Empty:
-                pass
+            packet = self.netQueue.get()
+            self.processPacket(packet)
+            self.netQueue.task_done()
 
     def getAddressInfo(self, name):
         """???"""
@@ -104,42 +111,3 @@ class Host:
         if self.portCounter >= 60000:
             self.portCounter = 1025
         return packet
-
-    def ircc_process(self, msgList):
-        """Sends the specified message to an IRC server
-           This method supposes that the message is correct!."""
-        if msgList[0] == self.CONNECT:
-            msg = ' '.join(msgList)
-            transport = TCPSegment(msg, self.portCounter, 6667)
-            transport.setSYN()
-            datagram = IPDatagram(self.ipAddr, msgList[1], transport)
-        else:
-            pass  # TODO: Send message through socket
-        # TODO: Receive response from server
-
-    def ircs_process(self, packet):
-        """Parses a message received by a client with the given address
-           'addr' (which is a list [IP, Port])."""
-        msg = packet.getTransportSegment().getMessage()
-        separate = msg.split(' ')
-
-        if separate[0] == CONNECT:
-            response = "Connection successful!"
-            self.connections[addrStr] = None
-
-        elif separate[0] == USER:
-            # Supposes that a client won't try
-            # to use an already defined username
-            self.connections[addrStr] = username
-            response = "Username '" + username + "' successfully defined!"
-
-        elif separate[0] == QUIT:
-            # 'None' is the returning value
-            # in case 'addrStr' key doesn't exist
-            self.connections.pop(addrStr, None)
-            response = "You have left the server."
-
-        return response
-
-    def dnss_process(self):
-        """???"""

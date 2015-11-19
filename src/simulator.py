@@ -28,43 +28,44 @@ class Simulator:
         """Starts the simulation."""
         # Process file
         self.__parseFile()
-        print("<-- End of File -->")
+        # print("<-- End of File -->")
 
     def createHost(self, name):
         """Creates a host with the given name."""
-        print("Host: %s" % name)
+        # print("Host: %s" % name)
         host = Host(name)
         self.hosts[name] = host
-        host.thread = Thread(target=host.runThread, daemon=True)
-        host.thread.start()
 
     def createRouter(self, name, numInterfaces):
         """Creates a router with the given name and number of interfaces."""
-        print("Router: %s [%d interfaces]" % (name, numInterfaces))
+        # print("Router: %s [%d interfaces]" % (name, numInterfaces))
         router = Router(name, numInterfaces)
         self.routers[name] = router
         for x in range(numInterfaces):
-            router.thread = Thread(target=router.runThread, args=(x,), daemon=True)
+            router.thread = Thread(name=name + "." + str(x),
+                                   target=router.runThread,
+                                   args=(x,),
+                                   daemon=True)
             router.thread.start()
 
     def configHost(self, name, ipAddr, routerAddr, dnsAddr):
         """Configures the host's and its default router's IP.
            Also sets the DNS server's IP."""
-        print("{IP} Host %s: %s, [Router] %s, [DNS] %s" %
-              (name, ipAddr, routerAddr, dnsAddr))
+        # print("{IP} Host %s: %s, [Router] %s, [DNS] %s" %
+        #      (name, ipAddr, routerAddr, dnsAddr))
         self.hosts[name].setIp(ipAddr, routerAddr, dnsAddr)
 
     def configRouter(self, name, port, ipAddr):
         """Configures the IP address of one of the router's ports."""
-        print("{IP} Router %s.%d: %s" % (name, port, ipAddr))
+        # print("{IP} Router %s.%d: %s" % (name, port, ipAddr))
         self.routers[name].addPort(port, ipAddr)
 
     def createDuplexLink(self, side1, side2, bandwidth, delay):
         """Creates a link between hosts/routers (sides 1 and 2).
            Also configures the link's bandwidth (in Mbps) and
            delay (in ms)."""
-        print("{Link} %s <=> %s [%g Mbps, %g ms]" %
-              (side1, side2, bandwidth, delay))
+        # print("{Link} %s <=> %s [%g Mbps, %g ms]" %
+        #      (side1, side2, bandwidth, delay))
 
         if '.' in side1 and '.' in side2:
             port1 = int(side1.split('.')[1])
@@ -91,36 +92,42 @@ class Simulator:
 
     def createRoute(self, name, subnetwork, route):
         """Creates a specified route from a router to a subnetwork."""
-        print("{Route} %s -> %s:%s" % (name, subnetwork, route))
+        # print("{Route} %s -> %s:%s" % (name, subnetwork, route))
         self.routers[name].addRoute(subnetwork, route)
 
     def defineTimePerformance(self, name, time):
         """Sets time to process a package for a given router."""
-        print("{Time} %s: %g us" % (name, time))
+        # print("{Time} %s: %g us" % (name, time))
         self.routers[name].setTimePerformance(time)
 
     def definePortPerformance(self, name, port, bufferSize):
         """Defines buffer size for a specified router's port."""
-        print("{Buffer} %s.%d: %g" % (name, port, bufferSize))
+        # print("{Buffer} %s.%d: %g" % (name, port, bufferSize))
         self.routers[name].setBufferSize(port, bufferSize)
 
     def startApplication(self, hostname, appName, appType):
         """Defines an application level protocol on the given host."""
-        print("{Application} %s: %s [%s]" % (hostname, appName, appType))
+        # print("{Application} %s: %s [%s]" % (hostname, appName, appType))
         self.apps[appName] = hostname
-        self.hosts[hostname].addApplication(appName, appType)
+        host = self.hosts[hostname]
+        host.addApplication(appName, appType)
+        # Start host thread
+        host.thread = Thread(name=hostname,
+                             target=host.runThread,
+                             daemon=True)
+        host.thread.start()
 
     def createSniffer(self, name, target, outputFile):
         """Creates a sniffer between 'name' and 'target'. Information its
            shown in standard output and specified 'outputFile.'"""
         # Sniffer name? Shouldn't it be link? (TODO: Check this)
-        print("{Sniffer} %s <-> %s [Output '%s']" % (name, target, outputFile))
+        # print("{Sniffer} %s <-> %s [Output '%s']" % (name, target, outputFile))
 
     def simulateCommand(self, newTime, appName, command):
         """Runs 'appName' with the given command at the specified time."""
         print("{Simulate} [t = %g] %s %s" % (newTime, appName, command))
         delta = newTime - self.currentTime
-        #delta = delta/100.0
+        # delta = delta/100.0
         sleep(delta)
         self.currentTime = newTime
         host = self.apps[appName]
@@ -128,7 +135,7 @@ class Simulator:
 
     def finish(self, time):
         """Ends the simulation at the specified time."""
-        sleep(1)  # TODO: Check how to control time
+        sleep(4)  # TODO: Check how to control time
         print("**FINISH [t = %g]**" % time)
         sys.exit(0)
 

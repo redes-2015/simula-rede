@@ -14,7 +14,7 @@ class Link:
 
     def putTargetQueue(self, packet):
         """Inserts the specified packet into the target queue."""
-        return self.targetQueue.put(packet)
+        self.targetQueue.put_nowait(packet)
 
     def getBandwidth(self):
         """Returns the link's bandwidth."""

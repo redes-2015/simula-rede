@@ -1,6 +1,6 @@
 """Represents a router on the network simulation."""
 
-from queue import LifoQueue, Empty
+from queue import Queue, Empty
 from ipDatagram import IPDatagram
 
 # -------------------------------------------------------------
@@ -26,7 +26,7 @@ class Router:
     def addPort(self, port, ip):
         """Adds a new port, with its respective IP, to the router."""
         self.ports[port] = ip
-        self.portBuffer[port] = LifoQueue()
+        self.portBuffer[port] = Queue()
 
     def addRoute(self, subnetwork, port):
         """Configures a new subnetwork to the router's specified port."""
@@ -66,20 +66,18 @@ class Router:
     def process(self, port, packet):
         """Processes a packet received from the network."""
         destination = packet.getDestinationIP();
-        print("DEBUG: Chegou um packet de", packet.getOriginIP(), "no router", self.name)
+        print("DEBUG: Chegou um packet de", packet.getOriginIP(), "no router", self.name + "." + str(port))
         subnetwork = self.__findSubnetwork(destination)
         self.links[int(self.routes[subnetwork])].putTargetQueue(packet)
 
     def runThread(self, port):
         """Router's infinite thread loop. Receives and sends packages
            to hosts/routers."""
+        q = self.portBuffer[port]
         while True:
-            try:
-                packet = self.portBuffer[port].get()
-                self.process(port, packet)
-                # self.portBuffer[port].task_done()
-            except Empty:
-                pass
+            packet = q.get()
+            self.process(port, packet)
+            q.task_done()
 
     def __findSubnetwork(self, destination):
         """Returns the subnetwork (ends with ".0") of a given

@@ -23,14 +23,13 @@ class IrcClient:
            This method supposes that the message is correct!."""
         msg = ' '.join(msgList)
         if msgList[0] == self.CONNECT:
-            port = self.clientPort
             self.__updateClientPort()
-            transport = TCPSegment(msg, self.clientPort, self.serverPort)
-            # transport.setSYN()  # TODO: Check TCP handshake
-            datagram = IPDatagram(self.clientIP, msgList[1], transport)
-            return datagram
-        else:
-            pass  # TODO: Send message through socket
+            self.serverIP = msgList[1]
+             # TODO: Check TCP handshake
+
+        transport = TCPSegment(msg, self.clientPort, self.serverPort)
+        datagram = IPDatagram(self.clientIP, self.serverIP, transport)
+        return datagram
 
     def receive(self, packet):
         """Receives and parses a package from the IRC server."""

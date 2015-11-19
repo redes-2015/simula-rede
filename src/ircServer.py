@@ -34,7 +34,6 @@ class IrcServer:
         respPacket = IPDatagram(self.serverIP, packet.getOriginIP(), respSegment)
         return respPacket
 
-
     def __parseMessage(self, addr, msg):
         """Parses a message received by a client with the given address
            'addr' (which is a list [IP, Port])."""
@@ -49,6 +48,7 @@ class IrcServer:
             self.connections[addrStr] = None
 
         elif separate[0] == self.USER:
+            username = separate[1]
             # Supposes that a client won't try
             # to use an already defined username
             self.connections[addrStr] = username
@@ -58,6 +58,6 @@ class IrcServer:
             # 'None' is the returning value
             # in case 'addrStr' key doesn't exist
             self.connections.pop(addrStr, None)
-            resposta = "2 You have left the server. Until next time!"
+            response = "2 You have left the server. Until next time!"
 
         return response
