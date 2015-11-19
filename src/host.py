@@ -70,24 +70,28 @@ class Host:
         """Links the host to a router's buffer queue."""
         self.link = link
 
+    def setSniffer(self, sniffer):
+        """Sets a sniffer between the host and the router
+           which it is linked to."""
+        self.link.setSniffer(sniffer)
+
     def processCommand(self, command):
         """Processes a command received from the simulation."""
-        print(self.name + ": Processing command", command)
+        # print(self.name + ": Processing command", command)
         packet = self.application.send(command)
-        packet()
+        # packet()
         self.link.putTargetQueue(packet)
-        print("Packet sent to router!")
+        # print("Packet sent to router!")
 
     def processPacket(self, packet):
         """Processes a packet received from the network."""
         respPacket = self.application.receive(packet)
-        print(self.name + " received a packet!")
+        # print(self.name + " received a packet!")
         # packet()
         if respPacket is not None:
             # respPacket()
             self.link.putTargetQueue(respPacket)
             # print("DEBUG:", self.name, "received packet from", packet.getOriginIP())
-            # respPacket()
 
     def runThread(self):
         """Host's infinite thread loop. Receives and sends messages

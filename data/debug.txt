@@ -74,8 +74,8 @@ set ircc h1 irc2
 set ircs h2 irc3
 set dnss h3 dns1
 
-set sniffer r0.2 r1.0 "/tmp/sniffer1"
-set sniffer h1 r0.1 "/tmp/sniffer2"
+set sniffer r0.2 r1.0 "sniffer1.txt"
+set sniffer h1 r0.1 "sniffer2.txt"
 
 # Configuração das comunicações entre os agentes. Defino o instante de
 # tempo em segundos quando o acesso deve ocorrer e o tipo de acesso a
@@ -87,9 +87,9 @@ set sniffer h1 r0.1 "/tmp/sniffer2"
 # consulta DNS não deverá ser realizada.
 
 simulate 0.5 irc1 "CONNECT 192.168.2.2 6667"
-# simulate 0.6 irc2 "CONNECT 192.168.2.2 6667"
+simulate 0.6 irc2 "CONNECT 192.168.2.2 6667"
 simulate 2.0 irc1 "USER usuario1"
-# simulate 4.0 irc2 "USER usuario2"
+simulate 4.0 irc2 "USER usuario2"
 simulate 4.1 irc1 "QUIT"
-# simulate 5.0 irc2 "QUIT"
+simulate 5.0 irc2 "QUIT"
 finish 5.0

@@ -44,7 +44,7 @@ class IrcServer:
         separate = msg.split(' ')
 
         if separate[0] == self.CONNECT:
-            response = "0 Connection successful! Welcome!\r\n"
+            response = "0 Connection successful! Welcome!"
             self.connections[addrStr] = None
 
         elif separate[0] == self.USER:

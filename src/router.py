@@ -63,10 +63,15 @@ class Router:
            another router's buffer."""
         self.links[port] = link
 
+    def setSniffer(self, port, sniffer):
+        """Sets a sniffer between the router's port and another entity
+           on the network."""
+        self.links[port].setSniffer(sniffer)
+
     def process(self, port, packet):
         """Processes a packet received from the network."""
         destination = packet.getDestinationIP();
-        print("DEBUG: Chegou um packet de", packet.getOriginIP(), "no router", self.name + "." + str(port))
+        # print("DEBUG: Chegou um packet de", packet.getOriginIP(), "no router", self.name + "." + str(port))
         subnetwork = self.__findSubnetwork(destination)
         self.links[int(self.routes[subnetwork])].putTargetQueue(packet)
 

@@ -59,4 +59,5 @@ for arg in "$@"; do
 done
 
 # Executa o programa
+rm -f sniffer*
 python3 $SRCDIR/main.py $1

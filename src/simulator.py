@@ -1,13 +1,14 @@
 """Creates and executes a network simulation based on a file."""
 
-from host import Host
-from router import Router
-from link import Link
-
 import sys
 from threading import Thread
 from queue import Queue
 from time import sleep
+
+from host import Host
+from router import Router
+from link import Link
+from sniffer import Sniffer
 
 # -------------------------------------------------------------
 
@@ -22,13 +23,14 @@ class Simulator:
         self.apps = {}
         self.currentTime = 0
 
+        self.snifferFiles = []
         self.dnsTable = {}
 
     def start(self):
         """Starts the simulation."""
         # Process file
         self.__parseFile()
-        # print("<-- End of File -->")
+        print("<-- End of File -->")
 
     def createHost(self, name):
         """Creates a host with the given name."""
@@ -120,12 +122,26 @@ class Simulator:
     def createSniffer(self, name, target, outputFile):
         """Creates a sniffer between 'name' and 'target'. Information its
            shown in standard output and specified 'outputFile.'"""
-        # Sniffer name? Shouldn't it be link? (TODO: Check this)
         # print("{Sniffer} %s <-> %s [Output '%s']" % (name, target, outputFile))
+        f = open(outputFile, 'w')
+        self.snifferFiles.append(f)
+
+        # Pair receives one of the two lists
+        for pair in [[name, target], [target, name]]:
+            # Here, pair is a list with two values
+            sniffer = Sniffer(pair[0], pair[1], f)
+            checkRouter = self.__isRouter(pair[0])
+            if checkRouter is not None:
+                router = self.routers[checkRouter[0]]
+                router.setSniffer(int(checkRouter[1]), sniffer)
+            else:
+                host = self.hosts[pair[0]]
+                host.setSniffer(sniffer)
+
 
     def simulateCommand(self, newTime, appName, command):
         """Runs 'appName' with the given command at the specified time."""
-        print("{Simulate} [t = %g] %s %s" % (newTime, appName, command))
+        # print("{Simulate} [t = %g] %s %s" % (newTime, appName, command))
         delta = newTime - self.currentTime
         # delta = delta/100.0
         sleep(delta)
@@ -137,6 +153,8 @@ class Simulator:
         """Ends the simulation at the specified time."""
         sleep(4)  # TODO: Check how to control time
         print("**FINISH [t = %g]**" % time)
+        for f in self.snifferFiles:
+            f.close()
         sys.exit(0)
 
     def __parseFile(self):
@@ -238,7 +256,7 @@ class Simulator:
                         name = msg[2]
                         target = msg[3]
                         outputFile = msg[4]
-                        self.createSniffer(name, target, outputFile)
+                        self.createSniffer(name, target, outputFile[1:-1])
 
                 elif msg[0] == 'simulate':
                     time = float(msg[1])
@@ -259,3 +277,12 @@ class Simulator:
 
                 else:
                     print(line)
+
+    def __isRouter(self, entity):
+        """Returns a tuple (name, port) if the entity is a
+           router, or None otherwise."""
+        separate = entity.split('.')
+        if len(separate) > 1:
+            return (separate[0], separate[1])
+        else:
+            return None

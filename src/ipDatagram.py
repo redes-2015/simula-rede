@@ -20,17 +20,17 @@ class IPDatagram:
         self.TTL = UNIX_TTL
         # TODO: Checksum
 
-    def __call__(self):
+    def info(self):
         """Shows information regarding the IP datagram. Used for testing!"""
         info = "To:: " + self.destinationIP + ':' + str(self.transport.getDestination()) + '\n'
         info += "From:: " + self.originIP + ':' + str(self.transport.getOrigin()) + '\n'
 
         # Gets transport layer's object name, and prints its first 3 characters
-        # info += "Transport:" + str(self.getTransportNumber()) + '\n'
+        info += "Transport: " + str(self.getTransportNumber()) + '\n'
 
-        # info += "TTL:" + str(self.TTL) + '\n'
-        info += "Message: " + self.transport.getMessage()
-        print(info)
+        info += "TTL: " + str(self.TTL) + '\n'
+        info += "Message: " + self.transport.getMessage() + '\n'
+        return info
 
     def getOriginIP(self):
         """Returns the IP address of who sent the datagram."""
