@@ -46,9 +46,9 @@ class Host:
     def addApplication(self, appName, appType):
         """Creates an application 'appName' of the specified type."""
         if appType == 'ircc':
-            self.application = self.ircc_process
+            self.application = IrcClient(self.ipAddr)
         elif appType == 'ircs':
-            self.application = IrcServer()
+            self.application = IrcServer(self.ipAddr)
         elif appType == 'dnss':
             pass
             # TODO: self.application = DnsServer()
@@ -68,13 +68,15 @@ class Host:
 
     def processCommand(self, command):
         """Processes a command received from the simulation."""
-        packet = IPDatagram(self.ipAddr, command[1], TCPSegment(command[0], 5000, 6667))
-
+        packet = self.application.send(command)
         self.link.putTargetQueue(packet)
         print("DEBUG:", self.name, " Processing command", command)
 
     def processPacket(self, packet):
         """Processes a packet received from the network."""
+        respPacket = self.application.receive(packet)
+        if respPacket is not None:
+            self.link.putTargetQueue(respPacket)
         print("DEBUG:", self.name, "received packet from", packet.getOriginIP())
 
     def runThread(self):

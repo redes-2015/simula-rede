@@ -1,14 +1,17 @@
 """Represents an IRC server on the network simulation."""
 
+from tcpSegment import TCPSegment
+from ipDatagram import IPDatagram
+
 # -------------------------------------------------------------
 
 
 class IrcServer:
 
-    def __init__(self):
+    def __init__(self, serverIP):
         """Initializes the server's listening socket."""
-        # IRC's default port
-        self.port = 6667
+        self.port = 6667  # IRC's default port
+        self.serverIP = serverIP
 
         # Valid commands
         self.CONNECT = "CONNECT"
@@ -20,12 +23,19 @@ class IrcServer:
 
         # TODO: Create listening TCP socket and bind it
 
-    def run(self):
-        """IRC server's infinite loop, checks for incoming messages."""
-        while True:
-            pass  # TODO: Check sockets for new connections/messages
+    def receive(self, packet):
+        """Receives a packet. Based on its message, returns a response packet."""
+        originIP = packet.getOriginIP()
+        msg = packet.getSegment().getMessage()
 
-    def parseMessage(self, addr, msg):
+        # Creates a packet to be sent as a response
+        serverMsg = self.__parseMessage(originIP, msg)
+        respSegment = TCPSegment(serverMsg, self.port, packet.getSegment().getOrigin())
+        respPacket = IPDatagram(self.serverIP, packet.getOriginIP(), respSegment)
+        return respPacket
+
+
+    def __parseMessage(self, addr, msg):
         """Parses a message received by a client with the given address
            'addr' (which is a list [IP, Port])."""
         addrStr = addr[0] + ':' + addr[1]
@@ -34,20 +44,20 @@ class IrcServer:
         msg = msg.rstrip(' ')
         separate = msg.split(' ')
 
-        if separate[0] == CONNECT:
-            response = "Connection successful!\r\n"
+        if separate[0] == self.CONNECT:
+            response = "0 Connection successful! Welcome!\r\n"
             self.connections[addrStr] = None
 
-        elif separate[0] == USER:
+        elif separate[0] == self.USER:
             # Supposes that a client won't try
             # to use an already defined username
             self.connections[addrStr] = username
-            response = "Username '" + username + "' successfully defined!"
+            response = "1 Username '" + username + "' successfully defined!"
 
-        elif separate[0] == QUIT:
+        elif separate[0] == self.QUIT:
             # 'None' is the returning value
             # in case 'addrStr' key doesn't exist
             self.connections.pop(addrStr, None)
-            resposta = "You have left the server."
+            resposta = "2 You have left the server. Until next time!"
 
         return response

@@ -28,7 +28,7 @@ class IPDatagram:
         """Returns the IP address of who will receive the datagram."""
         return self.destinationIP
 
-    def getTransportSegment(self):
+    def getSegment(self):
         """Returns the transport and application layers part of the datagram."""
         return self.transport
 
