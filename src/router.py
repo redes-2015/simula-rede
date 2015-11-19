@@ -1,6 +1,7 @@
 """Represents a router on the network simulation."""
 
 from queue import Queue, Empty
+import threading
 
 # -------------------------------------------------------------
 
@@ -21,6 +22,9 @@ class Router:
         self.timePerformance = None
         self.routes = {}  # subnetwork -> port
         self.links = {}   # port number -> queue of an other host or router port
+
+        # Lock that disallows simultaneous packet sending
+        self.lock = threading.Lock()
 
     def addPort(self, port, ip):
         """Adds a new port, with its respective IP, to the router."""
@@ -68,10 +72,13 @@ class Router:
         self.links[port].setSniffer(sniffer)
 
     def process(self, port, packet):
-        """Processes a packet received from the network."""
+        """Processes a packet received from the network. This method is
+           thread-safe, i.e., only one port can access it at a time."""
+        self.lock.acquire()
         destination = packet.getDestinationIP();
         subnetwork = self.__findSubnetwork(destination)
         self.links[int(self.routes[subnetwork])].putTargetQueue(packet)
+        self.lock.release()
 
     def runThread(self, port):
         """Router's infinite thread loop. Receives and sends packages
