@@ -14,3 +14,5 @@ except IndexError:
     print("Simulation file not specified!")
 except FileNotFoundError:
     print("Simulation file '%s' not found!" % sys.argv[1])
+except KeyboardInterrupt:
+    print("Simulation canceled!")

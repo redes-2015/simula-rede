@@ -2,6 +2,7 @@
 
 import queue
 import threading
+import time
 
 # -------------------------------------------------------------
 
@@ -54,7 +55,8 @@ class Router:
 
     def setTimePerformance(self, timePerformance):
         """Sets the time to process a package."""
-        self.timePerformance = timePerformance
+        # Divide by 10^6 to get time in microseconds
+        self.timePerformance = timePerformance/1000000
 
     def getBufferQueue(self, port):
         """Returns the router's buffer queue for a given port."""
@@ -78,6 +80,7 @@ class Router:
         """Processes a packet received from the network. This method is
            thread-safe, i.e., only one port can access it at a time."""
         self.lock.acquire()
+        time.sleep(self.timePerformance)  # TODO: Check time control
         destination = packet.getDestinationIp()
         subnetwork = self.__findSubnetwork(destination)
         self.links[int(self.routes[subnetwork])].putTargetQueue(packet)
