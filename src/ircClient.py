@@ -1,22 +1,23 @@
 """Represents an IRC client on the network simulation."""
 
+import random
 import re
 
-from tcpSegment import TCPSegment
-from ipDatagram import IPDatagram
+from tcpSegment import TcpSegment
+from ipDatagram import IpDatagram
 
 # -------------------------------------------------------------
 
 
 class IrcClient:
 
-    def __init__(self, clientIP):
+    def __init__(self, clientIp):
         """Initializes client's attributes."""
-        self.clientIP = clientIP
-        self.clientPort = 1025
-        self.ircPort = 6667  # Default port for IRC servers
-        self.dnsPort = 53    # Default port for DNS servers
-        self.serverIP = None
+        self.clientIp = clientIp
+        self.serverIp = None
+
+        self.clientPort = None
+        self.serverPort = 6667  # Default port for IRC servers
 
         # Comandos parseados no cliente
         self.CONNECT = "CONNECT"
@@ -26,12 +27,12 @@ class IrcClient:
            This method supposes that the message is correct!."""
         msg = ' '.join(msgList)
         if msgList[0] == self.CONNECT:
-            self.__updateClientPort()
-            self.serverIP = msgList[1]
+            self.clientPort = random.randint(1025, 65530)
+            self.serverIp = msgList[1]
              # TODO: Check TCP handshake
 
-        segment = TCPSegment(msg, self.clientPort, self.ircPort)
-        datagram = IPDatagram(self.clientIP, self.serverIP, segment)
+        segment = TcpSegment(msg, self.clientPort, self.serverPort)
+        datagram = IpDatagram(segment, self.clientIp, self.serverIp)
         return datagram
 
     def receive(self, packet):
@@ -40,13 +41,15 @@ class IrcClient:
 
         # Received CONNECT confirmation
         if msg[0] == '0':
-            self.serverIP = packet.getOriginIP()
+            self.serverIp = packet.getOriginIp()
         # Received USER confirmation
         elif msg[0] == '1':
             pass
         # Received QUIT confirmation
         elif msg[0] == '2':
-            self.serverIP = None
+            self.clientPort = None
+            self.serverIp = None
+            # End of connection handshake
 
         return None
 
@@ -57,9 +60,3 @@ class IrcClient:
            re.match("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", msgList[1]):
                 return msgList[1]
         return None
-
-    def __updateClientPort(self):
-        """Updates used client ports."""
-        self.clientPort += 1
-        if self.clientPort > 65530:
-            self.clientPort = 1025

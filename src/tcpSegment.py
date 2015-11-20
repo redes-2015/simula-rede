@@ -5,16 +5,17 @@ from transportSegment import TransportSegment
 # -------------------------------------------------------------
 
 
-class TCPSegment(TransportSegment):
+class TcpSegment(TransportSegment):
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data on TCP header."""
-        super().__init__(msg, originPort, destinationPort);
+        super().__init__(msg, originPort, destinationPort)
         self.SYN = self.ACK = self.FIN = False
         self.ackNumber = 0
 
     def getSequenceNumber(self):
-        "Returns the Unicode number of the application message's first byte."""
+        """Returns the Unicode number of the application message's
+           first byte."""
         # TODO: Not sure about len(msg) below
         if len(msg) == 0:
             return 0
@@ -33,5 +34,6 @@ class TCPSegment(TransportSegment):
         self.ACK = True
 
     def setFIN(self):
-        """Sets the FIN bit, informing that the TCP connection can be closed."""
+        """Sets the FIN bit, informing that the TCP connection
+           can be closed."""
         self.FIN = True

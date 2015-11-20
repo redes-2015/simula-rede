@@ -1,13 +1,12 @@
 """Represents a computer (host) on the network simulation."""
 
-import time
-from queue import Queue, Empty, Full
+import queue
 
-from udpSegment import UDPSegment
-from ipDatagram import IPDatagram
 from dnsServer import DnsServer
 from ircClient import IrcClient
 from ircServer import IrcServer
+from udpSegment import UdpSegment
+from ipDatagram import IpDatagram
 
 # -------------------------------------------------------------
 
@@ -26,8 +25,8 @@ class Host:
         self.link = None
 
         # Network queue that receives commands from linked entities
-        self.simQueue = Queue()
-        self.netQueue = Queue()
+        self.simQueue = queue.Queue()
+        self.netQueue = queue.Queue()
 
         # Default port for DNS server
         self.dnsPort = 53
@@ -53,10 +52,13 @@ class Host:
         elif appType == 'dnss':
             self.application = DnsServer(self.ipAddr)
             self.simQueue = None
-           
+
     def setDnsTable(self, dnsTable):
         """Defines the DNS table for a DNS server application."""
-        self.application.setDnsTable(dnsTable)
+        try:
+            self.application.setDnsTable(dnsTable)
+        except NameError:
+            print(self.name, "isn't a DNS server!")
 
     def getNetQueue(self):
         """Returns the host's network queue."""
@@ -79,8 +81,8 @@ class Host:
         """Processes a command received from the simulation."""
         name = self.application.requireDns(command)
         if name is not None:
-            segment = UDPSegment(name, 2000, self.dnsPort)
-            datagram = IPDatagram(self.ipAddr, self.dnsAddr, segment)
+            segment = UdpSegment(name, 2000, self.dnsPort)
+            datagram = IpDatagram(segment, self.ipAddr, self.dnsAddr)
             self.link.putTargetQueue(datagram)
             packet = self.netQueue.get()
 
@@ -100,15 +102,12 @@ class Host:
     def runThread(self):
         """Host's infinite thread loop. Receives and sends messages
            to other hosts."""
-        while(True):
-            try:
+        while True:
+            if self.simQueue is not None:
                 # Read and process a direct simulator command
                 command = self.simQueue.get()
                 self.processCommand(command)
                 self.simQueue.task_done()
-            except AttributeError:
-                # In case of application being an IRC/DNS server
-                pass
 
             # Read and process network command
             packet = self.netQueue.get()

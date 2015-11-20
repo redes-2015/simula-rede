@@ -12,6 +12,12 @@ set router r1 3
 # Criação dos enlaces ligando os computadores e os roteadores
 # para criar a simulação abaixo:
 #
+#    h0 --------                   -------- h2
+#               \                 /
+#                r0 ----------- r1
+#               /                 \
+#    h1 --------                   -------- h3
+#
 # O ’duplex-link’ diz que cada enlace tem capacidades em cada sentido
 # independentes. Ou seja, se configuro o enlace com 2Mbps, significa que
 # posso ter ao mesmo tempo 2Mbps fluindo num sentido e 2Mbps fluindo
@@ -47,7 +53,6 @@ set ip h3 192.168.1.1 192.168.1.2 1.1.1.1
 
 # Configuração dos roteadores: porta, endereço IP [[porta, endereço
 # IP] ...]
-
 set ip r0 0 10.0.0.2 1 10.1.1.2 2 192.168.3.3
 set ip r1 0 192.168.3.4 1 192.168.2.3 2 192.168.1.2
 
@@ -58,7 +63,6 @@ set ip r1 0 192.168.3.4 1 192.168.2.3 2 192.168.1.2
 # rede)
 set route r0 10.0.0.0 0 10.1.1.0 1 192.168.3.0 2 192.168.2.0 \
 192.168.3.4 192.168.1.0 192.168.3.4
-
 set route r1 192.168.3.0 0 192.168.2.0 1 192.168.1.0 2 10.0.0.0 \
 192.168.3.3 10.1.1.0 192.168.3.3
 
@@ -68,14 +72,22 @@ set route r1 192.168.3.0 0 192.168.2.0 1 192.168.1.0 2 10.0.0.0 \
 set performance r0 100us 0 1000 1 1000 2 1000
 set performance r1 20us 0 1000 1 1000 2 1000
 
-
+# Configuração dos agentes da camada de aplicação. h0 e h1 vão rodar
+# clientes IRC. h2 vai ser um servidor IRC e h3 vai ser o servidor DNS
+# Obs.: não há necessidade de explicitar um cliente DNS. Todos os hosts
+# já tem um cliente DNS embutido
 set ircc h0 irc1
 set ircc h1 irc2
 set ircs h2 irc3
 set dnss h3 dns1
 
-set sniffer r0.2 r1.0 "/tmp/sniffer1"
-set sniffer h1 r0.1 "/tmp/sniffer2"
+# Configuração dos sniffers. Onde vou monitorar a rede. A saída tem que
+# aparecer na saída padrão e nos arquivos configurados abaixo.
+# set sniffer r0.2 r1.0 "/tmp/sniffer1"
+# set sniffer h1 r0.1 "/tmp/sniffer2"
+set sniffer r0.2 r1.0 "sniffer1.txt"
+set sniffer h1 r0.1 "sniffer2.txt"
+
 
 # Configuração das comunicações entre os agentes. Defino o instante de
 # tempo em segundos quando o acesso deve ocorrer e o tipo de acesso a
@@ -85,7 +97,6 @@ set sniffer h1 r0.1 "/tmp/sniffer2"
 # sempre vão consultar um servidor DNS). Um dos acessos entretanto,
 # está sendo feito direto pelo endereço IP, ou seja, nesse caso uma
 # consulta DNS não deverá ser realizada.
-
 simulate 0.5 irc1 "CONNECT h2 6667"
 simulate 0.5 irc2 "CONNECT 192.168.2.2 6667"
 simulate 2.0 irc1 "USER usuario1"

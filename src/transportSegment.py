@@ -15,10 +15,10 @@ class TransportSegment:
         """Returns the application message stored by the protocol."""
         return self.msg.decode()
 
-    def getOrigin(self):
+    def getOriginPort(self):
         """Returns the origin port stored by the protocol."""
         return self.originPort
 
-    def getDestination(self):
+    def getDestinationPort(self):
         """Returns the destination port stored by the protocol."""
         return self.destinationPort

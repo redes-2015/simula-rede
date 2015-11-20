@@ -1,37 +1,37 @@
 """Represents an IRC server on the network simulation."""
 
-from tcpSegment import TCPSegment
-from ipDatagram import IPDatagram
+from tcpSegment import TcpSegment
+from ipDatagram import IpDatagram
 
 # -------------------------------------------------------------
 
 
 class IrcServer:
 
-    def __init__(self, serverIP):
+    def __init__(self, serverIp):
         """Initializes the server's listening socket."""
-        self.port = 6667  # IRC's default port
-        self.serverIP = serverIP
+        self.serverIp = serverIp
+        self.serverPort = 6667    # IRC's default port
 
         # Valid commands
         self.CONNECT = "CONNECT"
         self.USER = "USER"
         self.QUIT = "QUIT"
 
-        # Dictionary 'IP:Port -> Username' for connected clients
+        # 'IP:Port -> Username' for connected clients
         self.connections = {}
 
-        # TODO: Create listening TCP socket and bind it
-
     def receive(self, packet):
-        """Receives a packet. Based on its message, returns a response packet."""
-        originIP = packet.getOriginIP()
+        """Receives a packet. Based on its message, returns
+           a response packet."""
+        originIp = packet.getOriginIp()
         msg = packet.getSegment().getMessage()
 
         # Creates a packet to be sent as a response
-        serverMsg = self.__parseMessage(originIP, msg)
-        respSegment = TCPSegment(serverMsg, self.port, packet.getSegment().getOrigin())
-        respPacket = IPDatagram(self.serverIP, packet.getOriginIP(), respSegment)
+        serverMsg = self.__parseMessage(originIp, msg)
+        respSegment = TcpSegment(serverMsg, self.serverPort,
+                                 packet.getSegment().getOriginPort())
+        respPacket = IpDatagram(respSegment, self.serverIp, packet.getOriginIp())
         return respPacket
 
     def __parseMessage(self, addr, msg):

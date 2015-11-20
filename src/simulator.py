@@ -1,9 +1,9 @@
 """Creates and executes a network simulation based on a file."""
 
 import sys
-from threading import Thread
-from queue import Queue
-from time import sleep
+import queue
+import threading
+import time
 
 from host import Host
 from router import Router
@@ -18,51 +18,52 @@ class Simulator:
     def __init__(self, filename):
         """Initializes the simulator's attributes."""
         self.filename = filename
-        self.hosts = {}
-        self.routers = {}
-        self.apps = {}
-        self.currentTime = 0
 
-        self.snifferFiles = []
-        self.dnsTable = {}
+        self.hosts = {}     # Host name        -> Host object
+        self.routers = {}   # Router name      -> Router object
+        self.apps = {}      # Application name -> Host name
+        self.dnsTable = {}  # Host name        -> Host IP
+
+        self.currentTime = 0    # Time when last simulate command was executed
+        self.snifferFiles = []  # List of sniffer file objects
 
     def start(self):
         """Starts the simulation."""
         # Process file
         self.__parseFile()
-        print("<-- End of File -->")
 
-    def createHost(self, name):
+    def __createHost(self, name):
         """Creates a host with the given name."""
         # print("Host: %s" % name)
         host = Host(name)
         self.hosts[name] = host
 
-    def createRouter(self, name, numInterfaces):
-        """Creates a router with the given name and number of interfaces."""
+    def __createRouter(self, name, numPorts):
+        """Creates a router with the given name and number of ports.
+           Also runs a thread for each router port."""
         # print("Router: %s [%d interfaces]" % (name, numInterfaces))
-        router = Router(name, numInterfaces)
+        router = Router(name, numPorts)
         self.routers[name] = router
-        for x in range(numInterfaces):
-            router.thread = Thread(name=name + "." + str(x),
-                                   target=router.runThread,
-                                   args=(x,),
-                                   daemon=True)
+        for port in range(numPorts):
+            router.thread = threading.Thread(name=name + "." + str(port),
+                                             target=router.runThread,
+                                             args=(port,),
+                                             daemon=True)
             router.thread.start()
 
-    def configHost(self, name, ipAddr, routerAddr, dnsAddr):
+    def __configHost(self, name, ipAddr, routerAddr, dnsAddr):
         """Configures the host's and its default router's IP.
            Also sets the DNS server's IP."""
         # print("{IP} Host %s: %s, [Router] %s, [DNS] %s" %
         #      (name, ipAddr, routerAddr, dnsAddr))
         self.hosts[name].setIp(ipAddr, routerAddr, dnsAddr)
 
-    def configRouter(self, name, port, ipAddr):
+    def __configRouter(self, name, port, ipAddr):
         """Configures the IP address of one of the router's ports."""
         # print("{IP} Router %s.%d: %s" % (name, port, ipAddr))
         self.routers[name].addPort(port, ipAddr)
 
-    def createDuplexLink(self, side1, side2, bandwidth, delay):
+    def __createDuplexLink(self, side1, side2, bandwidth, delay):
         """Creates a link between hosts/routers (sides 1 and 2).
            Also configures the link's bandwidth (in Mbps) and
            delay (in ms)."""
@@ -92,22 +93,22 @@ class Simulator:
                 port1, Link(queue2, bandwidth, delay))
             self.hosts[side2].addLink(Link(queue1, bandwidth, delay))
 
-    def createRoute(self, name, subnetwork, route):
+    def __createRoute(self, name, subnetwork, route):
         """Creates a specified route from a router to a subnetwork."""
         # print("{Route} %s -> %s:%s" % (name, subnetwork, route))
         self.routers[name].addRoute(subnetwork, route)
 
-    def defineTimePerformance(self, name, time):
+    def __defineTimePerformance(self, name, timeProcess):
         """Sets time to process a package for a given router."""
-        # print("{Time} %s: %g us" % (name, time))
-        self.routers[name].setTimePerformance(time)
+        # print("{Time} %s: %g us" % (name, timeProcess))
+        self.routers[name].setTimePerformance(timeProcess)
 
-    def definePortPerformance(self, name, port, bufferSize):
+    def __definePortPerformance(self, name, port, bufferSize):
         """Defines buffer size for a specified router's port."""
         # print("{Buffer} %s.%d: %g" % (name, port, bufferSize))
         self.routers[name].setBufferSize(port, bufferSize)
 
-    def startApplication(self, hostname, appName, appType):
+    def __startApplication(self, hostname, appName, appType):
         """Defines an application level protocol on the given host."""
         # print("{Application} %s: %s [%s]" % (hostname, appName, appType))
         self.apps[appName] = hostname
@@ -117,21 +118,22 @@ class Simulator:
             host.setDnsTable(self.dnsTable)
 
         # Start host thread
-        host.thread = Thread(name=hostname,
-                             target=host.runThread,
-                             daemon=True)
+        host.thread = threading.Thread(name=hostname,
+                                       target=host.runThread,
+                                       daemon=True)
         host.thread.start()
 
-    def createSniffer(self, name, target, outputFile):
+    def __createSniffer(self, name, target, outputFile):
         """Creates a sniffer between 'name' and 'target'. Information its
            shown in standard output and specified 'outputFile.'"""
-        # print("{Sniffer} %s <-> %s [Output '%s']" % (name, target, outputFile))
+        # print("{Sniffer} %s <-> %s [Output '%s']" %
+        #      (name, target, outputFile))
         f = open(outputFile, 'w')
         self.snifferFiles.append(f)
 
-        # Pair receives one of the two lists
+        # 'pair' receives one of the two lists
         for pair in [[name, target], [target, name]]:
-            # Here, pair is a list with two values
+            # Here, 'pair' is a list with two values
             sniffer = Sniffer(pair[0], pair[1], f)
             checkRouter = self.__isRouter(pair[0])
             if checkRouter is not None:
@@ -141,21 +143,20 @@ class Simulator:
                 host = self.hosts[pair[0]]
                 host.setSniffer(sniffer)
 
-
-    def simulateCommand(self, newTime, appName, command):
+    def __simulateCommand(self, cmdTime, appName, command):
         """Runs 'appName' with the given command at the specified time."""
-        # print("{Simulate} [t = %g] %s %s" % (newTime, appName, command))
-        delta = newTime - self.currentTime
+        # print("{Simulate} [t = %g] %s %s" % (cmdTime, appName, command))
+        delta = cmdTime - self.currentTime
         # delta = delta/100.0
-        sleep(delta)
-        self.currentTime = newTime
+        time.sleep(delta)
+        self.currentTime = cmdTime
         host = self.apps[appName]
         self.hosts[host].addSimQueue(command)
 
-    def finish(self, time):
+    def __finish(self, endTime):
         """Ends the simulation at the specified time."""
-        sleep(4)  # TODO: Check how to control time
-        print("**FINISH [t = %g]**" % time)
+        # print("**FINISH [t = %g]**" % endTime)
+        time.sleep(2)  # TODO: Check how to control time
         for f in self.snifferFiles:
             f.close()
         sys.exit(0)
@@ -171,7 +172,7 @@ class Simulator:
                 if line == "":
                     break
 
-                # Cleans whitespaces and "\n" at the end
+                # Cleans whitespaces and '\n' at the end
                 line = line.rstrip()
 
                 # Ignores empty lines and comments
@@ -184,99 +185,107 @@ class Simulator:
                     nextLine = simulFile.readline().rstrip()
                     line = line + nextLine
 
-                msg = line.split()
+                parts = line.split()
+                self.__parseLine(parts)
 
-                # Parse 'set' commands
-                if msg[0] == 'set':
-                    if msg[1] == 'host':
-                        name = msg[2]
-                        self.createHost(name)
+    def __parseLine(self, parts):
+        # Parse 'set' commands
+        if parts[0] == "set":
+            if parts[1] == "host":
+                name = parts[2]
+                self.__createHost(name)
 
-                    elif msg[1] == 'router':
-                        name = msg[2]
-                        numInterfaces = int(msg[3])
-                        self.createRouter(name, numInterfaces)
+            elif parts[1] == "router":
+                name = parts[2]
+                numInterfaces = int(parts[3])
+                self.__createRouter(name, numInterfaces)
 
-                    elif msg[1] == 'duplex-link':
-                        side1 = msg[2]
-                        side2 = msg[3]
+            elif parts[1] == "duplex-link":
+                side1 = parts[2]
+                side2 = parts[3]
 
-                        # Removes 'Mbps' and 'ms' at end of string before
-                        # converting to float
-                        bandwidth = float(msg[4][:-4])
-                        delay = float(msg[5][:-2])
+                # Removes 'Mbps' and 'ms' at end of string before
+                # converting to float
+                bandwidth = float(parts[4][:-4])
+                delay = float(parts[5][:-2])
 
-                        self.createDuplexLink(side1, side2, bandwidth, delay)
+                self.__createDuplexLink(side1, side2, bandwidth, delay)
 
-                    elif msg[1] == 'ip':
-                        name = msg[2]
+            elif parts[1] == "ip":
+                name = parts[2]
 
-                        try:
-                            port = int(msg[3])
-                            # Is a router
-                            for x in range(3, len(msg), 2):
-                                self.configRouter(name, int(msg[x]), msg[x+1])
+                try:
+                    port = int(parts[3])
+                    # Port conversion successful;
+                    # 'name' is a router
+                    for x in range(3, len(parts), 2):
+                        self.__configRouter(name, int(parts[x]),
+                                            parts[x+1])
 
-                        except ValueError:
-                            # Is a host
-                            ipAddr = msg[3]
-                            routerAddr = msg[4]
-                            dnsAddr = msg[5]
-                            self.configHost(name, ipAddr, routerAddr, dnsAddr)
-                            self.dnsTable[name] = ipAddr
+                except ValueError:
+                    # Port conversion raised exception;
+                    # 'name' is a host
+                    ipAddr = parts[3]
+                    routerAddr = parts[4]
+                    dnsAddr = parts[5]
+                    self.__configHost(name, ipAddr, routerAddr, dnsAddr)
+                    self.dnsTable[name] = ipAddr
 
-                    elif msg[1] == 'route':
-                        routerName = msg[2]
+            elif parts[1] == "route":
+                routerName = parts[2]
 
-                        # Reads two arguments (subnetwork, route) at a time
-                        for x in range(3, len(msg), 2):
-                            self.createRoute(routerName, msg[x], msg[x+1])
-                        self.routers[routerName].updateRoute()
+                # Reads two arguments (subnetwork, route) at a time
+                for x in range(3, len(parts), 2):
+                    self.__createRoute(routerName, parts[x], parts[x+1])
+                self.routers[routerName].updateRoute()
 
-                    elif msg[1] == 'performance':
-                        name = msg[2]
+            elif parts[1] == "performance":
+                name = parts[2]
 
-                        # Removes "us" at end of string before
-                        # converting to float
-                        time = float(msg[3][:-2])
+                # Removes "us" at end of string before
+                # converting to float
+                timeProcess = float(parts[3][:-2])
 
-                        self.defineTimePerformance(name, time)
-                        for x in range(4, len(msg), 2):
-                            port = int(msg[x])
-                            bufferSize = float(msg[x+1])
-                            self.definePortPerformance(name, port, bufferSize)
+                self.__defineTimePerformance(name, timeProcess)
+                for x in range(4, len(parts), 2):
+                    port = int(parts[x])
+                    bufferSize = float(parts[x+1])
+                    self.__definePortPerformance(name, port, bufferSize)
 
-                    elif msg[1] in ['ircc', 'ircs', 'dnss']:
-                        hostname = msg[2]
-                        appName = msg[3]
-                        appType = msg[1]
-                        self.startApplication(hostname, appName, appType)
+            elif parts[1] in ["ircc", "ircs", "dnss"]:
+                hostname = parts[2]
+                appName = parts[3]
+                appType = parts[1]
+                self.__startApplication(hostname, appName, appType)
 
-                    elif msg[1] == 'sniffer':
-                        name = msg[2]
-                        target = msg[3]
-                        outputFile = msg[4]
-                        self.createSniffer(name, target, outputFile[1:-1])
+            elif parts[1] == "sniffer":
+                name = parts[2]
+                target = parts[3]
+                outputFile = parts[4]
 
-                elif msg[0] == 'simulate':
-                    time = float(msg[1])
-                    appName = msg[2]
-                    command = msg[3:]
+                # Removes "" quotes from beginning and end
+                outputFile = outputFile[1:-1]
+                self.__createSniffer(name, target, outputFile)
 
-                    # Removes a " from the beginning of first string
-                    command[0] = command[0][1:]
+        elif parts[0] == "simulate":
+            cmdTime = float(parts[1])
+            appName = parts[2]
+            command = parts[3:]
 
-                    # Removes a " from the end of final string
-                    command[-1] = command[-1][0:-1]
+            # Removes a " from the beginning of first string
+            command[0] = command[0][1:]
 
-                    self.simulateCommand(time, appName, command)
+            # Removes a " from the end of final string
+            command[-1] = command[-1][0:-1]
 
-                elif msg[0] == 'finish':
-                    time = float(msg[1])
-                    self.finish(time)
+            self.__simulateCommand(cmdTime, appName, command)
 
-                else:
-                    print(line)
+        elif parts[0] == "finish":
+            endTime = float(parts[1])
+            self.__finish(endTime)
+
+        else:
+            print("ERROR: Invalid line!\n'%s'" % line)
 
     def __isRouter(self, entity):
         """Returns a tuple (name, port) if the entity is a

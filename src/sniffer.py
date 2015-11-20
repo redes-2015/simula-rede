@@ -1,4 +1,5 @@
-"""Represents a sniffer that monitors a link between entities on the network."""
+"""Represents a sniffer that monitors a link between entities
+   on the network."""
 
 # -------------------------------------------------------------
 
@@ -12,9 +13,10 @@ class Sniffer:
         self.fileDescriptor = fileDescriptor
 
     def write(self, packet):
-        """Writes information regarding a packet sent from nodeA to nodeB."""
+        """Writes information regarding a packet sent
+           from nodeA to nodeB."""
         out = "{" + self.nodeA + " -> " + self.nodeB + "}"
-        out += '\n' + packet.info()
-        print(out)
-        self.fileDescriptor.write(out + '\n')
+        out += '\n' + packet.info() + '\n'
+        print(out, end="")
+        self.fileDescriptor.write(out)
         self.fileDescriptor.flush()

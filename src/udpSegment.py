@@ -5,7 +5,7 @@ from transportSegment import TransportSegment
 # -------------------------------------------------------------
 
 
-class UDPSegment(TransportSegment):
+class UdpSegment(TransportSegment):
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data on UDP header."""

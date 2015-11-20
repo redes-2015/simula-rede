@@ -1,6 +1,6 @@
 """Represents a router on the network simulation."""
 
-from queue import Queue, Empty
+import queue
 import threading
 
 # -------------------------------------------------------------
@@ -13,23 +13,24 @@ class Router:
         self.name = name
         self.numPorts = numPorts
 
-        self.ports = {}       # port number -> IP
-        self.portBuffer = {}  # port number -> the port's buffer queue
+        self.ports = {}       # Port number -> Port IP
+        self.portBuffer = {}  # Port number -> Port's buffer queue
         for x in range(numPorts):
             self.addPort(x, None)
 
-        # Initializes empty attributes
+        # Initialize empty attributes
         self.timePerformance = None
-        self.routes = {}  # subnetwork -> port
-        self.links = {}   # port number -> queue of an other host or router port
+        self.routes = {}  # Subnetwork -> A port of this router
+        self.links = {}   # Port -> Link object to host or other router's port
 
-        # Lock that disallows simultaneous packet sending
+        # Lock disallowing simultaneous packet sending
         self.lock = threading.Lock()
 
     def addPort(self, port, ip):
         """Adds a new port, with its respective IP, to the router."""
         self.ports[port] = ip
-        self.portBuffer[port] = Queue()
+        # Initialize the respective port's buffer queue
+        self.portBuffer[port] = queue.Queue()
 
     def addRoute(self, subnetwork, port):
         """Configures a new subnetwork to the router's specified port."""
@@ -39,8 +40,10 @@ class Router:
         """???"""
         for key in self.routes:
             try:
+                # Check if route is one of this router's ports
                 int(self.routes[key])
             except ValueError:
+                # If not, find a host or router related to the subnetwork
                 address = self.routes[key]
                 subnetwork = self.__findSubnetwork(address)
                 self.routes[key] = self.routes[subnetwork]
@@ -75,7 +78,7 @@ class Router:
         """Processes a packet received from the network. This method is
            thread-safe, i.e., only one port can access it at a time."""
         self.lock.acquire()
-        destination = packet.getDestinationIP();
+        destination = packet.getDestinationIp()
         subnetwork = self.__findSubnetwork(destination)
         self.links[int(self.routes[subnetwork])].putTargetQueue(packet)
         self.lock.release()
