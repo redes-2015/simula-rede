@@ -1,4 +1,4 @@
-# Criação de 22 computadores.
+# Criação de computadores
 set host a0
 set host a1
 set host a2
@@ -9,117 +9,67 @@ set host a6
 set host a7
 set host a8
 set host a9
-set host b0
-set host b1
-set host b2
-set host b3
-set host b4
-set host b5
-set host b6
-set host b7
-set host b8
-set host b9
-set host c0
-set host c1
+set host a10
+set host a11
 
-# Criação de 4 roteadores 
-set router r0 11
-set router r1 11
-set router r3 3
-set router r4 3
+# servidores
+set host z0
+set host z1
 
-# Criação dos enlaces ligando os computadores e os roteadores
+# Criação de roteadores
+set router r0 4
+set router r1 13
 
-set duplex-link a0 r0.0 10Mbps 10ms
-set duplex-link a1 r0.1 10Mbps 10ms
-set duplex-link a2 r0.2 10Mbps 10ms
-set duplex-link a3 r0.3 10Mbps 10ms
-set duplex-link a4 r0.4 10Mbps 10ms
-set duplex-link a5 r0.5 10Mbps 10ms
-set duplex-link a6 r0.6 10Mbps 10ms
-set duplex-link a7 r0.7 10Mbps 10ms
-set duplex-link a8 r0.8 10Mbps 10ms
-set duplex-link a9 r0.9 10Mbps 10ms
-set duplex-link r0.10 r4.0 10Mbps 10ms
-
-set duplex-link b0 r1.0 10Mbps 10ms
-set duplex-link b1 r1.1 10Mbps 10ms
-set duplex-link b2 r1.2 10Mbps 10ms
-set duplex-link b3 r1.3 10Mbps 10ms
-set duplex-link b4 r1.4 10Mbps 10ms
-set duplex-link b5 r1.5 10Mbps 10ms
-set duplex-link b6 r1.6 10Mbps 10ms
-set duplex-link b7 r1.7 10Mbps 10ms
-set duplex-link b8 r1.8 10Mbps 10ms
-set duplex-link b9 r1.9 10Mbps 10ms
-set duplex-link r1.10 r4.1 10Mbps 10ms
-
-set duplex-link r4.2 r3.0 10Mbps 10ms
-
-set duplex-link r3.1 c0 10Mbps 10ms
-set duplex-link r3.2 c1 10Mbps 10ms
-
+set duplex-link r0.0 z0 10Mbps 10ms
+set duplex-link r0.1 z1 10Mbps 10ms
+set duplex-link r0.2 r1.0 10Mbps 10ms
+set duplex-link a0 r1.1 10Mbps 10ms
+set duplex-link a1 r1.2 10Mbps 10ms
+set duplex-link a0 r1.3 10Mbps 10ms
+set duplex-link a3 r1.4 10Mbps 10ms
+set duplex-link a4 r1.5 10Mbps 10ms
+set duplex-link a5 r1.6 10Mbps 10ms
+set duplex-link a6 r1.7 10Mbps 10ms
+set duplex-link a7 r1.8 10Mbps 10ms
+set duplex-link a8 r1.9 10Mbps 10ms
+set duplex-link a9 r1.10 10Mbps 10ms
+set duplex-link a10 r1.11 10Mbps 10ms
+set duplex-link a11 r1.12 10Mbps 10ms
+#set duplex-link r0.3 r2.0 10Mbps 10ms
 
 # Configuração dos hosts: endereço IP do computador, endereço IP do
 # roteador padrão e endereço IP do servidor DNS
+set ip a0 10.2.0.2 10.2.0.1 192.168.1.1
+set ip a1 10.2.1.2 10.2.1.1 192.168.1.1
+set ip a2 10.2.2.2 10.2.2.1 192.168.1.1
+set ip a3 10.2.3.2 10.2.3.1 192.168.1.1
+set ip a4 10.2.4.2 10.2.4.1 192.168.1.1
+set ip a5 10.2.5.2 10.2.5.1 192.168.1.1
+set ip a6 10.2.6.2 10.2.6.1 192.168.1.1
+set ip a7 10.2.7.2 10.2.7.1 192.168.1.1
+set ip a8 10.2.8.2 10.2.8.1 192.168.1.1
+set ip a9 10.2.9.2 10.2.9.1 192.168.1.1
+set ip a10 10.2.10.2 10.2.10.1 192.168.1.1
+set ip a11 10.2.11.2 10.2.11.1 192.168.1.1
 
-set ip a0 10.0.0.1 10.0.0.250 192.168.1.1
-set ip a1 10.0.1.1 10.0.1.250 192.168.1.1
-set ip a2 10.0.2.1 10.0.2.250 192.168.1.1
-set ip a3 10.0.3.1 10.0.3.250 192.168.1.1
-set ip a4 10.0.4.1 10.0.4.250 192.168.1.1
-set ip a5 10.0.5.1 10.0.5.250 192.168.1.1
-set ip a6 10.0.6.1 10.0.6.250 192.168.1.1
-set ip a7 10.0.7.1 10.0.7.250 192.168.1.1
-set ip a8 10.0.8.1 10.0.8.250 192.168.1.1
-set ip a9 10.0.9.1 10.0.9.250 192.168.1.1
+set ip z0 192.168.0.1 192.168.0.2 192.168.1.1
+set ip z1 192.168.1.1 192.168.1.2 1.1.1.1
 
-set ip b0 10.1.0.1 10.1.0.250 192.168.1.1
-set ip b1 10.1.1.1 10.1.1.250 192.168.1.1
-set ip b2 10.1.2.1 10.1.2.250 192.168.1.1
-set ip b3 10.1.3.1 10.1.3.250 192.168.1.1
-set ip b4 10.1.4.1 10.1.4.250 192.168.1.1
-set ip b5 10.1.5.1 10.1.5.250 192.168.1.1
-set ip b6 10.1.6.1 10.1.6.250 192.168.1.1
-set ip b7 10.1.7.1 10.1.7.250 192.168.1.1
-set ip b8 10.1.8.1 10.1.8.250 192.168.1.1
-set ip b9 10.1.9.1 10.1.9.250 192.168.1.1
+# Configuração dos roteadores
 
-# ircs e dns
-set ip c0 192.168.0.1 192.168.0.250 192.168.1.1
-set ip c1 192.168.1.1 192.168.1.250 1.1.1.1
+set ip r0 0 192.168.0.2 1 192.168.1.2 2 10.0.2.1
+set ip r1 0 10.0.2.2 1 10.2.0.1 2 10.2.1.1 3 10.2.2.1 4 10.2.3.1 5 10.0.4.2 6 10.2.5.1 7 10.2.6.1 8 10.2.7.1 9 10.2.8.1 10 10.2.9.1 11 10.2.10.1 12 10.2.11.1
 
-# Configuração dos roteadores: porta, endereço IP [[porta, endereço
-# IP] ...]
-set ip r0 0 10.0.0.250 1 10.0.1.250 2 10.0.2.250 3 10.0.3.250 4 10.0.4.250 5 10.0.5.250 6 10.0.6.250 7 10.0.7.250 8 10.0.8.250 9 10.0.9.250 10 10.0.10.250
+# Configuração dos roteadores: rotas 
+set route r0 192.168.0.0 0 192.168.1.0 1 10.0.2.0 2 10.2.0.0 10.0.2.2 10.2.1.0 10.0.2.2 10.2.2.0 10.0.2.2 10.2.3.0 10.0.2.2 10.2.4.0 10.0.2.2 10.2.5.0 10.0.2.2 10.2.6.0 10.0.2.2 10.2.7.0 10.0.2.2 10.2.8.0 10.0.2.2 10.2.9.0 10.0.2.2 10.2.10.0 10.0.2.2 10.2.11.0 10.0.2.2
 
-set ip r1 0 10.1.0.250 1 10.1.1.250 2 10.1.2.250 3 10.1.3.250 4 10.1.4.250 5 10.1.5.250 6 10.1.6.250 7 10.1.7.250 8 10.1.8.250 9 10.1.9.250 10 10.1.10.250
+set route r1 192.168.0.0 10.0.2.1 192.168.1.0 10.0.2.1 10.0.2.0 0 10.2.0.0 1 10.2.1.0 2 10.2.2.0 3 10.2.3.0 4 10.2.4.0 5 10.2.5.0 6 10.2.6.0 7 10.2.7.0 8 10.2.8.0 9 10.2.9.0 10 10.2.10.0 11 10.2.11.0 12 
 
-set ip r4 0 10.0.10.101 1 10.1.10.101 2 10.250.0.1
-set ip r3 0 10.250.0.2 1 192.168.0.250 2 192.168.1.250
-
-
-# Configuração dos roteadores: rotas (obs.: nos roteadores todas as
-# rotas devem ser explı́citas apontando para outro roteador ou para a
-# porta. Não há roteador padrão no roteador. Não se preocupe com o
-# caso de comunicações com endereços inexistentes na
-# rede)
-set route r0 10.0.0.0 0 10.0.1.0 1 10.0.2.0 2 10.0.3.0 3 10.0.4.0 4 10.0.5.0 5 10.0.6.0 6 10.0.7.0 7 10.0.8.0 8 10.0.9.0 9 10.0.10.0 10 192.168.0.0 10.0.10.101 192.168.1.0 10.0.10.101
-
-set route r1 10.1.0.0 0 10.1.1.0 1 10.1.2.0 2 10.1.3.0 3 10.1.4.0 4 10.1.5.0 5 10.1.6.0 6 10.1.7.0 7 10.1.8.0 8 10.1.9.0 9 10.1.10.0 10 192.168.0.0 10.1.10.101 192.168.1.0 10.1.10.101
-
-set route r4 10.0.10.0 0 10.1.10.0 1 10.250.0.0 2 10.0.0.0 10.0.10.250 10.0.1.0 10.0.10.250 10.0.2.0 10.0.10.250 10.0.3.0 10.0.10.250 10.0.4.0 10.0.10.250 10.0.5.0 10.0.10.250 10.0.6.0 10.0.10.250 10.0.7.0 10.0.10.250 10.0.8.0 10.0.10.250 10.0.9.0 10.0.10.250 10.1.0.0 10.1.10.250 10.1.1.0 10.1.10.250 10.1.2.0 10.1.10.250 10.1.3.0 10.1.10.250 10.1.4.0 10.1.10.250 10.1.5.0 10.1.10.250 10.1.6.0 10.1.10.250 10.1.7.0 10.1.10.250 10.1.8.0 10.1.10.250 10.1.9.0 10.1.10.250 192.168.0.0 10.250.0.2 192.168.1.0 10.250.0.2
-
-set route r3 10.250.0.0 0 192.168.0.0 1 192.168.1.0 2 10.0.0.0 10.250.0.1 10.0.1.0 10.250.0.1 10.0.2.0 10.250.0.1 10.0.3.0 10.250.0.1 10.0.4.0 10.250.0.1 10.0.5.0 10.250.0.1 10.0.6.0 10.250.0.1 10.0.7.0 10.250.0.1 10.0.8.0 10.250.0.1 10.0.9.0 10.250.0.1 10.1.0.0 10.250.0.1 10.1.1.0 10.250.0.1 10.1.2.0 10.250.0.1 10.1.3.0 10.250.0.1 10.1.4.0 10.250.0.1 10.1.5.0 10.250.0.1 10.1.6.0 10.250.0.1 10.1.7.0 10.250.0.1 10.1.8.0 10.250.0.1 10.1.9.0 10.250.0.1 
-
-# Configuração dos roteadores: tempo para processar 1 pacote, porta,
-# tamanho da fila da porta em quantidade de pacotes, [[porta, tamanho
-# ...] ...]
+# Configuração dos roteadores: tempo para processar 
 set performance r0 100us 0 1000 1 1000 2 1000
 set performance r1 20us 0 1000 1 1000 2 1000
-set performance r4 100us 0 1000 1 1000 2 1000
-set performance r3 20us 0 1000 1 1000 2 1000
 
+# Configuração dos agentes da camada de aplicação
 set ircc a0 irca0
 set ircc a1 irca1
 set ircc a2 irca2
@@ -130,85 +80,53 @@ set ircc a6 irca6
 set ircc a7 irca7
 set ircc a8 irca8
 set ircc a9 irca9
+set ircc a10 irca10
+set ircc a11 irca11
+set ircs z0 irc0
+set dnss z1 dns0
 
-set ircc b0 ircb0
-set ircc b1 ircb1
-set ircc b2 ircb2
-set ircc b3 ircb3
-set ircc b4 ircb4
-set ircc b5 ircb5
-set ircc b6 ircb6
-set ircc b7 ircb7
-set ircc b8 ircb8
-set ircc b9 ircb9
+# Configuração dos sniffers.
+set sniffer r0.0 z0 "ircs-snif.txt"
+set sniffer r0.1 z1 "dns-snif.txt"
 
-set ircs c0 ircs
-set dnss c1 dns1
+# Ações
+simulate 0.5 irca0 "CONNECT z0 6667"
+simulate 0.5 irca1 "CONNECT z0 6667"
+simulate 0.5 irca2 "CONNECT z0 6667"
+simulate 0.5 irca3 "CONNECT z0 6667"
+simulate 0.5 irca4 "CONNECT z0 6667"
+simulate 0.5 irca5 "CONNECT z0 6667"
+simulate 0.5 irca6 "CONNECT z0 6667"
+simulate 0.5 irca7 "CONNECT z0 6667"
+simulate 0.5 irca8 "CONNECT z0 6667"
+simulate 0.5 irca9 "CONNECT z0 6667"
+simulate 0.5 irca10 "CONNECT z0 6667"
+simulate 0.5 irca10 "CONNECT z0 6667"
 
-set sniffer r3.2 c1 "sniffer-dns"
-set sniffer r3.1 c0 "sniffer-ircs"
+simulate 1.0 irca0 "USER user_irca0"
+simulate 1.0 irca1 "USER user_irca1"
+simulate 1.0 irca2 "USER user_irca2"
+simulate 1.0 irca3 "USER user_irca3"
+simulate 1.0 irca4 "USER user_irca4"
+simulate 1.0 irca5 "USER user_irca5"
+simulate 1.0 irca6 "USER user_irca6"
+simulate 1.0 irca7 "USER user_irca7"
+simulate 1.0 irca8 "USER user_irca8"
+simulate 1.0 irca9 "USER user_irca9"
+simulate 1.0 irca10 "USER user_irca10"
+simulate 1.0 irca11 "USER user_irca10"
 
-simulate 0.1 irca0 "CONNECT c0 6667"
-simulate 0.1 ircb0 "CONNECT c0 6667"
-simulate 0.1 irca1 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb1 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca2 "CONNECT c0 6667"
-simulate 0.1 ircb2 "CONNECT c0 6667"
-simulate 0.1 irca3 "CONNECT c0 6667"
-simulate 0.1 ircb3 "CONNECT c0 6667"
-simulate 0.1 irca4 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb4 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca5 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb5 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca6 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb6 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca7 "CONNECT c0 6667"
-simulate 0.1 ircb7 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca8 "CONNECT c0 6667"
-simulate 0.1 ircb8 "CONNECT c0 6667"
-simulate 0.1 irca9 "CONNECT c0 6667"
-simulate 0.1 ircb9 "CONNECT c0 6667"
+simulate 1.5 irca0 "QUIT"
+simulate 1.5 irca1 "QUIT"
+simulate 1.5 irca2 "QUIT"
+simulate 1.5 irca3 "QUIT"
+simulate 1.5 irca4 "QUIT"
+simulate 1.5 irca5 "QUIT"
+simulate 1.5 irca6 "QUIT"
+simulate 1.5 irca7 "QUIT"
+simulate 1.5 irca8 "QUIT"
+simulate 1.5 irca9 "QUIT"
+simulate 1.5 irca10 "QUIT"
+simulate 1.5 irca11 "QUIT"
 
-simulate 0.2 irca0 "USER user_a0"
-simulate 0.2 ircb0 "USER user_b0"
-simulate 0.2 irca1 "USER user_a1"
-simulate 0.2 ircb1 "USER user_b1"
-simulate 0.2 irca2 "USER user_a2"
-simulate 0.2 ircb2 "USER user_b2"
-simulate 0.2 irca3 "USER user_a3"
-simulate 0.2 ircb3 "USER user_b3"
-simulate 0.2 irca4 "USER user_a4"
-simulate 0.2 ircb4 "USER user_b4"
-simulate 0.2 irca5 "USER user_a5"
-simulate 0.2 ircb5 "USER user_b5"
-simulate 0.2 irca6 "USER user_a6"
-simulate 0.2 ircb6 "USER user_b6"
-simulate 0.2 irca7 "USER user_a7"
-simulate 0.2 ircb7 "USER user_b7"
-simulate 0.2 irca8 "USER user_a8"
-simulate 0.2 ircb8 "USER user_b8"
-simulate 0.2 irca9 "USER user_a9"
-simulate 0.2 ircb9 "USER user_b9"
-
-simulate 0.3 irca0 "QUIT"
-simulate 0.3 ircb0 "QUIT"
-simulate 0.3 irca1 "QUIT"
-simulate 0.3 ircb1 "QUIT"
-simulate 0.3 irca2 "QUIT"
-simulate 0.3 ircb2 "QUIT"
-simulate 0.3 irca3 "QUIT"
-simulate 0.3 ircb3 "QUIT"
-simulate 0.3 irca4 "QUIT"
-simulate 0.3 ircb4 "QUIT"
-simulate 0.3 irca5 "QUIT"
-simulate 0.3 ircb5 "QUIT"
-simulate 0.3 irca6 "QUIT"
-simulate 0.3 ircb6 "QUIT"
-simulate 0.3 irca7 "QUIT"
-simulate 0.3 ircb7 "QUIT"
-simulate 0.3 irca8 "QUIT"
-simulate 0.3 ircb8 "QUIT"
-simulate 0.3 irca9 "QUIT"
-simulate 0.3 ircb9 "QUIT"
-
-finish 0.4
+finish 2.0

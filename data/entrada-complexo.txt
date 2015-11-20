@@ -1,4 +1,4 @@
-# Criação de 22 computadores.
+# Criação de computadores
 set host a0
 set host a1
 set host a2
@@ -199,1372 +199,443 @@ set host a196
 set host a197
 set host a198
 set host a199
-set host a200
-set host a201
-set host a202
-set host a203
-set host a204
-set host a205
-set host a206
-set host a207
-set host a208
-set host a209
-set host a210
-set host a211
-set host a212
-set host a213
-set host a214
-set host a215
-set host a216
-set host a217
-set host a218
-set host a219
-set host a220
-set host a221
-set host a222
-set host a223
-set host a224
-set host a225
-set host a226
-set host a227
-set host a228
-set host a229
-set host a230
-set host a231
-set host a232
-set host a233
-set host a234
-set host a235
-set host a236
-set host a237
-set host a238
-set host a239
-set host a240
-set host a241
-set host a242
-set host a243
-set host a244
-set host a245
-set host a246
-set host a247
-set host a248
-set host a249
 
-set host b0
-set host b1
-set host b2
-set host b3
-set host b4
-set host b5
-set host b6
-set host b7
-set host b8
-set host b9
-set host b10
-set host b11
-set host b12
-set host b13
-set host b14
-set host b15
-set host b16
-set host b17
-set host b18
-set host b19
-set host b20
-set host b21
-set host b22
-set host b23
-set host b24
-set host b25
-set host b26
-set host b27
-set host b28
-set host b29
-set host b30
-set host b31
-set host b32
-set host b33
-set host b34
-set host b35
-set host b36
-set host b37
-set host b38
-set host b39
-set host b40
-set host b41
-set host b42
-set host b43
-set host b44
-set host b45
-set host b46
-set host b47
-set host b48
-set host b49
-set host b50
-set host b51
-set host b52
-set host b53
-set host b54
-set host b55
-set host b56
-set host b57
-set host b58
-set host b59
-set host b60
-set host b61
-set host b62
-set host b63
-set host b64
-set host b65
-set host b66
-set host b67
-set host b68
-set host b69
-set host b70
-set host b71
-set host b72
-set host b73
-set host b74
-set host b75
-set host b76
-set host b77
-set host b78
-set host b79
-set host b80
-set host b81
-set host b82
-set host b83
-set host b84
-set host b85
-set host b86
-set host b87
-set host b88
-set host b89
-set host b90
-set host b91
-set host b92
-set host b93
-set host b94
-set host b95
-set host b96
-set host b97
-set host b98
-set host b99
-set host b100
-set host b101
-set host b102
-set host b103
-set host b104
-set host b105
-set host b106
-set host b107
-set host b108
-set host b109
-set host b110
-set host b111
-set host b112
-set host b113
-set host b114
-set host b115
-set host b116
-set host b117
-set host b118
-set host b119
-set host b120
-set host b121
-set host b122
-set host b123
-set host b124
-set host b125
-set host b126
-set host b127
-set host b128
-set host b129
-set host b130
-set host b131
-set host b132
-set host b133
-set host b134
-set host b135
-set host b136
-set host b137
-set host b138
-set host b139
-set host b140
-set host b141
-set host b142
-set host b143
-set host b144
-set host b145
-set host b146
-set host b147
-set host b148
-set host b149
-set host b150
-set host b151
-set host b152
-set host b153
-set host b154
-set host b155
-set host b156
-set host b157
-set host b158
-set host b159
-set host b160
-set host b161
-set host b162
-set host b163
-set host b164
-set host b165
-set host b166
-set host b167
-set host b168
-set host b169
-set host b170
-set host b171
-set host b172
-set host b173
-set host b174
-set host b175
-set host b176
-set host b177
-set host b178
-set host b179
-set host b180
-set host b181
-set host b182
-set host b183
-set host b184
-set host b185
-set host b186
-set host b187
-set host b188
-set host b189
-set host b190
-set host b191
-set host b192
-set host b193
-set host b194
-set host b195
-set host b196
-set host b197
-set host b198
-set host b199
-set host b200
-set host b201
-set host b202
-set host b203
-set host b204
-set host b205
-set host b206
-set host b207
-set host b208
-set host b209
-set host b210
-set host b211
-set host b212
-set host b213
-set host b214
-set host b215
-set host b216
-set host b217
-set host b218
-set host b219
-set host b220
-set host b221
-set host b222
-set host b223
-set host b224
-set host b225
-set host b226
-set host b227
-set host b228
-set host b229
-set host b230
-set host b231
-set host b232
-set host b233
-set host b234
-set host b235
-set host b236
-set host b237
-set host b238
-set host b239
-set host b240
-set host b241
-set host b242
-set host b243
-set host b244
-set host b245
-set host b246
-set host b247
-set host b248
-set host b249
 
-set host c0
-set host c1
+# servidores
+set host z0
+set host z1
 
-# Criação de 4 roteadores 
-set router r0 251
-set router r1 251
-set router r3 3
-set router r4 3
+# Criação de roteadores
+set router r0 4
+set router r1 201
 
-# Criação dos enlaces ligando os computadores e os roteadores
-
-set duplex-link a0 r0.0 10Mbps 10ms
-set duplex-link a1 r0.1 10Mbps 10ms
-set duplex-link a2 r0.2 10Mbps 10ms
-set duplex-link a3 r0.3 10Mbps 10ms
-set duplex-link a4 r0.4 10Mbps 10ms
-set duplex-link a5 r0.5 10Mbps 10ms
-set duplex-link a6 r0.6 10Mbps 10ms
-set duplex-link a7 r0.7 10Mbps 10ms
-set duplex-link a8 r0.8 10Mbps 10ms
-set duplex-link a9 r0.9 10Mbps 10ms
-set duplex-link a10 r0.10 10Mbps 10ms
-set duplex-link a11 r0.11 10Mbps 10ms
-set duplex-link a12 r0.12 10Mbps 10ms
-set duplex-link a13 r0.13 10Mbps 10ms
-set duplex-link a14 r0.14 10Mbps 10ms
-set duplex-link a15 r0.15 10Mbps 10ms
-set duplex-link a16 r0.16 10Mbps 10ms
-set duplex-link a17 r0.17 10Mbps 10ms
-set duplex-link a18 r0.18 10Mbps 10ms
-set duplex-link a19 r0.19 10Mbps 10ms
-set duplex-link a20 r0.20 10Mbps 10ms
-set duplex-link a21 r0.21 10Mbps 10ms
-set duplex-link a22 r0.22 10Mbps 10ms
-set duplex-link a23 r0.23 10Mbps 10ms
-set duplex-link a24 r0.24 10Mbps 10ms
-set duplex-link a25 r0.25 10Mbps 10ms
-set duplex-link a26 r0.26 10Mbps 10ms
-set duplex-link a27 r0.27 10Mbps 10ms
-set duplex-link a28 r0.28 10Mbps 10ms
-set duplex-link a29 r0.29 10Mbps 10ms
-set duplex-link a30 r0.30 10Mbps 10ms
-set duplex-link a31 r0.31 10Mbps 10ms
-set duplex-link a32 r0.32 10Mbps 10ms
-set duplex-link a33 r0.33 10Mbps 10ms
-set duplex-link a34 r0.34 10Mbps 10ms
-set duplex-link a35 r0.35 10Mbps 10ms
-set duplex-link a36 r0.36 10Mbps 10ms
-set duplex-link a37 r0.37 10Mbps 10ms
-set duplex-link a38 r0.38 10Mbps 10ms
-set duplex-link a39 r0.39 10Mbps 10ms
-set duplex-link a40 r0.40 10Mbps 10ms
-set duplex-link a41 r0.41 10Mbps 10ms
-set duplex-link a42 r0.42 10Mbps 10ms
-set duplex-link a43 r0.43 10Mbps 10ms
-set duplex-link a44 r0.44 10Mbps 10ms
-set duplex-link a45 r0.45 10Mbps 10ms
-set duplex-link a46 r0.46 10Mbps 10ms
-set duplex-link a47 r0.47 10Mbps 10ms
-set duplex-link a48 r0.48 10Mbps 10ms
-set duplex-link a49 r0.49 10Mbps 10ms
-set duplex-link a50 r0.50 10Mbps 10ms
-set duplex-link a51 r0.51 10Mbps 10ms
-set duplex-link a52 r0.52 10Mbps 10ms
-set duplex-link a53 r0.53 10Mbps 10ms
-set duplex-link a54 r0.54 10Mbps 10ms
-set duplex-link a55 r0.55 10Mbps 10ms
-set duplex-link a56 r0.56 10Mbps 10ms
-set duplex-link a57 r0.57 10Mbps 10ms
-set duplex-link a58 r0.58 10Mbps 10ms
-set duplex-link a59 r0.59 10Mbps 10ms
-set duplex-link a60 r0.60 10Mbps 10ms
-set duplex-link a61 r0.61 10Mbps 10ms
-set duplex-link a62 r0.62 10Mbps 10ms
-set duplex-link a63 r0.63 10Mbps 10ms
-set duplex-link a64 r0.64 10Mbps 10ms
-set duplex-link a65 r0.65 10Mbps 10ms
-set duplex-link a66 r0.66 10Mbps 10ms
-set duplex-link a67 r0.67 10Mbps 10ms
-set duplex-link a68 r0.68 10Mbps 10ms
-set duplex-link a69 r0.69 10Mbps 10ms
-set duplex-link a70 r0.70 10Mbps 10ms
-set duplex-link a71 r0.71 10Mbps 10ms
-set duplex-link a72 r0.72 10Mbps 10ms
-set duplex-link a73 r0.73 10Mbps 10ms
-set duplex-link a74 r0.74 10Mbps 10ms
-set duplex-link a75 r0.75 10Mbps 10ms
-set duplex-link a76 r0.76 10Mbps 10ms
-set duplex-link a77 r0.77 10Mbps 10ms
-set duplex-link a78 r0.78 10Mbps 10ms
-set duplex-link a79 r0.79 10Mbps 10ms
-set duplex-link a80 r0.80 10Mbps 10ms
-set duplex-link a81 r0.81 10Mbps 10ms
-set duplex-link a82 r0.82 10Mbps 10ms
-set duplex-link a83 r0.83 10Mbps 10ms
-set duplex-link a84 r0.84 10Mbps 10ms
-set duplex-link a85 r0.85 10Mbps 10ms
-set duplex-link a86 r0.86 10Mbps 10ms
-set duplex-link a87 r0.87 10Mbps 10ms
-set duplex-link a88 r0.88 10Mbps 10ms
-set duplex-link a89 r0.89 10Mbps 10ms
-set duplex-link a90 r0.90 10Mbps 10ms
-set duplex-link a91 r0.91 10Mbps 10ms
-set duplex-link a92 r0.92 10Mbps 10ms
-set duplex-link a93 r0.93 10Mbps 10ms
-set duplex-link a94 r0.94 10Mbps 10ms
-set duplex-link a95 r0.95 10Mbps 10ms
-set duplex-link a96 r0.96 10Mbps 10ms
-set duplex-link a97 r0.97 10Mbps 10ms
-set duplex-link a98 r0.98 10Mbps 10ms
-set duplex-link a99 r0.99 10Mbps 10ms
-set duplex-link a100 r0.100 10Mbps 10ms
-set duplex-link a101 r0.101 10Mbps 10ms
-set duplex-link a102 r0.102 10Mbps 10ms
-set duplex-link a103 r0.103 10Mbps 10ms
-set duplex-link a104 r0.104 10Mbps 10ms
-set duplex-link a105 r0.105 10Mbps 10ms
-set duplex-link a106 r0.106 10Mbps 10ms
-set duplex-link a107 r0.107 10Mbps 10ms
-set duplex-link a108 r0.108 10Mbps 10ms
-set duplex-link a109 r0.109 10Mbps 10ms
-set duplex-link a110 r0.110 10Mbps 10ms
-set duplex-link a111 r0.111 10Mbps 10ms
-set duplex-link a112 r0.112 10Mbps 10ms
-set duplex-link a113 r0.113 10Mbps 10ms
-set duplex-link a114 r0.114 10Mbps 10ms
-set duplex-link a115 r0.115 10Mbps 10ms
-set duplex-link a116 r0.116 10Mbps 10ms
-set duplex-link a117 r0.117 10Mbps 10ms
-set duplex-link a118 r0.118 10Mbps 10ms
-set duplex-link a119 r0.119 10Mbps 10ms
-set duplex-link a120 r0.120 10Mbps 10ms
-set duplex-link a121 r0.121 10Mbps 10ms
-set duplex-link a122 r0.122 10Mbps 10ms
-set duplex-link a123 r0.123 10Mbps 10ms
-set duplex-link a124 r0.124 10Mbps 10ms
-set duplex-link a125 r0.125 10Mbps 10ms
-set duplex-link a126 r0.126 10Mbps 10ms
-set duplex-link a127 r0.127 10Mbps 10ms
-set duplex-link a128 r0.128 10Mbps 10ms
-set duplex-link a129 r0.129 10Mbps 10ms
-set duplex-link a130 r0.130 10Mbps 10ms
-set duplex-link a131 r0.131 10Mbps 10ms
-set duplex-link a132 r0.132 10Mbps 10ms
-set duplex-link a133 r0.133 10Mbps 10ms
-set duplex-link a134 r0.134 10Mbps 10ms
-set duplex-link a135 r0.135 10Mbps 10ms
-set duplex-link a136 r0.136 10Mbps 10ms
-set duplex-link a137 r0.137 10Mbps 10ms
-set duplex-link a138 r0.138 10Mbps 10ms
-set duplex-link a139 r0.139 10Mbps 10ms
-set duplex-link a140 r0.140 10Mbps 10ms
-set duplex-link a141 r0.141 10Mbps 10ms
-set duplex-link a142 r0.142 10Mbps 10ms
-set duplex-link a143 r0.143 10Mbps 10ms
-set duplex-link a144 r0.144 10Mbps 10ms
-set duplex-link a145 r0.145 10Mbps 10ms
-set duplex-link a146 r0.146 10Mbps 10ms
-set duplex-link a147 r0.147 10Mbps 10ms
-set duplex-link a148 r0.148 10Mbps 10ms
-set duplex-link a149 r0.149 10Mbps 10ms
-set duplex-link a150 r0.150 10Mbps 10ms
-set duplex-link a151 r0.151 10Mbps 10ms
-set duplex-link a152 r0.152 10Mbps 10ms
-set duplex-link a153 r0.153 10Mbps 10ms
-set duplex-link a154 r0.154 10Mbps 10ms
-set duplex-link a155 r0.155 10Mbps 10ms
-set duplex-link a156 r0.156 10Mbps 10ms
-set duplex-link a157 r0.157 10Mbps 10ms
-set duplex-link a158 r0.158 10Mbps 10ms
-set duplex-link a159 r0.159 10Mbps 10ms
-set duplex-link a160 r0.160 10Mbps 10ms
-set duplex-link a161 r0.161 10Mbps 10ms
-set duplex-link a162 r0.162 10Mbps 10ms
-set duplex-link a163 r0.163 10Mbps 10ms
-set duplex-link a164 r0.164 10Mbps 10ms
-set duplex-link a165 r0.165 10Mbps 10ms
-set duplex-link a166 r0.166 10Mbps 10ms
-set duplex-link a167 r0.167 10Mbps 10ms
-set duplex-link a168 r0.168 10Mbps 10ms
-set duplex-link a169 r0.169 10Mbps 10ms
-set duplex-link a170 r0.170 10Mbps 10ms
-set duplex-link a171 r0.171 10Mbps 10ms
-set duplex-link a172 r0.172 10Mbps 10ms
-set duplex-link a173 r0.173 10Mbps 10ms
-set duplex-link a174 r0.174 10Mbps 10ms
-set duplex-link a175 r0.175 10Mbps 10ms
-set duplex-link a176 r0.176 10Mbps 10ms
-set duplex-link a177 r0.177 10Mbps 10ms
-set duplex-link a178 r0.178 10Mbps 10ms
-set duplex-link a179 r0.179 10Mbps 10ms
-set duplex-link a180 r0.180 10Mbps 10ms
-set duplex-link a181 r0.181 10Mbps 10ms
-set duplex-link a182 r0.182 10Mbps 10ms
-set duplex-link a183 r0.183 10Mbps 10ms
-set duplex-link a184 r0.184 10Mbps 10ms
-set duplex-link a185 r0.185 10Mbps 10ms
-set duplex-link a186 r0.186 10Mbps 10ms
-set duplex-link a187 r0.187 10Mbps 10ms
-set duplex-link a188 r0.188 10Mbps 10ms
-set duplex-link a189 r0.189 10Mbps 10ms
-set duplex-link a190 r0.190 10Mbps 10ms
-set duplex-link a191 r0.191 10Mbps 10ms
-set duplex-link a192 r0.192 10Mbps 10ms
-set duplex-link a193 r0.193 10Mbps 10ms
-set duplex-link a194 r0.194 10Mbps 10ms
-set duplex-link a195 r0.195 10Mbps 10ms
-set duplex-link a196 r0.196 10Mbps 10ms
-set duplex-link a197 r0.197 10Mbps 10ms
-set duplex-link a198 r0.198 10Mbps 10ms
-set duplex-link a199 r0.199 10Mbps 10ms
-set duplex-link a200 r0.200 10Mbps 10ms
-set duplex-link a201 r0.201 10Mbps 10ms
-set duplex-link a202 r0.202 10Mbps 10ms
-set duplex-link a203 r0.203 10Mbps 10ms
-set duplex-link a204 r0.204 10Mbps 10ms
-set duplex-link a205 r0.205 10Mbps 10ms
-set duplex-link a206 r0.206 10Mbps 10ms
-set duplex-link a207 r0.207 10Mbps 10ms
-set duplex-link a208 r0.208 10Mbps 10ms
-set duplex-link a209 r0.209 10Mbps 10ms
-set duplex-link a210 r0.210 10Mbps 10ms
-set duplex-link a211 r0.211 10Mbps 10ms
-set duplex-link a212 r0.212 10Mbps 10ms
-set duplex-link a213 r0.213 10Mbps 10ms
-set duplex-link a214 r0.214 10Mbps 10ms
-set duplex-link a215 r0.215 10Mbps 10ms
-set duplex-link a216 r0.216 10Mbps 10ms
-set duplex-link a217 r0.217 10Mbps 10ms
-set duplex-link a218 r0.218 10Mbps 10ms
-set duplex-link a219 r0.219 10Mbps 10ms
-set duplex-link a220 r0.220 10Mbps 10ms
-set duplex-link a221 r0.221 10Mbps 10ms
-set duplex-link a222 r0.222 10Mbps 10ms
-set duplex-link a223 r0.223 10Mbps 10ms
-set duplex-link a224 r0.224 10Mbps 10ms
-set duplex-link a225 r0.225 10Mbps 10ms
-set duplex-link a226 r0.226 10Mbps 10ms
-set duplex-link a227 r0.227 10Mbps 10ms
-set duplex-link a228 r0.228 10Mbps 10ms
-set duplex-link a229 r0.229 10Mbps 10ms
-set duplex-link a230 r0.230 10Mbps 10ms
-set duplex-link a231 r0.231 10Mbps 10ms
-set duplex-link a232 r0.232 10Mbps 10ms
-set duplex-link a233 r0.233 10Mbps 10ms
-set duplex-link a234 r0.234 10Mbps 10ms
-set duplex-link a235 r0.235 10Mbps 10ms
-set duplex-link a236 r0.236 10Mbps 10ms
-set duplex-link a237 r0.237 10Mbps 10ms
-set duplex-link a238 r0.238 10Mbps 10ms
-set duplex-link a239 r0.239 10Mbps 10ms
-set duplex-link a240 r0.240 10Mbps 10ms
-set duplex-link a241 r0.241 10Mbps 10ms
-set duplex-link a242 r0.242 10Mbps 10ms
-set duplex-link a243 r0.243 10Mbps 10ms
-set duplex-link a244 r0.244 10Mbps 10ms
-set duplex-link a245 r0.245 10Mbps 10ms
-set duplex-link a246 r0.246 10Mbps 10ms
-set duplex-link a247 r0.247 10Mbps 10ms
-set duplex-link a248 r0.248 10Mbps 10ms
-set duplex-link a249 r0.249 10Mbps 10ms
-
-set duplex-link r0.250 r4.0 10Mbps 10ms
-
-set duplex-link b0 r1.0 10Mbps 10ms
-set duplex-link b1 r1.1 10Mbps 10ms
-set duplex-link b2 r1.2 10Mbps 10ms
-set duplex-link b3 r1.3 10Mbps 10ms
-set duplex-link b4 r1.4 10Mbps 10ms
-set duplex-link b5 r1.5 10Mbps 10ms
-set duplex-link b6 r1.6 10Mbps 10ms
-set duplex-link b7 r1.7 10Mbps 10ms
-set duplex-link b8 r1.8 10Mbps 10ms
-set duplex-link b9 r1.9 10Mbps 10ms
-set duplex-link b10 r1.10 10Mbps 10ms
-set duplex-link b11 r1.11 10Mbps 10ms
-set duplex-link b12 r1.12 10Mbps 10ms
-set duplex-link b13 r1.13 10Mbps 10ms
-set duplex-link b14 r1.14 10Mbps 10ms
-set duplex-link b15 r1.15 10Mbps 10ms
-set duplex-link b16 r1.16 10Mbps 10ms
-set duplex-link b17 r1.17 10Mbps 10ms
-set duplex-link b18 r1.18 10Mbps 10ms
-set duplex-link b19 r1.19 10Mbps 10ms
-set duplex-link b20 r1.20 10Mbps 10ms
-set duplex-link b21 r1.21 10Mbps 10ms
-set duplex-link b22 r1.22 10Mbps 10ms
-set duplex-link b23 r1.23 10Mbps 10ms
-set duplex-link b24 r1.24 10Mbps 10ms
-set duplex-link b25 r1.25 10Mbps 10ms
-set duplex-link b26 r1.26 10Mbps 10ms
-set duplex-link b27 r1.27 10Mbps 10ms
-set duplex-link b28 r1.28 10Mbps 10ms
-set duplex-link b29 r1.29 10Mbps 10ms
-set duplex-link b30 r1.30 10Mbps 10ms
-set duplex-link b31 r1.31 10Mbps 10ms
-set duplex-link b32 r1.32 10Mbps 10ms
-set duplex-link b33 r1.33 10Mbps 10ms
-set duplex-link b34 r1.34 10Mbps 10ms
-set duplex-link b35 r1.35 10Mbps 10ms
-set duplex-link b36 r1.36 10Mbps 10ms
-set duplex-link b37 r1.37 10Mbps 10ms
-set duplex-link b38 r1.38 10Mbps 10ms
-set duplex-link b39 r1.39 10Mbps 10ms
-set duplex-link b40 r1.40 10Mbps 10ms
-set duplex-link b41 r1.41 10Mbps 10ms
-set duplex-link b42 r1.42 10Mbps 10ms
-set duplex-link b43 r1.43 10Mbps 10ms
-set duplex-link b44 r1.44 10Mbps 10ms
-set duplex-link b45 r1.45 10Mbps 10ms
-set duplex-link b46 r1.46 10Mbps 10ms
-set duplex-link b47 r1.47 10Mbps 10ms
-set duplex-link b48 r1.48 10Mbps 10ms
-set duplex-link b49 r1.49 10Mbps 10ms
-set duplex-link b50 r1.50 10Mbps 10ms
-set duplex-link b51 r1.51 10Mbps 10ms
-set duplex-link b52 r1.52 10Mbps 10ms
-set duplex-link b53 r1.53 10Mbps 10ms
-set duplex-link b54 r1.54 10Mbps 10ms
-set duplex-link b55 r1.55 10Mbps 10ms
-set duplex-link b56 r1.56 10Mbps 10ms
-set duplex-link b57 r1.57 10Mbps 10ms
-set duplex-link b58 r1.58 10Mbps 10ms
-set duplex-link b59 r1.59 10Mbps 10ms
-set duplex-link b60 r1.60 10Mbps 10ms
-set duplex-link b61 r1.61 10Mbps 10ms
-set duplex-link b62 r1.62 10Mbps 10ms
-set duplex-link b63 r1.63 10Mbps 10ms
-set duplex-link b64 r1.64 10Mbps 10ms
-set duplex-link b65 r1.65 10Mbps 10ms
-set duplex-link b66 r1.66 10Mbps 10ms
-set duplex-link b67 r1.67 10Mbps 10ms
-set duplex-link b68 r1.68 10Mbps 10ms
-set duplex-link b69 r1.69 10Mbps 10ms
-set duplex-link b70 r1.70 10Mbps 10ms
-set duplex-link b71 r1.71 10Mbps 10ms
-set duplex-link b72 r1.72 10Mbps 10ms
-set duplex-link b73 r1.73 10Mbps 10ms
-set duplex-link b74 r1.74 10Mbps 10ms
-set duplex-link b75 r1.75 10Mbps 10ms
-set duplex-link b76 r1.76 10Mbps 10ms
-set duplex-link b77 r1.77 10Mbps 10ms
-set duplex-link b78 r1.78 10Mbps 10ms
-set duplex-link b79 r1.79 10Mbps 10ms
-set duplex-link b80 r1.80 10Mbps 10ms
-set duplex-link b81 r1.81 10Mbps 10ms
-set duplex-link b82 r1.82 10Mbps 10ms
-set duplex-link b83 r1.83 10Mbps 10ms
-set duplex-link b84 r1.84 10Mbps 10ms
-set duplex-link b85 r1.85 10Mbps 10ms
-set duplex-link b86 r1.86 10Mbps 10ms
-set duplex-link b87 r1.87 10Mbps 10ms
-set duplex-link b88 r1.88 10Mbps 10ms
-set duplex-link b89 r1.89 10Mbps 10ms
-set duplex-link b90 r1.90 10Mbps 10ms
-set duplex-link b91 r1.91 10Mbps 10ms
-set duplex-link b92 r1.92 10Mbps 10ms
-set duplex-link b93 r1.93 10Mbps 10ms
-set duplex-link b94 r1.94 10Mbps 10ms
-set duplex-link b95 r1.95 10Mbps 10ms
-set duplex-link b96 r1.96 10Mbps 10ms
-set duplex-link b97 r1.97 10Mbps 10ms
-set duplex-link b98 r1.98 10Mbps 10ms
-set duplex-link b99 r1.99 10Mbps 10ms
-set duplex-link b100 r1.100 10Mbps 10ms
-set duplex-link b101 r1.101 10Mbps 10ms
-set duplex-link b102 r1.102 10Mbps 10ms
-set duplex-link b103 r1.103 10Mbps 10ms
-set duplex-link b104 r1.104 10Mbps 10ms
-set duplex-link b105 r1.105 10Mbps 10ms
-set duplex-link b106 r1.106 10Mbps 10ms
-set duplex-link b107 r1.107 10Mbps 10ms
-set duplex-link b108 r1.108 10Mbps 10ms
-set duplex-link b109 r1.109 10Mbps 10ms
-set duplex-link b110 r1.110 10Mbps 10ms
-set duplex-link b111 r1.111 10Mbps 10ms
-set duplex-link b112 r1.112 10Mbps 10ms
-set duplex-link b113 r1.113 10Mbps 10ms
-set duplex-link b114 r1.114 10Mbps 10ms
-set duplex-link b115 r1.115 10Mbps 10ms
-set duplex-link b116 r1.116 10Mbps 10ms
-set duplex-link b117 r1.117 10Mbps 10ms
-set duplex-link b118 r1.118 10Mbps 10ms
-set duplex-link b119 r1.119 10Mbps 10ms
-set duplex-link b120 r1.120 10Mbps 10ms
-set duplex-link b121 r1.121 10Mbps 10ms
-set duplex-link b122 r1.122 10Mbps 10ms
-set duplex-link b123 r1.123 10Mbps 10ms
-set duplex-link b124 r1.124 10Mbps 10ms
-set duplex-link b125 r1.125 10Mbps 10ms
-set duplex-link b126 r1.126 10Mbps 10ms
-set duplex-link b127 r1.127 10Mbps 10ms
-set duplex-link b128 r1.128 10Mbps 10ms
-set duplex-link b129 r1.129 10Mbps 10ms
-set duplex-link b130 r1.130 10Mbps 10ms
-set duplex-link b131 r1.131 10Mbps 10ms
-set duplex-link b132 r1.132 10Mbps 10ms
-set duplex-link b133 r1.133 10Mbps 10ms
-set duplex-link b134 r1.134 10Mbps 10ms
-set duplex-link b135 r1.135 10Mbps 10ms
-set duplex-link b136 r1.136 10Mbps 10ms
-set duplex-link b137 r1.137 10Mbps 10ms
-set duplex-link b138 r1.138 10Mbps 10ms
-set duplex-link b139 r1.139 10Mbps 10ms
-set duplex-link b140 r1.140 10Mbps 10ms
-set duplex-link b141 r1.141 10Mbps 10ms
-set duplex-link b142 r1.142 10Mbps 10ms
-set duplex-link b143 r1.143 10Mbps 10ms
-set duplex-link b144 r1.144 10Mbps 10ms
-set duplex-link b145 r1.145 10Mbps 10ms
-set duplex-link b146 r1.146 10Mbps 10ms
-set duplex-link b147 r1.147 10Mbps 10ms
-set duplex-link b148 r1.148 10Mbps 10ms
-set duplex-link b149 r1.149 10Mbps 10ms
-set duplex-link b150 r1.150 10Mbps 10ms
-set duplex-link b151 r1.151 10Mbps 10ms
-set duplex-link b152 r1.152 10Mbps 10ms
-set duplex-link b153 r1.153 10Mbps 10ms
-set duplex-link b154 r1.154 10Mbps 10ms
-set duplex-link b155 r1.155 10Mbps 10ms
-set duplex-link b156 r1.156 10Mbps 10ms
-set duplex-link b157 r1.157 10Mbps 10ms
-set duplex-link b158 r1.158 10Mbps 10ms
-set duplex-link b159 r1.159 10Mbps 10ms
-set duplex-link b160 r1.160 10Mbps 10ms
-set duplex-link b161 r1.161 10Mbps 10ms
-set duplex-link b162 r1.162 10Mbps 10ms
-set duplex-link b163 r1.163 10Mbps 10ms
-set duplex-link b164 r1.164 10Mbps 10ms
-set duplex-link b165 r1.165 10Mbps 10ms
-set duplex-link b166 r1.166 10Mbps 10ms
-set duplex-link b167 r1.167 10Mbps 10ms
-set duplex-link b168 r1.168 10Mbps 10ms
-set duplex-link b169 r1.169 10Mbps 10ms
-set duplex-link b170 r1.170 10Mbps 10ms
-set duplex-link b171 r1.171 10Mbps 10ms
-set duplex-link b172 r1.172 10Mbps 10ms
-set duplex-link b173 r1.173 10Mbps 10ms
-set duplex-link b174 r1.174 10Mbps 10ms
-set duplex-link b175 r1.175 10Mbps 10ms
-set duplex-link b176 r1.176 10Mbps 10ms
-set duplex-link b177 r1.177 10Mbps 10ms
-set duplex-link b178 r1.178 10Mbps 10ms
-set duplex-link b179 r1.179 10Mbps 10ms
-set duplex-link b180 r1.180 10Mbps 10ms
-set duplex-link b181 r1.181 10Mbps 10ms
-set duplex-link b182 r1.182 10Mbps 10ms
-set duplex-link b183 r1.183 10Mbps 10ms
-set duplex-link b184 r1.184 10Mbps 10ms
-set duplex-link b185 r1.185 10Mbps 10ms
-set duplex-link b186 r1.186 10Mbps 10ms
-set duplex-link b187 r1.187 10Mbps 10ms
-set duplex-link b188 r1.188 10Mbps 10ms
-set duplex-link b189 r1.189 10Mbps 10ms
-set duplex-link b190 r1.190 10Mbps 10ms
-set duplex-link b191 r1.191 10Mbps 10ms
-set duplex-link b192 r1.192 10Mbps 10ms
-set duplex-link b193 r1.193 10Mbps 10ms
-set duplex-link b194 r1.194 10Mbps 10ms
-set duplex-link b195 r1.195 10Mbps 10ms
-set duplex-link b196 r1.196 10Mbps 10ms
-set duplex-link b197 r1.197 10Mbps 10ms
-set duplex-link b198 r1.198 10Mbps 10ms
-set duplex-link b199 r1.199 10Mbps 10ms
-set duplex-link b200 r1.200 10Mbps 10ms
-set duplex-link b201 r1.201 10Mbps 10ms
-set duplex-link b202 r1.202 10Mbps 10ms
-set duplex-link b203 r1.203 10Mbps 10ms
-set duplex-link b204 r1.204 10Mbps 10ms
-set duplex-link b205 r1.205 10Mbps 10ms
-set duplex-link b206 r1.206 10Mbps 10ms
-set duplex-link b207 r1.207 10Mbps 10ms
-set duplex-link b208 r1.208 10Mbps 10ms
-set duplex-link b209 r1.209 10Mbps 10ms
-set duplex-link b210 r1.210 10Mbps 10ms
-set duplex-link b211 r1.211 10Mbps 10ms
-set duplex-link b212 r1.212 10Mbps 10ms
-set duplex-link b213 r1.213 10Mbps 10ms
-set duplex-link b214 r1.214 10Mbps 10ms
-set duplex-link b215 r1.215 10Mbps 10ms
-set duplex-link b216 r1.216 10Mbps 10ms
-set duplex-link b217 r1.217 10Mbps 10ms
-set duplex-link b218 r1.218 10Mbps 10ms
-set duplex-link b219 r1.219 10Mbps 10ms
-set duplex-link b220 r1.220 10Mbps 10ms
-set duplex-link b221 r1.221 10Mbps 10ms
-set duplex-link b222 r1.222 10Mbps 10ms
-set duplex-link b223 r1.223 10Mbps 10ms
-set duplex-link b224 r1.224 10Mbps 10ms
-set duplex-link b225 r1.225 10Mbps 10ms
-set duplex-link b226 r1.226 10Mbps 10ms
-set duplex-link b227 r1.227 10Mbps 10ms
-set duplex-link b228 r1.228 10Mbps 10ms
-set duplex-link b229 r1.229 10Mbps 10ms
-set duplex-link b230 r1.230 10Mbps 10ms
-set duplex-link b231 r1.231 10Mbps 10ms
-set duplex-link b232 r1.232 10Mbps 10ms
-set duplex-link b233 r1.233 10Mbps 10ms
-set duplex-link b234 r1.234 10Mbps 10ms
-set duplex-link b235 r1.235 10Mbps 10ms
-set duplex-link b236 r1.236 10Mbps 10ms
-set duplex-link b237 r1.237 10Mbps 10ms
-set duplex-link b238 r1.238 10Mbps 10ms
-set duplex-link b239 r1.239 10Mbps 10ms
-set duplex-link b240 r1.240 10Mbps 10ms
-set duplex-link b241 r1.241 10Mbps 10ms
-set duplex-link b242 r1.242 10Mbps 10ms
-set duplex-link b243 r1.243 10Mbps 10ms
-set duplex-link b244 r1.244 10Mbps 10ms
-set duplex-link b245 r1.245 10Mbps 10ms
-set duplex-link b246 r1.246 10Mbps 10ms
-set duplex-link b247 r1.247 10Mbps 10ms
-set duplex-link b248 r1.248 10Mbps 10ms
-set duplex-link b249 r1.249 10Mbps 10ms
-
-set duplex-link r1.250 r4.1 10Mbps 10ms
-
-set duplex-link r4.2 r3.0 10Mbps 10ms
-
-set duplex-link r3.1 c0 10Mbps 10ms
-set duplex-link r3.2 c1 10Mbps 10ms
-
+set duplex-link r0.0 z0 10Mbps 10ms
+set duplex-link r0.1 z1 10Mbps 10ms
+set duplex-link r0.2 r1.0 10Mbps 10ms
+set duplex-link a0 r1.1 10Mbps 10ms
+set duplex-link a1 r1.2 10Mbps 10ms
+set duplex-link a0 r1.3 10Mbps 10ms
+set duplex-link a3 r1.4 10Mbps 10ms
+set duplex-link a4 r1.5 10Mbps 10ms
+set duplex-link a5 r1.6 10Mbps 10ms
+set duplex-link a6 r1.7 10Mbps 10ms
+set duplex-link a7 r1.8 10Mbps 10ms
+set duplex-link a8 r1.9 10Mbps 10ms
+set duplex-link a9 r1.10 10Mbps 10ms
+set duplex-link a10 r1.11 10Mbps 10ms
+set duplex-link a11 r1.12 10Mbps 10ms
+set duplex-link a12 r1.13 10Mbps 10ms
+set duplex-link a13 r1.14 10Mbps 10ms
+set duplex-link a14 r1.15 10Mbps 10ms
+set duplex-link a15 r1.16 10Mbps 10ms
+set duplex-link a16 r1.17 10Mbps 10ms
+set duplex-link a17 r1.18 10Mbps 10ms
+set duplex-link a18 r1.19 10Mbps 10ms
+set duplex-link a19 r1.20 10Mbps 10ms
+set duplex-link a20 r1.21 10Mbps 10ms
+set duplex-link a21 r1.22 10Mbps 10ms
+set duplex-link a22 r1.23 10Mbps 10ms
+set duplex-link a23 r1.24 10Mbps 10ms
+set duplex-link a24 r1.25 10Mbps 10ms
+set duplex-link a25 r1.26 10Mbps 10ms
+set duplex-link a26 r1.27 10Mbps 10ms
+set duplex-link a27 r1.28 10Mbps 10ms
+set duplex-link a28 r1.29 10Mbps 10ms
+set duplex-link a29 r1.30 10Mbps 10ms
+set duplex-link a30 r1.31 10Mbps 10ms
+set duplex-link a31 r1.32 10Mbps 10ms
+set duplex-link a32 r1.33 10Mbps 10ms
+set duplex-link a33 r1.34 10Mbps 10ms
+set duplex-link a34 r1.35 10Mbps 10ms
+set duplex-link a35 r1.36 10Mbps 10ms
+set duplex-link a36 r1.37 10Mbps 10ms
+set duplex-link a37 r1.38 10Mbps 10ms
+set duplex-link a38 r1.39 10Mbps 10ms
+set duplex-link a39 r1.40 10Mbps 10ms
+set duplex-link a40 r1.41 10Mbps 10ms
+set duplex-link a41 r1.42 10Mbps 10ms
+set duplex-link a42 r1.43 10Mbps 10ms
+set duplex-link a43 r1.44 10Mbps 10ms
+set duplex-link a44 r1.45 10Mbps 10ms
+set duplex-link a45 r1.46 10Mbps 10ms
+set duplex-link a46 r1.47 10Mbps 10ms
+set duplex-link a47 r1.48 10Mbps 10ms
+set duplex-link a48 r1.49 10Mbps 10ms
+set duplex-link a49 r1.50 10Mbps 10ms
+set duplex-link a50 r1.51 10Mbps 10ms
+set duplex-link a51 r1.52 10Mbps 10ms
+set duplex-link a52 r1.53 10Mbps 10ms
+set duplex-link a53 r1.54 10Mbps 10ms
+set duplex-link a54 r1.55 10Mbps 10ms
+set duplex-link a55 r1.56 10Mbps 10ms
+set duplex-link a56 r1.57 10Mbps 10ms
+set duplex-link a57 r1.58 10Mbps 10ms
+set duplex-link a58 r1.59 10Mbps 10ms
+set duplex-link a59 r1.60 10Mbps 10ms
+set duplex-link a60 r1.61 10Mbps 10ms
+set duplex-link a61 r1.62 10Mbps 10ms
+set duplex-link a62 r1.63 10Mbps 10ms
+set duplex-link a63 r1.64 10Mbps 10ms
+set duplex-link a64 r1.65 10Mbps 10ms
+set duplex-link a65 r1.66 10Mbps 10ms
+set duplex-link a66 r1.67 10Mbps 10ms
+set duplex-link a67 r1.68 10Mbps 10ms
+set duplex-link a68 r1.69 10Mbps 10ms
+set duplex-link a69 r1.70 10Mbps 10ms
+set duplex-link a70 r1.71 10Mbps 10ms
+set duplex-link a71 r1.72 10Mbps 10ms
+set duplex-link a72 r1.73 10Mbps 10ms
+set duplex-link a73 r1.74 10Mbps 10ms
+set duplex-link a74 r1.75 10Mbps 10ms
+set duplex-link a75 r1.76 10Mbps 10ms
+set duplex-link a76 r1.77 10Mbps 10ms
+set duplex-link a77 r1.78 10Mbps 10ms
+set duplex-link a78 r1.79 10Mbps 10ms
+set duplex-link a79 r1.80 10Mbps 10ms
+set duplex-link a80 r1.81 10Mbps 10ms
+set duplex-link a81 r1.82 10Mbps 10ms
+set duplex-link a82 r1.83 10Mbps 10ms
+set duplex-link a83 r1.84 10Mbps 10ms
+set duplex-link a84 r1.85 10Mbps 10ms
+set duplex-link a85 r1.86 10Mbps 10ms
+set duplex-link a86 r1.87 10Mbps 10ms
+set duplex-link a87 r1.88 10Mbps 10ms
+set duplex-link a88 r1.89 10Mbps 10ms
+set duplex-link a89 r1.90 10Mbps 10ms
+set duplex-link a90 r1.91 10Mbps 10ms
+set duplex-link a91 r1.92 10Mbps 10ms
+set duplex-link a92 r1.93 10Mbps 10ms
+set duplex-link a93 r1.94 10Mbps 10ms
+set duplex-link a94 r1.95 10Mbps 10ms
+set duplex-link a95 r1.96 10Mbps 10ms
+set duplex-link a96 r1.97 10Mbps 10ms
+set duplex-link a97 r1.98 10Mbps 10ms
+set duplex-link a98 r1.99 10Mbps 10ms
+set duplex-link a99 r1.100 10Mbps 10ms
+set duplex-link a100 r1.101 10Mbps 10ms
+set duplex-link a101 r1.102 10Mbps 10ms
+set duplex-link a102 r1.103 10Mbps 10ms
+set duplex-link a103 r1.104 10Mbps 10ms
+set duplex-link a104 r1.105 10Mbps 10ms
+set duplex-link a105 r1.106 10Mbps 10ms
+set duplex-link a106 r1.107 10Mbps 10ms
+set duplex-link a107 r1.108 10Mbps 10ms
+set duplex-link a108 r1.109 10Mbps 10ms
+set duplex-link a109 r1.110 10Mbps 10ms
+set duplex-link a110 r1.111 10Mbps 10ms
+set duplex-link a111 r1.112 10Mbps 10ms
+set duplex-link a112 r1.113 10Mbps 10ms
+set duplex-link a113 r1.114 10Mbps 10ms
+set duplex-link a114 r1.115 10Mbps 10ms
+set duplex-link a115 r1.116 10Mbps 10ms
+set duplex-link a116 r1.117 10Mbps 10ms
+set duplex-link a117 r1.118 10Mbps 10ms
+set duplex-link a118 r1.119 10Mbps 10ms
+set duplex-link a119 r1.120 10Mbps 10ms
+set duplex-link a120 r1.121 10Mbps 10ms
+set duplex-link a121 r1.122 10Mbps 10ms
+set duplex-link a122 r1.123 10Mbps 10ms
+set duplex-link a123 r1.124 10Mbps 10ms
+set duplex-link a124 r1.125 10Mbps 10ms
+set duplex-link a125 r1.126 10Mbps 10ms
+set duplex-link a126 r1.127 10Mbps 10ms
+set duplex-link a127 r1.128 10Mbps 10ms
+set duplex-link a128 r1.129 10Mbps 10ms
+set duplex-link a129 r1.130 10Mbps 10ms
+set duplex-link a130 r1.131 10Mbps 10ms
+set duplex-link a131 r1.132 10Mbps 10ms
+set duplex-link a132 r1.133 10Mbps 10ms
+set duplex-link a133 r1.134 10Mbps 10ms
+set duplex-link a134 r1.135 10Mbps 10ms
+set duplex-link a135 r1.136 10Mbps 10ms
+set duplex-link a136 r1.137 10Mbps 10ms
+set duplex-link a137 r1.138 10Mbps 10ms
+set duplex-link a138 r1.139 10Mbps 10ms
+set duplex-link a139 r1.140 10Mbps 10ms
+set duplex-link a140 r1.141 10Mbps 10ms
+set duplex-link a141 r1.142 10Mbps 10ms
+set duplex-link a142 r1.143 10Mbps 10ms
+set duplex-link a143 r1.144 10Mbps 10ms
+set duplex-link a144 r1.145 10Mbps 10ms
+set duplex-link a145 r1.146 10Mbps 10ms
+set duplex-link a146 r1.147 10Mbps 10ms
+set duplex-link a147 r1.148 10Mbps 10ms
+set duplex-link a148 r1.149 10Mbps 10ms
+set duplex-link a149 r1.150 10Mbps 10ms
+set duplex-link a150 r1.151 10Mbps 10ms
+set duplex-link a151 r1.152 10Mbps 10ms
+set duplex-link a152 r1.153 10Mbps 10ms
+set duplex-link a153 r1.154 10Mbps 10ms
+set duplex-link a154 r1.155 10Mbps 10ms
+set duplex-link a155 r1.156 10Mbps 10ms
+set duplex-link a156 r1.157 10Mbps 10ms
+set duplex-link a157 r1.158 10Mbps 10ms
+set duplex-link a158 r1.159 10Mbps 10ms
+set duplex-link a159 r1.160 10Mbps 10ms
+set duplex-link a160 r1.161 10Mbps 10ms
+set duplex-link a161 r1.162 10Mbps 10ms
+set duplex-link a162 r1.163 10Mbps 10ms
+set duplex-link a163 r1.164 10Mbps 10ms
+set duplex-link a164 r1.165 10Mbps 10ms
+set duplex-link a165 r1.166 10Mbps 10ms
+set duplex-link a166 r1.167 10Mbps 10ms
+set duplex-link a167 r1.168 10Mbps 10ms
+set duplex-link a168 r1.169 10Mbps 10ms
+set duplex-link a169 r1.170 10Mbps 10ms
+set duplex-link a170 r1.171 10Mbps 10ms
+set duplex-link a171 r1.172 10Mbps 10ms
+set duplex-link a172 r1.173 10Mbps 10ms
+set duplex-link a173 r1.174 10Mbps 10ms
+set duplex-link a174 r1.175 10Mbps 10ms
+set duplex-link a175 r1.176 10Mbps 10ms
+set duplex-link a176 r1.177 10Mbps 10ms
+set duplex-link a177 r1.178 10Mbps 10ms
+set duplex-link a178 r1.179 10Mbps 10ms
+set duplex-link a179 r1.180 10Mbps 10ms
+set duplex-link a180 r1.181 10Mbps 10ms
+set duplex-link a181 r1.182 10Mbps 10ms
+set duplex-link a182 r1.183 10Mbps 10ms
+set duplex-link a183 r1.184 10Mbps 10ms
+set duplex-link a184 r1.185 10Mbps 10ms
+set duplex-link a185 r1.186 10Mbps 10ms
+set duplex-link a186 r1.187 10Mbps 10ms
+set duplex-link a187 r1.188 10Mbps 10ms
+set duplex-link a188 r1.189 10Mbps 10ms
+set duplex-link a189 r1.190 10Mbps 10ms
+set duplex-link a190 r1.191 10Mbps 10ms
+set duplex-link a191 r1.192 10Mbps 10ms
+set duplex-link a192 r1.193 10Mbps 10ms
+set duplex-link a193 r1.194 10Mbps 10ms
+set duplex-link a194 r1.195 10Mbps 10ms
+set duplex-link a195 r1.196 10Mbps 10ms
+set duplex-link a196 r1.197 10Mbps 10ms
+set duplex-link a197 r1.198 10Mbps 10ms
+set duplex-link a198 r1.199 10Mbps 10ms
+set duplex-link a199 r1.200 10Mbps 10ms
+#set duplex-link r0.3 r2.0 10Mbps 10ms
 
 # Configuração dos hosts: endereço IP do computador, endereço IP do
 # roteador padrão e endereço IP do servidor DNS
+set ip a0 10.2.0.2 10.2.0.1 192.168.1.1
+set ip a1 10.2.1.2 10.2.1.1 192.168.1.1
+set ip a2 10.2.2.2 10.2.2.1 192.168.1.1
+set ip a3 10.2.3.2 10.2.3.1 192.168.1.1
+set ip a4 10.2.4.2 10.2.4.1 192.168.1.1
+set ip a5 10.2.5.2 10.2.5.1 192.168.1.1
+set ip a6 10.2.6.2 10.2.6.1 192.168.1.1
+set ip a7 10.2.7.2 10.2.7.1 192.168.1.1
+set ip a8 10.2.8.2 10.2.8.1 192.168.1.1
+set ip a9 10.2.9.2 10.2.9.1 192.168.1.1
+set ip a10 10.2.10.2 10.2.10.1 192.168.1.1
+set ip a11 10.2.11.2 10.2.11.1 192.168.1.1
+set ip a12 10.2.12.2 10.2.12.1 192.168.1.1
+set ip a13 10.2.13.2 10.2.13.1 192.168.1.1
+set ip a14 10.2.14.2 10.2.14.1 192.168.1.1
+set ip a15 10.2.15.2 10.2.15.1 192.168.1.1
+set ip a16 10.2.16.2 10.2.16.1 192.168.1.1
+set ip a17 10.2.17.2 10.2.17.1 192.168.1.1
+set ip a18 10.2.18.2 10.2.18.1 192.168.1.1
+set ip a19 10.2.19.2 10.2.19.1 192.168.1.1
+set ip a20 10.2.20.2 10.2.20.1 192.168.1.1
+set ip a21 10.2.21.2 10.2.21.1 192.168.1.1
+set ip a22 10.2.22.2 10.2.22.1 192.168.1.1
+set ip a23 10.2.23.2 10.2.23.1 192.168.1.1
+set ip a24 10.2.24.2 10.2.24.1 192.168.1.1
+set ip a25 10.2.25.2 10.2.25.1 192.168.1.1
+set ip a26 10.2.26.2 10.2.26.1 192.168.1.1
+set ip a27 10.2.27.2 10.2.27.1 192.168.1.1
+set ip a28 10.2.28.2 10.2.28.1 192.168.1.1
+set ip a29 10.2.29.2 10.2.29.1 192.168.1.1
+set ip a30 10.2.30.2 10.2.30.1 192.168.1.1
+set ip a31 10.2.31.2 10.2.31.1 192.168.1.1
+set ip a32 10.2.32.2 10.2.32.1 192.168.1.1
+set ip a33 10.2.33.2 10.2.33.1 192.168.1.1
+set ip a34 10.2.34.2 10.2.34.1 192.168.1.1
+set ip a35 10.2.35.2 10.2.35.1 192.168.1.1
+set ip a36 10.2.36.2 10.2.36.1 192.168.1.1
+set ip a37 10.2.37.2 10.2.37.1 192.168.1.1
+set ip a38 10.2.38.2 10.2.38.1 192.168.1.1
+set ip a39 10.2.39.2 10.2.39.1 192.168.1.1
+set ip a40 10.2.40.2 10.2.40.1 192.168.1.1
+set ip a41 10.2.41.2 10.2.41.1 192.168.1.1
+set ip a42 10.2.42.2 10.2.42.1 192.168.1.1
+set ip a43 10.2.43.2 10.2.43.1 192.168.1.1
+set ip a44 10.2.44.2 10.2.44.1 192.168.1.1
+set ip a45 10.2.45.2 10.2.45.1 192.168.1.1
+set ip a46 10.2.46.2 10.2.46.1 192.168.1.1
+set ip a47 10.2.47.2 10.2.47.1 192.168.1.1
+set ip a48 10.2.48.2 10.2.48.1 192.168.1.1
+set ip a49 10.2.49.2 10.2.49.1 192.168.1.1
+set ip a50 10.2.50.2 10.2.50.1 192.168.1.1
+set ip a51 10.2.51.2 10.2.51.1 192.168.1.1
+set ip a52 10.2.52.2 10.2.52.1 192.168.1.1
+set ip a53 10.2.53.2 10.2.53.1 192.168.1.1
+set ip a54 10.2.54.2 10.2.54.1 192.168.1.1
+set ip a55 10.2.55.2 10.2.55.1 192.168.1.1
+set ip a56 10.2.56.2 10.2.56.1 192.168.1.1
+set ip a57 10.2.57.2 10.2.57.1 192.168.1.1
+set ip a58 10.2.58.2 10.2.58.1 192.168.1.1
+set ip a59 10.2.59.2 10.2.59.1 192.168.1.1
+set ip a60 10.2.60.2 10.2.60.1 192.168.1.1
+set ip a61 10.2.61.2 10.2.61.1 192.168.1.1
+set ip a62 10.2.62.2 10.2.62.1 192.168.1.1
+set ip a63 10.2.63.2 10.2.63.1 192.168.1.1
+set ip a64 10.2.64.2 10.2.64.1 192.168.1.1
+set ip a65 10.2.65.2 10.2.65.1 192.168.1.1
+set ip a66 10.2.66.2 10.2.66.1 192.168.1.1
+set ip a67 10.2.67.2 10.2.67.1 192.168.1.1
+set ip a68 10.2.68.2 10.2.68.1 192.168.1.1
+set ip a69 10.2.69.2 10.2.69.1 192.168.1.1
+set ip a70 10.2.70.2 10.2.70.1 192.168.1.1
+set ip a71 10.2.71.2 10.2.71.1 192.168.1.1
+set ip a72 10.2.72.2 10.2.72.1 192.168.1.1
+set ip a73 10.2.73.2 10.2.73.1 192.168.1.1
+set ip a74 10.2.74.2 10.2.74.1 192.168.1.1
+set ip a75 10.2.75.2 10.2.75.1 192.168.1.1
+set ip a76 10.2.76.2 10.2.76.1 192.168.1.1
+set ip a77 10.2.77.2 10.2.77.1 192.168.1.1
+set ip a78 10.2.78.2 10.2.78.1 192.168.1.1
+set ip a79 10.2.79.2 10.2.79.1 192.168.1.1
+set ip a80 10.2.80.2 10.2.80.1 192.168.1.1
+set ip a81 10.2.81.2 10.2.81.1 192.168.1.1
+set ip a82 10.2.82.2 10.2.82.1 192.168.1.1
+set ip a83 10.2.83.2 10.2.83.1 192.168.1.1
+set ip a84 10.2.84.2 10.2.84.1 192.168.1.1
+set ip a85 10.2.85.2 10.2.85.1 192.168.1.1
+set ip a86 10.2.86.2 10.2.86.1 192.168.1.1
+set ip a87 10.2.87.2 10.2.87.1 192.168.1.1
+set ip a88 10.2.88.2 10.2.88.1 192.168.1.1
+set ip a89 10.2.89.2 10.2.89.1 192.168.1.1
+set ip a90 10.2.90.2 10.2.90.1 192.168.1.1
+set ip a91 10.2.91.2 10.2.91.1 192.168.1.1
+set ip a92 10.2.92.2 10.2.92.1 192.168.1.1
+set ip a93 10.2.93.2 10.2.93.1 192.168.1.1
+set ip a94 10.2.94.2 10.2.94.1 192.168.1.1
+set ip a95 10.2.95.2 10.2.95.1 192.168.1.1
+set ip a96 10.2.96.2 10.2.96.1 192.168.1.1
+set ip a97 10.2.97.2 10.2.97.1 192.168.1.1
+set ip a98 10.2.98.2 10.2.98.1 192.168.1.1
+set ip a99 10.2.99.2 10.2.99.1 192.168.1.1
+set ip a100 10.2.100.2 10.2.100.1 192.168.1.1
+set ip a101 10.2.101.2 10.2.101.1 192.168.1.1
+set ip a102 10.2.102.2 10.2.102.1 192.168.1.1
+set ip a103 10.2.103.2 10.2.103.1 192.168.1.1
+set ip a104 10.2.104.2 10.2.104.1 192.168.1.1
+set ip a105 10.2.105.2 10.2.105.1 192.168.1.1
+set ip a106 10.2.106.2 10.2.106.1 192.168.1.1
+set ip a107 10.2.107.2 10.2.107.1 192.168.1.1
+set ip a108 10.2.108.2 10.2.108.1 192.168.1.1
+set ip a109 10.2.109.2 10.2.109.1 192.168.1.1
+set ip a110 10.2.110.2 10.2.110.1 192.168.1.1
+set ip a111 10.2.111.2 10.2.111.1 192.168.1.1
+set ip a112 10.2.112.2 10.2.112.1 192.168.1.1
+set ip a113 10.2.113.2 10.2.113.1 192.168.1.1
+set ip a114 10.2.114.2 10.2.114.1 192.168.1.1
+set ip a115 10.2.115.2 10.2.115.1 192.168.1.1
+set ip a116 10.2.116.2 10.2.116.1 192.168.1.1
+set ip a117 10.2.117.2 10.2.117.1 192.168.1.1
+set ip a118 10.2.118.2 10.2.118.1 192.168.1.1
+set ip a119 10.2.119.2 10.2.119.1 192.168.1.1
+set ip a120 10.2.120.2 10.2.120.1 192.168.1.1
+set ip a121 10.2.121.2 10.2.121.1 192.168.1.1
+set ip a122 10.2.122.2 10.2.122.1 192.168.1.1
+set ip a123 10.2.123.2 10.2.123.1 192.168.1.1
+set ip a124 10.2.124.2 10.2.124.1 192.168.1.1
+set ip a125 10.2.125.2 10.2.125.1 192.168.1.1
+set ip a126 10.2.126.2 10.2.126.1 192.168.1.1
+set ip a127 10.2.127.2 10.2.127.1 192.168.1.1
+set ip a128 10.2.128.2 10.2.128.1 192.168.1.1
+set ip a129 10.2.129.2 10.2.129.1 192.168.1.1
+set ip a130 10.2.130.2 10.2.130.1 192.168.1.1
+set ip a131 10.2.131.2 10.2.131.1 192.168.1.1
+set ip a132 10.2.132.2 10.2.132.1 192.168.1.1
+set ip a133 10.2.133.2 10.2.133.1 192.168.1.1
+set ip a134 10.2.134.2 10.2.134.1 192.168.1.1
+set ip a135 10.2.135.2 10.2.135.1 192.168.1.1
+set ip a136 10.2.136.2 10.2.136.1 192.168.1.1
+set ip a137 10.2.137.2 10.2.137.1 192.168.1.1
+set ip a138 10.2.138.2 10.2.138.1 192.168.1.1
+set ip a139 10.2.139.2 10.2.139.1 192.168.1.1
+set ip a140 10.2.140.2 10.2.140.1 192.168.1.1
+set ip a141 10.2.141.2 10.2.141.1 192.168.1.1
+set ip a142 10.2.142.2 10.2.142.1 192.168.1.1
+set ip a143 10.2.143.2 10.2.143.1 192.168.1.1
+set ip a144 10.2.144.2 10.2.144.1 192.168.1.1
+set ip a145 10.2.145.2 10.2.145.1 192.168.1.1
+set ip a146 10.2.146.2 10.2.146.1 192.168.1.1
+set ip a147 10.2.147.2 10.2.147.1 192.168.1.1
+set ip a148 10.2.148.2 10.2.148.1 192.168.1.1
+set ip a149 10.2.149.2 10.2.149.1 192.168.1.1
+set ip a150 10.2.150.2 10.2.150.1 192.168.1.1
+set ip a151 10.2.151.2 10.2.151.1 192.168.1.1
+set ip a152 10.2.152.2 10.2.152.1 192.168.1.1
+set ip a153 10.2.153.2 10.2.153.1 192.168.1.1
+set ip a154 10.2.154.2 10.2.154.1 192.168.1.1
+set ip a155 10.2.155.2 10.2.155.1 192.168.1.1
+set ip a156 10.2.156.2 10.2.156.1 192.168.1.1
+set ip a157 10.2.157.2 10.2.157.1 192.168.1.1
+set ip a158 10.2.158.2 10.2.158.1 192.168.1.1
+set ip a159 10.2.159.2 10.2.159.1 192.168.1.1
+set ip a160 10.2.160.2 10.2.160.1 192.168.1.1
+set ip a161 10.2.161.2 10.2.161.1 192.168.1.1
+set ip a162 10.2.162.2 10.2.162.1 192.168.1.1
+set ip a163 10.2.163.2 10.2.163.1 192.168.1.1
+set ip a164 10.2.164.2 10.2.164.1 192.168.1.1
+set ip a165 10.2.165.2 10.2.165.1 192.168.1.1
+set ip a166 10.2.166.2 10.2.166.1 192.168.1.1
+set ip a167 10.2.167.2 10.2.167.1 192.168.1.1
+set ip a168 10.2.168.2 10.2.168.1 192.168.1.1
+set ip a169 10.2.169.2 10.2.169.1 192.168.1.1
+set ip a170 10.2.170.2 10.2.170.1 192.168.1.1
+set ip a171 10.2.171.2 10.2.171.1 192.168.1.1
+set ip a172 10.2.172.2 10.2.172.1 192.168.1.1
+set ip a173 10.2.173.2 10.2.173.1 192.168.1.1
+set ip a174 10.2.174.2 10.2.174.1 192.168.1.1
+set ip a175 10.2.175.2 10.2.175.1 192.168.1.1
+set ip a176 10.2.176.2 10.2.176.1 192.168.1.1
+set ip a177 10.2.177.2 10.2.177.1 192.168.1.1
+set ip a178 10.2.178.2 10.2.178.1 192.168.1.1
+set ip a179 10.2.179.2 10.2.179.1 192.168.1.1
+set ip a180 10.2.180.2 10.2.180.1 192.168.1.1
+set ip a181 10.2.181.2 10.2.181.1 192.168.1.1
+set ip a182 10.2.182.2 10.2.182.1 192.168.1.1
+set ip a183 10.2.183.2 10.2.183.1 192.168.1.1
+set ip a184 10.2.184.2 10.2.184.1 192.168.1.1
+set ip a185 10.2.185.2 10.2.185.1 192.168.1.1
+set ip a186 10.2.186.2 10.2.186.1 192.168.1.1
+set ip a187 10.2.187.2 10.2.187.1 192.168.1.1
+set ip a188 10.2.188.2 10.2.188.1 192.168.1.1
+set ip a189 10.2.189.2 10.2.189.1 192.168.1.1
+set ip a190 10.2.190.2 10.2.190.1 192.168.1.1
+set ip a191 10.2.191.2 10.2.191.1 192.168.1.1
+set ip a192 10.2.192.2 10.2.192.1 192.168.1.1
+set ip a193 10.2.193.2 10.2.193.1 192.168.1.1
+set ip a194 10.2.194.2 10.2.194.1 192.168.1.1
+set ip a195 10.2.195.2 10.2.195.1 192.168.1.1
+set ip a196 10.2.196.2 10.2.196.1 192.168.1.1
+set ip a197 10.2.197.2 10.2.197.1 192.168.1.1
+set ip a198 10.2.198.2 10.2.198.1 192.168.1.1
+set ip a199 10.2.199.2 10.2.199.1 192.168.1.1
 
-set ip a0 10.0.0.1 10.0.0.250 192.168.1.1
-set ip a1 10.0.1.1 10.0.1.250 192.168.1.1
-set ip a2 10.0.2.1 10.0.2.250 192.168.1.1
-set ip a3 10.0.3.1 10.0.3.250 192.168.1.1
-set ip a4 10.0.4.1 10.0.4.250 192.168.1.1
-set ip a5 10.0.5.1 10.0.5.250 192.168.1.1
-set ip a6 10.0.6.1 10.0.6.250 192.168.1.1
-set ip a7 10.0.7.1 10.0.7.250 192.168.1.1
-set ip a8 10.0.8.1 10.0.8.250 192.168.1.1
-set ip a9 10.0.9.1 10.0.9.250 192.168.1.1
-set ip a10 10.0.10.1 10.0.10.250 192.168.1.1
-set ip a11 10.0.11.1 10.0.11.250 192.168.1.1
-set ip a12 10.0.12.1 10.0.12.250 192.168.1.1
-set ip a13 10.0.13.1 10.0.13.250 192.168.1.1
-set ip a14 10.0.14.1 10.0.14.250 192.168.1.1
-set ip a15 10.0.15.1 10.0.15.250 192.168.1.1
-set ip a16 10.0.16.1 10.0.16.250 192.168.1.1
-set ip a17 10.0.17.1 10.0.17.250 192.168.1.1
-set ip a18 10.0.18.1 10.0.18.250 192.168.1.1
-set ip a19 10.0.19.1 10.0.19.250 192.168.1.1
-set ip a20 10.0.20.1 10.0.20.250 192.168.1.1
-set ip a21 10.0.21.1 10.0.21.250 192.168.1.1
-set ip a22 10.0.22.1 10.0.22.250 192.168.1.1
-set ip a23 10.0.23.1 10.0.23.250 192.168.1.1
-set ip a24 10.0.24.1 10.0.24.250 192.168.1.1
-set ip a25 10.0.25.1 10.0.25.250 192.168.1.1
-set ip a26 10.0.26.1 10.0.26.250 192.168.1.1
-set ip a27 10.0.27.1 10.0.27.250 192.168.1.1
-set ip a28 10.0.28.1 10.0.28.250 192.168.1.1
-set ip a29 10.0.29.1 10.0.29.250 192.168.1.1
-set ip a30 10.0.30.1 10.0.30.250 192.168.1.1
-set ip a31 10.0.31.1 10.0.31.250 192.168.1.1
-set ip a32 10.0.32.1 10.0.32.250 192.168.1.1
-set ip a33 10.0.33.1 10.0.33.250 192.168.1.1
-set ip a34 10.0.34.1 10.0.34.250 192.168.1.1
-set ip a35 10.0.35.1 10.0.35.250 192.168.1.1
-set ip a36 10.0.36.1 10.0.36.250 192.168.1.1
-set ip a37 10.0.37.1 10.0.37.250 192.168.1.1
-set ip a38 10.0.38.1 10.0.38.250 192.168.1.1
-set ip a39 10.0.39.1 10.0.39.250 192.168.1.1
-set ip a40 10.0.40.1 10.0.40.250 192.168.1.1
-set ip a41 10.0.41.1 10.0.41.250 192.168.1.1
-set ip a42 10.0.42.1 10.0.42.250 192.168.1.1
-set ip a43 10.0.43.1 10.0.43.250 192.168.1.1
-set ip a44 10.0.44.1 10.0.44.250 192.168.1.1
-set ip a45 10.0.45.1 10.0.45.250 192.168.1.1
-set ip a46 10.0.46.1 10.0.46.250 192.168.1.1
-set ip a47 10.0.47.1 10.0.47.250 192.168.1.1
-set ip a48 10.0.48.1 10.0.48.250 192.168.1.1
-set ip a49 10.0.49.1 10.0.49.250 192.168.1.1
-set ip a50 10.0.50.1 10.0.50.250 192.168.1.1
-set ip a51 10.0.51.1 10.0.51.250 192.168.1.1
-set ip a52 10.0.52.1 10.0.52.250 192.168.1.1
-set ip a53 10.0.53.1 10.0.53.250 192.168.1.1
-set ip a54 10.0.54.1 10.0.54.250 192.168.1.1
-set ip a55 10.0.55.1 10.0.55.250 192.168.1.1
-set ip a56 10.0.56.1 10.0.56.250 192.168.1.1
-set ip a57 10.0.57.1 10.0.57.250 192.168.1.1
-set ip a58 10.0.58.1 10.0.58.250 192.168.1.1
-set ip a59 10.0.59.1 10.0.59.250 192.168.1.1
-set ip a60 10.0.60.1 10.0.60.250 192.168.1.1
-set ip a61 10.0.61.1 10.0.61.250 192.168.1.1
-set ip a62 10.0.62.1 10.0.62.250 192.168.1.1
-set ip a63 10.0.63.1 10.0.63.250 192.168.1.1
-set ip a64 10.0.64.1 10.0.64.250 192.168.1.1
-set ip a65 10.0.65.1 10.0.65.250 192.168.1.1
-set ip a66 10.0.66.1 10.0.66.250 192.168.1.1
-set ip a67 10.0.67.1 10.0.67.250 192.168.1.1
-set ip a68 10.0.68.1 10.0.68.250 192.168.1.1
-set ip a69 10.0.69.1 10.0.69.250 192.168.1.1
-set ip a70 10.0.70.1 10.0.70.250 192.168.1.1
-set ip a71 10.0.71.1 10.0.71.250 192.168.1.1
-set ip a72 10.0.72.1 10.0.72.250 192.168.1.1
-set ip a73 10.0.73.1 10.0.73.250 192.168.1.1
-set ip a74 10.0.74.1 10.0.74.250 192.168.1.1
-set ip a75 10.0.75.1 10.0.75.250 192.168.1.1
-set ip a76 10.0.76.1 10.0.76.250 192.168.1.1
-set ip a77 10.0.77.1 10.0.77.250 192.168.1.1
-set ip a78 10.0.78.1 10.0.78.250 192.168.1.1
-set ip a79 10.0.79.1 10.0.79.250 192.168.1.1
-set ip a80 10.0.80.1 10.0.80.250 192.168.1.1
-set ip a81 10.0.81.1 10.0.81.250 192.168.1.1
-set ip a82 10.0.82.1 10.0.82.250 192.168.1.1
-set ip a83 10.0.83.1 10.0.83.250 192.168.1.1
-set ip a84 10.0.84.1 10.0.84.250 192.168.1.1
-set ip a85 10.0.85.1 10.0.85.250 192.168.1.1
-set ip a86 10.0.86.1 10.0.86.250 192.168.1.1
-set ip a87 10.0.87.1 10.0.87.250 192.168.1.1
-set ip a88 10.0.88.1 10.0.88.250 192.168.1.1
-set ip a89 10.0.89.1 10.0.89.250 192.168.1.1
-set ip a90 10.0.90.1 10.0.90.250 192.168.1.1
-set ip a91 10.0.91.1 10.0.91.250 192.168.1.1
-set ip a92 10.0.92.1 10.0.92.250 192.168.1.1
-set ip a93 10.0.93.1 10.0.93.250 192.168.1.1
-set ip a94 10.0.94.1 10.0.94.250 192.168.1.1
-set ip a95 10.0.95.1 10.0.95.250 192.168.1.1
-set ip a96 10.0.96.1 10.0.96.250 192.168.1.1
-set ip a97 10.0.97.1 10.0.97.250 192.168.1.1
-set ip a98 10.0.98.1 10.0.98.250 192.168.1.1
-set ip a99 10.0.99.1 10.0.99.250 192.168.1.1
-set ip a100 10.0.100.1 10.0.100.250 192.168.1.1
-set ip a101 10.0.101.1 10.0.101.250 192.168.1.1
-set ip a102 10.0.102.1 10.0.102.250 192.168.1.1
-set ip a103 10.0.103.1 10.0.103.250 192.168.1.1
-set ip a104 10.0.104.1 10.0.104.250 192.168.1.1
-set ip a105 10.0.105.1 10.0.105.250 192.168.1.1
-set ip a106 10.0.106.1 10.0.106.250 192.168.1.1
-set ip a107 10.0.107.1 10.0.107.250 192.168.1.1
-set ip a108 10.0.108.1 10.0.108.250 192.168.1.1
-set ip a109 10.0.109.1 10.0.109.250 192.168.1.1
-set ip a110 10.0.110.1 10.0.110.250 192.168.1.1
-set ip a111 10.0.111.1 10.0.111.250 192.168.1.1
-set ip a112 10.0.112.1 10.0.112.250 192.168.1.1
-set ip a113 10.0.113.1 10.0.113.250 192.168.1.1
-set ip a114 10.0.114.1 10.0.114.250 192.168.1.1
-set ip a115 10.0.115.1 10.0.115.250 192.168.1.1
-set ip a116 10.0.116.1 10.0.116.250 192.168.1.1
-set ip a117 10.0.117.1 10.0.117.250 192.168.1.1
-set ip a118 10.0.118.1 10.0.118.250 192.168.1.1
-set ip a119 10.0.119.1 10.0.119.250 192.168.1.1
-set ip a120 10.0.120.1 10.0.120.250 192.168.1.1
-set ip a121 10.0.121.1 10.0.121.250 192.168.1.1
-set ip a122 10.0.122.1 10.0.122.250 192.168.1.1
-set ip a123 10.0.123.1 10.0.123.250 192.168.1.1
-set ip a124 10.0.124.1 10.0.124.250 192.168.1.1
-set ip a125 10.0.125.1 10.0.125.250 192.168.1.1
-set ip a126 10.0.126.1 10.0.126.250 192.168.1.1
-set ip a127 10.0.127.1 10.0.127.250 192.168.1.1
-set ip a128 10.0.128.1 10.0.128.250 192.168.1.1
-set ip a129 10.0.129.1 10.0.129.250 192.168.1.1
-set ip a130 10.0.130.1 10.0.130.250 192.168.1.1
-set ip a131 10.0.131.1 10.0.131.250 192.168.1.1
-set ip a132 10.0.132.1 10.0.132.250 192.168.1.1
-set ip a133 10.0.133.1 10.0.133.250 192.168.1.1
-set ip a134 10.0.134.1 10.0.134.250 192.168.1.1
-set ip a135 10.0.135.1 10.0.135.250 192.168.1.1
-set ip a136 10.0.136.1 10.0.136.250 192.168.1.1
-set ip a137 10.0.137.1 10.0.137.250 192.168.1.1
-set ip a138 10.0.138.1 10.0.138.250 192.168.1.1
-set ip a139 10.0.139.1 10.0.139.250 192.168.1.1
-set ip a140 10.0.140.1 10.0.140.250 192.168.1.1
-set ip a141 10.0.141.1 10.0.141.250 192.168.1.1
-set ip a142 10.0.142.1 10.0.142.250 192.168.1.1
-set ip a143 10.0.143.1 10.0.143.250 192.168.1.1
-set ip a144 10.0.144.1 10.0.144.250 192.168.1.1
-set ip a145 10.0.145.1 10.0.145.250 192.168.1.1
-set ip a146 10.0.146.1 10.0.146.250 192.168.1.1
-set ip a147 10.0.147.1 10.0.147.250 192.168.1.1
-set ip a148 10.0.148.1 10.0.148.250 192.168.1.1
-set ip a149 10.0.149.1 10.0.149.250 192.168.1.1
-set ip a150 10.0.150.1 10.0.150.250 192.168.1.1
-set ip a151 10.0.151.1 10.0.151.250 192.168.1.1
-set ip a152 10.0.152.1 10.0.152.250 192.168.1.1
-set ip a153 10.0.153.1 10.0.153.250 192.168.1.1
-set ip a154 10.0.154.1 10.0.154.250 192.168.1.1
-set ip a155 10.0.155.1 10.0.155.250 192.168.1.1
-set ip a156 10.0.156.1 10.0.156.250 192.168.1.1
-set ip a157 10.0.157.1 10.0.157.250 192.168.1.1
-set ip a158 10.0.158.1 10.0.158.250 192.168.1.1
-set ip a159 10.0.159.1 10.0.159.250 192.168.1.1
-set ip a160 10.0.160.1 10.0.160.250 192.168.1.1
-set ip a161 10.0.161.1 10.0.161.250 192.168.1.1
-set ip a162 10.0.162.1 10.0.162.250 192.168.1.1
-set ip a163 10.0.163.1 10.0.163.250 192.168.1.1
-set ip a164 10.0.164.1 10.0.164.250 192.168.1.1
-set ip a165 10.0.165.1 10.0.165.250 192.168.1.1
-set ip a166 10.0.166.1 10.0.166.250 192.168.1.1
-set ip a167 10.0.167.1 10.0.167.250 192.168.1.1
-set ip a168 10.0.168.1 10.0.168.250 192.168.1.1
-set ip a169 10.0.169.1 10.0.169.250 192.168.1.1
-set ip a170 10.0.170.1 10.0.170.250 192.168.1.1
-set ip a171 10.0.171.1 10.0.171.250 192.168.1.1
-set ip a172 10.0.172.1 10.0.172.250 192.168.1.1
-set ip a173 10.0.173.1 10.0.173.250 192.168.1.1
-set ip a174 10.0.174.1 10.0.174.250 192.168.1.1
-set ip a175 10.0.175.1 10.0.175.250 192.168.1.1
-set ip a176 10.0.176.1 10.0.176.250 192.168.1.1
-set ip a177 10.0.177.1 10.0.177.250 192.168.1.1
-set ip a178 10.0.178.1 10.0.178.250 192.168.1.1
-set ip a179 10.0.179.1 10.0.179.250 192.168.1.1
-set ip a180 10.0.180.1 10.0.180.250 192.168.1.1
-set ip a181 10.0.181.1 10.0.181.250 192.168.1.1
-set ip a182 10.0.182.1 10.0.182.250 192.168.1.1
-set ip a183 10.0.183.1 10.0.183.250 192.168.1.1
-set ip a184 10.0.184.1 10.0.184.250 192.168.1.1
-set ip a185 10.0.185.1 10.0.185.250 192.168.1.1
-set ip a186 10.0.186.1 10.0.186.250 192.168.1.1
-set ip a187 10.0.187.1 10.0.187.250 192.168.1.1
-set ip a188 10.0.188.1 10.0.188.250 192.168.1.1
-set ip a189 10.0.189.1 10.0.189.250 192.168.1.1
-set ip a190 10.0.190.1 10.0.190.250 192.168.1.1
-set ip a191 10.0.191.1 10.0.191.250 192.168.1.1
-set ip a192 10.0.192.1 10.0.192.250 192.168.1.1
-set ip a193 10.0.193.1 10.0.193.250 192.168.1.1
-set ip a194 10.0.194.1 10.0.194.250 192.168.1.1
-set ip a195 10.0.195.1 10.0.195.250 192.168.1.1
-set ip a196 10.0.196.1 10.0.196.250 192.168.1.1
-set ip a197 10.0.197.1 10.0.197.250 192.168.1.1
-set ip a198 10.0.198.1 10.0.198.250 192.168.1.1
-set ip a199 10.0.199.1 10.0.199.250 192.168.1.1
-set ip a200 10.0.200.1 10.0.200.250 192.168.1.1
-set ip a201 10.0.201.1 10.0.201.250 192.168.1.1
-set ip a202 10.0.202.1 10.0.202.250 192.168.1.1
-set ip a203 10.0.203.1 10.0.203.250 192.168.1.1
-set ip a204 10.0.204.1 10.0.204.250 192.168.1.1
-set ip a205 10.0.205.1 10.0.205.250 192.168.1.1
-set ip a206 10.0.206.1 10.0.206.250 192.168.1.1
-set ip a207 10.0.207.1 10.0.207.250 192.168.1.1
-set ip a208 10.0.208.1 10.0.208.250 192.168.1.1
-set ip a209 10.0.209.1 10.0.209.250 192.168.1.1
-set ip a210 10.0.210.1 10.0.210.250 192.168.1.1
-set ip a211 10.0.211.1 10.0.211.250 192.168.1.1
-set ip a212 10.0.212.1 10.0.212.250 192.168.1.1
-set ip a213 10.0.213.1 10.0.213.250 192.168.1.1
-set ip a214 10.0.214.1 10.0.214.250 192.168.1.1
-set ip a215 10.0.215.1 10.0.215.250 192.168.1.1
-set ip a216 10.0.216.1 10.0.216.250 192.168.1.1
-set ip a217 10.0.217.1 10.0.217.250 192.168.1.1
-set ip a218 10.0.218.1 10.0.218.250 192.168.1.1
-set ip a219 10.0.219.1 10.0.219.250 192.168.1.1
-set ip a220 10.0.220.1 10.0.220.250 192.168.1.1
-set ip a221 10.0.221.1 10.0.221.250 192.168.1.1
-set ip a222 10.0.222.1 10.0.222.250 192.168.1.1
-set ip a223 10.0.223.1 10.0.223.250 192.168.1.1
-set ip a224 10.0.224.1 10.0.224.250 192.168.1.1
-set ip a225 10.0.225.1 10.0.225.250 192.168.1.1
-set ip a226 10.0.226.1 10.0.226.250 192.168.1.1
-set ip a227 10.0.227.1 10.0.227.250 192.168.1.1
-set ip a228 10.0.228.1 10.0.228.250 192.168.1.1
-set ip a229 10.0.229.1 10.0.229.250 192.168.1.1
-set ip a230 10.0.230.1 10.0.230.250 192.168.1.1
-set ip a231 10.0.231.1 10.0.231.250 192.168.1.1
-set ip a232 10.0.232.1 10.0.232.250 192.168.1.1
-set ip a233 10.0.233.1 10.0.233.250 192.168.1.1
-set ip a234 10.0.234.1 10.0.234.250 192.168.1.1
-set ip a235 10.0.235.1 10.0.235.250 192.168.1.1
-set ip a236 10.0.236.1 10.0.236.250 192.168.1.1
-set ip a237 10.0.237.1 10.0.237.250 192.168.1.1
-set ip a238 10.0.238.1 10.0.238.250 192.168.1.1
-set ip a239 10.0.239.1 10.0.239.250 192.168.1.1
-set ip a240 10.0.240.1 10.0.240.250 192.168.1.1
-set ip a241 10.0.241.1 10.0.241.250 192.168.1.1
-set ip a242 10.0.242.1 10.0.242.250 192.168.1.1
-set ip a243 10.0.243.1 10.0.243.250 192.168.1.1
-set ip a244 10.0.244.1 10.0.244.250 192.168.1.1
-set ip a245 10.0.245.1 10.0.245.250 192.168.1.1
-set ip a246 10.0.246.1 10.0.246.250 192.168.1.1
-set ip a247 10.0.247.1 10.0.247.250 192.168.1.1
-set ip a248 10.0.248.1 10.0.248.250 192.168.1.1
-set ip a249 10.0.249.1 10.0.249.250 192.168.1.1
+set ip z0 192.168.0.1 192.168.0.2 192.168.1.1
+set ip z1 192.168.1.1 192.168.1.2 1.1.1.1
 
+# Configuração dos roteadores
 
-set ip b0 10.1.0.1 10.1.0.250 192.168.1.1
-set ip b1 10.1.1.1 10.1.1.250 192.168.1.1
-set ip b2 10.1.2.1 10.1.2.250 192.168.1.1
-set ip b3 10.1.3.1 10.1.3.250 192.168.1.1
-set ip b4 10.1.4.1 10.1.4.250 192.168.1.1
-set ip b5 10.1.5.1 10.1.5.250 192.168.1.1
-set ip b6 10.1.6.1 10.1.6.250 192.168.1.1
-set ip b7 10.1.7.1 10.1.7.250 192.168.1.1
-set ip b8 10.1.8.1 10.1.8.250 192.168.1.1
-set ip b9 10.1.9.1 10.1.9.250 192.168.1.1
-set ip b10 10.1.10.1 10.1.10.250 192.168.1.1
-set ip b11 10.1.11.1 10.1.11.250 192.168.1.1
-set ip b12 10.1.12.1 10.1.12.250 192.168.1.1
-set ip b13 10.1.13.1 10.1.13.250 192.168.1.1
-set ip b14 10.1.14.1 10.1.14.250 192.168.1.1
-set ip b15 10.1.15.1 10.1.15.250 192.168.1.1
-set ip b16 10.1.16.1 10.1.16.250 192.168.1.1
-set ip b17 10.1.17.1 10.1.17.250 192.168.1.1
-set ip b18 10.1.18.1 10.1.18.250 192.168.1.1
-set ip b19 10.1.19.1 10.1.19.250 192.168.1.1
-set ip b20 10.1.20.1 10.1.20.250 192.168.1.1
-set ip b21 10.1.21.1 10.1.21.250 192.168.1.1
-set ip b22 10.1.22.1 10.1.22.250 192.168.1.1
-set ip b23 10.1.23.1 10.1.23.250 192.168.1.1
-set ip b24 10.1.24.1 10.1.24.250 192.168.1.1
-set ip b25 10.1.25.1 10.1.25.250 192.168.1.1
-set ip b26 10.1.26.1 10.1.26.250 192.168.1.1
-set ip b27 10.1.27.1 10.1.27.250 192.168.1.1
-set ip b28 10.1.28.1 10.1.28.250 192.168.1.1
-set ip b29 10.1.29.1 10.1.29.250 192.168.1.1
-set ip b30 10.1.30.1 10.1.30.250 192.168.1.1
-set ip b31 10.1.31.1 10.1.31.250 192.168.1.1
-set ip b32 10.1.32.1 10.1.32.250 192.168.1.1
-set ip b33 10.1.33.1 10.1.33.250 192.168.1.1
-set ip b34 10.1.34.1 10.1.34.250 192.168.1.1
-set ip b35 10.1.35.1 10.1.35.250 192.168.1.1
-set ip b36 10.1.36.1 10.1.36.250 192.168.1.1
-set ip b37 10.1.37.1 10.1.37.250 192.168.1.1
-set ip b38 10.1.38.1 10.1.38.250 192.168.1.1
-set ip b39 10.1.39.1 10.1.39.250 192.168.1.1
-set ip b40 10.1.40.1 10.1.40.250 192.168.1.1
-set ip b41 10.1.41.1 10.1.41.250 192.168.1.1
-set ip b42 10.1.42.1 10.1.42.250 192.168.1.1
-set ip b43 10.1.43.1 10.1.43.250 192.168.1.1
-set ip b44 10.1.44.1 10.1.44.250 192.168.1.1
-set ip b45 10.1.45.1 10.1.45.250 192.168.1.1
-set ip b46 10.1.46.1 10.1.46.250 192.168.1.1
-set ip b47 10.1.47.1 10.1.47.250 192.168.1.1
-set ip b48 10.1.48.1 10.1.48.250 192.168.1.1
-set ip b49 10.1.49.1 10.1.49.250 192.168.1.1
-set ip b50 10.1.50.1 10.1.50.250 192.168.1.1
-set ip b51 10.1.51.1 10.1.51.250 192.168.1.1
-set ip b52 10.1.52.1 10.1.52.250 192.168.1.1
-set ip b53 10.1.53.1 10.1.53.250 192.168.1.1
-set ip b54 10.1.54.1 10.1.54.250 192.168.1.1
-set ip b55 10.1.55.1 10.1.55.250 192.168.1.1
-set ip b56 10.1.56.1 10.1.56.250 192.168.1.1
-set ip b57 10.1.57.1 10.1.57.250 192.168.1.1
-set ip b58 10.1.58.1 10.1.58.250 192.168.1.1
-set ip b59 10.1.59.1 10.1.59.250 192.168.1.1
-set ip b60 10.1.60.1 10.1.60.250 192.168.1.1
-set ip b61 10.1.61.1 10.1.61.250 192.168.1.1
-set ip b62 10.1.62.1 10.1.62.250 192.168.1.1
-set ip b63 10.1.63.1 10.1.63.250 192.168.1.1
-set ip b64 10.1.64.1 10.1.64.250 192.168.1.1
-set ip b65 10.1.65.1 10.1.65.250 192.168.1.1
-set ip b66 10.1.66.1 10.1.66.250 192.168.1.1
-set ip b67 10.1.67.1 10.1.67.250 192.168.1.1
-set ip b68 10.1.68.1 10.1.68.250 192.168.1.1
-set ip b69 10.1.69.1 10.1.69.250 192.168.1.1
-set ip b70 10.1.70.1 10.1.70.250 192.168.1.1
-set ip b71 10.1.71.1 10.1.71.250 192.168.1.1
-set ip b72 10.1.72.1 10.1.72.250 192.168.1.1
-set ip b73 10.1.73.1 10.1.73.250 192.168.1.1
-set ip b74 10.1.74.1 10.1.74.250 192.168.1.1
-set ip b75 10.1.75.1 10.1.75.250 192.168.1.1
-set ip b76 10.1.76.1 10.1.76.250 192.168.1.1
-set ip b77 10.1.77.1 10.1.77.250 192.168.1.1
-set ip b78 10.1.78.1 10.1.78.250 192.168.1.1
-set ip b79 10.1.79.1 10.1.79.250 192.168.1.1
-set ip b80 10.1.80.1 10.1.80.250 192.168.1.1
-set ip b81 10.1.81.1 10.1.81.250 192.168.1.1
-set ip b82 10.1.82.1 10.1.82.250 192.168.1.1
-set ip b83 10.1.83.1 10.1.83.250 192.168.1.1
-set ip b84 10.1.84.1 10.1.84.250 192.168.1.1
-set ip b85 10.1.85.1 10.1.85.250 192.168.1.1
-set ip b86 10.1.86.1 10.1.86.250 192.168.1.1
-set ip b87 10.1.87.1 10.1.87.250 192.168.1.1
-set ip b88 10.1.88.1 10.1.88.250 192.168.1.1
-set ip b89 10.1.89.1 10.1.89.250 192.168.1.1
-set ip b90 10.1.90.1 10.1.90.250 192.168.1.1
-set ip b91 10.1.91.1 10.1.91.250 192.168.1.1
-set ip b92 10.1.92.1 10.1.92.250 192.168.1.1
-set ip b93 10.1.93.1 10.1.93.250 192.168.1.1
-set ip b94 10.1.94.1 10.1.94.250 192.168.1.1
-set ip b95 10.1.95.1 10.1.95.250 192.168.1.1
-set ip b96 10.1.96.1 10.1.96.250 192.168.1.1
-set ip b97 10.1.97.1 10.1.97.250 192.168.1.1
-set ip b98 10.1.98.1 10.1.98.250 192.168.1.1
-set ip b99 10.1.99.1 10.1.99.250 192.168.1.1
-set ip b100 10.1.100.1 10.1.100.250 192.168.1.1
-set ip b101 10.1.101.1 10.1.101.250 192.168.1.1
-set ip b102 10.1.102.1 10.1.102.250 192.168.1.1
-set ip b103 10.1.103.1 10.1.103.250 192.168.1.1
-set ip b104 10.1.104.1 10.1.104.250 192.168.1.1
-set ip b105 10.1.105.1 10.1.105.250 192.168.1.1
-set ip b106 10.1.106.1 10.1.106.250 192.168.1.1
-set ip b107 10.1.107.1 10.1.107.250 192.168.1.1
-set ip b108 10.1.108.1 10.1.108.250 192.168.1.1
-set ip b109 10.1.109.1 10.1.109.250 192.168.1.1
-set ip b110 10.1.110.1 10.1.110.250 192.168.1.1
-set ip b111 10.1.111.1 10.1.111.250 192.168.1.1
-set ip b112 10.1.112.1 10.1.112.250 192.168.1.1
-set ip b113 10.1.113.1 10.1.113.250 192.168.1.1
-set ip b114 10.1.114.1 10.1.114.250 192.168.1.1
-set ip b115 10.1.115.1 10.1.115.250 192.168.1.1
-set ip b116 10.1.116.1 10.1.116.250 192.168.1.1
-set ip b117 10.1.117.1 10.1.117.250 192.168.1.1
-set ip b118 10.1.118.1 10.1.118.250 192.168.1.1
-set ip b119 10.1.119.1 10.1.119.250 192.168.1.1
-set ip b120 10.1.120.1 10.1.120.250 192.168.1.1
-set ip b121 10.1.121.1 10.1.121.250 192.168.1.1
-set ip b122 10.1.122.1 10.1.122.250 192.168.1.1
-set ip b123 10.1.123.1 10.1.123.250 192.168.1.1
-set ip b124 10.1.124.1 10.1.124.250 192.168.1.1
-set ip b125 10.1.125.1 10.1.125.250 192.168.1.1
-set ip b126 10.1.126.1 10.1.126.250 192.168.1.1
-set ip b127 10.1.127.1 10.1.127.250 192.168.1.1
-set ip b128 10.1.128.1 10.1.128.250 192.168.1.1
-set ip b129 10.1.129.1 10.1.129.250 192.168.1.1
-set ip b130 10.1.130.1 10.1.130.250 192.168.1.1
-set ip b131 10.1.131.1 10.1.131.250 192.168.1.1
-set ip b132 10.1.132.1 10.1.132.250 192.168.1.1
-set ip b133 10.1.133.1 10.1.133.250 192.168.1.1
-set ip b134 10.1.134.1 10.1.134.250 192.168.1.1
-set ip b135 10.1.135.1 10.1.135.250 192.168.1.1
-set ip b136 10.1.136.1 10.1.136.250 192.168.1.1
-set ip b137 10.1.137.1 10.1.137.250 192.168.1.1
-set ip b138 10.1.138.1 10.1.138.250 192.168.1.1
-set ip b139 10.1.139.1 10.1.139.250 192.168.1.1
-set ip b140 10.1.140.1 10.1.140.250 192.168.1.1
-set ip b141 10.1.141.1 10.1.141.250 192.168.1.1
-set ip b142 10.1.142.1 10.1.142.250 192.168.1.1
-set ip b143 10.1.143.1 10.1.143.250 192.168.1.1
-set ip b144 10.1.144.1 10.1.144.250 192.168.1.1
-set ip b145 10.1.145.1 10.1.145.250 192.168.1.1
-set ip b146 10.1.146.1 10.1.146.250 192.168.1.1
-set ip b147 10.1.147.1 10.1.147.250 192.168.1.1
-set ip b148 10.1.148.1 10.1.148.250 192.168.1.1
-set ip b149 10.1.149.1 10.1.149.250 192.168.1.1
-set ip b150 10.1.150.1 10.1.150.250 192.168.1.1
-set ip b151 10.1.151.1 10.1.151.250 192.168.1.1
-set ip b152 10.1.152.1 10.1.152.250 192.168.1.1
-set ip b153 10.1.153.1 10.1.153.250 192.168.1.1
-set ip b154 10.1.154.1 10.1.154.250 192.168.1.1
-set ip b155 10.1.155.1 10.1.155.250 192.168.1.1
-set ip b156 10.1.156.1 10.1.156.250 192.168.1.1
-set ip b157 10.1.157.1 10.1.157.250 192.168.1.1
-set ip b158 10.1.158.1 10.1.158.250 192.168.1.1
-set ip b159 10.1.159.1 10.1.159.250 192.168.1.1
-set ip b160 10.1.160.1 10.1.160.250 192.168.1.1
-set ip b161 10.1.161.1 10.1.161.250 192.168.1.1
-set ip b162 10.1.162.1 10.1.162.250 192.168.1.1
-set ip b163 10.1.163.1 10.1.163.250 192.168.1.1
-set ip b164 10.1.164.1 10.1.164.250 192.168.1.1
-set ip b165 10.1.165.1 10.1.165.250 192.168.1.1
-set ip b166 10.1.166.1 10.1.166.250 192.168.1.1
-set ip b167 10.1.167.1 10.1.167.250 192.168.1.1
-set ip b168 10.1.168.1 10.1.168.250 192.168.1.1
-set ip b169 10.1.169.1 10.1.169.250 192.168.1.1
-set ip b170 10.1.170.1 10.1.170.250 192.168.1.1
-set ip b171 10.1.171.1 10.1.171.250 192.168.1.1
-set ip b172 10.1.172.1 10.1.172.250 192.168.1.1
-set ip b173 10.1.173.1 10.1.173.250 192.168.1.1
-set ip b174 10.1.174.1 10.1.174.250 192.168.1.1
-set ip b175 10.1.175.1 10.1.175.250 192.168.1.1
-set ip b176 10.1.176.1 10.1.176.250 192.168.1.1
-set ip b177 10.1.177.1 10.1.177.250 192.168.1.1
-set ip b178 10.1.178.1 10.1.178.250 192.168.1.1
-set ip b179 10.1.179.1 10.1.179.250 192.168.1.1
-set ip b180 10.1.180.1 10.1.180.250 192.168.1.1
-set ip b181 10.1.181.1 10.1.181.250 192.168.1.1
-set ip b182 10.1.182.1 10.1.182.250 192.168.1.1
-set ip b183 10.1.183.1 10.1.183.250 192.168.1.1
-set ip b184 10.1.184.1 10.1.184.250 192.168.1.1
-set ip b185 10.1.185.1 10.1.185.250 192.168.1.1
-set ip b186 10.1.186.1 10.1.186.250 192.168.1.1
-set ip b187 10.1.187.1 10.1.187.250 192.168.1.1
-set ip b188 10.1.188.1 10.1.188.250 192.168.1.1
-set ip b189 10.1.189.1 10.1.189.250 192.168.1.1
-set ip b190 10.1.190.1 10.1.190.250 192.168.1.1
-set ip b191 10.1.191.1 10.1.191.250 192.168.1.1
-set ip b192 10.1.192.1 10.1.192.250 192.168.1.1
-set ip b193 10.1.193.1 10.1.193.250 192.168.1.1
-set ip b194 10.1.194.1 10.1.194.250 192.168.1.1
-set ip b195 10.1.195.1 10.1.195.250 192.168.1.1
-set ip b196 10.1.196.1 10.1.196.250 192.168.1.1
-set ip b197 10.1.197.1 10.1.197.250 192.168.1.1
-set ip b198 10.1.198.1 10.1.198.250 192.168.1.1
-set ip b199 10.1.199.1 10.1.199.250 192.168.1.1
-set ip b200 10.1.200.1 10.1.200.250 192.168.1.1
-set ip b201 10.1.201.1 10.1.201.250 192.168.1.1
-set ip b202 10.1.202.1 10.1.202.250 192.168.1.1
-set ip b203 10.1.203.1 10.1.203.250 192.168.1.1
-set ip b204 10.1.204.1 10.1.204.250 192.168.1.1
-set ip b205 10.1.205.1 10.1.205.250 192.168.1.1
-set ip b206 10.1.206.1 10.1.206.250 192.168.1.1
-set ip b207 10.1.207.1 10.1.207.250 192.168.1.1
-set ip b208 10.1.208.1 10.1.208.250 192.168.1.1
-set ip b209 10.1.209.1 10.1.209.250 192.168.1.1
-set ip b210 10.1.210.1 10.1.210.250 192.168.1.1
-set ip b211 10.1.211.1 10.1.211.250 192.168.1.1
-set ip b212 10.1.212.1 10.1.212.250 192.168.1.1
-set ip b213 10.1.213.1 10.1.213.250 192.168.1.1
-set ip b214 10.1.214.1 10.1.214.250 192.168.1.1
-set ip b215 10.1.215.1 10.1.215.250 192.168.1.1
-set ip b216 10.1.216.1 10.1.216.250 192.168.1.1
-set ip b217 10.1.217.1 10.1.217.250 192.168.1.1
-set ip b218 10.1.218.1 10.1.218.250 192.168.1.1
-set ip b219 10.1.219.1 10.1.219.250 192.168.1.1
-set ip b220 10.1.220.1 10.1.220.250 192.168.1.1
-set ip b221 10.1.221.1 10.1.221.250 192.168.1.1
-set ip b222 10.1.222.1 10.1.222.250 192.168.1.1
-set ip b223 10.1.223.1 10.1.223.250 192.168.1.1
-set ip b224 10.1.224.1 10.1.224.250 192.168.1.1
-set ip b225 10.1.225.1 10.1.225.250 192.168.1.1
-set ip b226 10.1.226.1 10.1.226.250 192.168.1.1
-set ip b227 10.1.227.1 10.1.227.250 192.168.1.1
-set ip b228 10.1.228.1 10.1.228.250 192.168.1.1
-set ip b229 10.1.229.1 10.1.229.250 192.168.1.1
-set ip b230 10.1.230.1 10.1.230.250 192.168.1.1
-set ip b231 10.1.231.1 10.1.231.250 192.168.1.1
-set ip b232 10.1.232.1 10.1.232.250 192.168.1.1
-set ip b233 10.1.233.1 10.1.233.250 192.168.1.1
-set ip b234 10.1.234.1 10.1.234.250 192.168.1.1
-set ip b235 10.1.235.1 10.1.235.250 192.168.1.1
-set ip b236 10.1.236.1 10.1.236.250 192.168.1.1
-set ip b237 10.1.237.1 10.1.237.250 192.168.1.1
-set ip b238 10.1.238.1 10.1.238.250 192.168.1.1
-set ip b239 10.1.239.1 10.1.239.250 192.168.1.1
-set ip b240 10.1.240.1 10.1.240.250 192.168.1.1
-set ip b241 10.1.241.1 10.1.241.250 192.168.1.1
-set ip b242 10.1.242.1 10.1.242.250 192.168.1.1
-set ip b243 10.1.243.1 10.1.243.250 192.168.1.1
-set ip b244 10.1.244.1 10.1.244.250 192.168.1.1
-set ip b245 10.1.245.1 10.1.245.250 192.168.1.1
-set ip b246 10.1.246.1 10.1.246.250 192.168.1.1
-set ip b247 10.1.247.1 10.1.247.250 192.168.1.1
-set ip b248 10.1.248.1 10.1.248.250 192.168.1.1
-set ip b249 10.1.249.1 10.1.249.250 192.168.1.1
+set ip r0 0 192.168.0.2 1 192.168.1.2 2 10.0.2.1
 
-# ircs e dns
-set ip c0 192.168.0.1 192.168.0.250 192.168.1.1
-set ip c1 192.168.1.1 192.168.1.250 1.1.1.1
+set ip r1 0 10.0.2.2 1 10.2.0.1 2 10.2.1.1 3 10.2.2.1 4 10.2.3.1 5 10.0.4.2 6 10.2.5.1 7 10.2.6.1 8 10.2.7.1 9 10.2.8.1 10 10.2.9.1 11 10.2.10.1 12 10.2.11.1 13 10.2.12.1 14 10.2.13.1 15 10.2.14.1 16 10.2.15.1 17 10.2.16.1 18 10.2.17.1 19 10.2.18.1 20 10.2.19.1 21 10.2.20.1 22 10.2.21.1 23 10.2.22.1 24 10.2.23.1 25 10.2.24.1 26 10.2.25.1 27 10.2.26.1 28 10.2.27.1 29 10.2.28.1 30 10.2.29.1 31 10.2.30.1 32 10.2.31.1 33 10.2.32.1 34 10.2.33.1 35 10.2.34.1 36 10.2.35.1 37 10.2.36.1 38 10.2.37.1 39 10.2.38.1 40 10.2.39.1 41 10.2.40.1 42 10.2.41.1 43 10.2.42.1 44 10.2.43.1 45 10.2.44.1 46 10.2.45.1 47 10.2.46.1 48 10.2.47.1 49 10.2.48.1 50 10.2.49.1 51 10.2.50.1 52 10.2.51.1 53 10.2.52.1 54 10.2.53.1 55 10.2.54.1 56 10.2.55.1 57 10.2.56.1 58 10.2.57.1 59 10.2.58.1 60 10.2.59.1 61 10.2.60.1 62 10.2.61.1 63 10.2.62.1 64 10.2.63.1 65 10.2.64.1 66 10.2.65.1 67 10.2.66.1 68 10.2.67.1 69 10.2.68.1 70 10.2.69.1 71 10.2.70.1 72 10.2.71.1 73 10.2.72.1 74 10.2.73.1 75 10.2.74.1 76 10.2.75.1 77 10.2.76.1 78 10.2.77.1 79 10.2.78.1 80 10.2.79.1 81 10.2.80.1 82 10.2.81.1 83 10.2.82.1 84 10.2.83.1 85 10.2.84.1 86 10.2.85.1 87 10.2.86.1 88 10.2.87.1 89 10.2.88.1 90 10.2.89.1 91 10.2.90.1 92 10.2.91.1 93 10.2.92.1 94 10.2.93.1 95 10.2.94.1 96 10.2.95.1 97 10.2.96.1 98 10.2.97.1 99 10.2.98.1 100 10.2.99.1 101 10.2.100.1 102 10.2.101.1 103 10.2.102.1 104 10.2.103.1 105 10.2.104.1 106 10.2.105.1 107 10.2.106.1 108 10.2.107.1 109 10.2.108.1 110 10.2.109.1 111 10.2.110.1 112 10.2.111.1 113 10.2.112.1 114 10.2.113.1 115 10.2.114.1 116 10.2.115.1 117 10.2.116.1 118 10.2.117.1 119 10.2.118.1 120 10.2.119.1 121 10.2.120.1 122 10.2.121.1 123 10.2.122.1 124 10.2.123.1 125 10.2.124.1 126 10.2.125.1 127 10.2.126.1 128 10.2.127.1 129 10.2.128.1 130 10.2.129.1 131 10.2.130.1 132 10.2.131.1 133 10.2.132.1 134 10.2.133.1 135 10.2.134.1 136 10.2.135.1 137 10.2.136.1 138 10.2.137.1 139 10.2.138.1 140 10.2.139.1 141 10.2.140.1 142 10.2.141.1 143 10.2.142.1 144 10.2.143.1 145 10.2.144.1 146 10.2.145.1 147 10.2.146.1 148 10.2.147.1 149 10.2.148.1 150 10.2.149.1 151 10.2.150.1 152 10.2.151.1 153 10.2.152.1 154 10.2.153.1 155 10.2.154.1 156 10.2.155.1 157 10.2.156.1 158 10.2.157.1 159 10.2.158.1 160 10.2.159.1 161 10.2.160.1 162 10.2.161.1 163 10.2.162.1 164 10.2.163.1 165 10.2.164.1 166 10.2.165.1 167 10.2.166.1 168 10.2.167.1 169 10.2.168.1 170 10.2.169.1 171 10.2.170.1 172 10.2.171.1 173 10.2.172.1 174 10.2.173.1 175 10.2.174.1 176 10.2.175.1 177 10.2.176.1 178 10.2.177.1 179 10.2.178.1 180 10.2.179.1 181 10.2.180.1 182 10.2.181.1 183 10.2.182.1 184 10.2.183.1 185 10.2.184.1 186 10.2.185.1 187 10.2.186.1 188 10.2.187.1 189 10.2.188.1 190 10.2.189.1 191 10.2.190.1 192 10.2.191.1 193 10.2.192.1 194 10.2.193.1 195 10.2.194.1 196 10.2.195.1 197 10.2.196.1 198 10.2.197.1 199 10.2.198.1 200 10.2.199.1 
 
-# Configuração dos roteadores: porta, endereço IP [[porta, endereço
-# IP] ...]
-set ip r0 0 10.0.0.250 1 10.0.1.250 2 10.0.2.250 3 10.0.3.250 4 10.0.4.250 5 10.0.5.250 6 10.0.6.250 7 10.0.7.250 8 10.0.8.250 9 10.0.9.250 10 10.0.10.250 11 10.0.11.250 12 10.0.12.250 13 10.0.13.250 14 10.0.14.250 15 10.0.15.250 16 10.0.16.250 17 10.0.17.250 18 10.0.18.250 19 10.0.19.250 20 10.0.20.250 21 10.0.21.250 22 10.0.22.250 23 10.0.23.250 24 10.0.24.250 25 10.0.25.250 26 10.0.26.250 27 10.0.27.250 28 10.0.28.250 29 10.0.29.250 30 10.0.30.250 31 10.0.31.250 32 10.0.32.250 33 10.0.33.250 34 10.0.34.250 35 10.0.35.250 36 10.0.36.250 37 10.0.37.250 38 10.0.38.250 39 10.0.39.250 40 10.0.40.250 41 10.0.41.250 42 10.0.42.250 43 10.0.43.250 44 10.0.44.250 45 10.0.45.250 46 10.0.46.250 47 10.0.47.250 48 10.0.48.250 49 10.0.49.250 50 10.0.50.250 51 10.0.51.250 52 10.0.52.250 53 10.0.53.250 54 10.0.54.250 55 10.0.55.250 56 10.0.56.250 57 10.0.57.250 58 10.0.58.250 59 10.0.59.250 60 10.0.60.250 61 10.0.61.250 62 10.0.62.250 63 10.0.63.250 64 10.0.64.250 65 10.0.65.250 66 10.0.66.250 67 10.0.67.250 68 10.0.68.250 69 10.0.69.250 70 10.0.70.250 71 10.0.71.250 72 10.0.72.250 73 10.0.73.250 74 10.0.74.250 75 10.0.75.250 76 10.0.76.250 77 10.0.77.250 78 10.0.78.250 79 10.0.79.250 80 10.0.80.250 81 10.0.81.250 82 10.0.82.250 83 10.0.83.250 84 10.0.84.250 85 10.0.85.250 86 10.0.86.250 87 10.0.87.250 88 10.0.88.250 89 10.0.89.250 90 10.0.90.250 91 10.0.91.250 92 10.0.92.250 93 10.0.93.250 94 10.0.94.250 95 10.0.95.250 96 10.0.96.250 97 10.0.97.250 98 10.0.98.250 99 10.0.99.250 100 10.0.100.250 101 10.0.101.250 102 10.0.102.250 103 10.0.103.250 104 10.0.104.250 105 10.0.105.250 106 10.0.106.250 107 10.0.107.250 108 10.0.108.250 109 10.0.109.250 110 10.0.110.250 111 10.0.111.250 112 10.0.112.250 113 10.0.113.250 114 10.0.114.250 115 10.0.115.250 116 10.0.116.250 117 10.0.117.250 118 10.0.118.250 119 10.0.119.250 120 10.0.120.250 121 10.0.121.250 122 10.0.122.250 123 10.0.123.250 124 10.0.124.250 125 10.0.125.250 126 10.0.126.250 127 10.0.127.250 128 10.0.128.250 129 10.0.129.250 130 10.0.130.250 131 10.0.131.250 132 10.0.132.250 133 10.0.133.250 134 10.0.134.250 135 10.0.135.250 136 10.0.136.250 137 10.0.137.250 138 10.0.138.250 139 10.0.139.250 140 10.0.140.250 141 10.0.141.250 142 10.0.142.250 143 10.0.143.250 144 10.0.144.250 145 10.0.145.250 146 10.0.146.250 147 10.0.147.250 148 10.0.148.250 149 10.0.149.250 150 10.0.150.250 151 10.0.151.250 152 10.0.152.250 153 10.0.153.250 154 10.0.154.250 155 10.0.155.250 156 10.0.156.250 157 10.0.157.250 158 10.0.158.250 159 10.0.159.250 160 10.0.160.250 161 10.0.161.250 162 10.0.162.250 163 10.0.163.250 164 10.0.164.250 165 10.0.165.250 166 10.0.166.250 167 10.0.167.250 168 10.0.168.250 169 10.0.169.250 170 10.0.170.250 171 10.0.171.250 172 10.0.172.250 173 10.0.173.250 174 10.0.174.250 175 10.0.175.250 176 10.0.176.250 177 10.0.177.250 178 10.0.178.250 179 10.0.179.250 180 10.0.180.250 181 10.0.181.250 182 10.0.182.250 183 10.0.183.250 184 10.0.184.250 185 10.0.185.250 186 10.0.186.250 187 10.0.187.250 188 10.0.188.250 189 10.0.189.250 190 10.0.190.250 191 10.0.191.250 192 10.0.192.250 193 10.0.193.250 194 10.0.194.250 195 10.0.195.250 196 10.0.196.250 197 10.0.197.250 198 10.0.198.250 199 10.0.199.250 200 10.0.200.250 201 10.0.201.250 202 10.0.202.250 203 10.0.203.250 204 10.0.204.250 205 10.0.205.250 206 10.0.206.250 207 10.0.207.250 208 10.0.208.250 209 10.0.209.250 210 10.0.210.250 211 10.0.211.250 212 10.0.212.250 213 10.0.213.250 214 10.0.214.250 215 10.0.215.250 216 10.0.216.250 217 10.0.217.250 218 10.0.218.250 219 10.0.219.250 220 10.0.220.250 221 10.0.221.250 222 10.0.222.250 223 10.0.223.250 224 10.0.224.250 225 10.0.225.250 226 10.0.226.250 227 10.0.227.250 228 10.0.228.250 229 10.0.229.250 230 10.0.230.250 231 10.0.231.250 232 10.0.232.250 233 10.0.233.250 234 10.0.234.250 235 10.0.235.250 236 10.0.236.250 237 10.0.237.250 238 10.0.238.250 239 10.0.239.250 240 10.0.240.250 241 10.0.241.250 242 10.0.242.250 243 10.0.243.250 244 10.0.244.250 245 10.0.245.250 246 10.0.246.250 247 10.0.247.250 248 10.0.248.250 249 10.0.249.250
+# Configuração dos roteadores: rotas 
+set route r0 192.168.0.0 0 192.168.1.0 1 10.0.2.0 2 10.2.0.0 10.0.2.2 10.2.1.0 10.0.2.2 10.2.2.0 10.0.2.2 10.2.3.0 10.0.2.2 10.2.4.0 10.0.2.2 10.2.5.0 10.0.2.2 10.2.6.0 10.0.2.2 10.2.7.0 10.0.2.2 10.2.8.0 10.0.2.2 10.2.9.0 10.0.2.2 10.2.10.0 10.0.2.2 10.2.11.0 10.0.2.2 10.2.12.0 10.0.2.2 10.2.13.0 10.0.2.2 10.2.14.0 10.0.2.2 10.2.15.0 10.0.2.2 10.2.16.0 10.0.2.2 10.2.17.0 10.0.2.2 10.2.18.0 10.0.2.2 10.2.19.0 10.0.2.2 10.2.20.0 10.0.2.2 10.2.21.0 10.0.2.2 10.2.22.0 10.0.2.2 10.2.23.0 10.0.2.2 10.2.24.0 10.0.2.2 10.2.25.0 10.0.2.2 10.2.26.0 10.0.2.2 10.2.27.0 10.0.2.2 10.2.28.0 10.0.2.2 10.2.29.0 10.0.2.2 10.2.30.0 10.0.2.2 10.2.31.0 10.0.2.2 10.2.32.0 10.0.2.2 10.2.33.0 10.0.2.2 10.2.34.0 10.0.2.2 10.2.35.0 10.0.2.2 10.2.36.0 10.0.2.2 10.2.37.0 10.0.2.2 10.2.38.0 10.0.2.2 10.2.39.0 10.0.2.2 10.2.40.0 10.0.2.2 10.2.41.0 10.0.2.2 10.2.42.0 10.0.2.2 10.2.43.0 10.0.2.2 10.2.44.0 10.0.2.2 10.2.45.0 10.0.2.2 10.2.46.0 10.0.2.2 10.2.47.0 10.0.2.2 10.2.48.0 10.0.2.2 10.2.49.0 10.0.2.2 10.2.50.0 10.0.2.2 10.2.51.0 10.0.2.2 10.2.52.0 10.0.2.2 10.2.53.0 10.0.2.2 10.2.54.0 10.0.2.2 10.2.55.0 10.0.2.2 10.2.56.0 10.0.2.2 10.2.57.0 10.0.2.2 10.2.58.0 10.0.2.2 10.2.59.0 10.0.2.2 10.2.60.0 10.0.2.2 10.2.61.0 10.0.2.2 10.2.62.0 10.0.2.2 10.2.63.0 10.0.2.2 10.2.64.0 10.0.2.2 10.2.65.0 10.0.2.2 10.2.66.0 10.0.2.2 10.2.67.0 10.0.2.2 10.2.68.0 10.0.2.2 10.2.69.0 10.0.2.2 10.2.70.0 10.0.2.2 10.2.71.0 10.0.2.2 10.2.72.0 10.0.2.2 10.2.73.0 10.0.2.2 10.2.74.0 10.0.2.2 10.2.75.0 10.0.2.2 10.2.76.0 10.0.2.2 10.2.77.0 10.0.2.2 10.2.78.0 10.0.2.2 10.2.79.0 10.0.2.2 10.2.80.0 10.0.2.2 10.2.81.0 10.0.2.2 10.2.82.0 10.0.2.2 10.2.83.0 10.0.2.2 10.2.84.0 10.0.2.2 10.2.85.0 10.0.2.2 10.2.86.0 10.0.2.2 10.2.87.0 10.0.2.2 10.2.88.0 10.0.2.2 10.2.89.0 10.0.2.2 10.2.90.0 10.0.2.2 10.2.91.0 10.0.2.2 10.2.92.0 10.0.2.2 10.2.93.0 10.0.2.2 10.2.94.0 10.0.2.2 10.2.95.0 10.0.2.2 10.2.96.0 10.0.2.2 10.2.97.0 10.0.2.2 10.2.98.0 10.0.2.2 10.2.99.0 10.0.2.2 10.2.100.0 10.0.2.2 10.2.101.0 10.0.2.2 10.2.102.0 10.0.2.2 10.2.103.0 10.0.2.2 10.2.104.0 10.0.2.2 10.2.105.0 10.0.2.2 10.2.106.0 10.0.2.2 10.2.107.0 10.0.2.2 10.2.108.0 10.0.2.2 10.2.109.0 10.0.2.2 10.2.110.0 10.0.2.2 10.2.111.0 10.0.2.2 10.2.112.0 10.0.2.2 10.2.113.0 10.0.2.2 10.2.114.0 10.0.2.2 10.2.115.0 10.0.2.2 10.2.116.0 10.0.2.2 10.2.117.0 10.0.2.2 10.2.118.0 10.0.2.2 10.2.119.0 10.0.2.2 10.2.120.0 10.0.2.2 10.2.121.0 10.0.2.2 10.2.122.0 10.0.2.2 10.2.123.0 10.0.2.2 10.2.124.0 10.0.2.2 10.2.125.0 10.0.2.2 10.2.126.0 10.0.2.2 10.2.127.0 10.0.2.2 10.2.128.0 10.0.2.2 10.2.129.0 10.0.2.2 10.2.130.0 10.0.2.2 10.2.131.0 10.0.2.2 10.2.132.0 10.0.2.2 10.2.133.0 10.0.2.2 10.2.134.0 10.0.2.2 10.2.135.0 10.0.2.2 10.2.136.0 10.0.2.2 10.2.137.0 10.0.2.2 10.2.138.0 10.0.2.2 10.2.139.0 10.0.2.2 10.2.140.0 10.0.2.2 10.2.141.0 10.0.2.2 10.2.142.0 10.0.2.2 10.2.143.0 10.0.2.2 10.2.144.0 10.0.2.2 10.2.145.0 10.0.2.2 10.2.146.0 10.0.2.2 10.2.147.0 10.0.2.2 10.2.148.0 10.0.2.2 10.2.149.0 10.0.2.2 10.2.150.0 10.0.2.2 10.2.151.0 10.0.2.2 10.2.152.0 10.0.2.2 10.2.153.0 10.0.2.2 10.2.154.0 10.0.2.2 10.2.155.0 10.0.2.2 10.2.156.0 10.0.2.2 10.2.157.0 10.0.2.2 10.2.158.0 10.0.2.2 10.2.159.0 10.0.2.2 10.2.160.0 10.0.2.2 10.2.161.0 10.0.2.2 10.2.162.0 10.0.2.2 10.2.163.0 10.0.2.2 10.2.164.0 10.0.2.2 10.2.165.0 10.0.2.2 10.2.166.0 10.0.2.2 10.2.167.0 10.0.2.2 10.2.168.0 10.0.2.2 10.2.169.0 10.0.2.2 10.2.170.0 10.0.2.2 10.2.171.0 10.0.2.2 10.2.172.0 10.0.2.2 10.2.173.0 10.0.2.2 10.2.174.0 10.0.2.2 10.2.175.0 10.0.2.2 10.2.176.0 10.0.2.2 10.2.177.0 10.0.2.2 10.2.178.0 10.0.2.2 10.2.179.0 10.0.2.2 10.2.180.0 10.0.2.2 10.2.181.0 10.0.2.2 10.2.182.0 10.0.2.2 10.2.183.0 10.0.2.2 10.2.184.0 10.0.2.2 10.2.185.0 10.0.2.2 10.2.186.0 10.0.2.2 10.2.187.0 10.0.2.2 10.2.188.0 10.0.2.2 10.2.189.0 10.0.2.2 10.2.190.0 10.0.2.2 10.2.191.0 10.0.2.2 10.2.192.0 10.0.2.2 10.2.193.0 10.0.2.2 10.2.194.0 10.0.2.2 10.2.195.0 10.0.2.2 10.2.196.0 10.0.2.2 10.2.197.0 10.0.2.2 10.2.198.0 10.0.2.2 10.2.199.0 10.0.2.2
 
-set ip r1 0 10.1.0.250 1 10.1.1.250 2 10.1.2.250 3 10.1.3.250 4 10.1.4.250 5 10.1.5.250 6 10.1.6.250 7 10.1.7.250 8 10.1.8.250 9 10.1.9.250 10 10.1.10.250 11 10.1.11.250 12 10.1.12.250 13 10.1.13.250 14 10.1.14.250 15 10.1.15.250 16 10.1.16.250 17 10.1.17.250 18 10.1.18.250 19 10.1.19.250 20 10.1.20.250 21 10.1.21.250 22 10.1.22.250 23 10.1.23.250 24 10.1.24.250 25 10.1.25.250 26 10.1.26.250 27 10.1.27.250 28 10.1.28.250 29 10.1.29.250 30 10.1.30.250 31 10.1.31.250 32 10.1.32.250 33 10.1.33.250 34 10.1.34.250 35 10.1.35.250 36 10.1.36.250 37 10.1.37.250 38 10.1.38.250 39 10.1.39.250 40 10.1.40.250 41 10.1.41.250 42 10.1.42.250 43 10.1.43.250 44 10.1.44.250 45 10.1.45.250 46 10.1.46.250 47 10.1.47.250 48 10.1.48.250 49 10.1.49.250 50 10.1.50.250 51 10.1.51.250 52 10.1.52.250 53 10.1.53.250 54 10.1.54.250 55 10.1.55.250 56 10.1.56.250 57 10.1.57.250 58 10.1.58.250 59 10.1.59.250 60 10.1.60.250 61 10.1.61.250 62 10.1.62.250 63 10.1.63.250 64 10.1.64.250 65 10.1.65.250 66 10.1.66.250 67 10.1.67.250 68 10.1.68.250 69 10.1.69.250 70 10.1.70.250 71 10.1.71.250 72 10.1.72.250 73 10.1.73.250 74 10.1.74.250 75 10.1.75.250 76 10.1.76.250 77 10.1.77.250 78 10.1.78.250 79 10.1.79.250 80 10.1.80.250 81 10.1.81.250 82 10.1.82.250 83 10.1.83.250 84 10.1.84.250 85 10.1.85.250 86 10.1.86.250 87 10.1.87.250 88 10.1.88.250 89 10.1.89.250 90 10.1.90.250 91 10.1.91.250 92 10.1.92.250 93 10.1.93.250 94 10.1.94.250 95 10.1.95.250 96 10.1.96.250 97 10.1.97.250 98 10.1.98.250 99 10.1.99.250 100 10.1.100.250 101 10.1.101.250 102 10.1.102.250 103 10.1.103.250 104 10.1.104.250 105 10.1.105.250 106 10.1.106.250 107 10.1.107.250 108 10.1.108.250 109 10.1.109.250 110 10.1.110.250 111 10.1.111.250 112 10.1.112.250 113 10.1.113.250 114 10.1.114.250 115 10.1.115.250 116 10.1.116.250 117 10.1.117.250 118 10.1.118.250 119 10.1.119.250 120 10.1.120.250 121 10.1.121.250 122 10.1.122.250 123 10.1.123.250 124 10.1.124.250 125 10.1.125.250 126 10.1.126.250 127 10.1.127.250 128 10.1.128.250 129 10.1.129.250 130 10.1.130.250 131 10.1.131.250 132 10.1.132.250 133 10.1.133.250 134 10.1.134.250 135 10.1.135.250 136 10.1.136.250 137 10.1.137.250 138 10.1.138.250 139 10.1.139.250 140 10.1.140.250 141 10.1.141.250 142 10.1.142.250 143 10.1.143.250 144 10.1.144.250 145 10.1.145.250 146 10.1.146.250 147 10.1.147.250 148 10.1.148.250 149 10.1.149.250 150 10.1.150.250 151 10.1.151.250 152 10.1.152.250 153 10.1.153.250 154 10.1.154.250 155 10.1.155.250 156 10.1.156.250 157 10.1.157.250 158 10.1.158.250 159 10.1.159.250 160 10.1.160.250 161 10.1.161.250 162 10.1.162.250 163 10.1.163.250 164 10.1.164.250 165 10.1.165.250 166 10.1.166.250 167 10.1.167.250 168 10.1.168.250 169 10.1.169.250 170 10.1.170.250 171 10.1.171.250 172 10.1.172.250 173 10.1.173.250 174 10.1.174.250 175 10.1.175.250 176 10.1.176.250 177 10.1.177.250 178 10.1.178.250 179 10.1.179.250 180 10.1.180.250 181 10.1.181.250 182 10.1.182.250 183 10.1.183.250 184 10.1.184.250 185 10.1.185.250 186 10.1.186.250 187 10.1.187.250 188 10.1.188.250 189 10.1.189.250 190 10.1.190.250 191 10.1.191.250 192 10.1.192.250 193 10.1.193.250 194 10.1.194.250 195 10.1.195.250 196 10.1.196.250 197 10.1.197.250 198 10.1.198.250 199 10.1.199.250 200 10.1.200.250 201 10.1.201.250 202 10.1.202.250 203 10.1.203.250 204 10.1.204.250 205 10.1.205.250 206 10.1.206.250 207 10.1.207.250 208 10.1.208.250 209 10.1.209.250 210 10.1.210.250 211 10.1.211.250 212 10.1.212.250 213 10.1.213.250 214 10.1.214.250 215 10.1.215.250 216 10.1.216.250 217 10.1.217.250 218 10.1.218.250 219 10.1.219.250 220 10.1.220.250 221 10.1.221.250 222 10.1.222.250 223 10.1.223.250 224 10.1.224.250 225 10.1.225.250 226 10.1.226.250 227 10.1.227.250 228 10.1.228.250 229 10.1.229.250 230 10.1.230.250 231 10.1.231.250 232 10.1.232.250 233 10.1.233.250 234 10.1.234.250 235 10.1.235.250 236 10.1.236.250 237 10.1.237.250 238 10.1.238.250 239 10.1.239.250 240 10.1.240.250 241 10.1.241.250 242 10.1.242.250 243 10.1.243.250 244 10.1.244.250 245 10.1.245.250 246 10.1.246.250 247 10.1.247.250 248 10.1.248.250 249 10.1.249.250
+set route r1 192.168.0.0 10.0.2.1 192.168.1.0 10.0.2.1 10.0.2.0 0 10.2.0.0 1 10.2.1.0 2 10.2.2.0 3 10.2.3.0 4 10.2.4.0 5 10.2.5.0 6 10.2.6.0 7 10.2.7.0 8 10.2.8.0 9 10.2.9.0 10 10.2.10.0 11 10.2.11.0 12 10.2.12.0 13 10.2.13.0 14 10.2.14.0 15 10.2.15.0 16 10.2.16.0 17 10.2.17.0 18 10.2.18.0 19 10.2.19.0 20 10.2.20.0 21 10.2.21.0 22 10.2.22.0 23 10.2.23.0 24 10.2.24.0 25 10.2.25.0 26 10.2.26.0 27 10.2.27.0 28 10.2.28.0 29 10.2.29.0 30 10.2.30.0 31 10.2.31.0 32 10.2.32.0 33 10.2.33.0 34 10.2.34.0 35 10.2.35.0 36 10.2.36.0 37 10.2.37.0 38 10.2.38.0 39 10.2.39.0 40 10.2.40.0 41 10.2.41.0 42 10.2.42.0 43 10.2.43.0 44 10.2.44.0 45 10.2.45.0 46 10.2.46.0 47 10.2.47.0 48 10.2.48.0 49 10.2.49.0 50 10.2.50.0 51 10.2.51.0 52 10.2.52.0 53 10.2.53.0 54 10.2.54.0 55 10.2.55.0 56 10.2.56.0 57 10.2.57.0 58 10.2.58.0 59 10.2.59.0 60 10.2.60.0 61 10.2.61.0 62 10.2.62.0 63 10.2.63.0 64 10.2.64.0 65 10.2.65.0 66 10.2.66.0 67 10.2.67.0 68 10.2.68.0 69 10.2.69.0 70 10.2.70.0 71 10.2.71.0 72 10.2.72.0 73 10.2.73.0 74 10.2.74.0 75 10.2.75.0 76 10.2.76.0 77 10.2.77.0 78 10.2.78.0 79 10.2.79.0 80 10.2.80.0 81 10.2.81.0 82 10.2.82.0 83 10.2.83.0 84 10.2.84.0 85 10.2.85.0 86 10.2.86.0 87 10.2.87.0 88 10.2.88.0 89 10.2.89.0 90 10.2.90.0 91 10.2.91.0 92 10.2.92.0 93 10.2.93.0 94 10.2.94.0 95 10.2.95.0 96 10.2.96.0 97 10.2.97.0 98 10.2.98.0 99 10.2.99.0 100 10.2.100.0 101 10.2.101.0 102 10.2.102.0 103 10.2.103.0 104 10.2.104.0 105 10.2.105.0 106 10.2.106.0 107 10.2.107.0 108 10.2.108.0 109 10.2.109.0 110 10.2.110.0 111 10.2.111.0 112 10.2.112.0 113 10.2.113.0 114 10.2.114.0 115 10.2.115.0 116 10.2.116.0 117 10.2.117.0 118 10.2.118.0 119 10.2.119.0 120 10.2.120.0 121 10.2.121.0 122 10.2.122.0 123 10.2.123.0 124 10.2.124.0 125 10.2.125.0 126 10.2.126.0 127 10.2.127.0 128 10.2.128.0 129 10.2.129.0 130 10.2.130.0 131 10.2.131.0 132 10.2.132.0 133 10.2.133.0 134 10.2.134.0 135 10.2.135.0 136 10.2.136.0 137 10.2.137.0 138 10.2.138.0 139 10.2.139.0 140 10.2.140.0 141 10.2.141.0 142 10.2.142.0 143 10.2.143.0 144 10.2.144.0 145 10.2.145.0 146 10.2.146.0 147 10.2.147.0 148 10.2.148.0 149 10.2.149.0 150 10.2.150.0 151 10.2.151.0 152 10.2.152.0 153 10.2.153.0 154 10.2.154.0 155 10.2.155.0 156 10.2.156.0 157 10.2.157.0 158 10.2.158.0 159 10.2.159.0 160 10.2.160.0 161 10.2.161.0 162 10.2.162.0 163 10.2.163.0 164 10.2.164.0 165 10.2.165.0 166 10.2.166.0 167 10.2.167.0 168 10.2.168.0 169 10.2.169.0 170 10.2.170.0 171 10.2.171.0 172 10.2.172.0 173 10.2.173.0 174 10.2.174.0 175 10.2.175.0 176 10.2.176.0 177 10.2.177.0 178 10.2.178.0 179 10.2.179.0 180 10.2.180.0 181 10.2.181.0 182 10.2.182.0 183 10.2.183.0 184 10.2.184.0 185 10.2.185.0 186 10.2.186.0 187 10.2.187.0 188 10.2.188.0 189 10.2.189.0 190 10.2.190.0 191 10.2.191.0 192 10.2.192.0 193 10.2.193.0 194 10.2.194.0 195 10.2.195.0 196 10.2.196.0 197 10.2.197.0 198 10.2.198.0 199 10.2.199.0 200
 
-set ip r4 0 10.0.10.101 1 10.1.10.101 2 10.250.0.1
-set ip r3 0 10.250.0.2 1 192.168.0.250 2 192.168.1.250
-
-
-# Configuração dos roteadores: rotas (obs.: nos roteadores todas as
-# rotas devem ser explı́citas apontando para outro roteador ou para a
-# porta. Não há roteador padrão no roteador. Não se preocupe com o
-# caso de comunicações com endereços inexistentes na
-# rede)
-set route r0 10.0.0.0 0 10.0.1.0 1 10.0.2.0 2 10.0.3.0 3 10.0.4.0 4 10.0.5.0 5 10.0.6.0 6 10.0.7.0 7 10.0.8.0 8 10.0.9.0 9 10.0.10.0 10 10.0.11.0 11 10.0.12.0 12 10.0.13.0 13 10.0.14.0 14 10.0.15.0 15 10.0.16.0 16 10.0.17.0 17 10.0.18.0 18 10.0.19.0 19 10.0.20.0 20 10.0.21.0 21 10.0.22.0 22 10.0.23.0 23 10.0.24.0 24 10.0.25.0 25 10.0.26.0 26 10.0.27.0 27 10.0.28.0 28 10.0.29.0 29 10.0.30.0 30 10.0.31.0 31 10.0.32.0 32 10.0.33.0 33 10.0.34.0 34 10.0.35.0 35 10.0.36.0 36 10.0.37.0 37 10.0.38.0 38 10.0.39.0 39 10.0.40.0 40 10.0.41.0 41 10.0.42.0 42 10.0.43.0 43 10.0.44.0 44 10.0.45.0 45 10.0.46.0 46 10.0.47.0 47 10.0.48.0 48 10.0.49.0 49 10.0.50.0 50 10.0.51.0 51 10.0.52.0 52 10.0.53.0 53 10.0.54.0 54 10.0.55.0 55 10.0.56.0 56 10.0.57.0 57 10.0.58.0 58 10.0.59.0 59 10.0.60.0 60 10.0.61.0 61 10.0.62.0 62 10.0.63.0 63 10.0.64.0 64 10.0.65.0 65 10.0.66.0 66 10.0.67.0 67 10.0.68.0 68 10.0.69.0 69 10.0.70.0 70 10.0.71.0 71 10.0.72.0 72 10.0.73.0 73 10.0.74.0 74 10.0.75.0 75 10.0.76.0 76 10.0.77.0 77 10.0.78.0 78 10.0.79.0 79 10.0.80.0 80 10.0.81.0 81 10.0.82.0 82 10.0.83.0 83 10.0.84.0 84 10.0.85.0 85 10.0.86.0 86 10.0.87.0 87 10.0.88.0 88 10.0.89.0 89 10.0.90.0 90 10.0.91.0 91 10.0.92.0 92 10.0.93.0 93 10.0.94.0 94 10.0.95.0 95 10.0.96.0 96 10.0.97.0 97 10.0.98.0 98 10.0.99.0 99 10.0.100.0 100 10.0.101.0 101 10.0.102.0 102 10.0.103.0 103 10.0.104.0 104 10.0.105.0 105 10.0.106.0 106 10.0.107.0 107 10.0.108.0 108 10.0.109.0 109 10.0.110.0 110 10.0.111.0 111 10.0.112.0 112 10.0.113.0 113 10.0.114.0 114 10.0.115.0 115 10.0.116.0 116 10.0.117.0 117 10.0.118.0 118 10.0.119.0 119 10.0.120.0 120 10.0.121.0 121 10.0.122.0 122 10.0.123.0 123 10.0.124.0 124 10.0.125.0 125 10.0.126.0 126 10.0.127.0 127 10.0.128.0 128 10.0.129.0 129 10.0.130.0 130 10.0.131.0 131 10.0.132.0 132 10.0.133.0 133 10.0.134.0 134 10.0.135.0 135 10.0.136.0 136 10.0.137.0 137 10.0.138.0 138 10.0.139.0 139 10.0.140.0 140 10.0.141.0 141 10.0.142.0 142 10.0.143.0 143 10.0.144.0 144 10.0.145.0 145 10.0.146.0 146 10.0.147.0 147 10.0.148.0 148 10.0.149.0 149 10.0.150.0 150 10.0.151.0 151 10.0.152.0 152 10.0.153.0 153 10.0.154.0 154 10.0.155.0 155 10.0.156.0 156 10.0.157.0 157 10.0.158.0 158 10.0.159.0 159 10.0.160.0 160 10.0.161.0 161 10.0.162.0 162 10.0.163.0 163 10.0.164.0 164 10.0.165.0 165 10.0.166.0 166 10.0.167.0 167 10.0.168.0 168 10.0.169.0 169 10.0.170.0 170 10.0.171.0 171 10.0.172.0 172 10.0.173.0 173 10.0.174.0 174 10.0.175.0 175 10.0.176.0 176 10.0.177.0 177 10.0.178.0 178 10.0.179.0 179 10.0.180.0 180 10.0.181.0 181 10.0.182.0 182 10.0.183.0 183 10.0.184.0 184 10.0.185.0 185 10.0.186.0 186 10.0.187.0 187 10.0.188.0 188 10.0.189.0 189 10.0.190.0 190 10.0.191.0 191 10.0.192.0 192 10.0.193.0 193 10.0.194.0 194 10.0.195.0 195 10.0.196.0 196 10.0.197.0 197 10.0.198.0 198 10.0.199.0 199 10.0.200.0 200 10.0.201.0 201 10.0.202.0 202 10.0.203.0 203 10.0.204.0 204 10.0.205.0 205 10.0.206.0 206 10.0.207.0 207 10.0.208.0 208 10.0.209.0 209 10.0.210.0 210 10.0.211.0 211 10.0.212.0 212 10.0.213.0 213 10.0.214.0 214 10.0.215.0 215 10.0.216.0 216 10.0.217.0 217 10.0.218.0 218 10.0.219.0 219 10.0.220.0 220 10.0.221.0 221 10.0.222.0 222 10.0.223.0 223 10.0.224.0 224 10.0.225.0 225 10.0.226.0 226 10.0.227.0 227 10.0.228.0 228 10.0.229.0 229 10.0.230.0 230 10.0.231.0 231 10.0.232.0 232 10.0.233.0 233 10.0.234.0 234 10.0.235.0 235 10.0.236.0 236 10.0.237.0 237 10.0.238.0 238 10.0.239.0 239 10.0.240.0 240 10.0.241.0 241 10.0.242.0 242 10.0.243.0 243 10.0.244.0 244 10.0.245.0 245 10.0.246.0 246 10.0.247.0 247 10.0.248.0 248 10.0.249.0 249 10.0.250.0 250 192.168.0.0 10.0.10.101 192.168.1.0 10.0.10.101
-
-set route r1 10.1.0.0 0 10.1.1.0 1 10.1.2.0 2 10.1.3.0 3 10.1.4.0 4 10.1.5.0 5 10.1.6.0 6 10.1.7.0 7 10.1.8.0 8 10.1.9.0 9 10.1.10.0 10 10.1.11.0 11 10.1.12.0 12 10.1.13.0 13 10.1.14.0 14 10.1.15.0 15 10.1.16.0 16 10.1.17.0 17 10.1.18.0 18 10.1.19.0 19 10.1.20.0 20 10.1.21.0 21 10.1.22.0 22 10.1.23.0 23 10.1.24.0 24 10.1.25.0 25 10.1.26.0 26 10.1.27.0 27 10.1.28.0 28 10.1.29.0 29 10.1.30.0 30 10.1.31.0 31 10.1.32.0 32 10.1.33.0 33 10.1.34.0 34 10.1.35.0 35 10.1.36.0 36 10.1.37.0 37 10.1.38.0 38 10.1.39.0 39 10.1.40.0 40 10.1.41.0 41 10.1.42.0 42 10.1.43.0 43 10.1.44.0 44 10.1.45.0 45 10.1.46.0 46 10.1.47.0 47 10.1.48.0 48 10.1.49.0 49 10.1.50.0 50 10.1.51.0 51 10.1.52.0 52 10.1.53.0 53 10.1.54.0 54 10.1.55.0 55 10.1.56.0 56 10.1.57.0 57 10.1.58.0 58 10.1.59.0 59 10.1.60.0 60 10.1.61.0 61 10.1.62.0 62 10.1.63.0 63 10.1.64.0 64 10.1.65.0 65 10.1.66.0 66 10.1.67.0 67 10.1.68.0 68 10.1.69.0 69 10.1.70.0 70 10.1.71.0 71 10.1.72.0 72 10.1.73.0 73 10.1.74.0 74 10.1.75.0 75 10.1.76.0 76 10.1.77.0 77 10.1.78.0 78 10.1.79.0 79 10.1.80.0 80 10.1.81.0 81 10.1.82.0 82 10.1.83.0 83 10.1.84.0 84 10.1.85.0 85 10.1.86.0 86 10.1.87.0 87 10.1.88.0 88 10.1.89.0 89 10.1.90.0 90 10.1.91.0 91 10.1.92.0 92 10.1.93.0 93 10.1.94.0 94 10.1.95.0 95 10.1.96.0 96 10.1.97.0 97 10.1.98.0 98 10.1.99.0 99 10.1.100.0 100 10.1.101.0 101 10.1.102.0 102 10.1.103.0 103 10.1.104.0 104 10.1.105.0 105 10.1.106.0 106 10.1.107.0 107 10.1.108.0 108 10.1.109.0 109 10.1.110.0 110 10.1.111.0 111 10.1.112.0 112 10.1.113.0 113 10.1.114.0 114 10.1.115.0 115 10.1.116.0 116 10.1.117.0 117 10.1.118.0 118 10.1.119.0 119 10.1.120.0 120 10.1.121.0 121 10.1.122.0 122 10.1.123.0 123 10.1.124.0 124 10.1.125.0 125 10.1.126.0 126 10.1.127.0 127 10.1.128.0 128 10.1.129.0 129 10.1.130.0 130 10.1.131.0 131 10.1.132.0 132 10.1.133.0 133 10.1.134.0 134 10.1.135.0 135 10.1.136.0 136 10.1.137.0 137 10.1.138.0 138 10.1.139.0 139 10.1.140.0 140 10.1.141.0 141 10.1.142.0 142 10.1.143.0 143 10.1.144.0 144 10.1.145.0 145 10.1.146.0 146 10.1.147.0 147 10.1.148.0 148 10.1.149.0 149 10.1.150.0 150 10.1.151.0 151 10.1.152.0 152 10.1.153.0 153 10.1.154.0 154 10.1.155.0 155 10.1.156.0 156 10.1.157.0 157 10.1.158.0 158 10.1.159.0 159 10.1.160.0 160 10.1.161.0 161 10.1.162.0 162 10.1.163.0 163 10.1.164.0 164 10.1.165.0 165 10.1.166.0 166 10.1.167.0 167 10.1.168.0 168 10.1.169.0 169 10.1.170.0 170 10.1.171.0 171 10.1.172.0 172 10.1.173.0 173 10.1.174.0 174 10.1.175.0 175 10.1.176.0 176 10.1.177.0 177 10.1.178.0 178 10.1.179.0 179 10.1.180.0 180 10.1.181.0 181 10.1.182.0 182 10.1.183.0 183 10.1.184.0 184 10.1.185.0 185 10.1.186.0 186 10.1.187.0 187 10.1.188.0 188 10.1.189.0 189 10.1.190.0 190 10.1.191.0 191 10.1.192.0 192 10.1.193.0 193 10.1.194.0 194 10.1.195.0 195 10.1.196.0 196 10.1.197.0 197 10.1.198.0 198 10.1.199.0 199 10.1.200.0 200 10.1.201.0 201 10.1.202.0 202 10.1.203.0 203 10.1.204.0 204 10.1.205.0 205 10.1.206.0 206 10.1.207.0 207 10.1.208.0 208 10.1.209.0 209 10.1.210.0 210 10.1.211.0 211 10.1.212.0 212 10.1.213.0 213 10.1.214.0 214 10.1.215.0 215 10.1.216.0 216 10.1.217.0 217 10.1.218.0 218 10.1.219.0 219 10.1.220.0 220 10.1.221.0 221 10.1.222.0 222 10.1.223.0 223 10.1.224.0 224 10.1.225.0 225 10.1.226.0 226 10.1.227.0 227 10.1.228.0 228 10.1.229.0 229 10.1.230.0 230 10.1.231.0 231 10.1.232.0 232 10.1.233.0 233 10.1.234.0 234 10.1.235.0 235 10.1.236.0 236 10.1.237.0 237 10.1.238.0 238 10.1.239.0 239 10.1.240.0 240 10.1.241.0 241 10.1.242.0 242 10.1.243.0 243 10.1.244.0 244 10.1.245.0 245 10.1.246.0 246 10.1.247.0 247 10.1.248.0 248 10.1.249.0 249 10.1.250.0 250 192.168.0.0 10.1.10.101 192.168.1.0 10.1.10.101
-
-set route r4 10.0.10.0 0 10.1.10.0 1 10.250.0.0 2 10.0.0.0 10.0.10.250 10.0.1.0 10.0.10.250 10.0.2.0 10.0.10.250 10.0.3.0 10.0.10.250 10.0.4.0 10.0.10.250 10.0.5.0 10.0.10.250 10.0.6.0 10.0.10.250 10.0.7.0 10.0.10.250 10.0.8.0 10.0.10.250 10.0.9.0 10.0.10.250 10.0.10.0 10.0.10.250 10.0.11.0 10.0.10.250 10.0.12.0 10.0.10.250 10.0.13.0 10.0.10.250 10.0.14.0 10.0.10.250 10.0.15.0 10.0.10.250 10.0.16.0 10.0.10.250 10.0.17.0 10.0.10.250 10.0.18.0 10.0.10.250 10.0.19.0 10.0.10.250 10.0.20.0 10.0.10.250 10.0.21.0 10.0.10.250 10.0.22.0 10.0.10.250 10.0.23.0 10.0.10.250 10.0.24.0 10.0.10.250 10.0.25.0 10.0.10.250 10.0.26.0 10.0.10.250 10.0.27.0 10.0.10.250 10.0.28.0 10.0.10.250 10.0.29.0 10.0.10.250 10.0.30.0 10.0.10.250 10.0.31.0 10.0.10.250 10.0.32.0 10.0.10.250 10.0.33.0 10.0.10.250 10.0.34.0 10.0.10.250 10.0.35.0 10.0.10.250 10.0.36.0 10.0.10.250 10.0.37.0 10.0.10.250 10.0.38.0 10.0.10.250 10.0.39.0 10.0.10.250 10.0.40.0 10.0.10.250 10.0.41.0 10.0.10.250 10.0.42.0 10.0.10.250 10.0.43.0 10.0.10.250 10.0.44.0 10.0.10.250 10.0.45.0 10.0.10.250 10.0.46.0 10.0.10.250 10.0.47.0 10.0.10.250 10.0.48.0 10.0.10.250 10.0.49.0 10.0.10.250 10.0.50.0 10.0.10.250 10.0.51.0 10.0.10.250 10.0.52.0 10.0.10.250 10.0.53.0 10.0.10.250 10.0.54.0 10.0.10.250 10.0.55.0 10.0.10.250 10.0.56.0 10.0.10.250 10.0.57.0 10.0.10.250 10.0.58.0 10.0.10.250 10.0.59.0 10.0.10.250 10.0.60.0 10.0.10.250 10.0.61.0 10.0.10.250 10.0.62.0 10.0.10.250 10.0.63.0 10.0.10.250 10.0.64.0 10.0.10.250 10.0.65.0 10.0.10.250 10.0.66.0 10.0.10.250 10.0.67.0 10.0.10.250 10.0.68.0 10.0.10.250 10.0.69.0 10.0.10.250 10.0.70.0 10.0.10.250 10.0.71.0 10.0.10.250 10.0.72.0 10.0.10.250 10.0.73.0 10.0.10.250 10.0.74.0 10.0.10.250 10.0.75.0 10.0.10.250 10.0.76.0 10.0.10.250 10.0.77.0 10.0.10.250 10.0.78.0 10.0.10.250 10.0.79.0 10.0.10.250 10.0.80.0 10.0.10.250 10.0.81.0 10.0.10.250 10.0.82.0 10.0.10.250 10.0.83.0 10.0.10.250 10.0.84.0 10.0.10.250 10.0.85.0 10.0.10.250 10.0.86.0 10.0.10.250 10.0.87.0 10.0.10.250 10.0.88.0 10.0.10.250 10.0.89.0 10.0.10.250 10.0.90.0 10.0.10.250 10.0.91.0 10.0.10.250 10.0.92.0 10.0.10.250 10.0.93.0 10.0.10.250 10.0.94.0 10.0.10.250 10.0.95.0 10.0.10.250 10.0.96.0 10.0.10.250 10.0.97.0 10.0.10.250 10.0.98.0 10.0.10.250 10.0.99.0 10.0.10.250 10.0.100.0 10.0.10.250 10.0.101.0 10.0.10.250 10.0.102.0 10.0.10.250 10.0.103.0 10.0.10.250 10.0.104.0 10.0.10.250 10.0.105.0 10.0.10.250 10.0.106.0 10.0.10.250 10.0.107.0 10.0.10.250 10.0.108.0 10.0.10.250 10.0.109.0 10.0.10.250 10.0.110.0 10.0.10.250 10.0.111.0 10.0.10.250 10.0.112.0 10.0.10.250 10.0.113.0 10.0.10.250 10.0.114.0 10.0.10.250 10.0.115.0 10.0.10.250 10.0.116.0 10.0.10.250 10.0.117.0 10.0.10.250 10.0.118.0 10.0.10.250 10.0.119.0 10.0.10.250 10.0.120.0 10.0.10.250 10.0.121.0 10.0.10.250 10.0.122.0 10.0.10.250 10.0.123.0 10.0.10.250 10.0.124.0 10.0.10.250 10.0.125.0 10.0.10.250 10.0.126.0 10.0.10.250 10.0.127.0 10.0.10.250 10.0.128.0 10.0.10.250 10.0.129.0 10.0.10.250 10.0.130.0 10.0.10.250 10.0.131.0 10.0.10.250 10.0.132.0 10.0.10.250 10.0.133.0 10.0.10.250 10.0.134.0 10.0.10.250 10.0.135.0 10.0.10.250 10.0.136.0 10.0.10.250 10.0.137.0 10.0.10.250 10.0.138.0 10.0.10.250 10.0.139.0 10.0.10.250 10.0.140.0 10.0.10.250 10.0.141.0 10.0.10.250 10.0.142.0 10.0.10.250 10.0.143.0 10.0.10.250 10.0.144.0 10.0.10.250 10.0.145.0 10.0.10.250 10.0.146.0 10.0.10.250 10.0.147.0 10.0.10.250 10.0.148.0 10.0.10.250 10.0.149.0 10.0.10.250 10.0.150.0 10.0.10.250 10.0.151.0 10.0.10.250 10.0.152.0 10.0.10.250 10.0.153.0 10.0.10.250 10.0.154.0 10.0.10.250 10.0.155.0 10.0.10.250 10.0.156.0 10.0.10.250 10.0.157.0 10.0.10.250 10.0.158.0 10.0.10.250 10.0.159.0 10.0.10.250 10.0.160.0 10.0.10.250 10.0.161.0 10.0.10.250 10.0.162.0 10.0.10.250 10.0.163.0 10.0.10.250 10.0.164.0 10.0.10.250 10.0.165.0 10.0.10.250 10.0.166.0 10.0.10.250 10.0.167.0 10.0.10.250 10.0.168.0 10.0.10.250 10.0.169.0 10.0.10.250 10.0.170.0 10.0.10.250 10.0.171.0 10.0.10.250 10.0.172.0 10.0.10.250 10.0.173.0 10.0.10.250 10.0.174.0 10.0.10.250 10.0.175.0 10.0.10.250 10.0.176.0 10.0.10.250 10.0.177.0 10.0.10.250 10.0.178.0 10.0.10.250 10.0.179.0 10.0.10.250 10.0.180.0 10.0.10.250 10.0.181.0 10.0.10.250 10.0.182.0 10.0.10.250 10.0.183.0 10.0.10.250 10.0.184.0 10.0.10.250 10.0.185.0 10.0.10.250 10.0.186.0 10.0.10.250 10.0.187.0 10.0.10.250 10.0.188.0 10.0.10.250 10.0.189.0 10.0.10.250 10.0.190.0 10.0.10.250 10.0.191.0 10.0.10.250 10.0.192.0 10.0.10.250 10.0.193.0 10.0.10.250 10.0.194.0 10.0.10.250 10.0.195.0 10.0.10.250 10.0.196.0 10.0.10.250 10.0.197.0 10.0.10.250 10.0.198.0 10.0.10.250 10.0.199.0 10.0.10.250 10.0.200.0 10.0.10.250 10.0.201.0 10.0.10.250 10.0.202.0 10.0.10.250 10.0.203.0 10.0.10.250 10.0.204.0 10.0.10.250 10.0.205.0 10.0.10.250 10.0.206.0 10.0.10.250 10.0.207.0 10.0.10.250 10.0.208.0 10.0.10.250 10.0.209.0 10.0.10.250 10.0.210.0 10.0.10.250 10.0.211.0 10.0.10.250 10.0.212.0 10.0.10.250 10.0.213.0 10.0.10.250 10.0.214.0 10.0.10.250 10.0.215.0 10.0.10.250 10.0.216.0 10.0.10.250 10.0.217.0 10.0.10.250 10.0.218.0 10.0.10.250 10.0.219.0 10.0.10.250 10.0.220.0 10.0.10.250 10.0.221.0 10.0.10.250 10.0.222.0 10.0.10.250 10.0.223.0 10.0.10.250 10.0.224.0 10.0.10.250 10.0.225.0 10.0.10.250 10.0.226.0 10.0.10.250 10.0.227.0 10.0.10.250 10.0.228.0 10.0.10.250 10.0.229.0 10.0.10.250 10.0.230.0 10.0.10.250 10.0.231.0 10.0.10.250 10.0.232.0 10.0.10.250 10.0.233.0 10.0.10.250 10.0.234.0 10.0.10.250 10.0.235.0 10.0.10.250 10.0.236.0 10.0.10.250 10.0.237.0 10.0.10.250 10.0.238.0 10.0.10.250 10.0.239.0 10.0.10.250 10.0.240.0 10.0.10.250 10.0.241.0 10.0.10.250 10.0.242.0 10.0.10.250 10.0.243.0 10.0.10.250 10.0.244.0 10.0.10.250 10.0.245.0 10.0.10.250 10.0.246.0 10.0.10.250 10.0.247.0 10.0.10.250 10.0.248.0 10.0.10.250 10.0.249.0 10.0.10.250 10.0.250.0 10.0.10.250 10.1.0.0 10.1.10.250 10.1.1.0 10.1.10.250 10.1.2.0 10.1.10.250 10.1.3.0 10.1.10.250 10.1.4.0 10.1.10.250 10.1.5.0 10.1.10.250 10.1.6.0 10.1.10.250 10.1.7.0 10.1.10.250 10.1.8.0 10.1.10.250 10.1.9.0 10.1.10.250 10.1.10.0 10.1.10.250 10.1.11.0 10.1.10.250 10.1.12.0 10.1.10.250 10.1.13.0 10.1.10.250 10.1.14.0 10.1.10.250 10.1.15.0 10.1.10.250 10.1.16.0 10.1.10.250 10.1.17.0 10.1.10.250 10.1.18.0 10.1.10.250 10.1.19.0 10.1.10.250 10.1.20.0 10.1.10.250 10.1.21.0 10.1.10.250 10.1.22.0 10.1.10.250 10.1.23.0 10.1.10.250 10.1.24.0 10.1.10.250 10.1.25.0 10.1.10.250 10.1.26.0 10.1.10.250 10.1.27.0 10.1.10.250 10.1.28.0 10.1.10.250 10.1.29.0 10.1.10.250 10.1.30.0 10.1.10.250 10.1.31.0 10.1.10.250 10.1.32.0 10.1.10.250 10.1.33.0 10.1.10.250 10.1.34.0 10.1.10.250 10.1.35.0 10.1.10.250 10.1.36.0 10.1.10.250 10.1.37.0 10.1.10.250 10.1.38.0 10.1.10.250 10.1.39.0 10.1.10.250 10.1.40.0 10.1.10.250 10.1.41.0 10.1.10.250 10.1.42.0 10.1.10.250 10.1.43.0 10.1.10.250 10.1.44.0 10.1.10.250 10.1.45.0 10.1.10.250 10.1.46.0 10.1.10.250 10.1.47.0 10.1.10.250 10.1.48.0 10.1.10.250 10.1.49.0 10.1.10.250 10.1.50.0 10.1.10.250 10.1.51.0 10.1.10.250 10.1.52.0 10.1.10.250 10.1.53.0 10.1.10.250 10.1.54.0 10.1.10.250 10.1.55.0 10.1.10.250 10.1.56.0 10.1.10.250 10.1.57.0 10.1.10.250 10.1.58.0 10.1.10.250 10.1.59.0 10.1.10.250 10.1.60.0 10.1.10.250 10.1.61.0 10.1.10.250 10.1.62.0 10.1.10.250 10.1.63.0 10.1.10.250 10.1.64.0 10.1.10.250 10.1.65.0 10.1.10.250 10.1.66.0 10.1.10.250 10.1.67.0 10.1.10.250 10.1.68.0 10.1.10.250 10.1.69.0 10.1.10.250 10.1.70.0 10.1.10.250 10.1.71.0 10.1.10.250 10.1.72.0 10.1.10.250 10.1.73.0 10.1.10.250 10.1.74.0 10.1.10.250 10.1.75.0 10.1.10.250 10.1.76.0 10.1.10.250 10.1.77.0 10.1.10.250 10.1.78.0 10.1.10.250 10.1.79.0 10.1.10.250 10.1.80.0 10.1.10.250 10.1.81.0 10.1.10.250 10.1.82.0 10.1.10.250 10.1.83.0 10.1.10.250 10.1.84.0 10.1.10.250 10.1.85.0 10.1.10.250 10.1.86.0 10.1.10.250 10.1.87.0 10.1.10.250 10.1.88.0 10.1.10.250 10.1.89.0 10.1.10.250 10.1.90.0 10.1.10.250 10.1.91.0 10.1.10.250 10.1.92.0 10.1.10.250 10.1.93.0 10.1.10.250 10.1.94.0 10.1.10.250 10.1.95.0 10.1.10.250 10.1.96.0 10.1.10.250 10.1.97.0 10.1.10.250 10.1.98.0 10.1.10.250 10.1.99.0 10.1.10.250 10.1.100.0 10.1.10.250 10.1.101.0 10.1.10.250 10.1.102.0 10.1.10.250 10.1.103.0 10.1.10.250 10.1.104.0 10.1.10.250 10.1.105.0 10.1.10.250 10.1.106.0 10.1.10.250 10.1.107.0 10.1.10.250 10.1.108.0 10.1.10.250 10.1.109.0 10.1.10.250 10.1.110.0 10.1.10.250 10.1.111.0 10.1.10.250 10.1.112.0 10.1.10.250 10.1.113.0 10.1.10.250 10.1.114.0 10.1.10.250 10.1.115.0 10.1.10.250 10.1.116.0 10.1.10.250 10.1.117.0 10.1.10.250 10.1.118.0 10.1.10.250 10.1.119.0 10.1.10.250 10.1.120.0 10.1.10.250 10.1.121.0 10.1.10.250 10.1.122.0 10.1.10.250 10.1.123.0 10.1.10.250 10.1.124.0 10.1.10.250 10.1.125.0 10.1.10.250 10.1.126.0 10.1.10.250 10.1.127.0 10.1.10.250 10.1.128.0 10.1.10.250 10.1.129.0 10.1.10.250 10.1.130.0 10.1.10.250 10.1.131.0 10.1.10.250 10.1.132.0 10.1.10.250 10.1.133.0 10.1.10.250 10.1.134.0 10.1.10.250 10.1.135.0 10.1.10.250 10.1.136.0 10.1.10.250 10.1.137.0 10.1.10.250 10.1.138.0 10.1.10.250 10.1.139.0 10.1.10.250 10.1.140.0 10.1.10.250 10.1.141.0 10.1.10.250 10.1.142.0 10.1.10.250 10.1.143.0 10.1.10.250 10.1.144.0 10.1.10.250 10.1.145.0 10.1.10.250 10.1.146.0 10.1.10.250 10.1.147.0 10.1.10.250 10.1.148.0 10.1.10.250 10.1.149.0 10.1.10.250 10.1.150.0 10.1.10.250 10.1.151.0 10.1.10.250 10.1.152.0 10.1.10.250 10.1.153.0 10.1.10.250 10.1.154.0 10.1.10.250 10.1.155.0 10.1.10.250 10.1.156.0 10.1.10.250 10.1.157.0 10.1.10.250 10.1.158.0 10.1.10.250 10.1.159.0 10.1.10.250 10.1.160.0 10.1.10.250 10.1.161.0 10.1.10.250 10.1.162.0 10.1.10.250 10.1.163.0 10.1.10.250 10.1.164.0 10.1.10.250 10.1.165.0 10.1.10.250 10.1.166.0 10.1.10.250 10.1.167.0 10.1.10.250 10.1.168.0 10.1.10.250 10.1.169.0 10.1.10.250 10.1.170.0 10.1.10.250 10.1.171.0 10.1.10.250 10.1.172.0 10.1.10.250 10.1.173.0 10.1.10.250 10.1.174.0 10.1.10.250 10.1.175.0 10.1.10.250 10.1.176.0 10.1.10.250 10.1.177.0 10.1.10.250 10.1.178.0 10.1.10.250 10.1.179.0 10.1.10.250 10.1.180.0 10.1.10.250 10.1.181.0 10.1.10.250 10.1.182.0 10.1.10.250 10.1.183.0 10.1.10.250 10.1.184.0 10.1.10.250 10.1.185.0 10.1.10.250 10.1.186.0 10.1.10.250 10.1.187.0 10.1.10.250 10.1.188.0 10.1.10.250 10.1.189.0 10.1.10.250 10.1.190.0 10.1.10.250 10.1.191.0 10.1.10.250 10.1.192.0 10.1.10.250 10.1.193.0 10.1.10.250 10.1.194.0 10.1.10.250 10.1.195.0 10.1.10.250 10.1.196.0 10.1.10.250 10.1.197.0 10.1.10.250 10.1.198.0 10.1.10.250 10.1.199.0 10.1.10.250 10.1.200.0 10.1.10.250 10.1.201.0 10.1.10.250 10.1.202.0 10.1.10.250 10.1.203.0 10.1.10.250 10.1.204.0 10.1.10.250 10.1.205.0 10.1.10.250 10.1.206.0 10.1.10.250 10.1.207.0 10.1.10.250 10.1.208.0 10.1.10.250 10.1.209.0 10.1.10.250 10.1.210.0 10.1.10.250 10.1.211.0 10.1.10.250 10.1.212.0 10.1.10.250 10.1.213.0 10.1.10.250 10.1.214.0 10.1.10.250 10.1.215.0 10.1.10.250 10.1.216.0 10.1.10.250 10.1.217.0 10.1.10.250 10.1.218.0 10.1.10.250 10.1.219.0 10.1.10.250 10.1.220.0 10.1.10.250 10.1.221.0 10.1.10.250 10.1.222.0 10.1.10.250 10.1.223.0 10.1.10.250 10.1.224.0 10.1.10.250 10.1.225.0 10.1.10.250 10.1.226.0 10.1.10.250 10.1.227.0 10.1.10.250 10.1.228.0 10.1.10.250 10.1.229.0 10.1.10.250 10.1.230.0 10.1.10.250 10.1.231.0 10.1.10.250 10.1.232.0 10.1.10.250 10.1.233.0 10.1.10.250 10.1.234.0 10.1.10.250 10.1.235.0 10.1.10.250 10.1.236.0 10.1.10.250 10.1.237.0 10.1.10.250 10.1.238.0 10.1.10.250 10.1.239.0 10.1.10.250 10.1.240.0 10.1.10.250 10.1.241.0 10.1.10.250 10.1.242.0 10.1.10.250 10.1.243.0 10.1.10.250 10.1.244.0 10.1.10.250 10.1.245.0 10.1.10.250 10.1.246.0 10.1.10.250 10.1.247.0 10.1.10.250 10.1.248.0 10.1.10.250 10.1.249.0 10.1.10.250 10.1.250.0 10.1.10.250 192.168.0.0 10.250.0.2 192.168.1.0 10.250.0.2
-
-set route r3 10.250.0.0 0 192.168.0.0 1 192.168.1.0 2 10.0.0.0 10.250.0.1 10.0.1.0 10.250.0.1 10.0.2.0 10.250.0.1 10.0.3.0 10.250.0.1 10.0.4.0 10.250.0.1 10.0.5.0 10.250.0.1 10.0.6.0 10.250.0.1 10.0.7.0 10.250.0.1 10.0.8.0 10.250.0.1 10.0.9.0 10.250.0.1 10.0.10.0 10.250.0.1 10.0.11.0 10.250.0.1 10.0.12.0 10.250.0.1 10.0.13.0 10.250.0.1 10.0.14.0 10.250.0.1 10.0.15.0 10.250.0.1 10.0.16.0 10.250.0.1 10.0.17.0 10.250.0.1 10.0.18.0 10.250.0.1 10.0.19.0 10.250.0.1 10.0.20.0 10.250.0.1 10.0.21.0 10.250.0.1 10.0.22.0 10.250.0.1 10.0.23.0 10.250.0.1 10.0.24.0 10.250.0.1 10.0.25.0 10.250.0.1 10.0.26.0 10.250.0.1 10.0.27.0 10.250.0.1 10.0.28.0 10.250.0.1 10.0.29.0 10.250.0.1 10.0.30.0 10.250.0.1 10.0.31.0 10.250.0.1 10.0.32.0 10.250.0.1 10.0.33.0 10.250.0.1 10.0.34.0 10.250.0.1 10.0.35.0 10.250.0.1 10.0.36.0 10.250.0.1 10.0.37.0 10.250.0.1 10.0.38.0 10.250.0.1 10.0.39.0 10.250.0.1 10.0.40.0 10.250.0.1 10.0.41.0 10.250.0.1 10.0.42.0 10.250.0.1 10.0.43.0 10.250.0.1 10.0.44.0 10.250.0.1 10.0.45.0 10.250.0.1 10.0.46.0 10.250.0.1 10.0.47.0 10.250.0.1 10.0.48.0 10.250.0.1 10.0.49.0 10.250.0.1 10.0.50.0 10.250.0.1 10.0.51.0 10.250.0.1 10.0.52.0 10.250.0.1 10.0.53.0 10.250.0.1 10.0.54.0 10.250.0.1 10.0.55.0 10.250.0.1 10.0.56.0 10.250.0.1 10.0.57.0 10.250.0.1 10.0.58.0 10.250.0.1 10.0.59.0 10.250.0.1 10.0.60.0 10.250.0.1 10.0.61.0 10.250.0.1 10.0.62.0 10.250.0.1 10.0.63.0 10.250.0.1 10.0.64.0 10.250.0.1 10.0.65.0 10.250.0.1 10.0.66.0 10.250.0.1 10.0.67.0 10.250.0.1 10.0.68.0 10.250.0.1 10.0.69.0 10.250.0.1 10.0.70.0 10.250.0.1 10.0.71.0 10.250.0.1 10.0.72.0 10.250.0.1 10.0.73.0 10.250.0.1 10.0.74.0 10.250.0.1 10.0.75.0 10.250.0.1 10.0.76.0 10.250.0.1 10.0.77.0 10.250.0.1 10.0.78.0 10.250.0.1 10.0.79.0 10.250.0.1 10.0.80.0 10.250.0.1 10.0.81.0 10.250.0.1 10.0.82.0 10.250.0.1 10.0.83.0 10.250.0.1 10.0.84.0 10.250.0.1 10.0.85.0 10.250.0.1 10.0.86.0 10.250.0.1 10.0.87.0 10.250.0.1 10.0.88.0 10.250.0.1 10.0.89.0 10.250.0.1 10.0.90.0 10.250.0.1 10.0.91.0 10.250.0.1 10.0.92.0 10.250.0.1 10.0.93.0 10.250.0.1 10.0.94.0 10.250.0.1 10.0.95.0 10.250.0.1 10.0.96.0 10.250.0.1 10.0.97.0 10.250.0.1 10.0.98.0 10.250.0.1 10.0.99.0 10.250.0.1 10.0.100.0 10.250.0.1 10.0.101.0 10.250.0.1 10.0.102.0 10.250.0.1 10.0.103.0 10.250.0.1 10.0.104.0 10.250.0.1 10.0.105.0 10.250.0.1 10.0.106.0 10.250.0.1 10.0.107.0 10.250.0.1 10.0.108.0 10.250.0.1 10.0.109.0 10.250.0.1 10.0.110.0 10.250.0.1 10.0.111.0 10.250.0.1 10.0.112.0 10.250.0.1 10.0.113.0 10.250.0.1 10.0.114.0 10.250.0.1 10.0.115.0 10.250.0.1 10.0.116.0 10.250.0.1 10.0.117.0 10.250.0.1 10.0.118.0 10.250.0.1 10.0.119.0 10.250.0.1 10.0.120.0 10.250.0.1 10.0.121.0 10.250.0.1 10.0.122.0 10.250.0.1 10.0.123.0 10.250.0.1 10.0.124.0 10.250.0.1 10.0.125.0 10.250.0.1 10.0.126.0 10.250.0.1 10.0.127.0 10.250.0.1 10.0.128.0 10.250.0.1 10.0.129.0 10.250.0.1 10.0.130.0 10.250.0.1 10.0.131.0 10.250.0.1 10.0.132.0 10.250.0.1 10.0.133.0 10.250.0.1 10.0.134.0 10.250.0.1 10.0.135.0 10.250.0.1 10.0.136.0 10.250.0.1 10.0.137.0 10.250.0.1 10.0.138.0 10.250.0.1 10.0.139.0 10.250.0.1 10.0.140.0 10.250.0.1 10.0.141.0 10.250.0.1 10.0.142.0 10.250.0.1 10.0.143.0 10.250.0.1 10.0.144.0 10.250.0.1 10.0.145.0 10.250.0.1 10.0.146.0 10.250.0.1 10.0.147.0 10.250.0.1 10.0.148.0 10.250.0.1 10.0.149.0 10.250.0.1 10.0.150.0 10.250.0.1 10.0.151.0 10.250.0.1 10.0.152.0 10.250.0.1 10.0.153.0 10.250.0.1 10.0.154.0 10.250.0.1 10.0.155.0 10.250.0.1 10.0.156.0 10.250.0.1 10.0.157.0 10.250.0.1 10.0.158.0 10.250.0.1 10.0.159.0 10.250.0.1 10.0.160.0 10.250.0.1 10.0.161.0 10.250.0.1 10.0.162.0 10.250.0.1 10.0.163.0 10.250.0.1 10.0.164.0 10.250.0.1 10.0.165.0 10.250.0.1 10.0.166.0 10.250.0.1 10.0.167.0 10.250.0.1 10.0.168.0 10.250.0.1 10.0.169.0 10.250.0.1 10.0.170.0 10.250.0.1 10.0.171.0 10.250.0.1 10.0.172.0 10.250.0.1 10.0.173.0 10.250.0.1 10.0.174.0 10.250.0.1 10.0.175.0 10.250.0.1 10.0.176.0 10.250.0.1 10.0.177.0 10.250.0.1 10.0.178.0 10.250.0.1 10.0.179.0 10.250.0.1 10.0.180.0 10.250.0.1 10.0.181.0 10.250.0.1 10.0.182.0 10.250.0.1 10.0.183.0 10.250.0.1 10.0.184.0 10.250.0.1 10.0.185.0 10.250.0.1 10.0.186.0 10.250.0.1 10.0.187.0 10.250.0.1 10.0.188.0 10.250.0.1 10.0.189.0 10.250.0.1 10.0.190.0 10.250.0.1 10.0.191.0 10.250.0.1 10.0.192.0 10.250.0.1 10.0.193.0 10.250.0.1 10.0.194.0 10.250.0.1 10.0.195.0 10.250.0.1 10.0.196.0 10.250.0.1 10.0.197.0 10.250.0.1 10.0.198.0 10.250.0.1 10.0.199.0 10.250.0.1 10.0.200.0 10.250.0.1 10.0.201.0 10.250.0.1 10.0.202.0 10.250.0.1 10.0.203.0 10.250.0.1 10.0.204.0 10.250.0.1 10.0.205.0 10.250.0.1 10.0.206.0 10.250.0.1 10.0.207.0 10.250.0.1 10.0.208.0 10.250.0.1 10.0.209.0 10.250.0.1 10.0.210.0 10.250.0.1 10.0.211.0 10.250.0.1 10.0.212.0 10.250.0.1 10.0.213.0 10.250.0.1 10.0.214.0 10.250.0.1 10.0.215.0 10.250.0.1 10.0.216.0 10.250.0.1 10.0.217.0 10.250.0.1 10.0.218.0 10.250.0.1 10.0.219.0 10.250.0.1 10.0.220.0 10.250.0.1 10.0.221.0 10.250.0.1 10.0.222.0 10.250.0.1 10.0.223.0 10.250.0.1 10.0.224.0 10.250.0.1 10.0.225.0 10.250.0.1 10.0.226.0 10.250.0.1 10.0.227.0 10.250.0.1 10.0.228.0 10.250.0.1 10.0.229.0 10.250.0.1 10.0.230.0 10.250.0.1 10.0.231.0 10.250.0.1 10.0.232.0 10.250.0.1 10.0.233.0 10.250.0.1 10.0.234.0 10.250.0.1 10.0.235.0 10.250.0.1 10.0.236.0 10.250.0.1 10.0.237.0 10.250.0.1 10.0.238.0 10.250.0.1 10.0.239.0 10.250.0.1 10.0.240.0 10.250.0.1 10.0.241.0 10.250.0.1 10.0.242.0 10.250.0.1 10.0.243.0 10.250.0.1 10.0.244.0 10.250.0.1 10.0.245.0 10.250.0.1 10.0.246.0 10.250.0.1 10.0.247.0 10.250.0.1 10.0.248.0 10.250.0.1 10.0.249.0 10.250.0.1 10.1.0.0 10.250.0.1 10.1.1.0 10.250.0.1 10.1.2.0 10.250.0.1 10.1.3.0 10.250.0.1 10.1.4.0 10.250.0.1 10.1.5.0 10.250.0.1 10.1.6.0 10.250.0.1 10.1.7.0 10.250.0.1 10.1.8.0 10.250.0.1 10.1.9.0 10.250.0.1 10.1.10.0 10.250.0.1 10.1.11.0 10.250.0.1 10.1.12.0 10.250.0.1 10.1.13.0 10.250.0.1 10.1.14.0 10.250.0.1 10.1.15.0 10.250.0.1 10.1.16.0 10.250.0.1 10.1.17.0 10.250.0.1 10.1.18.0 10.250.0.1 10.1.19.0 10.250.0.1 10.1.20.0 10.250.0.1 10.1.21.0 10.250.0.1 10.1.22.0 10.250.0.1 10.1.23.0 10.250.0.1 10.1.24.0 10.250.0.1 10.1.25.0 10.250.0.1 10.1.26.0 10.250.0.1 10.1.27.0 10.250.0.1 10.1.28.0 10.250.0.1 10.1.29.0 10.250.0.1 10.1.30.0 10.250.0.1 10.1.31.0 10.250.0.1 10.1.32.0 10.250.0.1 10.1.33.0 10.250.0.1 10.1.34.0 10.250.0.1 10.1.35.0 10.250.0.1 10.1.36.0 10.250.0.1 10.1.37.0 10.250.0.1 10.1.38.0 10.250.0.1 10.1.39.0 10.250.0.1 10.1.40.0 10.250.0.1 10.1.41.0 10.250.0.1 10.1.42.0 10.250.0.1 10.1.43.0 10.250.0.1 10.1.44.0 10.250.0.1 10.1.45.0 10.250.0.1 10.1.46.0 10.250.0.1 10.1.47.0 10.250.0.1 10.1.48.0 10.250.0.1 10.1.49.0 10.250.0.1 10.1.50.0 10.250.0.1 10.1.51.0 10.250.0.1 10.1.52.0 10.250.0.1 10.1.53.0 10.250.0.1 10.1.54.0 10.250.0.1 10.1.55.0 10.250.0.1 10.1.56.0 10.250.0.1 10.1.57.0 10.250.0.1 10.1.58.0 10.250.0.1 10.1.59.0 10.250.0.1 10.1.60.0 10.250.0.1 10.1.61.0 10.250.0.1 10.1.62.0 10.250.0.1 10.1.63.0 10.250.0.1 10.1.64.0 10.250.0.1 10.1.65.0 10.250.0.1 10.1.66.0 10.250.0.1 10.1.67.0 10.250.0.1 10.1.68.0 10.250.0.1 10.1.69.0 10.250.0.1 10.1.70.0 10.250.0.1 10.1.71.0 10.250.0.1 10.1.72.0 10.250.0.1 10.1.73.0 10.250.0.1 10.1.74.0 10.250.0.1 10.1.75.0 10.250.0.1 10.1.76.0 10.250.0.1 10.1.77.0 10.250.0.1 10.1.78.0 10.250.0.1 10.1.79.0 10.250.0.1 10.1.80.0 10.250.0.1 10.1.81.0 10.250.0.1 10.1.82.0 10.250.0.1 10.1.83.0 10.250.0.1 10.1.84.0 10.250.0.1 10.1.85.0 10.250.0.1 10.1.86.0 10.250.0.1 10.1.87.0 10.250.0.1 10.1.88.0 10.250.0.1 10.1.89.0 10.250.0.1 10.1.90.0 10.250.0.1 10.1.91.0 10.250.0.1 10.1.92.0 10.250.0.1 10.1.93.0 10.250.0.1 10.1.94.0 10.250.0.1 10.1.95.0 10.250.0.1 10.1.96.0 10.250.0.1 10.1.97.0 10.250.0.1 10.1.98.0 10.250.0.1 10.1.99.0 10.250.0.1 10.1.100.0 10.250.0.1 10.1.101.0 10.250.0.1 10.1.102.0 10.250.0.1 10.1.103.0 10.250.0.1 10.1.104.0 10.250.0.1 10.1.105.0 10.250.0.1 10.1.106.0 10.250.0.1 10.1.107.0 10.250.0.1 10.1.108.0 10.250.0.1 10.1.109.0 10.250.0.1 10.1.110.0 10.250.0.1 10.1.111.0 10.250.0.1 10.1.112.0 10.250.0.1 10.1.113.0 10.250.0.1 10.1.114.0 10.250.0.1 10.1.115.0 10.250.0.1 10.1.116.0 10.250.0.1 10.1.117.0 10.250.0.1 10.1.118.0 10.250.0.1 10.1.119.0 10.250.0.1 10.1.120.0 10.250.0.1 10.1.121.0 10.250.0.1 10.1.122.0 10.250.0.1 10.1.123.0 10.250.0.1 10.1.124.0 10.250.0.1 10.1.125.0 10.250.0.1 10.1.126.0 10.250.0.1 10.1.127.0 10.250.0.1 10.1.128.0 10.250.0.1 10.1.129.0 10.250.0.1 10.1.130.0 10.250.0.1 10.1.131.0 10.250.0.1 10.1.132.0 10.250.0.1 10.1.133.0 10.250.0.1 10.1.134.0 10.250.0.1 10.1.135.0 10.250.0.1 10.1.136.0 10.250.0.1 10.1.137.0 10.250.0.1 10.1.138.0 10.250.0.1 10.1.139.0 10.250.0.1 10.1.140.0 10.250.0.1 10.1.141.0 10.250.0.1 10.1.142.0 10.250.0.1 10.1.143.0 10.250.0.1 10.1.144.0 10.250.0.1 10.1.145.0 10.250.0.1 10.1.146.0 10.250.0.1 10.1.147.0 10.250.0.1 10.1.148.0 10.250.0.1 10.1.149.0 10.250.0.1 10.1.150.0 10.250.0.1 10.1.151.0 10.250.0.1 10.1.152.0 10.250.0.1 10.1.153.0 10.250.0.1 10.1.154.0 10.250.0.1 10.1.155.0 10.250.0.1 10.1.156.0 10.250.0.1 10.1.157.0 10.250.0.1 10.1.158.0 10.250.0.1 10.1.159.0 10.250.0.1 10.1.160.0 10.250.0.1 10.1.161.0 10.250.0.1 10.1.162.0 10.250.0.1 10.1.163.0 10.250.0.1 10.1.164.0 10.250.0.1 10.1.165.0 10.250.0.1 10.1.166.0 10.250.0.1 10.1.167.0 10.250.0.1 10.1.168.0 10.250.0.1 10.1.169.0 10.250.0.1 10.1.170.0 10.250.0.1 10.1.171.0 10.250.0.1 10.1.172.0 10.250.0.1 10.1.173.0 10.250.0.1 10.1.174.0 10.250.0.1 10.1.175.0 10.250.0.1 10.1.176.0 10.250.0.1 10.1.177.0 10.250.0.1 10.1.178.0 10.250.0.1 10.1.179.0 10.250.0.1 10.1.180.0 10.250.0.1 10.1.181.0 10.250.0.1 10.1.182.0 10.250.0.1 10.1.183.0 10.250.0.1 10.1.184.0 10.250.0.1 10.1.185.0 10.250.0.1 10.1.186.0 10.250.0.1 10.1.187.0 10.250.0.1 10.1.188.0 10.250.0.1 10.1.189.0 10.250.0.1 10.1.190.0 10.250.0.1 10.1.191.0 10.250.0.1 10.1.192.0 10.250.0.1 10.1.193.0 10.250.0.1 10.1.194.0 10.250.0.1 10.1.195.0 10.250.0.1 10.1.196.0 10.250.0.1 10.1.197.0 10.250.0.1 10.1.198.0 10.250.0.1 10.1.199.0 10.250.0.1 10.1.200.0 10.250.0.1 10.1.201.0 10.250.0.1 10.1.202.0 10.250.0.1 10.1.203.0 10.250.0.1 10.1.204.0 10.250.0.1 10.1.205.0 10.250.0.1 10.1.206.0 10.250.0.1 10.1.207.0 10.250.0.1 10.1.208.0 10.250.0.1 10.1.209.0 10.250.0.1 10.1.210.0 10.250.0.1 10.1.211.0 10.250.0.1 10.1.212.0 10.250.0.1 10.1.213.0 10.250.0.1 10.1.214.0 10.250.0.1 10.1.215.0 10.250.0.1 10.1.216.0 10.250.0.1 10.1.217.0 10.250.0.1 10.1.218.0 10.250.0.1 10.1.219.0 10.250.0.1 10.1.220.0 10.250.0.1 10.1.221.0 10.250.0.1 10.1.222.0 10.250.0.1 10.1.223.0 10.250.0.1 10.1.224.0 10.250.0.1 10.1.225.0 10.250.0.1 10.1.226.0 10.250.0.1 10.1.227.0 10.250.0.1 10.1.228.0 10.250.0.1 10.1.229.0 10.250.0.1 10.1.230.0 10.250.0.1 10.1.231.0 10.250.0.1 10.1.232.0 10.250.0.1 10.1.233.0 10.250.0.1 10.1.234.0 10.250.0.1 10.1.235.0 10.250.0.1 10.1.236.0 10.250.0.1 10.1.237.0 10.250.0.1 10.1.238.0 10.250.0.1 10.1.239.0 10.250.0.1 10.1.240.0 10.250.0.1 10.1.241.0 10.250.0.1 10.1.242.0 10.250.0.1 10.1.243.0 10.250.0.1 10.1.244.0 10.250.0.1 10.1.245.0 10.250.0.1 10.1.246.0 10.250.0.1 10.1.247.0 10.250.0.1 10.1.248.0 10.250.0.1 10.1.249.0 10.250.0.1
-
-# Configuração dos roteadores: tempo para processar 1 pacote, porta,
-# tamanho da fila da porta em quantidade de pacotes, [[porta, tamanho
-# ...] ...]
+# Configuração dos roteadores: tempo para processar 
 set performance r0 100us 0 1000 1 1000 2 1000
 set performance r1 20us 0 1000 1 1000 2 1000
-set performance r4 100us 0 1000 1 1000 2 1000
-set performance r3 20us 0 1000 1 1000 2 1000
 
+# Configuração dos agentes da camada de aplicação
 set ircc a0 irca0
 set ircc a1 irca1
 set ircc a2 irca2
@@ -1765,1337 +836,617 @@ set ircc a196 irca196
 set ircc a197 irca197
 set ircc a198 irca198
 set ircc a199 irca199
-set ircc a200 irca200
-set ircc a201 irca201
-set ircc a202 irca202
-set ircc a203 irca203
-set ircc a204 irca204
-set ircc a205 irca205
-set ircc a206 irca206
-set ircc a207 irca207
-set ircc a208 irca208
-set ircc a209 irca209
-set ircc a210 irca210
-set ircc a211 irca211
-set ircc a212 irca212
-set ircc a213 irca213
-set ircc a214 irca214
-set ircc a215 irca215
-set ircc a216 irca216
-set ircc a217 irca217
-set ircc a218 irca218
-set ircc a219 irca219
-set ircc a220 irca220
-set ircc a221 irca221
-set ircc a222 irca222
-set ircc a223 irca223
-set ircc a224 irca224
-set ircc a225 irca225
-set ircc a226 irca226
-set ircc a227 irca227
-set ircc a228 irca228
-set ircc a229 irca229
-set ircc a230 irca230
-set ircc a231 irca231
-set ircc a232 irca232
-set ircc a233 irca233
-set ircc a234 irca234
-set ircc a235 irca235
-set ircc a236 irca236
-set ircc a237 irca237
-set ircc a238 irca238
-set ircc a239 irca239
-set ircc a240 irca240
-set ircc a241 irca241
-set ircc a242 irca242
-set ircc a243 irca243
-set ircc a244 irca244
-set ircc a245 irca245
-set ircc a246 irca246
-set ircc a247 irca247
-set ircc a248 irca248
-set ircc a249 irca249
+
+set ircs z0 irc0
+set dnss z1 dns0
+
+# Configuração dos sniffers.
+set sniffer r0.0 z0 "ircs-snif.txt"
+set sniffer r0.1 z1 "dns-snif.txt"
+
+# Ações
+simulate 0.5 irca0 "CONNECT z0 6667"
+simulate 0.5 irca1 "CONNECT z0 6667"
+simulate 0.5 irca2 "CONNECT z0 6667"
+simulate 0.5 irca3 "CONNECT z0 6667"
+simulate 0.5 irca4 "CONNECT z0 6667"
+simulate 0.5 irca5 "CONNECT z0 6667"
+simulate 0.5 irca6 "CONNECT z0 6667"
+simulate 0.5 irca7 "CONNECT z0 6667"
+simulate 0.5 irca8 "CONNECT z0 6667"
+simulate 0.5 irca9 "CONNECT z0 6667"
+simulate 0.5 irca10 "CONNECT z0 6667"
+simulate 0.5 irca11 "CONNECT z0 6667"
+simulate 0.5 irca12 "CONNECT z0 6667"
+simulate 0.5 irca13 "CONNECT z0 6667"
+simulate 0.5 irca14 "CONNECT z0 6667"
+simulate 0.5 irca15 "CONNECT z0 6667"
+simulate 0.5 irca16 "CONNECT z0 6667"
+simulate 0.5 irca17 "CONNECT z0 6667"
+simulate 0.5 irca18 "CONNECT z0 6667"
+simulate 0.5 irca19 "CONNECT z0 6667"
+simulate 0.5 irca20 "CONNECT z0 6667"
+simulate 0.5 irca21 "CONNECT z0 6667"
+simulate 0.5 irca22 "CONNECT z0 6667"
+simulate 0.5 irca23 "CONNECT z0 6667"
+simulate 0.5 irca24 "CONNECT z0 6667"
+simulate 0.5 irca25 "CONNECT z0 6667"
+simulate 0.5 irca26 "CONNECT z0 6667"
+simulate 0.5 irca27 "CONNECT z0 6667"
+simulate 0.5 irca28 "CONNECT z0 6667"
+simulate 0.5 irca29 "CONNECT z0 6667"
+simulate 0.5 irca30 "CONNECT z0 6667"
+simulate 0.5 irca31 "CONNECT z0 6667"
+simulate 0.5 irca32 "CONNECT z0 6667"
+simulate 0.5 irca33 "CONNECT z0 6667"
+simulate 0.5 irca34 "CONNECT z0 6667"
+simulate 0.5 irca35 "CONNECT z0 6667"
+simulate 0.5 irca36 "CONNECT z0 6667"
+simulate 0.5 irca37 "CONNECT z0 6667"
+simulate 0.5 irca38 "CONNECT z0 6667"
+simulate 0.5 irca39 "CONNECT z0 6667"
+simulate 0.5 irca40 "CONNECT z0 6667"
+simulate 0.5 irca41 "CONNECT z0 6667"
+simulate 0.5 irca42 "CONNECT z0 6667"
+simulate 0.5 irca43 "CONNECT z0 6667"
+simulate 0.5 irca44 "CONNECT z0 6667"
+simulate 0.5 irca45 "CONNECT z0 6667"
+simulate 0.5 irca46 "CONNECT z0 6667"
+simulate 0.5 irca47 "CONNECT z0 6667"
+simulate 0.5 irca48 "CONNECT z0 6667"
+simulate 0.5 irca49 "CONNECT z0 6667"
+simulate 0.5 irca50 "CONNECT z0 6667"
+simulate 0.5 irca51 "CONNECT z0 6667"
+simulate 0.5 irca52 "CONNECT z0 6667"
+simulate 0.5 irca53 "CONNECT z0 6667"
+simulate 0.5 irca54 "CONNECT z0 6667"
+simulate 0.5 irca55 "CONNECT z0 6667"
+simulate 0.5 irca56 "CONNECT z0 6667"
+simulate 0.5 irca57 "CONNECT z0 6667"
+simulate 0.5 irca58 "CONNECT z0 6667"
+simulate 0.5 irca59 "CONNECT z0 6667"
+simulate 0.5 irca60 "CONNECT z0 6667"
+simulate 0.5 irca61 "CONNECT z0 6667"
+simulate 0.5 irca62 "CONNECT z0 6667"
+simulate 0.5 irca63 "CONNECT z0 6667"
+simulate 0.5 irca64 "CONNECT z0 6667"
+simulate 0.5 irca65 "CONNECT z0 6667"
+simulate 0.5 irca66 "CONNECT z0 6667"
+simulate 0.5 irca67 "CONNECT z0 6667"
+simulate 0.5 irca68 "CONNECT z0 6667"
+simulate 0.5 irca69 "CONNECT z0 6667"
+simulate 0.5 irca70 "CONNECT z0 6667"
+simulate 0.5 irca71 "CONNECT z0 6667"
+simulate 0.5 irca72 "CONNECT z0 6667"
+simulate 0.5 irca73 "CONNECT z0 6667"
+simulate 0.5 irca74 "CONNECT z0 6667"
+simulate 0.5 irca75 "CONNECT z0 6667"
+simulate 0.5 irca76 "CONNECT z0 6667"
+simulate 0.5 irca77 "CONNECT z0 6667"
+simulate 0.5 irca78 "CONNECT z0 6667"
+simulate 0.5 irca79 "CONNECT z0 6667"
+simulate 0.5 irca80 "CONNECT z0 6667"
+simulate 0.5 irca81 "CONNECT z0 6667"
+simulate 0.5 irca82 "CONNECT z0 6667"
+simulate 0.5 irca83 "CONNECT z0 6667"
+simulate 0.5 irca84 "CONNECT z0 6667"
+simulate 0.5 irca85 "CONNECT z0 6667"
+simulate 0.5 irca86 "CONNECT z0 6667"
+simulate 0.5 irca87 "CONNECT z0 6667"
+simulate 0.5 irca88 "CONNECT z0 6667"
+simulate 0.5 irca89 "CONNECT z0 6667"
+simulate 0.5 irca90 "CONNECT z0 6667"
+simulate 0.5 irca91 "CONNECT z0 6667"
+simulate 0.5 irca92 "CONNECT z0 6667"
+simulate 0.5 irca93 "CONNECT z0 6667"
+simulate 0.5 irca94 "CONNECT z0 6667"
+simulate 0.5 irca95 "CONNECT z0 6667"
+simulate 0.5 irca96 "CONNECT z0 6667"
+simulate 0.5 irca97 "CONNECT z0 6667"
+simulate 0.5 irca98 "CONNECT z0 6667"
+simulate 0.5 irca99 "CONNECT z0 6667"
+simulate 0.5 irca100 "CONNECT z0 6667"
+simulate 0.5 irca101 "CONNECT z0 6667"
+simulate 0.5 irca102 "CONNECT z0 6667"
+simulate 0.5 irca103 "CONNECT z0 6667"
+simulate 0.5 irca104 "CONNECT z0 6667"
+simulate 0.5 irca105 "CONNECT z0 6667"
+simulate 0.5 irca106 "CONNECT z0 6667"
+simulate 0.5 irca107 "CONNECT z0 6667"
+simulate 0.5 irca108 "CONNECT z0 6667"
+simulate 0.5 irca109 "CONNECT z0 6667"
+simulate 0.5 irca110 "CONNECT z0 6667"
+simulate 0.5 irca111 "CONNECT z0 6667"
+simulate 0.5 irca112 "CONNECT z0 6667"
+simulate 0.5 irca113 "CONNECT z0 6667"
+simulate 0.5 irca114 "CONNECT z0 6667"
+simulate 0.5 irca115 "CONNECT z0 6667"
+simulate 0.5 irca116 "CONNECT z0 6667"
+simulate 0.5 irca117 "CONNECT z0 6667"
+simulate 0.5 irca118 "CONNECT z0 6667"
+simulate 0.5 irca119 "CONNECT z0 6667"
+simulate 0.5 irca120 "CONNECT z0 6667"
+simulate 0.5 irca121 "CONNECT z0 6667"
+simulate 0.5 irca122 "CONNECT z0 6667"
+simulate 0.5 irca123 "CONNECT z0 6667"
+simulate 0.5 irca124 "CONNECT z0 6667"
+simulate 0.5 irca125 "CONNECT z0 6667"
+simulate 0.5 irca126 "CONNECT z0 6667"
+simulate 0.5 irca127 "CONNECT z0 6667"
+simulate 0.5 irca128 "CONNECT z0 6667"
+simulate 0.5 irca129 "CONNECT z0 6667"
+simulate 0.5 irca130 "CONNECT z0 6667"
+simulate 0.5 irca131 "CONNECT z0 6667"
+simulate 0.5 irca132 "CONNECT z0 6667"
+simulate 0.5 irca133 "CONNECT z0 6667"
+simulate 0.5 irca134 "CONNECT z0 6667"
+simulate 0.5 irca135 "CONNECT z0 6667"
+simulate 0.5 irca136 "CONNECT z0 6667"
+simulate 0.5 irca137 "CONNECT z0 6667"
+simulate 0.5 irca138 "CONNECT z0 6667"
+simulate 0.5 irca139 "CONNECT z0 6667"
+simulate 0.5 irca140 "CONNECT z0 6667"
+simulate 0.5 irca141 "CONNECT z0 6667"
+simulate 0.5 irca142 "CONNECT z0 6667"
+simulate 0.5 irca143 "CONNECT z0 6667"
+simulate 0.5 irca144 "CONNECT z0 6667"
+simulate 0.5 irca145 "CONNECT z0 6667"
+simulate 0.5 irca146 "CONNECT z0 6667"
+simulate 0.5 irca147 "CONNECT z0 6667"
+simulate 0.5 irca148 "CONNECT z0 6667"
+simulate 0.5 irca149 "CONNECT z0 6667"
+simulate 0.5 irca150 "CONNECT z0 6667"
+simulate 0.5 irca151 "CONNECT z0 6667"
+simulate 0.5 irca152 "CONNECT z0 6667"
+simulate 0.5 irca153 "CONNECT z0 6667"
+simulate 0.5 irca154 "CONNECT z0 6667"
+simulate 0.5 irca155 "CONNECT z0 6667"
+simulate 0.5 irca156 "CONNECT z0 6667"
+simulate 0.5 irca157 "CONNECT z0 6667"
+simulate 0.5 irca158 "CONNECT z0 6667"
+simulate 0.5 irca159 "CONNECT z0 6667"
+simulate 0.5 irca160 "CONNECT z0 6667"
+simulate 0.5 irca161 "CONNECT z0 6667"
+simulate 0.5 irca162 "CONNECT z0 6667"
+simulate 0.5 irca163 "CONNECT z0 6667"
+simulate 0.5 irca164 "CONNECT z0 6667"
+simulate 0.5 irca165 "CONNECT z0 6667"
+simulate 0.5 irca166 "CONNECT z0 6667"
+simulate 0.5 irca167 "CONNECT z0 6667"
+simulate 0.5 irca168 "CONNECT z0 6667"
+simulate 0.5 irca169 "CONNECT z0 6667"
+simulate 0.5 irca170 "CONNECT z0 6667"
+simulate 0.5 irca171 "CONNECT z0 6667"
+simulate 0.5 irca172 "CONNECT z0 6667"
+simulate 0.5 irca173 "CONNECT z0 6667"
+simulate 0.5 irca174 "CONNECT z0 6667"
+simulate 0.5 irca175 "CONNECT z0 6667"
+simulate 0.5 irca176 "CONNECT z0 6667"
+simulate 0.5 irca177 "CONNECT z0 6667"
+simulate 0.5 irca178 "CONNECT z0 6667"
+simulate 0.5 irca179 "CONNECT z0 6667"
+simulate 0.5 irca180 "CONNECT z0 6667"
+simulate 0.5 irca181 "CONNECT z0 6667"
+simulate 0.5 irca182 "CONNECT z0 6667"
+simulate 0.5 irca183 "CONNECT z0 6667"
+simulate 0.5 irca184 "CONNECT z0 6667"
+simulate 0.5 irca185 "CONNECT z0 6667"
+simulate 0.5 irca186 "CONNECT z0 6667"
+simulate 0.5 irca187 "CONNECT z0 6667"
+simulate 0.5 irca188 "CONNECT z0 6667"
+simulate 0.5 irca189 "CONNECT z0 6667"
+simulate 0.5 irca190 "CONNECT z0 6667"
+simulate 0.5 irca191 "CONNECT z0 6667"
+simulate 0.5 irca192 "CONNECT z0 6667"
+simulate 0.5 irca193 "CONNECT z0 6667"
+simulate 0.5 irca194 "CONNECT z0 6667"
+simulate 0.5 irca195 "CONNECT z0 6667"
+simulate 0.5 irca196 "CONNECT z0 6667"
+simulate 0.5 irca197 "CONNECT z0 6667"
+simulate 0.5 irca198 "CONNECT z0 6667"
+simulate 0.5 irca199 "CONNECT z0 6667"
 
 
-set ircc b0 ircb0
-set ircc b1 ircb1
-set ircc b2 ircb2
-set ircc b3 ircb3
-set ircc b4 ircb4
-set ircc b5 ircb5
-set ircc b6 ircb6
-set ircc b7 ircb7
-set ircc b8 ircb8
-set ircc b9 ircb9
-set ircc b10 ircb10
-set ircc b11 ircb11
-set ircc b12 ircb12
-set ircc b13 ircb13
-set ircc b14 ircb14
-set ircc b15 ircb15
-set ircc b16 ircb16
-set ircc b17 ircb17
-set ircc b18 ircb18
-set ircc b19 ircb19
-set ircc b20 ircb20
-set ircc b21 ircb21
-set ircc b22 ircb22
-set ircc b23 ircb23
-set ircc b24 ircb24
-set ircc b25 ircb25
-set ircc b26 ircb26
-set ircc b27 ircb27
-set ircc b28 ircb28
-set ircc b29 ircb29
-set ircc b30 ircb30
-set ircc b31 ircb31
-set ircc b32 ircb32
-set ircc b33 ircb33
-set ircc b34 ircb34
-set ircc b35 ircb35
-set ircc b36 ircb36
-set ircc b37 ircb37
-set ircc b38 ircb38
-set ircc b39 ircb39
-set ircc b40 ircb40
-set ircc b41 ircb41
-set ircc b42 ircb42
-set ircc b43 ircb43
-set ircc b44 ircb44
-set ircc b45 ircb45
-set ircc b46 ircb46
-set ircc b47 ircb47
-set ircc b48 ircb48
-set ircc b49 ircb49
-set ircc b50 ircb50
-set ircc b51 ircb51
-set ircc b52 ircb52
-set ircc b53 ircb53
-set ircc b54 ircb54
-set ircc b55 ircb55
-set ircc b56 ircb56
-set ircc b57 ircb57
-set ircc b58 ircb58
-set ircc b59 ircb59
-set ircc b60 ircb60
-set ircc b61 ircb61
-set ircc b62 ircb62
-set ircc b63 ircb63
-set ircc b64 ircb64
-set ircc b65 ircb65
-set ircc b66 ircb66
-set ircc b67 ircb67
-set ircc b68 ircb68
-set ircc b69 ircb69
-set ircc b70 ircb70
-set ircc b71 ircb71
-set ircc b72 ircb72
-set ircc b73 ircb73
-set ircc b74 ircb74
-set ircc b75 ircb75
-set ircc b76 ircb76
-set ircc b77 ircb77
-set ircc b78 ircb78
-set ircc b79 ircb79
-set ircc b80 ircb80
-set ircc b81 ircb81
-set ircc b82 ircb82
-set ircc b83 ircb83
-set ircc b84 ircb84
-set ircc b85 ircb85
-set ircc b86 ircb86
-set ircc b87 ircb87
-set ircc b88 ircb88
-set ircc b89 ircb89
-set ircc b90 ircb90
-set ircc b91 ircb91
-set ircc b92 ircb92
-set ircc b93 ircb93
-set ircc b94 ircb94
-set ircc b95 ircb95
-set ircc b96 ircb96
-set ircc b97 ircb97
-set ircc b98 ircb98
-set ircc b99 ircb99
-set ircc b100 ircb100
-set ircc b101 ircb101
-set ircc b102 ircb102
-set ircc b103 ircb103
-set ircc b104 ircb104
-set ircc b105 ircb105
-set ircc b106 ircb106
-set ircc b107 ircb107
-set ircc b108 ircb108
-set ircc b109 ircb109
-set ircc b110 ircb110
-set ircc b111 ircb111
-set ircc b112 ircb112
-set ircc b113 ircb113
-set ircc b114 ircb114
-set ircc b115 ircb115
-set ircc b116 ircb116
-set ircc b117 ircb117
-set ircc b118 ircb118
-set ircc b119 ircb119
-set ircc b120 ircb120
-set ircc b121 ircb121
-set ircc b122 ircb122
-set ircc b123 ircb123
-set ircc b124 ircb124
-set ircc b125 ircb125
-set ircc b126 ircb126
-set ircc b127 ircb127
-set ircc b128 ircb128
-set ircc b129 ircb129
-set ircc b130 ircb130
-set ircc b131 ircb131
-set ircc b132 ircb132
-set ircc b133 ircb133
-set ircc b134 ircb134
-set ircc b135 ircb135
-set ircc b136 ircb136
-set ircc b137 ircb137
-set ircc b138 ircb138
-set ircc b139 ircb139
-set ircc b140 ircb140
-set ircc b141 ircb141
-set ircc b142 ircb142
-set ircc b143 ircb143
-set ircc b144 ircb144
-set ircc b145 ircb145
-set ircc b146 ircb146
-set ircc b147 ircb147
-set ircc b148 ircb148
-set ircc b149 ircb149
-set ircc b150 ircb150
-set ircc b151 ircb151
-set ircc b152 ircb152
-set ircc b153 ircb153
-set ircc b154 ircb154
-set ircc b155 ircb155
-set ircc b156 ircb156
-set ircc b157 ircb157
-set ircc b158 ircb158
-set ircc b159 ircb159
-set ircc b160 ircb160
-set ircc b161 ircb161
-set ircc b162 ircb162
-set ircc b163 ircb163
-set ircc b164 ircb164
-set ircc b165 ircb165
-set ircc b166 ircb166
-set ircc b167 ircb167
-set ircc b168 ircb168
-set ircc b169 ircb169
-set ircc b170 ircb170
-set ircc b171 ircb171
-set ircc b172 ircb172
-set ircc b173 ircb173
-set ircc b174 ircb174
-set ircc b175 ircb175
-set ircc b176 ircb176
-set ircc b177 ircb177
-set ircc b178 ircb178
-set ircc b179 ircb179
-set ircc b180 ircb180
-set ircc b181 ircb181
-set ircc b182 ircb182
-set ircc b183 ircb183
-set ircc b184 ircb184
-set ircc b185 ircb185
-set ircc b186 ircb186
-set ircc b187 ircb187
-set ircc b188 ircb188
-set ircc b189 ircb189
-set ircc b190 ircb190
-set ircc b191 ircb191
-set ircc b192 ircb192
-set ircc b193 ircb193
-set ircc b194 ircb194
-set ircc b195 ircb195
-set ircc b196 ircb196
-set ircc b197 ircb197
-set ircc b198 ircb198
-set ircc b199 ircb199
-set ircc b200 ircb200
-set ircc b201 ircb201
-set ircc b202 ircb202
-set ircc b203 ircb203
-set ircc b204 ircb204
-set ircc b205 ircb205
-set ircc b206 ircb206
-set ircc b207 ircb207
-set ircc b208 ircb208
-set ircc b209 ircb209
-set ircc b210 ircb210
-set ircc b211 ircb211
-set ircc b212 ircb212
-set ircc b213 ircb213
-set ircc b214 ircb214
-set ircc b215 ircb215
-set ircc b216 ircb216
-set ircc b217 ircb217
-set ircc b218 ircb218
-set ircc b219 ircb219
-set ircc b220 ircb220
-set ircc b221 ircb221
-set ircc b222 ircb222
-set ircc b223 ircb223
-set ircc b224 ircb224
-set ircc b225 ircb225
-set ircc b226 ircb226
-set ircc b227 ircb227
-set ircc b228 ircb228
-set ircc b229 ircb229
-set ircc b230 ircb230
-set ircc b231 ircb231
-set ircc b232 ircb232
-set ircc b233 ircb233
-set ircc b234 ircb234
-set ircc b235 ircb235
-set ircc b236 ircb236
-set ircc b237 ircb237
-set ircc b238 ircb238
-set ircc b239 ircb239
-set ircc b240 ircb240
-set ircc b241 ircb241
-set ircc b242 ircb242
-set ircc b243 ircb243
-set ircc b244 ircb244
-set ircc b245 ircb245
-set ircc b246 ircb246
-set ircc b247 ircb247
-set ircc b248 ircb248
-set ircc b249 ircb249
+simulate 1.0 irca0 "USER user_irca0"
+simulate 1.0 irca1 "USER user_irca1"
+simulate 1.0 irca2 "USER user_irca2"
+simulate 1.0 irca3 "USER user_irca3"
+simulate 1.0 irca4 "USER user_irca4"
+simulate 1.0 irca5 "USER user_irca5"
+simulate 1.0 irca6 "USER user_irca6"
+simulate 1.0 irca7 "USER user_irca7"
+simulate 1.0 irca8 "USER user_irca8"
+simulate 1.0 irca9 "USER user_irca9"
+simulate 1.0 irca10 "USER user_irca10"
+simulate 1.0 irca11 "USER user_irca11"
+simulate 1.0 irca12 "USER user_irca12"
+simulate 1.0 irca13 "USER user_irca13"
+simulate 1.0 irca14 "USER user_irca14"
+simulate 1.0 irca15 "USER user_irca15"
+simulate 1.0 irca16 "USER user_irca16"
+simulate 1.0 irca17 "USER user_irca17"
+simulate 1.0 irca18 "USER user_irca18"
+simulate 1.0 irca19 "USER user_irca19"
+simulate 1.0 irca20 "USER user_irca20"
+simulate 1.0 irca21 "USER user_irca21"
+simulate 1.0 irca22 "USER user_irca22"
+simulate 1.0 irca23 "USER user_irca23"
+simulate 1.0 irca24 "USER user_irca24"
+simulate 1.0 irca25 "USER user_irca25"
+simulate 1.0 irca26 "USER user_irca26"
+simulate 1.0 irca27 "USER user_irca27"
+simulate 1.0 irca28 "USER user_irca28"
+simulate 1.0 irca29 "USER user_irca29"
+simulate 1.0 irca30 "USER user_irca30"
+simulate 1.0 irca31 "USER user_irca31"
+simulate 1.0 irca32 "USER user_irca32"
+simulate 1.0 irca33 "USER user_irca33"
+simulate 1.0 irca34 "USER user_irca34"
+simulate 1.0 irca35 "USER user_irca35"
+simulate 1.0 irca36 "USER user_irca36"
+simulate 1.0 irca37 "USER user_irca37"
+simulate 1.0 irca38 "USER user_irca38"
+simulate 1.0 irca39 "USER user_irca39"
+simulate 1.0 irca40 "USER user_irca40"
+simulate 1.0 irca41 "USER user_irca41"
+simulate 1.0 irca42 "USER user_irca42"
+simulate 1.0 irca43 "USER user_irca43"
+simulate 1.0 irca44 "USER user_irca44"
+simulate 1.0 irca45 "USER user_irca45"
+simulate 1.0 irca46 "USER user_irca46"
+simulate 1.0 irca47 "USER user_irca47"
+simulate 1.0 irca48 "USER user_irca48"
+simulate 1.0 irca49 "USER user_irca49"
+simulate 1.0 irca50 "USER user_irca50"
+simulate 1.0 irca51 "USER user_irca51"
+simulate 1.0 irca52 "USER user_irca52"
+simulate 1.0 irca53 "USER user_irca53"
+simulate 1.0 irca54 "USER user_irca54"
+simulate 1.0 irca55 "USER user_irca55"
+simulate 1.0 irca56 "USER user_irca56"
+simulate 1.0 irca57 "USER user_irca57"
+simulate 1.0 irca58 "USER user_irca58"
+simulate 1.0 irca59 "USER user_irca59"
+simulate 1.0 irca60 "USER user_irca60"
+simulate 1.0 irca61 "USER user_irca61"
+simulate 1.0 irca62 "USER user_irca62"
+simulate 1.0 irca63 "USER user_irca63"
+simulate 1.0 irca64 "USER user_irca64"
+simulate 1.0 irca65 "USER user_irca65"
+simulate 1.0 irca66 "USER user_irca66"
+simulate 1.0 irca67 "USER user_irca67"
+simulate 1.0 irca68 "USER user_irca68"
+simulate 1.0 irca69 "USER user_irca69"
+simulate 1.0 irca70 "USER user_irca70"
+simulate 1.0 irca71 "USER user_irca71"
+simulate 1.0 irca72 "USER user_irca72"
+simulate 1.0 irca73 "USER user_irca73"
+simulate 1.0 irca74 "USER user_irca74"
+simulate 1.0 irca75 "USER user_irca75"
+simulate 1.0 irca76 "USER user_irca76"
+simulate 1.0 irca77 "USER user_irca77"
+simulate 1.0 irca78 "USER user_irca78"
+simulate 1.0 irca79 "USER user_irca79"
+simulate 1.0 irca80 "USER user_irca80"
+simulate 1.0 irca81 "USER user_irca81"
+simulate 1.0 irca82 "USER user_irca82"
+simulate 1.0 irca83 "USER user_irca83"
+simulate 1.0 irca84 "USER user_irca84"
+simulate 1.0 irca85 "USER user_irca85"
+simulate 1.0 irca86 "USER user_irca86"
+simulate 1.0 irca87 "USER user_irca87"
+simulate 1.0 irca88 "USER user_irca88"
+simulate 1.0 irca89 "USER user_irca89"
+simulate 1.0 irca90 "USER user_irca90"
+simulate 1.0 irca91 "USER user_irca91"
+simulate 1.0 irca92 "USER user_irca92"
+simulate 1.0 irca93 "USER user_irca93"
+simulate 1.0 irca94 "USER user_irca94"
+simulate 1.0 irca95 "USER user_irca95"
+simulate 1.0 irca96 "USER user_irca96"
+simulate 1.0 irca97 "USER user_irca97"
+simulate 1.0 irca98 "USER user_irca98"
+simulate 1.0 irca99 "USER user_irca99"
+simulate 1.0 irca100 "USER user_irca100"
+simulate 1.0 irca101 "USER user_irca101"
+simulate 1.0 irca102 "USER user_irca102"
+simulate 1.0 irca103 "USER user_irca103"
+simulate 1.0 irca104 "USER user_irca104"
+simulate 1.0 irca105 "USER user_irca105"
+simulate 1.0 irca106 "USER user_irca106"
+simulate 1.0 irca107 "USER user_irca107"
+simulate 1.0 irca108 "USER user_irca108"
+simulate 1.0 irca109 "USER user_irca109"
+simulate 1.0 irca110 "USER user_irca110"
+simulate 1.0 irca111 "USER user_irca111"
+simulate 1.0 irca112 "USER user_irca112"
+simulate 1.0 irca113 "USER user_irca113"
+simulate 1.0 irca114 "USER user_irca114"
+simulate 1.0 irca115 "USER user_irca115"
+simulate 1.0 irca116 "USER user_irca116"
+simulate 1.0 irca117 "USER user_irca117"
+simulate 1.0 irca118 "USER user_irca118"
+simulate 1.0 irca119 "USER user_irca119"
+simulate 1.0 irca120 "USER user_irca120"
+simulate 1.0 irca121 "USER user_irca121"
+simulate 1.0 irca122 "USER user_irca122"
+simulate 1.0 irca123 "USER user_irca123"
+simulate 1.0 irca124 "USER user_irca124"
+simulate 1.0 irca125 "USER user_irca125"
+simulate 1.0 irca126 "USER user_irca126"
+simulate 1.0 irca127 "USER user_irca127"
+simulate 1.0 irca128 "USER user_irca128"
+simulate 1.0 irca129 "USER user_irca129"
+simulate 1.0 irca130 "USER user_irca130"
+simulate 1.0 irca131 "USER user_irca131"
+simulate 1.0 irca132 "USER user_irca132"
+simulate 1.0 irca133 "USER user_irca133"
+simulate 1.0 irca134 "USER user_irca134"
+simulate 1.0 irca135 "USER user_irca135"
+simulate 1.0 irca136 "USER user_irca136"
+simulate 1.0 irca137 "USER user_irca137"
+simulate 1.0 irca138 "USER user_irca138"
+simulate 1.0 irca139 "USER user_irca139"
+simulate 1.0 irca140 "USER user_irca140"
+simulate 1.0 irca141 "USER user_irca141"
+simulate 1.0 irca142 "USER user_irca142"
+simulate 1.0 irca143 "USER user_irca143"
+simulate 1.0 irca144 "USER user_irca144"
+simulate 1.0 irca145 "USER user_irca145"
+simulate 1.0 irca146 "USER user_irca146"
+simulate 1.0 irca147 "USER user_irca147"
+simulate 1.0 irca148 "USER user_irca148"
+simulate 1.0 irca149 "USER user_irca149"
+simulate 1.0 irca150 "USER user_irca150"
+simulate 1.0 irca151 "USER user_irca151"
+simulate 1.0 irca152 "USER user_irca152"
+simulate 1.0 irca153 "USER user_irca153"
+simulate 1.0 irca154 "USER user_irca154"
+simulate 1.0 irca155 "USER user_irca155"
+simulate 1.0 irca156 "USER user_irca156"
+simulate 1.0 irca157 "USER user_irca157"
+simulate 1.0 irca158 "USER user_irca158"
+simulate 1.0 irca159 "USER user_irca159"
+simulate 1.0 irca160 "USER user_irca160"
+simulate 1.0 irca161 "USER user_irca161"
+simulate 1.0 irca162 "USER user_irca162"
+simulate 1.0 irca163 "USER user_irca163"
+simulate 1.0 irca164 "USER user_irca164"
+simulate 1.0 irca165 "USER user_irca165"
+simulate 1.0 irca166 "USER user_irca166"
+simulate 1.0 irca167 "USER user_irca167"
+simulate 1.0 irca168 "USER user_irca168"
+simulate 1.0 irca169 "USER user_irca169"
+simulate 1.0 irca170 "USER user_irca170"
+simulate 1.0 irca171 "USER user_irca171"
+simulate 1.0 irca172 "USER user_irca172"
+simulate 1.0 irca173 "USER user_irca173"
+simulate 1.0 irca174 "USER user_irca174"
+simulate 1.0 irca175 "USER user_irca175"
+simulate 1.0 irca176 "USER user_irca176"
+simulate 1.0 irca177 "USER user_irca177"
+simulate 1.0 irca178 "USER user_irca178"
+simulate 1.0 irca179 "USER user_irca179"
+simulate 1.0 irca180 "USER user_irca180"
+simulate 1.0 irca181 "USER user_irca181"
+simulate 1.0 irca182 "USER user_irca182"
+simulate 1.0 irca183 "USER user_irca183"
+simulate 1.0 irca184 "USER user_irca184"
+simulate 1.0 irca185 "USER user_irca185"
+simulate 1.0 irca186 "USER user_irca186"
+simulate 1.0 irca187 "USER user_irca187"
+simulate 1.0 irca188 "USER user_irca188"
+simulate 1.0 irca189 "USER user_irca189"
+simulate 1.0 irca190 "USER user_irca190"
+simulate 1.0 irca191 "USER user_irca191"
+simulate 1.0 irca192 "USER user_irca192"
+simulate 1.0 irca193 "USER user_irca193"
+simulate 1.0 irca194 "USER user_irca194"
+simulate 1.0 irca195 "USER user_irca195"
+simulate 1.0 irca196 "USER user_irca196"
+simulate 1.0 irca197 "USER user_irca197"
+simulate 1.0 irca198 "USER user_irca198"
+simulate 1.0 irca199 "USER user_irca199"
 
-set ircs c0 ircs
-set dnss c1 dns1
+simulate 1.5 irca0 "QUIT"
+simulate 1.5 irca1 "QUIT"
+simulate 1.5 irca2 "QUIT"
+simulate 1.5 irca3 "QUIT"
+simulate 1.5 irca4 "QUIT"
+simulate 1.5 irca5 "QUIT"
+simulate 1.5 irca6 "QUIT"
+simulate 1.5 irca7 "QUIT"
+simulate 1.5 irca8 "QUIT"
+simulate 1.5 irca9 "QUIT"
+simulate 1.5 irca10 "QUIT"
+simulate 1.5 irca11 "QUIT"
+simulate 1.5 irca12 "QUIT"
+simulate 1.5 irca13 "QUIT"
+simulate 1.5 irca14 "QUIT"
+simulate 1.5 irca15 "QUIT"
+simulate 1.5 irca16 "QUIT"
+simulate 1.5 irca17 "QUIT"
+simulate 1.5 irca18 "QUIT"
+simulate 1.5 irca19 "QUIT"
+simulate 1.5 irca20 "QUIT"
+simulate 1.5 irca21 "QUIT"
+simulate 1.5 irca22 "QUIT"
+simulate 1.5 irca23 "QUIT"
+simulate 1.5 irca24 "QUIT"
+simulate 1.5 irca25 "QUIT"
+simulate 1.5 irca26 "QUIT"
+simulate 1.5 irca27 "QUIT"
+simulate 1.5 irca28 "QUIT"
+simulate 1.5 irca29 "QUIT"
+simulate 1.5 irca30 "QUIT"
+simulate 1.5 irca31 "QUIT"
+simulate 1.5 irca32 "QUIT"
+simulate 1.5 irca33 "QUIT"
+simulate 1.5 irca34 "QUIT"
+simulate 1.5 irca35 "QUIT"
+simulate 1.5 irca36 "QUIT"
+simulate 1.5 irca37 "QUIT"
+simulate 1.5 irca38 "QUIT"
+simulate 1.5 irca39 "QUIT"
+simulate 1.5 irca40 "QUIT"
+simulate 1.5 irca41 "QUIT"
+simulate 1.5 irca42 "QUIT"
+simulate 1.5 irca43 "QUIT"
+simulate 1.5 irca44 "QUIT"
+simulate 1.5 irca45 "QUIT"
+simulate 1.5 irca46 "QUIT"
+simulate 1.5 irca47 "QUIT"
+simulate 1.5 irca48 "QUIT"
+simulate 1.5 irca49 "QUIT"
+simulate 1.5 irca50 "QUIT"
+simulate 1.5 irca51 "QUIT"
+simulate 1.5 irca52 "QUIT"
+simulate 1.5 irca53 "QUIT"
+simulate 1.5 irca54 "QUIT"
+simulate 1.5 irca55 "QUIT"
+simulate 1.5 irca56 "QUIT"
+simulate 1.5 irca57 "QUIT"
+simulate 1.5 irca58 "QUIT"
+simulate 1.5 irca59 "QUIT"
+simulate 1.5 irca60 "QUIT"
+simulate 1.5 irca61 "QUIT"
+simulate 1.5 irca62 "QUIT"
+simulate 1.5 irca63 "QUIT"
+simulate 1.5 irca64 "QUIT"
+simulate 1.5 irca65 "QUIT"
+simulate 1.5 irca66 "QUIT"
+simulate 1.5 irca67 "QUIT"
+simulate 1.5 irca68 "QUIT"
+simulate 1.5 irca69 "QUIT"
+simulate 1.5 irca70 "QUIT"
+simulate 1.5 irca71 "QUIT"
+simulate 1.5 irca72 "QUIT"
+simulate 1.5 irca73 "QUIT"
+simulate 1.5 irca74 "QUIT"
+simulate 1.5 irca75 "QUIT"
+simulate 1.5 irca76 "QUIT"
+simulate 1.5 irca77 "QUIT"
+simulate 1.5 irca78 "QUIT"
+simulate 1.5 irca79 "QUIT"
+simulate 1.5 irca80 "QUIT"
+simulate 1.5 irca81 "QUIT"
+simulate 1.5 irca82 "QUIT"
+simulate 1.5 irca83 "QUIT"
+simulate 1.5 irca84 "QUIT"
+simulate 1.5 irca85 "QUIT"
+simulate 1.5 irca86 "QUIT"
+simulate 1.5 irca87 "QUIT"
+simulate 1.5 irca88 "QUIT"
+simulate 1.5 irca89 "QUIT"
+simulate 1.5 irca90 "QUIT"
+simulate 1.5 irca91 "QUIT"
+simulate 1.5 irca92 "QUIT"
+simulate 1.5 irca93 "QUIT"
+simulate 1.5 irca94 "QUIT"
+simulate 1.5 irca95 "QUIT"
+simulate 1.5 irca96 "QUIT"
+simulate 1.5 irca97 "QUIT"
+simulate 1.5 irca98 "QUIT"
+simulate 1.5 irca99 "QUIT"
+simulate 1.5 irca100 "QUIT"
+simulate 1.5 irca101 "QUIT"
+simulate 1.5 irca102 "QUIT"
+simulate 1.5 irca103 "QUIT"
+simulate 1.5 irca104 "QUIT"
+simulate 1.5 irca105 "QUIT"
+simulate 1.5 irca106 "QUIT"
+simulate 1.5 irca107 "QUIT"
+simulate 1.5 irca108 "QUIT"
+simulate 1.5 irca109 "QUIT"
+simulate 1.5 irca110 "QUIT"
+simulate 1.5 irca111 "QUIT"
+simulate 1.5 irca112 "QUIT"
+simulate 1.5 irca113 "QUIT"
+simulate 1.5 irca114 "QUIT"
+simulate 1.5 irca115 "QUIT"
+simulate 1.5 irca116 "QUIT"
+simulate 1.5 irca117 "QUIT"
+simulate 1.5 irca118 "QUIT"
+simulate 1.5 irca119 "QUIT"
+simulate 1.5 irca120 "QUIT"
+simulate 1.5 irca121 "QUIT"
+simulate 1.5 irca122 "QUIT"
+simulate 1.5 irca123 "QUIT"
+simulate 1.5 irca124 "QUIT"
+simulate 1.5 irca125 "QUIT"
+simulate 1.5 irca126 "QUIT"
+simulate 1.5 irca127 "QUIT"
+simulate 1.5 irca128 "QUIT"
+simulate 1.5 irca129 "QUIT"
+simulate 1.5 irca130 "QUIT"
+simulate 1.5 irca131 "QUIT"
+simulate 1.5 irca132 "QUIT"
+simulate 1.5 irca133 "QUIT"
+simulate 1.5 irca134 "QUIT"
+simulate 1.5 irca135 "QUIT"
+simulate 1.5 irca136 "QUIT"
+simulate 1.5 irca137 "QUIT"
+simulate 1.5 irca138 "QUIT"
+simulate 1.5 irca139 "QUIT"
+simulate 1.5 irca140 "QUIT"
+simulate 1.5 irca141 "QUIT"
+simulate 1.5 irca142 "QUIT"
+simulate 1.5 irca143 "QUIT"
+simulate 1.5 irca144 "QUIT"
+simulate 1.5 irca145 "QUIT"
+simulate 1.5 irca146 "QUIT"
+simulate 1.5 irca147 "QUIT"
+simulate 1.5 irca148 "QUIT"
+simulate 1.5 irca149 "QUIT"
+simulate 1.5 irca150 "QUIT"
+simulate 1.5 irca151 "QUIT"
+simulate 1.5 irca152 "QUIT"
+simulate 1.5 irca153 "QUIT"
+simulate 1.5 irca154 "QUIT"
+simulate 1.5 irca155 "QUIT"
+simulate 1.5 irca156 "QUIT"
+simulate 1.5 irca157 "QUIT"
+simulate 1.5 irca158 "QUIT"
+simulate 1.5 irca159 "QUIT"
+simulate 1.5 irca160 "QUIT"
+simulate 1.5 irca161 "QUIT"
+simulate 1.5 irca162 "QUIT"
+simulate 1.5 irca163 "QUIT"
+simulate 1.5 irca164 "QUIT"
+simulate 1.5 irca165 "QUIT"
+simulate 1.5 irca166 "QUIT"
+simulate 1.5 irca167 "QUIT"
+simulate 1.5 irca168 "QUIT"
+simulate 1.5 irca169 "QUIT"
+simulate 1.5 irca170 "QUIT"
+simulate 1.5 irca171 "QUIT"
+simulate 1.5 irca172 "QUIT"
+simulate 1.5 irca173 "QUIT"
+simulate 1.5 irca174 "QUIT"
+simulate 1.5 irca175 "QUIT"
+simulate 1.5 irca176 "QUIT"
+simulate 1.5 irca177 "QUIT"
+simulate 1.5 irca178 "QUIT"
+simulate 1.5 irca179 "QUIT"
+simulate 1.5 irca180 "QUIT"
+simulate 1.5 irca181 "QUIT"
+simulate 1.5 irca182 "QUIT"
+simulate 1.5 irca183 "QUIT"
+simulate 1.5 irca184 "QUIT"
+simulate 1.5 irca185 "QUIT"
+simulate 1.5 irca186 "QUIT"
+simulate 1.5 irca187 "QUIT"
+simulate 1.5 irca188 "QUIT"
+simulate 1.5 irca189 "QUIT"
+simulate 1.5 irca190 "QUIT"
+simulate 1.5 irca191 "QUIT"
+simulate 1.5 irca192 "QUIT"
+simulate 1.5 irca193 "QUIT"
+simulate 1.5 irca194 "QUIT"
+simulate 1.5 irca195 "QUIT"
+simulate 1.5 irca196 "QUIT"
+simulate 1.5 irca197 "QUIT"
+simulate 1.5 irca198 "QUIT"
+simulate 1.5 irca199 "QUIT"
 
-set sniffer r3.2 c1 "sniffer-dns"
-set sniffer r3.1 c0 "sniffer-ircs"
-
-simulate 0.1 irca0 "CONNECT c0 6667"
-simulate 0.1 ircb0 "CONNECT c0 6667"
-simulate 0.1 irca1 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb1 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca2 "CONNECT c0 6667"
-simulate 0.1 ircb2 "CONNECT c0 6667"
-simulate 0.1 irca3 "CONNECT c0 6667"
-simulate 0.1 ircb3 "CONNECT c0 6667"
-simulate 0.1 irca4 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb4 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca5 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb5 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca6 "CONNECT 192.168.0.1 6667"
-simulate 0.1 ircb6 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca7 "CONNECT c0 6667"
-simulate 0.1 ircb7 "CONNECT 192.168.0.1 6667"
-simulate 0.1 irca8 "CONNECT c0 6667"
-simulate 0.1 ircb8 "CONNECT c0 6667"
-simulate 0.1 irca9 "CONNECT c0 6667"
-simulate 0.1 ircb9 "CONNECT c0 6667"
-
-simulate 0.2 irca0 "USER user_a0"
-simulate 0.2 ircb0 "USER user_b0"
-simulate 0.2 irca1 "USER user_a1"
-simulate 0.2 ircb1 "USER user_b1"
-simulate 0.2 irca2 "USER user_a2"
-simulate 0.2 ircb2 "USER user_b2"
-simulate 0.2 irca3 "USER user_a3"
-simulate 0.2 ircb3 "USER user_b3"
-simulate 0.2 irca4 "USER user_a4"
-simulate 0.2 ircb4 "USER user_b4"
-simulate 0.2 irca5 "USER user_a5"
-simulate 0.2 ircb5 "USER user_b5"
-simulate 0.2 irca6 "USER user_a6"
-simulate 0.2 ircb6 "USER user_b6"
-simulate 0.2 irca7 "USER user_a7"
-simulate 0.2 ircb7 "USER user_b7"
-simulate 0.2 irca8 "USER user_a8"
-simulate 0.2 ircb8 "USER user_b8"
-simulate 0.2 irca9 "USER user_a9"
-simulate 0.2 ircb9 "USER user_b9"
-simulate 0.2 irca10 "USER user_a10"
-simulate 0.2 ircb10 "USER user_b10"
-simulate 0.2 irca11 "USER user_a11"
-simulate 0.2 ircb11 "USER user_b11"
-simulate 0.2 irca12 "USER user_a12"
-simulate 0.2 ircb12 "USER user_b12"
-simulate 0.2 irca13 "USER user_a13"
-simulate 0.2 ircb13 "USER user_b13"
-simulate 0.2 irca14 "USER user_a14"
-simulate 0.2 ircb14 "USER user_b14"
-simulate 0.2 irca15 "USER user_a15"
-simulate 0.2 ircb15 "USER user_b15"
-simulate 0.2 irca16 "USER user_a16"
-simulate 0.2 ircb16 "USER user_b16"
-simulate 0.2 irca17 "USER user_a17"
-simulate 0.2 ircb17 "USER user_b17"
-simulate 0.2 irca18 "USER user_a18"
-simulate 0.2 ircb18 "USER user_b18"
-simulate 0.2 irca19 "USER user_a19"
-simulate 0.2 ircb19 "USER user_b19"
-simulate 0.2 irca20 "USER user_a20"
-simulate 0.2 ircb20 "USER user_b20"
-simulate 0.2 irca21 "USER user_a21"
-simulate 0.2 ircb21 "USER user_b21"
-simulate 0.2 irca22 "USER user_a22"
-simulate 0.2 ircb22 "USER user_b22"
-simulate 0.2 irca23 "USER user_a23"
-simulate 0.2 ircb23 "USER user_b23"
-simulate 0.2 irca24 "USER user_a24"
-simulate 0.2 ircb24 "USER user_b24"
-simulate 0.2 irca25 "USER user_a25"
-simulate 0.2 ircb25 "USER user_b25"
-simulate 0.2 irca26 "USER user_a26"
-simulate 0.2 ircb26 "USER user_b26"
-simulate 0.2 irca27 "USER user_a27"
-simulate 0.2 ircb27 "USER user_b27"
-simulate 0.2 irca28 "USER user_a28"
-simulate 0.2 ircb28 "USER user_b28"
-simulate 0.2 irca29 "USER user_a29"
-simulate 0.2 ircb29 "USER user_b29"
-simulate 0.2 irca30 "USER user_a30"
-simulate 0.2 ircb30 "USER user_b30"
-simulate 0.2 irca31 "USER user_a31"
-simulate 0.2 ircb31 "USER user_b31"
-simulate 0.2 irca32 "USER user_a32"
-simulate 0.2 ircb32 "USER user_b32"
-simulate 0.2 irca33 "USER user_a33"
-simulate 0.2 ircb33 "USER user_b33"
-simulate 0.2 irca34 "USER user_a34"
-simulate 0.2 ircb34 "USER user_b34"
-simulate 0.2 irca35 "USER user_a35"
-simulate 0.2 ircb35 "USER user_b35"
-simulate 0.2 irca36 "USER user_a36"
-simulate 0.2 ircb36 "USER user_b36"
-simulate 0.2 irca37 "USER user_a37"
-simulate 0.2 ircb37 "USER user_b37"
-simulate 0.2 irca38 "USER user_a38"
-simulate 0.2 ircb38 "USER user_b38"
-simulate 0.2 irca39 "USER user_a39"
-simulate 0.2 ircb39 "USER user_b39"
-simulate 0.2 irca40 "USER user_a40"
-simulate 0.2 ircb40 "USER user_b40"
-simulate 0.2 irca41 "USER user_a41"
-simulate 0.2 ircb41 "USER user_b41"
-simulate 0.2 irca42 "USER user_a42"
-simulate 0.2 ircb42 "USER user_b42"
-simulate 0.2 irca43 "USER user_a43"
-simulate 0.2 ircb43 "USER user_b43"
-simulate 0.2 irca44 "USER user_a44"
-simulate 0.2 ircb44 "USER user_b44"
-simulate 0.2 irca45 "USER user_a45"
-simulate 0.2 ircb45 "USER user_b45"
-simulate 0.2 irca46 "USER user_a46"
-simulate 0.2 ircb46 "USER user_b46"
-simulate 0.2 irca47 "USER user_a47"
-simulate 0.2 ircb47 "USER user_b47"
-simulate 0.2 irca48 "USER user_a48"
-simulate 0.2 ircb48 "USER user_b48"
-simulate 0.2 irca49 "USER user_a49"
-simulate 0.2 ircb49 "USER user_b49"
-simulate 0.2 irca50 "USER user_a50"
-simulate 0.2 ircb50 "USER user_b50"
-simulate 0.2 irca51 "USER user_a51"
-simulate 0.2 ircb51 "USER user_b51"
-simulate 0.2 irca52 "USER user_a52"
-simulate 0.2 ircb52 "USER user_b52"
-simulate 0.2 irca53 "USER user_a53"
-simulate 0.2 ircb53 "USER user_b53"
-simulate 0.2 irca54 "USER user_a54"
-simulate 0.2 ircb54 "USER user_b54"
-simulate 0.2 irca55 "USER user_a55"
-simulate 0.2 ircb55 "USER user_b55"
-simulate 0.2 irca56 "USER user_a56"
-simulate 0.2 ircb56 "USER user_b56"
-simulate 0.2 irca57 "USER user_a57"
-simulate 0.2 ircb57 "USER user_b57"
-simulate 0.2 irca58 "USER user_a58"
-simulate 0.2 ircb58 "USER user_b58"
-simulate 0.2 irca59 "USER user_a59"
-simulate 0.2 ircb59 "USER user_b59"
-simulate 0.2 irca60 "USER user_a60"
-simulate 0.2 ircb60 "USER user_b60"
-simulate 0.2 irca61 "USER user_a61"
-simulate 0.2 ircb61 "USER user_b61"
-simulate 0.2 irca62 "USER user_a62"
-simulate 0.2 ircb62 "USER user_b62"
-simulate 0.2 irca63 "USER user_a63"
-simulate 0.2 ircb63 "USER user_b63"
-simulate 0.2 irca64 "USER user_a64"
-simulate 0.2 ircb64 "USER user_b64"
-simulate 0.2 irca65 "USER user_a65"
-simulate 0.2 ircb65 "USER user_b65"
-simulate 0.2 irca66 "USER user_a66"
-simulate 0.2 ircb66 "USER user_b66"
-simulate 0.2 irca67 "USER user_a67"
-simulate 0.2 ircb67 "USER user_b67"
-simulate 0.2 irca68 "USER user_a68"
-simulate 0.2 ircb68 "USER user_b68"
-simulate 0.2 irca69 "USER user_a69"
-simulate 0.2 ircb69 "USER user_b69"
-simulate 0.2 irca70 "USER user_a70"
-simulate 0.2 ircb70 "USER user_b70"
-simulate 0.2 irca71 "USER user_a71"
-simulate 0.2 ircb71 "USER user_b71"
-simulate 0.2 irca72 "USER user_a72"
-simulate 0.2 ircb72 "USER user_b72"
-simulate 0.2 irca73 "USER user_a73"
-simulate 0.2 ircb73 "USER user_b73"
-simulate 0.2 irca74 "USER user_a74"
-simulate 0.2 ircb74 "USER user_b74"
-simulate 0.2 irca75 "USER user_a75"
-simulate 0.2 ircb75 "USER user_b75"
-simulate 0.2 irca76 "USER user_a76"
-simulate 0.2 ircb76 "USER user_b76"
-simulate 0.2 irca77 "USER user_a77"
-simulate 0.2 ircb77 "USER user_b77"
-simulate 0.2 irca78 "USER user_a78"
-simulate 0.2 ircb78 "USER user_b78"
-simulate 0.2 irca79 "USER user_a79"
-simulate 0.2 ircb79 "USER user_b79"
-simulate 0.2 irca80 "USER user_a80"
-simulate 0.2 ircb80 "USER user_b80"
-simulate 0.2 irca81 "USER user_a81"
-simulate 0.2 ircb81 "USER user_b81"
-simulate 0.2 irca82 "USER user_a82"
-simulate 0.2 ircb82 "USER user_b82"
-simulate 0.2 irca83 "USER user_a83"
-simulate 0.2 ircb83 "USER user_b83"
-simulate 0.2 irca84 "USER user_a84"
-simulate 0.2 ircb84 "USER user_b84"
-simulate 0.2 irca85 "USER user_a85"
-simulate 0.2 ircb85 "USER user_b85"
-simulate 0.2 irca86 "USER user_a86"
-simulate 0.2 ircb86 "USER user_b86"
-simulate 0.2 irca87 "USER user_a87"
-simulate 0.2 ircb87 "USER user_b87"
-simulate 0.2 irca88 "USER user_a88"
-simulate 0.2 ircb88 "USER user_b88"
-simulate 0.2 irca89 "USER user_a89"
-simulate 0.2 ircb89 "USER user_b89"
-simulate 0.2 irca90 "USER user_a90"
-simulate 0.2 ircb90 "USER user_b90"
-simulate 0.2 irca91 "USER user_a91"
-simulate 0.2 ircb91 "USER user_b91"
-simulate 0.2 irca92 "USER user_a92"
-simulate 0.2 ircb92 "USER user_b92"
-simulate 0.2 irca93 "USER user_a93"
-simulate 0.2 ircb93 "USER user_b93"
-simulate 0.2 irca94 "USER user_a94"
-simulate 0.2 ircb94 "USER user_b94"
-simulate 0.2 irca95 "USER user_a95"
-simulate 0.2 ircb95 "USER user_b95"
-simulate 0.2 irca96 "USER user_a96"
-simulate 0.2 ircb96 "USER user_b96"
-simulate 0.2 irca97 "USER user_a97"
-simulate 0.2 ircb97 "USER user_b97"
-simulate 0.2 irca98 "USER user_a98"
-simulate 0.2 ircb98 "USER user_b98"
-simulate 0.2 irca99 "USER user_a99"
-simulate 0.2 ircb99 "USER user_b99"
-simulate 0.2 irca100 "USER user_a100"
-simulate 0.2 ircb100 "USER user_b100"
-simulate 0.2 irca101 "USER user_a101"
-simulate 0.2 ircb101 "USER user_b101"
-simulate 0.2 irca102 "USER user_a102"
-simulate 0.2 ircb102 "USER user_b102"
-simulate 0.2 irca103 "USER user_a103"
-simulate 0.2 ircb103 "USER user_b103"
-simulate 0.2 irca104 "USER user_a104"
-simulate 0.2 ircb104 "USER user_b104"
-simulate 0.2 irca105 "USER user_a105"
-simulate 0.2 ircb105 "USER user_b105"
-simulate 0.2 irca106 "USER user_a106"
-simulate 0.2 ircb106 "USER user_b106"
-simulate 0.2 irca107 "USER user_a107"
-simulate 0.2 ircb107 "USER user_b107"
-simulate 0.2 irca108 "USER user_a108"
-simulate 0.2 ircb108 "USER user_b108"
-simulate 0.2 irca109 "USER user_a109"
-simulate 0.2 ircb109 "USER user_b109"
-simulate 0.2 irca110 "USER user_a110"
-simulate 0.2 ircb110 "USER user_b110"
-simulate 0.2 irca111 "USER user_a111"
-simulate 0.2 ircb111 "USER user_b111"
-simulate 0.2 irca112 "USER user_a112"
-simulate 0.2 ircb112 "USER user_b112"
-simulate 0.2 irca113 "USER user_a113"
-simulate 0.2 ircb113 "USER user_b113"
-simulate 0.2 irca114 "USER user_a114"
-simulate 0.2 ircb114 "USER user_b114"
-simulate 0.2 irca115 "USER user_a115"
-simulate 0.2 ircb115 "USER user_b115"
-simulate 0.2 irca116 "USER user_a116"
-simulate 0.2 ircb116 "USER user_b116"
-simulate 0.2 irca117 "USER user_a117"
-simulate 0.2 ircb117 "USER user_b117"
-simulate 0.2 irca118 "USER user_a118"
-simulate 0.2 ircb118 "USER user_b118"
-simulate 0.2 irca119 "USER user_a119"
-simulate 0.2 ircb119 "USER user_b119"
-simulate 0.2 irca120 "USER user_a120"
-simulate 0.2 ircb120 "USER user_b120"
-simulate 0.2 irca121 "USER user_a121"
-simulate 0.2 ircb121 "USER user_b121"
-simulate 0.2 irca122 "USER user_a122"
-simulate 0.2 ircb122 "USER user_b122"
-simulate 0.2 irca123 "USER user_a123"
-simulate 0.2 ircb123 "USER user_b123"
-simulate 0.2 irca124 "USER user_a124"
-simulate 0.2 ircb124 "USER user_b124"
-simulate 0.2 irca125 "USER user_a125"
-simulate 0.2 ircb125 "USER user_b125"
-simulate 0.2 irca126 "USER user_a126"
-simulate 0.2 ircb126 "USER user_b126"
-simulate 0.2 irca127 "USER user_a127"
-simulate 0.2 ircb127 "USER user_b127"
-simulate 0.2 irca128 "USER user_a128"
-simulate 0.2 ircb128 "USER user_b128"
-simulate 0.2 irca129 "USER user_a129"
-simulate 0.2 ircb129 "USER user_b129"
-simulate 0.2 irca130 "USER user_a130"
-simulate 0.2 ircb130 "USER user_b130"
-simulate 0.2 irca131 "USER user_a131"
-simulate 0.2 ircb131 "USER user_b131"
-simulate 0.2 irca132 "USER user_a132"
-simulate 0.2 ircb132 "USER user_b132"
-simulate 0.2 irca133 "USER user_a133"
-simulate 0.2 ircb133 "USER user_b133"
-simulate 0.2 irca134 "USER user_a134"
-simulate 0.2 ircb134 "USER user_b134"
-simulate 0.2 irca135 "USER user_a135"
-simulate 0.2 ircb135 "USER user_b135"
-simulate 0.2 irca136 "USER user_a136"
-simulate 0.2 ircb136 "USER user_b136"
-simulate 0.2 irca137 "USER user_a137"
-simulate 0.2 ircb137 "USER user_b137"
-simulate 0.2 irca138 "USER user_a138"
-simulate 0.2 ircb138 "USER user_b138"
-simulate 0.2 irca139 "USER user_a139"
-simulate 0.2 ircb139 "USER user_b139"
-simulate 0.2 irca140 "USER user_a140"
-simulate 0.2 ircb140 "USER user_b140"
-simulate 0.2 irca141 "USER user_a141"
-simulate 0.2 ircb141 "USER user_b141"
-simulate 0.2 irca142 "USER user_a142"
-simulate 0.2 ircb142 "USER user_b142"
-simulate 0.2 irca143 "USER user_a143"
-simulate 0.2 ircb143 "USER user_b143"
-simulate 0.2 irca144 "USER user_a144"
-simulate 0.2 ircb144 "USER user_b144"
-simulate 0.2 irca145 "USER user_a145"
-simulate 0.2 ircb145 "USER user_b145"
-simulate 0.2 irca146 "USER user_a146"
-simulate 0.2 ircb146 "USER user_b146"
-simulate 0.2 irca147 "USER user_a147"
-simulate 0.2 ircb147 "USER user_b147"
-simulate 0.2 irca148 "USER user_a148"
-simulate 0.2 ircb148 "USER user_b148"
-simulate 0.2 irca149 "USER user_a149"
-simulate 0.2 ircb149 "USER user_b149"
-simulate 0.2 irca150 "USER user_a150"
-simulate 0.2 ircb150 "USER user_b150"
-simulate 0.2 irca151 "USER user_a151"
-simulate 0.2 ircb151 "USER user_b151"
-simulate 0.2 irca152 "USER user_a152"
-simulate 0.2 ircb152 "USER user_b152"
-simulate 0.2 irca153 "USER user_a153"
-simulate 0.2 ircb153 "USER user_b153"
-simulate 0.2 irca154 "USER user_a154"
-simulate 0.2 ircb154 "USER user_b154"
-simulate 0.2 irca155 "USER user_a155"
-simulate 0.2 ircb155 "USER user_b155"
-simulate 0.2 irca156 "USER user_a156"
-simulate 0.2 ircb156 "USER user_b156"
-simulate 0.2 irca157 "USER user_a157"
-simulate 0.2 ircb157 "USER user_b157"
-simulate 0.2 irca158 "USER user_a158"
-simulate 0.2 ircb158 "USER user_b158"
-simulate 0.2 irca159 "USER user_a159"
-simulate 0.2 ircb159 "USER user_b159"
-simulate 0.2 irca160 "USER user_a160"
-simulate 0.2 ircb160 "USER user_b160"
-simulate 0.2 irca161 "USER user_a161"
-simulate 0.2 ircb161 "USER user_b161"
-simulate 0.2 irca162 "USER user_a162"
-simulate 0.2 ircb162 "USER user_b162"
-simulate 0.2 irca163 "USER user_a163"
-simulate 0.2 ircb163 "USER user_b163"
-simulate 0.2 irca164 "USER user_a164"
-simulate 0.2 ircb164 "USER user_b164"
-simulate 0.2 irca165 "USER user_a165"
-simulate 0.2 ircb165 "USER user_b165"
-simulate 0.2 irca166 "USER user_a166"
-simulate 0.2 ircb166 "USER user_b166"
-simulate 0.2 irca167 "USER user_a167"
-simulate 0.2 ircb167 "USER user_b167"
-simulate 0.2 irca168 "USER user_a168"
-simulate 0.2 ircb168 "USER user_b168"
-simulate 0.2 irca169 "USER user_a169"
-simulate 0.2 ircb169 "USER user_b169"
-simulate 0.2 irca170 "USER user_a170"
-simulate 0.2 ircb170 "USER user_b170"
-simulate 0.2 irca171 "USER user_a171"
-simulate 0.2 ircb171 "USER user_b171"
-simulate 0.2 irca172 "USER user_a172"
-simulate 0.2 ircb172 "USER user_b172"
-simulate 0.2 irca173 "USER user_a173"
-simulate 0.2 ircb173 "USER user_b173"
-simulate 0.2 irca174 "USER user_a174"
-simulate 0.2 ircb174 "USER user_b174"
-simulate 0.2 irca175 "USER user_a175"
-simulate 0.2 ircb175 "USER user_b175"
-simulate 0.2 irca176 "USER user_a176"
-simulate 0.2 ircb176 "USER user_b176"
-simulate 0.2 irca177 "USER user_a177"
-simulate 0.2 ircb177 "USER user_b177"
-simulate 0.2 irca178 "USER user_a178"
-simulate 0.2 ircb178 "USER user_b178"
-simulate 0.2 irca179 "USER user_a179"
-simulate 0.2 ircb179 "USER user_b179"
-simulate 0.2 irca180 "USER user_a180"
-simulate 0.2 ircb180 "USER user_b180"
-simulate 0.2 irca181 "USER user_a181"
-simulate 0.2 ircb181 "USER user_b181"
-simulate 0.2 irca182 "USER user_a182"
-simulate 0.2 ircb182 "USER user_b182"
-simulate 0.2 irca183 "USER user_a183"
-simulate 0.2 ircb183 "USER user_b183"
-simulate 0.2 irca184 "USER user_a184"
-simulate 0.2 ircb184 "USER user_b184"
-simulate 0.2 irca185 "USER user_a185"
-simulate 0.2 ircb185 "USER user_b185"
-simulate 0.2 irca186 "USER user_a186"
-simulate 0.2 ircb186 "USER user_b186"
-simulate 0.2 irca187 "USER user_a187"
-simulate 0.2 ircb187 "USER user_b187"
-simulate 0.2 irca188 "USER user_a188"
-simulate 0.2 ircb188 "USER user_b188"
-simulate 0.2 irca189 "USER user_a189"
-simulate 0.2 ircb189 "USER user_b189"
-simulate 0.2 irca190 "USER user_a190"
-simulate 0.2 ircb190 "USER user_b190"
-simulate 0.2 irca191 "USER user_a191"
-simulate 0.2 ircb191 "USER user_b191"
-simulate 0.2 irca192 "USER user_a192"
-simulate 0.2 ircb192 "USER user_b192"
-simulate 0.2 irca193 "USER user_a193"
-simulate 0.2 ircb193 "USER user_b193"
-simulate 0.2 irca194 "USER user_a194"
-simulate 0.2 ircb194 "USER user_b194"
-simulate 0.2 irca195 "USER user_a195"
-simulate 0.2 ircb195 "USER user_b195"
-simulate 0.2 irca196 "USER user_a196"
-simulate 0.2 ircb196 "USER user_b196"
-simulate 0.2 irca197 "USER user_a197"
-simulate 0.2 ircb197 "USER user_b197"
-simulate 0.2 irca198 "USER user_a198"
-simulate 0.2 ircb198 "USER user_b198"
-simulate 0.2 irca199 "USER user_a199"
-simulate 0.2 ircb199 "USER user_b199"
-simulate 0.2 irca200 "USER user_a200"
-simulate 0.2 ircb200 "USER user_b200"
-simulate 0.2 irca201 "USER user_a201"
-simulate 0.2 ircb201 "USER user_b201"
-simulate 0.2 irca202 "USER user_a202"
-simulate 0.2 ircb202 "USER user_b202"
-simulate 0.2 irca203 "USER user_a203"
-simulate 0.2 ircb203 "USER user_b203"
-simulate 0.2 irca204 "USER user_a204"
-simulate 0.2 ircb204 "USER user_b204"
-simulate 0.2 irca205 "USER user_a205"
-simulate 0.2 ircb205 "USER user_b205"
-simulate 0.2 irca206 "USER user_a206"
-simulate 0.2 ircb206 "USER user_b206"
-simulate 0.2 irca207 "USER user_a207"
-simulate 0.2 ircb207 "USER user_b207"
-simulate 0.2 irca208 "USER user_a208"
-simulate 0.2 ircb208 "USER user_b208"
-simulate 0.2 irca209 "USER user_a209"
-simulate 0.2 ircb209 "USER user_b209"
-simulate 0.2 irca210 "USER user_a210"
-simulate 0.2 ircb210 "USER user_b210"
-simulate 0.2 irca211 "USER user_a211"
-simulate 0.2 ircb211 "USER user_b211"
-simulate 0.2 irca212 "USER user_a212"
-simulate 0.2 ircb212 "USER user_b212"
-simulate 0.2 irca213 "USER user_a213"
-simulate 0.2 ircb213 "USER user_b213"
-simulate 0.2 irca214 "USER user_a214"
-simulate 0.2 ircb214 "USER user_b214"
-simulate 0.2 irca215 "USER user_a215"
-simulate 0.2 ircb215 "USER user_b215"
-simulate 0.2 irca216 "USER user_a216"
-simulate 0.2 ircb216 "USER user_b216"
-simulate 0.2 irca217 "USER user_a217"
-simulate 0.2 ircb217 "USER user_b217"
-simulate 0.2 irca218 "USER user_a218"
-simulate 0.2 ircb218 "USER user_b218"
-simulate 0.2 irca219 "USER user_a219"
-simulate 0.2 ircb219 "USER user_b219"
-simulate 0.2 irca220 "USER user_a220"
-simulate 0.2 ircb220 "USER user_b220"
-simulate 0.2 irca221 "USER user_a221"
-simulate 0.2 ircb221 "USER user_b221"
-simulate 0.2 irca222 "USER user_a222"
-simulate 0.2 ircb222 "USER user_b222"
-simulate 0.2 irca223 "USER user_a223"
-simulate 0.2 ircb223 "USER user_b223"
-simulate 0.2 irca224 "USER user_a224"
-simulate 0.2 ircb224 "USER user_b224"
-simulate 0.2 irca225 "USER user_a225"
-simulate 0.2 ircb225 "USER user_b225"
-simulate 0.2 irca226 "USER user_a226"
-simulate 0.2 ircb226 "USER user_b226"
-simulate 0.2 irca227 "USER user_a227"
-simulate 0.2 ircb227 "USER user_b227"
-simulate 0.2 irca228 "USER user_a228"
-simulate 0.2 ircb228 "USER user_b228"
-simulate 0.2 irca229 "USER user_a229"
-simulate 0.2 ircb229 "USER user_b229"
-simulate 0.2 irca230 "USER user_a230"
-simulate 0.2 ircb230 "USER user_b230"
-simulate 0.2 irca231 "USER user_a231"
-simulate 0.2 ircb231 "USER user_b231"
-simulate 0.2 irca232 "USER user_a232"
-simulate 0.2 ircb232 "USER user_b232"
-simulate 0.2 irca233 "USER user_a233"
-simulate 0.2 ircb233 "USER user_b233"
-simulate 0.2 irca234 "USER user_a234"
-simulate 0.2 ircb234 "USER user_b234"
-simulate 0.2 irca235 "USER user_a235"
-simulate 0.2 ircb235 "USER user_b235"
-simulate 0.2 irca236 "USER user_a236"
-simulate 0.2 ircb236 "USER user_b236"
-simulate 0.2 irca237 "USER user_a237"
-simulate 0.2 ircb237 "USER user_b237"
-simulate 0.2 irca238 "USER user_a238"
-simulate 0.2 ircb238 "USER user_b238"
-simulate 0.2 irca239 "USER user_a239"
-simulate 0.2 ircb239 "USER user_b239"
-simulate 0.2 irca240 "USER user_a240"
-simulate 0.2 ircb240 "USER user_b240"
-simulate 0.2 irca241 "USER user_a241"
-simulate 0.2 ircb241 "USER user_b241"
-simulate 0.2 irca242 "USER user_a242"
-simulate 0.2 ircb242 "USER user_b242"
-simulate 0.2 irca243 "USER user_a243"
-simulate 0.2 ircb243 "USER user_b243"
-simulate 0.2 irca244 "USER user_a244"
-simulate 0.2 ircb244 "USER user_b244"
-simulate 0.2 irca245 "USER user_a245"
-simulate 0.2 ircb245 "USER user_b245"
-simulate 0.2 irca246 "USER user_a246"
-simulate 0.2 ircb246 "USER user_b246"
-simulate 0.2 irca247 "USER user_a247"
-simulate 0.2 ircb247 "USER user_b247"
-simulate 0.2 irca248 "USER user_a248"
-simulate 0.2 ircb248 "USER user_b248"
-simulate 0.2 irca249 "USER user_a249"
-simulate 0.2 ircb249 "USER user_b249"
-
-
-simulate 0.3 irca0 "QUIT"
-simulate 0.3 ircb0 "QUIT"
-simulate 0.3 irca1 "QUIT"
-simulate 0.3 ircb1 "QUIT"
-simulate 0.3 irca2 "QUIT"
-simulate 0.3 ircb2 "QUIT"
-simulate 0.3 irca3 "QUIT"
-simulate 0.3 ircb3 "QUIT"
-simulate 0.3 irca4 "QUIT"
-simulate 0.3 ircb4 "QUIT"
-simulate 0.3 irca5 "QUIT"
-simulate 0.3 ircb5 "QUIT"
-simulate 0.3 irca6 "QUIT"
-simulate 0.3 ircb6 "QUIT"
-simulate 0.3 irca7 "QUIT"
-simulate 0.3 ircb7 "QUIT"
-simulate 0.3 irca8 "QUIT"
-simulate 0.3 ircb8 "QUIT"
-simulate 0.3 irca9 "QUIT"
-simulate 0.3 ircb9 "QUIT"
-simulate 0.3 irca10 "QUIT"
-simulate 0.3 ircb10 "QUIT"
-simulate 0.3 irca11 "QUIT"
-simulate 0.3 ircb11 "QUIT"
-simulate 0.3 irca12 "QUIT"
-simulate 0.3 ircb12 "QUIT"
-simulate 0.3 irca13 "QUIT"
-simulate 0.3 ircb13 "QUIT"
-simulate 0.3 irca14 "QUIT"
-simulate 0.3 ircb14 "QUIT"
-simulate 0.3 irca15 "QUIT"
-simulate 0.3 ircb15 "QUIT"
-simulate 0.3 irca16 "QUIT"
-simulate 0.3 ircb16 "QUIT"
-simulate 0.3 irca17 "QUIT"
-simulate 0.3 ircb17 "QUIT"
-simulate 0.3 irca18 "QUIT"
-simulate 0.3 ircb18 "QUIT"
-simulate 0.3 irca19 "QUIT"
-simulate 0.3 ircb19 "QUIT"
-simulate 0.3 irca20 "QUIT"
-simulate 0.3 ircb20 "QUIT"
-simulate 0.3 irca21 "QUIT"
-simulate 0.3 ircb21 "QUIT"
-simulate 0.3 irca22 "QUIT"
-simulate 0.3 ircb22 "QUIT"
-simulate 0.3 irca23 "QUIT"
-simulate 0.3 ircb23 "QUIT"
-simulate 0.3 irca24 "QUIT"
-simulate 0.3 ircb24 "QUIT"
-simulate 0.3 irca25 "QUIT"
-simulate 0.3 ircb25 "QUIT"
-simulate 0.3 irca26 "QUIT"
-simulate 0.3 ircb26 "QUIT"
-simulate 0.3 irca27 "QUIT"
-simulate 0.3 ircb27 "QUIT"
-simulate 0.3 irca28 "QUIT"
-simulate 0.3 ircb28 "QUIT"
-simulate 0.3 irca29 "QUIT"
-simulate 0.3 ircb29 "QUIT"
-simulate 0.3 irca30 "QUIT"
-simulate 0.3 ircb30 "QUIT"
-simulate 0.3 irca31 "QUIT"
-simulate 0.3 ircb31 "QUIT"
-simulate 0.3 irca32 "QUIT"
-simulate 0.3 ircb32 "QUIT"
-simulate 0.3 irca33 "QUIT"
-simulate 0.3 ircb33 "QUIT"
-simulate 0.3 irca34 "QUIT"
-simulate 0.3 ircb34 "QUIT"
-simulate 0.3 irca35 "QUIT"
-simulate 0.3 ircb35 "QUIT"
-simulate 0.3 irca36 "QUIT"
-simulate 0.3 ircb36 "QUIT"
-simulate 0.3 irca37 "QUIT"
-simulate 0.3 ircb37 "QUIT"
-simulate 0.3 irca38 "QUIT"
-simulate 0.3 ircb38 "QUIT"
-simulate 0.3 irca39 "QUIT"
-simulate 0.3 ircb39 "QUIT"
-simulate 0.3 irca40 "QUIT"
-simulate 0.3 ircb40 "QUIT"
-simulate 0.3 irca41 "QUIT"
-simulate 0.3 ircb41 "QUIT"
-simulate 0.3 irca42 "QUIT"
-simulate 0.3 ircb42 "QUIT"
-simulate 0.3 irca43 "QUIT"
-simulate 0.3 ircb43 "QUIT"
-simulate 0.3 irca44 "QUIT"
-simulate 0.3 ircb44 "QUIT"
-simulate 0.3 irca45 "QUIT"
-simulate 0.3 ircb45 "QUIT"
-simulate 0.3 irca46 "QUIT"
-simulate 0.3 ircb46 "QUIT"
-simulate 0.3 irca47 "QUIT"
-simulate 0.3 ircb47 "QUIT"
-simulate 0.3 irca48 "QUIT"
-simulate 0.3 ircb48 "QUIT"
-simulate 0.3 irca49 "QUIT"
-simulate 0.3 ircb49 "QUIT"
-simulate 0.3 irca50 "QUIT"
-simulate 0.3 ircb50 "QUIT"
-simulate 0.3 irca51 "QUIT"
-simulate 0.3 ircb51 "QUIT"
-simulate 0.3 irca52 "QUIT"
-simulate 0.3 ircb52 "QUIT"
-simulate 0.3 irca53 "QUIT"
-simulate 0.3 ircb53 "QUIT"
-simulate 0.3 irca54 "QUIT"
-simulate 0.3 ircb54 "QUIT"
-simulate 0.3 irca55 "QUIT"
-simulate 0.3 ircb55 "QUIT"
-simulate 0.3 irca56 "QUIT"
-simulate 0.3 ircb56 "QUIT"
-simulate 0.3 irca57 "QUIT"
-simulate 0.3 ircb57 "QUIT"
-simulate 0.3 irca58 "QUIT"
-simulate 0.3 ircb58 "QUIT"
-simulate 0.3 irca59 "QUIT"
-simulate 0.3 ircb59 "QUIT"
-simulate 0.3 irca60 "QUIT"
-simulate 0.3 ircb60 "QUIT"
-simulate 0.3 irca61 "QUIT"
-simulate 0.3 ircb61 "QUIT"
-simulate 0.3 irca62 "QUIT"
-simulate 0.3 ircb62 "QUIT"
-simulate 0.3 irca63 "QUIT"
-simulate 0.3 ircb63 "QUIT"
-simulate 0.3 irca64 "QUIT"
-simulate 0.3 ircb64 "QUIT"
-simulate 0.3 irca65 "QUIT"
-simulate 0.3 ircb65 "QUIT"
-simulate 0.3 irca66 "QUIT"
-simulate 0.3 ircb66 "QUIT"
-simulate 0.3 irca67 "QUIT"
-simulate 0.3 ircb67 "QUIT"
-simulate 0.3 irca68 "QUIT"
-simulate 0.3 ircb68 "QUIT"
-simulate 0.3 irca69 "QUIT"
-simulate 0.3 ircb69 "QUIT"
-simulate 0.3 irca70 "QUIT"
-simulate 0.3 ircb70 "QUIT"
-simulate 0.3 irca71 "QUIT"
-simulate 0.3 ircb71 "QUIT"
-simulate 0.3 irca72 "QUIT"
-simulate 0.3 ircb72 "QUIT"
-simulate 0.3 irca73 "QUIT"
-simulate 0.3 ircb73 "QUIT"
-simulate 0.3 irca74 "QUIT"
-simulate 0.3 ircb74 "QUIT"
-simulate 0.3 irca75 "QUIT"
-simulate 0.3 ircb75 "QUIT"
-simulate 0.3 irca76 "QUIT"
-simulate 0.3 ircb76 "QUIT"
-simulate 0.3 irca77 "QUIT"
-simulate 0.3 ircb77 "QUIT"
-simulate 0.3 irca78 "QUIT"
-simulate 0.3 ircb78 "QUIT"
-simulate 0.3 irca79 "QUIT"
-simulate 0.3 ircb79 "QUIT"
-simulate 0.3 irca80 "QUIT"
-simulate 0.3 ircb80 "QUIT"
-simulate 0.3 irca81 "QUIT"
-simulate 0.3 ircb81 "QUIT"
-simulate 0.3 irca82 "QUIT"
-simulate 0.3 ircb82 "QUIT"
-simulate 0.3 irca83 "QUIT"
-simulate 0.3 ircb83 "QUIT"
-simulate 0.3 irca84 "QUIT"
-simulate 0.3 ircb84 "QUIT"
-simulate 0.3 irca85 "QUIT"
-simulate 0.3 ircb85 "QUIT"
-simulate 0.3 irca86 "QUIT"
-simulate 0.3 ircb86 "QUIT"
-simulate 0.3 irca87 "QUIT"
-simulate 0.3 ircb87 "QUIT"
-simulate 0.3 irca88 "QUIT"
-simulate 0.3 ircb88 "QUIT"
-simulate 0.3 irca89 "QUIT"
-simulate 0.3 ircb89 "QUIT"
-simulate 0.3 irca90 "QUIT"
-simulate 0.3 ircb90 "QUIT"
-simulate 0.3 irca91 "QUIT"
-simulate 0.3 ircb91 "QUIT"
-simulate 0.3 irca92 "QUIT"
-simulate 0.3 ircb92 "QUIT"
-simulate 0.3 irca93 "QUIT"
-simulate 0.3 ircb93 "QUIT"
-simulate 0.3 irca94 "QUIT"
-simulate 0.3 ircb94 "QUIT"
-simulate 0.3 irca95 "QUIT"
-simulate 0.3 ircb95 "QUIT"
-simulate 0.3 irca96 "QUIT"
-simulate 0.3 ircb96 "QUIT"
-simulate 0.3 irca97 "QUIT"
-simulate 0.3 ircb97 "QUIT"
-simulate 0.3 irca98 "QUIT"
-simulate 0.3 ircb98 "QUIT"
-simulate 0.3 irca99 "QUIT"
-simulate 0.3 ircb99 "QUIT"
-simulate 0.3 irca100 "QUIT"
-simulate 0.3 ircb100 "QUIT"
-simulate 0.3 irca101 "QUIT"
-simulate 0.3 ircb101 "QUIT"
-simulate 0.3 irca102 "QUIT"
-simulate 0.3 ircb102 "QUIT"
-simulate 0.3 irca103 "QUIT"
-simulate 0.3 ircb103 "QUIT"
-simulate 0.3 irca104 "QUIT"
-simulate 0.3 ircb104 "QUIT"
-simulate 0.3 irca105 "QUIT"
-simulate 0.3 ircb105 "QUIT"
-simulate 0.3 irca106 "QUIT"
-simulate 0.3 ircb106 "QUIT"
-simulate 0.3 irca107 "QUIT"
-simulate 0.3 ircb107 "QUIT"
-simulate 0.3 irca108 "QUIT"
-simulate 0.3 ircb108 "QUIT"
-simulate 0.3 irca109 "QUIT"
-simulate 0.3 ircb109 "QUIT"
-simulate 0.3 irca110 "QUIT"
-simulate 0.3 ircb110 "QUIT"
-simulate 0.3 irca111 "QUIT"
-simulate 0.3 ircb111 "QUIT"
-simulate 0.3 irca112 "QUIT"
-simulate 0.3 ircb112 "QUIT"
-simulate 0.3 irca113 "QUIT"
-simulate 0.3 ircb113 "QUIT"
-simulate 0.3 irca114 "QUIT"
-simulate 0.3 ircb114 "QUIT"
-simulate 0.3 irca115 "QUIT"
-simulate 0.3 ircb115 "QUIT"
-simulate 0.3 irca116 "QUIT"
-simulate 0.3 ircb116 "QUIT"
-simulate 0.3 irca117 "QUIT"
-simulate 0.3 ircb117 "QUIT"
-simulate 0.3 irca118 "QUIT"
-simulate 0.3 ircb118 "QUIT"
-simulate 0.3 irca119 "QUIT"
-simulate 0.3 ircb119 "QUIT"
-simulate 0.3 irca120 "QUIT"
-simulate 0.3 ircb120 "QUIT"
-simulate 0.3 irca121 "QUIT"
-simulate 0.3 ircb121 "QUIT"
-simulate 0.3 irca122 "QUIT"
-simulate 0.3 ircb122 "QUIT"
-simulate 0.3 irca123 "QUIT"
-simulate 0.3 ircb123 "QUIT"
-simulate 0.3 irca124 "QUIT"
-simulate 0.3 ircb124 "QUIT"
-simulate 0.3 irca125 "QUIT"
-simulate 0.3 ircb125 "QUIT"
-simulate 0.3 irca126 "QUIT"
-simulate 0.3 ircb126 "QUIT"
-simulate 0.3 irca127 "QUIT"
-simulate 0.3 ircb127 "QUIT"
-simulate 0.3 irca128 "QUIT"
-simulate 0.3 ircb128 "QUIT"
-simulate 0.3 irca129 "QUIT"
-simulate 0.3 ircb129 "QUIT"
-simulate 0.3 irca130 "QUIT"
-simulate 0.3 ircb130 "QUIT"
-simulate 0.3 irca131 "QUIT"
-simulate 0.3 ircb131 "QUIT"
-simulate 0.3 irca132 "QUIT"
-simulate 0.3 ircb132 "QUIT"
-simulate 0.3 irca133 "QUIT"
-simulate 0.3 ircb133 "QUIT"
-simulate 0.3 irca134 "QUIT"
-simulate 0.3 ircb134 "QUIT"
-simulate 0.3 irca135 "QUIT"
-simulate 0.3 ircb135 "QUIT"
-simulate 0.3 irca136 "QUIT"
-simulate 0.3 ircb136 "QUIT"
-simulate 0.3 irca137 "QUIT"
-simulate 0.3 ircb137 "QUIT"
-simulate 0.3 irca138 "QUIT"
-simulate 0.3 ircb138 "QUIT"
-simulate 0.3 irca139 "QUIT"
-simulate 0.3 ircb139 "QUIT"
-simulate 0.3 irca140 "QUIT"
-simulate 0.3 ircb140 "QUIT"
-simulate 0.3 irca141 "QUIT"
-simulate 0.3 ircb141 "QUIT"
-simulate 0.3 irca142 "QUIT"
-simulate 0.3 ircb142 "QUIT"
-simulate 0.3 irca143 "QUIT"
-simulate 0.3 ircb143 "QUIT"
-simulate 0.3 irca144 "QUIT"
-simulate 0.3 ircb144 "QUIT"
-simulate 0.3 irca145 "QUIT"
-simulate 0.3 ircb145 "QUIT"
-simulate 0.3 irca146 "QUIT"
-simulate 0.3 ircb146 "QUIT"
-simulate 0.3 irca147 "QUIT"
-simulate 0.3 ircb147 "QUIT"
-simulate 0.3 irca148 "QUIT"
-simulate 0.3 ircb148 "QUIT"
-simulate 0.3 irca149 "QUIT"
-simulate 0.3 ircb149 "QUIT"
-simulate 0.3 irca150 "QUIT"
-simulate 0.3 ircb150 "QUIT"
-simulate 0.3 irca151 "QUIT"
-simulate 0.3 ircb151 "QUIT"
-simulate 0.3 irca152 "QUIT"
-simulate 0.3 ircb152 "QUIT"
-simulate 0.3 irca153 "QUIT"
-simulate 0.3 ircb153 "QUIT"
-simulate 0.3 irca154 "QUIT"
-simulate 0.3 ircb154 "QUIT"
-simulate 0.3 irca155 "QUIT"
-simulate 0.3 ircb155 "QUIT"
-simulate 0.3 irca156 "QUIT"
-simulate 0.3 ircb156 "QUIT"
-simulate 0.3 irca157 "QUIT"
-simulate 0.3 ircb157 "QUIT"
-simulate 0.3 irca158 "QUIT"
-simulate 0.3 ircb158 "QUIT"
-simulate 0.3 irca159 "QUIT"
-simulate 0.3 ircb159 "QUIT"
-simulate 0.3 irca160 "QUIT"
-simulate 0.3 ircb160 "QUIT"
-simulate 0.3 irca161 "QUIT"
-simulate 0.3 ircb161 "QUIT"
-simulate 0.3 irca162 "QUIT"
-simulate 0.3 ircb162 "QUIT"
-simulate 0.3 irca163 "QUIT"
-simulate 0.3 ircb163 "QUIT"
-simulate 0.3 irca164 "QUIT"
-simulate 0.3 ircb164 "QUIT"
-simulate 0.3 irca165 "QUIT"
-simulate 0.3 ircb165 "QUIT"
-simulate 0.3 irca166 "QUIT"
-simulate 0.3 ircb166 "QUIT"
-simulate 0.3 irca167 "QUIT"
-simulate 0.3 ircb167 "QUIT"
-simulate 0.3 irca168 "QUIT"
-simulate 0.3 ircb168 "QUIT"
-simulate 0.3 irca169 "QUIT"
-simulate 0.3 ircb169 "QUIT"
-simulate 0.3 irca170 "QUIT"
-simulate 0.3 ircb170 "QUIT"
-simulate 0.3 irca171 "QUIT"
-simulate 0.3 ircb171 "QUIT"
-simulate 0.3 irca172 "QUIT"
-simulate 0.3 ircb172 "QUIT"
-simulate 0.3 irca173 "QUIT"
-simulate 0.3 ircb173 "QUIT"
-simulate 0.3 irca174 "QUIT"
-simulate 0.3 ircb174 "QUIT"
-simulate 0.3 irca175 "QUIT"
-simulate 0.3 ircb175 "QUIT"
-simulate 0.3 irca176 "QUIT"
-simulate 0.3 ircb176 "QUIT"
-simulate 0.3 irca177 "QUIT"
-simulate 0.3 ircb177 "QUIT"
-simulate 0.3 irca178 "QUIT"
-simulate 0.3 ircb178 "QUIT"
-simulate 0.3 irca179 "QUIT"
-simulate 0.3 ircb179 "QUIT"
-simulate 0.3 irca180 "QUIT"
-simulate 0.3 ircb180 "QUIT"
-simulate 0.3 irca181 "QUIT"
-simulate 0.3 ircb181 "QUIT"
-simulate 0.3 irca182 "QUIT"
-simulate 0.3 ircb182 "QUIT"
-simulate 0.3 irca183 "QUIT"
-simulate 0.3 ircb183 "QUIT"
-simulate 0.3 irca184 "QUIT"
-simulate 0.3 ircb184 "QUIT"
-simulate 0.3 irca185 "QUIT"
-simulate 0.3 ircb185 "QUIT"
-simulate 0.3 irca186 "QUIT"
-simulate 0.3 ircb186 "QUIT"
-simulate 0.3 irca187 "QUIT"
-simulate 0.3 ircb187 "QUIT"
-simulate 0.3 irca188 "QUIT"
-simulate 0.3 ircb188 "QUIT"
-simulate 0.3 irca189 "QUIT"
-simulate 0.3 ircb189 "QUIT"
-simulate 0.3 irca190 "QUIT"
-simulate 0.3 ircb190 "QUIT"
-simulate 0.3 irca191 "QUIT"
-simulate 0.3 ircb191 "QUIT"
-simulate 0.3 irca192 "QUIT"
-simulate 0.3 ircb192 "QUIT"
-simulate 0.3 irca193 "QUIT"
-simulate 0.3 ircb193 "QUIT"
-simulate 0.3 irca194 "QUIT"
-simulate 0.3 ircb194 "QUIT"
-simulate 0.3 irca195 "QUIT"
-simulate 0.3 ircb195 "QUIT"
-simulate 0.3 irca196 "QUIT"
-simulate 0.3 ircb196 "QUIT"
-simulate 0.3 irca197 "QUIT"
-simulate 0.3 ircb197 "QUIT"
-simulate 0.3 irca198 "QUIT"
-simulate 0.3 ircb198 "QUIT"
-simulate 0.3 irca199 "QUIT"
-simulate 0.3 ircb199 "QUIT"
-simulate 0.3 irca200 "QUIT"
-simulate 0.3 ircb200 "QUIT"
-simulate 0.3 irca201 "QUIT"
-simulate 0.3 ircb201 "QUIT"
-simulate 0.3 irca202 "QUIT"
-simulate 0.3 ircb202 "QUIT"
-simulate 0.3 irca203 "QUIT"
-simulate 0.3 ircb203 "QUIT"
-simulate 0.3 irca204 "QUIT"
-simulate 0.3 ircb204 "QUIT"
-simulate 0.3 irca205 "QUIT"
-simulate 0.3 ircb205 "QUIT"
-simulate 0.3 irca206 "QUIT"
-simulate 0.3 ircb206 "QUIT"
-simulate 0.3 irca207 "QUIT"
-simulate 0.3 ircb207 "QUIT"
-simulate 0.3 irca208 "QUIT"
-simulate 0.3 ircb208 "QUIT"
-simulate 0.3 irca209 "QUIT"
-simulate 0.3 ircb209 "QUIT"
-simulate 0.3 irca210 "QUIT"
-simulate 0.3 ircb210 "QUIT"
-simulate 0.3 irca211 "QUIT"
-simulate 0.3 ircb211 "QUIT"
-simulate 0.3 irca212 "QUIT"
-simulate 0.3 ircb212 "QUIT"
-simulate 0.3 irca213 "QUIT"
-simulate 0.3 ircb213 "QUIT"
-simulate 0.3 irca214 "QUIT"
-simulate 0.3 ircb214 "QUIT"
-simulate 0.3 irca215 "QUIT"
-simulate 0.3 ircb215 "QUIT"
-simulate 0.3 irca216 "QUIT"
-simulate 0.3 ircb216 "QUIT"
-simulate 0.3 irca217 "QUIT"
-simulate 0.3 ircb217 "QUIT"
-simulate 0.3 irca218 "QUIT"
-simulate 0.3 ircb218 "QUIT"
-simulate 0.3 irca219 "QUIT"
-simulate 0.3 ircb219 "QUIT"
-simulate 0.3 irca220 "QUIT"
-simulate 0.3 ircb220 "QUIT"
-simulate 0.3 irca221 "QUIT"
-simulate 0.3 ircb221 "QUIT"
-simulate 0.3 irca222 "QUIT"
-simulate 0.3 ircb222 "QUIT"
-simulate 0.3 irca223 "QUIT"
-simulate 0.3 ircb223 "QUIT"
-simulate 0.3 irca224 "QUIT"
-simulate 0.3 ircb224 "QUIT"
-simulate 0.3 irca225 "QUIT"
-simulate 0.3 ircb225 "QUIT"
-simulate 0.3 irca226 "QUIT"
-simulate 0.3 ircb226 "QUIT"
-simulate 0.3 irca227 "QUIT"
-simulate 0.3 ircb227 "QUIT"
-simulate 0.3 irca228 "QUIT"
-simulate 0.3 ircb228 "QUIT"
-simulate 0.3 irca229 "QUIT"
-simulate 0.3 ircb229 "QUIT"
-simulate 0.3 irca230 "QUIT"
-simulate 0.3 ircb230 "QUIT"
-simulate 0.3 irca231 "QUIT"
-simulate 0.3 ircb231 "QUIT"
-simulate 0.3 irca232 "QUIT"
-simulate 0.3 ircb232 "QUIT"
-simulate 0.3 irca233 "QUIT"
-simulate 0.3 ircb233 "QUIT"
-simulate 0.3 irca234 "QUIT"
-simulate 0.3 ircb234 "QUIT"
-simulate 0.3 irca235 "QUIT"
-simulate 0.3 ircb235 "QUIT"
-simulate 0.3 irca236 "QUIT"
-simulate 0.3 ircb236 "QUIT"
-simulate 0.3 irca237 "QUIT"
-simulate 0.3 ircb237 "QUIT"
-simulate 0.3 irca238 "QUIT"
-simulate 0.3 ircb238 "QUIT"
-simulate 0.3 irca239 "QUIT"
-simulate 0.3 ircb239 "QUIT"
-simulate 0.3 irca240 "QUIT"
-simulate 0.3 ircb240 "QUIT"
-simulate 0.3 irca241 "QUIT"
-simulate 0.3 ircb241 "QUIT"
-simulate 0.3 irca242 "QUIT"
-simulate 0.3 ircb242 "QUIT"
-simulate 0.3 irca243 "QUIT"
-simulate 0.3 ircb243 "QUIT"
-simulate 0.3 irca244 "QUIT"
-simulate 0.3 ircb244 "QUIT"
-simulate 0.3 irca245 "QUIT"
-simulate 0.3 ircb245 "QUIT"
-simulate 0.3 irca246 "QUIT"
-simulate 0.3 ircb246 "QUIT"
-simulate 0.3 irca247 "QUIT"
-simulate 0.3 ircb247 "QUIT"
-simulate 0.3 irca248 "QUIT"
-simulate 0.3 ircb248 "QUIT"
-simulate 0.3 irca249 "QUIT"
-simulate 0.3 ircb249 "QUIT"
-
-finish 0.4
+finish 2.0
