@@ -96,10 +96,22 @@ class Host:
         packet = self.application.send(command)
         self.link.putTargetQueue(packet)
 
+        # IRC Client must wait for ACK packet
+        packet = self.netQueue.get()
+        if packet.getSegment().getMessage() != "":
+            raise Exception("Must get an ACK packet!")
+        self.netQueue.task_done()
+
+        if command[0] == "EXIT":
+            self.__tcpCloseConnection(packet)
+
     def processPacket(self, packet):
         """Processes a packet received from the network."""
         respPacket = self.application.receive(packet)
-        if respPacket is not None:
+        if type(respPacket) is list:
+            for p in respPacket:
+                self.link.putTargetQueue(p)
+        elif respPacket is not None:
             self.link.putTargetQueue(respPacket)
 
     def runThread(self):
@@ -141,3 +153,30 @@ class Host:
 
         # Defines the randomized client port number
         self.application.setClientPort(clientPort)
+
+    def __tcpCloseConnection(self, finalPacket):
+        """Close TCP connection by doing a handshake with
+           the server."""
+        serverIp = finalPacket.getDestinationIp()
+        clientPort = finalPacket.getSegment().getOriginPort()
+
+        # Sends a FIN/ACK message to close connection
+        segment = TcpSegment("", clientPort, self.ircPort)
+        segment.setFIN()
+        segment.setACK()
+        segment.setAckNumber(serverPacket.getSegment().getAckNumber())
+        segment.setSeqNumber(serverPacket.getSegment().getSeqNumber())
+        datagram = IpDatagram(segment, self.ipAddr, serverIp)
+        self.link.putTargetQueue(datagram)
+        packet = self.netQueue.get()
+
+        # Receives packet containing server's SYN
+        segment = TcpSegment("", clientPort, self.ircPort)
+        segment.setAckNumber(packet.getSegment().getAckNumber())
+        segment.setACK()
+        segment.setSeqNumber(packet.getSegment().getAckNumber())
+        segment.setAckNumber(packet.getSegment().getSeqNumber() + 1)
+
+        datagram = IpDatagram(segment, self.ipAddr, packet.getOriginIp())
+        self.netQueue.task_done()
+        self.link.putTargetQueue(datagram)

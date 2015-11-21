@@ -24,39 +24,67 @@ class IrcServer:
     def receive(self, packet):
         """Receives a packet. Based on its message, returns
            a response packet."""
-        originIp = packet.getOriginIp()
-        msg = packet.getSegment().getMessage()
+        # Reads basic data from received packet
+        clientIp = packet.getOriginIp()
         segment = packet.getSegment()
+        clientPort = segment.getOriginPort()
+        msg = packet.getSegment().getMessage()
 
-        # Creates a packet to be sent as a response
-        serverMsg = self.__parseMessage(originIp, msg)
-        respSegment = TcpSegment(serverMsg, self.serverPort,
-                                 packet.getSegment().getOriginPort())
+        # Adjusts ack and seq numbers
+        ackNumber = segment.getSeqNumber() + segment.getMessageSize()
+        seqNumber = segment.getAckNumber()
 
-        if segment.getSYN() is False and segment.getFIN() is False \
-            and segment.getMessage() == "":
-                return None
+        # Received a SYN packet; establish connection with client
         if segment.getSYN() is True:
-            # Establish connection with client
             clientIp = packet.getOriginIp()
-            clientPort = segment.getOriginPort()
-            respSegment.setSYN()
-            respSegment.setACK()
-            respSegment.setAckNumber(1)
-        else:
-            ackNumber = segment.getAckNumber()
-            seqNumber = segment.getSeqNumber()
-            respSegment.setACK()
-            respSegment.setAckNumber(seqNumber)
-            respSegment.setSeqNumber(ackNumber + segment.getMessageSize())
+            synSegment = TcpSegment("", self.serverPort, clientPort)
+            synSegment.setSYN()
+            synSegment.setACK()
+            synSegment.setAckNumber(1)
+            synSegment.setSeqNumber(seqNumber)
+            return IpDatagram(synSegment, self.serverIp, clientIp)
 
-        respPacket = IpDatagram(respSegment, self.serverIp, packet.getOriginIp())
-        return respPacket
+        # Received a FIN packet; close connection with client
+        elif segment.getFIN() is True:
+            clientIp = packet.getOriginIp()
+            finSegment = TcpSegment("", self.serverPort, clientPort)
+            finSegment.setFIN()
+            finSegment.setACK()
+            finSegment.setAckNumber(ackNumber + 1)
+            finSegment.setSeqNumber(seqNumber)
+            return IpDatagram(synSegment, self.serverIp, clientIp)
+
+        # Received an ACK packet; do nothing
+        elif msg == "":
+            return None
+
+        # Packet contains a message from the client;
+        # send an ACK packet and a message packet
+
+        # ACK packet
+        ackSegment = TcpSegment("", self.serverPort, clientPort)
+        ackSegment.setACK()
+        ackSegment.setAckNumber(ackNumber)
+        ackSegment.setSeqNumber(seqNumber)
+
+        ackPacket = IpDatagram(ackSegment, self.serverIp, clientIp)
+
+        # Response packet (contains a non-empty message)
+        respMessage = self.__parseMessage([clientIp, clientPort], msg)
+
+        respSegment = TcpSegment(respMessage, self.serverPort, clientPort)
+        respSegment.setACK()
+        respSegment.setAckNumber(ackNumber)
+        respSegment.setSeqNumber(seqNumber)
+
+        respPacket = IpDatagram(respSegment, self.serverIp, clientIp)
+
+        return [ackPacket, respPacket]
 
     def __parseMessage(self, addr, msg):
         """Parses a message received by a client with the given address
            'addr' (which is a list [IP, Port])."""
-        addrStr = addr[0] + ':' + addr[1]
+        addrStr = addr[0] + ':' + str(addr[1])
 
         msg = msg.rstrip('\r\n')
         msg = msg.rstrip(' ')

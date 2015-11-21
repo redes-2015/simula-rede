@@ -47,13 +47,16 @@ class IrcClient:
         return datagram
 
     def receive(self, packet):
-        """Receives and parses a package from the IRC server."""
-        msg = packet.getSegment().getMessage()
+        """Receives and parses a packet from the IRC server."""
+        segment = packet.getSegment()
+        msg = segment.getMessage()
 
-        # Update acknowledgement and sequence numbers
-        self.ackNumber = packet.getSegment().getSeqNumber()
-        self.seqNumber = packet.getSegment().getAckNumber()
-        self.seqNumber += packet.getSegment().getMessageSize()
+        # ACK packet from server; update seq and ack numbers
+        if msg == "":
+            return None
+
+        # Packet contains a message from the server;
+        # first, read message contained in the packet
 
         # Received CONNECT confirmation
         if msg[0] == '0':
@@ -66,7 +69,20 @@ class IrcClient:
             self.clientPort = None
             self.serverIp = None
 
-        return None
+        # Then, create and send an ACK packet
+        ackSegment = TcpSegment("", self.clientPort, self.serverPort)
+
+        # Adjusts ack and seq numbers
+        self.ackNumber = segment.getSeqNumber() + segment.getMessageSize()
+        self.seqNumber = segment.getAckNumber()
+
+        ackSegment.setACK()
+        ackSegment.setAckNumber(self.ackNumber)
+        ackSegment.setSeqNumber(self.seqNumber)
+
+        ackPacket = IpDatagram(ackSegment, self.clientIp, self.serverIp)
+
+        return ackPacket
 
     def requireDns(self, msgList):
         """Checks if the client command is a CONNECT that requires
@@ -75,18 +91,3 @@ class IrcClient:
            re.match("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", msgList[1]):
                 return msgList[1]
         return None
-
-    def __tcpCloseConnection(self, serverPacket):
-        """Close TCP connection by doing a handshake with
-           the server."""
-
-        # Sends a FIN/ACK message to close connection
-        # TODO: Think of what to do here...
-        segment = TcpSegment("", finalSegment.getOriginPort(), self.ircPort)
-        segment.setFIN()
-        segment.setACK()
-        segment.setAckNumber(serverPacket.getSegment().getSeqNumber())
-        segment.setSeqNumber(1)
-        datagram = IpDatagram(segment, self.ipAddr, serverIp)
-        self.link.putTargetQueue(datagram)
-        packet = self.netQueue.get()

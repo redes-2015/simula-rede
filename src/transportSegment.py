@@ -9,7 +9,7 @@ class TransportSegment:
 
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data common for all transport layer protocols."""
-        self.msg = msg.encode("ascii")
+        self.msg = msg
         self.originPort = originPort
         self.destinationPort = destinationPort
 
@@ -21,11 +21,11 @@ class TransportSegment:
 
     def getMessage(self):
         """Returns the application message stored by the protocol."""
-        return self.msg.decode()
+        return self.msg
 
     def getMessageSize(self):
         """Returns size of application message, in bytes."""
-        return sys.getsizeof(self.msg)
+        return len(self.msg)
 
     def getOriginPort(self):
         """Returns the origin port stored by the protocol."""

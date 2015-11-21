@@ -32,7 +32,7 @@ class TcpSegment(TransportSegment):
             info += "[SYN]"
 
         info += '\n' + ">>>> IRC" + '\n'
-        info += "  Message: \"" + self.msg.decode() + "\""
+        info += "  Message: \"" + self.msg + "\""
 
         return info
 
