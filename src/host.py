@@ -96,10 +96,6 @@ class Host:
         packet = self.application.send(command)
         self.link.putTargetQueue(packet)
 
-        #elif command[0] == "EXIT":
-        #    self__tcpCloseConnection(command[])
-
-
     def processPacket(self, packet):
         """Processes a packet received from the network."""
         respPacket = self.application.receive(packet)

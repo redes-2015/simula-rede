@@ -75,3 +75,18 @@ class IrcClient:
            re.match("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", msgList[1]):
                 return msgList[1]
         return None
+
+    def __tcpCloseConnection(self, serverPacket):
+        """Close TCP connection by doing a handshake with
+           the server."""
+
+        # Sends a FIN/ACK message to close connection
+        # TODO: Think of what to do here...
+        segment = TcpSegment("", finalSegment.getOriginPort(), self.ircPort)
+        segment.setFIN()
+        segment.setACK()
+        segment.setAckNumber(serverPacket.getSegment().getSeqNumber())
+        segment.setSeqNumber(1)
+        datagram = IpDatagram(segment, self.ipAddr, serverIp)
+        self.link.putTargetQueue(datagram)
+        packet = self.netQueue.get()
