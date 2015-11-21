@@ -1,11 +1,16 @@
 """Represents the IP protocol on the simulated network."""
 
+import sys
+
 from tcpSegment import TcpSegment
 from udpSegment import UdpSegment
 
 # Initial TTL values for different systems
 UNIX_TTL = 64
 WINDOWS_TTL = 128
+
+TCP_ID = 6
+UDP_ID = 17
 
 # -------------------------------------------------------------
 
@@ -21,19 +26,23 @@ class IpDatagram:
         # TODO: Checksum
 
     def info(self):
-        """Shows information regarding the IP datagram. Used for testing!"""
-        info = "To:: " + self.destinationIp + ':'
-        info += str(self.segment.getDestinationPort()) + '\n'
+        """Returns information regarding the IP protocol about
+           the datagram."""
+        info = ">>>> IP" + '\n'
+        info += "  To:   " + self.destinationIp + '\n'
+        info += "  From: " + self.originIp + '\n'
+        info += "  Transport Protocol: " + str(self.getTransportType()) + '\n'
 
-        info += "From:: " + self.originIp + ':'
-        info += str(self.segment.getOriginPort()) + '\n'
+        # TODO: Check why getsizeof(self) returns 0 :P
+        segmentSize = sys.getsizeof(self.segment)
+        headerSize = sys.getsizeof(self) - segmentSize
+        info += ("  Size: %3d" % headerSize) + " (IP Header)\n"
+        info += ("        %3d" % segmentSize) + " (Above)\n"
+        info += "  TTL: " + str(self.TTL) + '\n'
 
-        # Gets transport layer's object name, and prints its first 3 characters
-        info += "Transport layer: " + str(self.getTransportType()) + '\n'
+        info += self.segment.info()
 
-        info += "TTL: " + str(self.TTL) + '\n'
-        info += "Message: " + self.segment.getMessage() + '\n'
-        return info
+        return info + '\n'
 
     def getOriginIp(self):
         """Returns the IP address of who sent the datagram."""
@@ -51,9 +60,9 @@ class IpDatagram:
     def getTransportType(self):
         """Returns a number identifying the type of transport layer."""
         if type(self.segment) is TcpSegment:
-            return 6
+            return TCP_ID
         elif type(self.segment) is UdpSegment:
-            return 17
+            return UDP_ID
         else:
             raise Exception("Unexpected type of transport protocol!")
 

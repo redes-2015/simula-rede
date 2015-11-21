@@ -26,11 +26,30 @@ class IrcServer:
            a response packet."""
         originIp = packet.getOriginIp()
         msg = packet.getSegment().getMessage()
+        segment = packet.getSegment()
 
         # Creates a packet to be sent as a response
         serverMsg = self.__parseMessage(originIp, msg)
         respSegment = TcpSegment(serverMsg, self.serverPort,
                                  packet.getSegment().getOriginPort())
+
+        if segment.getSYN() is False and segment.getFIN() is False \
+            and segment.getMessage() == "":
+                return None
+        if segment.getSYN() is True:
+            # Establish connection with client
+            clientIp = packet.getOriginIp()
+            clientPort = segment.getOriginPort()
+            respSegment.setSYN()
+            respSegment.setACK()
+            respSegment.setAckNumber(1)
+        else:
+            ackNumber = segment.getAckNumber()
+            seqNumber = segment.getSeqNumber()
+            respSegment.setACK()
+            respSegment.setAckNumber(seqNumber)
+            respSegment.setSeqNumber(ackNumber + segment.getMessageSize())
+
         respPacket = IpDatagram(respSegment, self.serverIp, packet.getOriginIp())
         return respPacket
 
@@ -42,6 +61,7 @@ class IrcServer:
         msg = msg.rstrip('\r\n')
         msg = msg.rstrip(' ')
         separate = msg.split(' ')
+        response = ""
 
         if separate[0] == self.CONNECT:
             response = "0 Connection successful! Welcome!"

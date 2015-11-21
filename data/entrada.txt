@@ -83,11 +83,8 @@ set dnss h3 dns1
 
 # Configuração dos sniffers. Onde vou monitorar a rede. A saída tem que
 # aparecer na saída padrão e nos arquivos configurados abaixo.
-# set sniffer r0.2 r1.0 "/tmp/sniffer1"
-# set sniffer h1 r0.1 "/tmp/sniffer2"
-set sniffer r0.2 r1.0 "sniffer1.txt"
-set sniffer h1 r0.1 "sniffer2.txt"
-
+set sniffer r0.2 r1.0 "/tmp/sniffer1"
+set sniffer h1 r0.1 "/tmp/sniffer2"
 
 # Configuração das comunicações entre os agentes. Defino o instante de
 # tempo em segundos quando o acesso deve ocorrer e o tipo de acesso a

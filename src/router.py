@@ -38,7 +38,8 @@ class Router:
         self.routes[subnetwork] = port
 
     def updateRoute(self):
-        """???"""
+        """Updates the router's routes by matching a port to each
+           possible subnetwork."""
         for key in self.routes:
             try:
                 # Check if route is one of this router's ports
@@ -81,6 +82,7 @@ class Router:
            thread-safe, i.e., only one port can access it at a time."""
         self.lock.acquire()
         time.sleep(self.timePerformance)  # TODO: Check time control
+        packet.reduceTTL()
         destination = packet.getDestinationIp()
         subnetwork = self.__findSubnetwork(destination)
         self.links[int(self.routes[subnetwork])].putTargetQueue(packet)

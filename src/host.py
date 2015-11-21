@@ -1,10 +1,12 @@
 """Represents a computer (host) on the network simulation."""
 
 import queue
+import random
 
 from dnsServer import DnsServer
 from ircClient import IrcClient
 from ircServer import IrcServer
+from tcpSegment import TcpSegment
 from udpSegment import UdpSegment
 from ipDatagram import IpDatagram
 
@@ -28,11 +30,9 @@ class Host:
         self.simQueue = queue.Queue()
         self.netQueue = queue.Queue()
 
-        # Default port for DNS server
+        # Default port for DNS and IRC servers
         self.dnsPort = 53
-
-        # 'IP:Port -> Username' for IRC server
-        self.ircs_connections = {}
+        self.ircPort = 6667
 
     def setIp(self, ipAddr, routerAddr, dnsAddr):
         """Defines IP numbers for host, its router and DNS server."""
@@ -90,8 +90,15 @@ class Host:
             command[1] = packet.getSegment().getMessage().split(',')[1]
             self.netQueue.task_done()
 
+        if command[0] == "CONNECT":
+            self.__tcpEstablishConnection(command[1])
+
         packet = self.application.send(command)
         self.link.putTargetQueue(packet)
+
+        #elif command[0] == "EXIT":
+        #    self__tcpCloseConnection(command[])
+
 
     def processPacket(self, packet):
         """Processes a packet received from the network."""
@@ -113,3 +120,28 @@ class Host:
             packet = self.netQueue.get()
             self.processPacket(packet)
             self.netQueue.task_done()
+
+    def __tcpEstablishConnection(self, serverIp):
+        """Establishes a TCP connection by doing a handshake with
+           the server."""
+        clientPort = random.randint(1025, 65530)
+
+        # Sends a SYN message to establish connection
+        segment = TcpSegment("", clientPort, self.ircPort)
+        segment.setSYN()
+        datagram = IpDatagram(segment, self.ipAddr, serverIp)
+        self.link.putTargetQueue(datagram)
+        packet = self.netQueue.get()
+
+        # Receives packet containing server's SYN
+        segment = TcpSegment("", clientPort, self.ircPort)
+        segment.setAckNumber(packet.getSegment().getAckNumber())
+        segment.setACK()
+        segment.setSeqNumber(1)
+        segment.setSeqNumber(1)
+        datagram = IpDatagram(segment, self.ipAddr, packet.getOriginIp())
+        self.netQueue.task_done()
+        self.link.putTargetQueue(datagram)
+
+        # Defines the randomized client port number
+        self.application.setClientPort(clientPort)

@@ -147,7 +147,6 @@ class Simulator:
         """Runs 'appName' with the given command at the specified time."""
         # print("{Simulate} [t = %g] %s %s" % (cmdTime, appName, command))
         delta = cmdTime - self.currentTime
-        # delta = delta/100.0
         time.sleep(delta)
         self.currentTime = cmdTime
         host = self.apps[appName]
@@ -156,7 +155,7 @@ class Simulator:
     def __finish(self, endTime):
         """Ends the simulation at the specified time."""
         # print("**FINISH [t = %g]**" % endTime)
-        time.sleep(2)  # TODO: Check how to control time
+        # TODO: Check how to control time
         for f in self.snifferFiles:
             f.close()
         sys.exit(0)

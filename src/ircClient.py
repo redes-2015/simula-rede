@@ -1,6 +1,5 @@
 """Represents an IRC client on the network simulation."""
 
-import random
 import re
 
 from tcpSegment import TcpSegment
@@ -19,25 +18,42 @@ class IrcClient:
         self.clientPort = None
         self.serverPort = 6667  # Default port for IRC servers
 
+        self.ackNumber = None
+        self.seqNumber = None
+
         # Comandos parseados no cliente
         self.CONNECT = "CONNECT"
+
+    def setClientPort(self, clientPort):
+        """Sets the client's port number to the specified value."""
+        self.clientPort = clientPort
 
     def send(self, msgList):
         """Sends the specified message to an IRC server
            This method supposes that the message is correct!."""
         msg = ' '.join(msgList)
         if msgList[0] == self.CONNECT:
-            self.clientPort = random.randint(1025, 65530)
+            self.ackNumber = self.seqNumber = 1
             self.serverIp = msgList[1]
-             # TODO: Check TCP handshake
 
         segment = TcpSegment(msg, self.clientPort, self.serverPort)
+        segment.setACK()
+        segment.setAckNumber(self.ackNumber)
+        segment.setSeqNumber(self.seqNumber)
         datagram = IpDatagram(segment, self.clientIp, self.serverIp)
+        if self.serverIp is None:
+            raise Exception("IRC client must CONNECT first!")
+
         return datagram
 
     def receive(self, packet):
         """Receives and parses a package from the IRC server."""
         msg = packet.getSegment().getMessage()
+
+        # Update acknowledgement and sequence numbers
+        self.ackNumber = packet.getSegment().getSeqNumber()
+        self.seqNumber = packet.getSegment().getAckNumber()
+        self.seqNumber += packet.getSegment().getMessageSize()
 
         # Received CONNECT confirmation
         if msg[0] == '0':
@@ -49,7 +65,6 @@ class IrcClient:
         elif msg[0] == '2':
             self.clientPort = None
             self.serverIp = None
-            # End of connection handshake
 
         return None
 
