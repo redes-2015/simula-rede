@@ -9,13 +9,19 @@ Integrantes:
 | EP 3 - Simulador de Redes |
 +---------------------------+
 
-ARQUIVOS
-========
+LINGUAGEM ESCOLHIDA
+===================
+
+A linguagem Python foi escolhida para fazer este EP.
+A versão utilizada foi Python 3.4.3.
+
+ARQUIVOS E DIRETÓRIOS
+=====================
 
 Este EP consiste em:
   - LEIAME: Este arquivo explicatório.
   - src/: Código fonte do EP, onde o simulador de redes está implementado.
-  - executa.sh: Script usado para executar o simulador de redes.
+  - executa.sh: Bash script usado para executar o simulador de redes.
   - slides.pdf: Slides para a apresentação, conforme solicitado no enunciado.
 
  USO
@@ -29,7 +35,7 @@ Este EP consiste em:
     Este arquivo deve estar de acordo com as especificações do enunciado do EP.
 
     Para maiores informações sobre o script que executa o simulador,
-    digite no root:
+    digite no root do projeto:
 
     $ ./executa.sh -h
 
@@ -89,7 +95,7 @@ OBSERVAÇÕES
 ===========
 
     O simulador supõe que o arquivo de entrada possui os comandos na
-    mesma ordem que foi dado no exemplo do enunciado do EP 3, e que
+    mesma ordem que foram dados no exemplo do enunciado do EP 3, e que
     não haverá erros em relação a nome de hosts e roteadores, definição
     de rotas, mudanças nas unidades de medida de tempo e envio, etc.
 
