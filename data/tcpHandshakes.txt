@@ -1,0 +1,79 @@
+# Criação de 4 computadores. Por padrão cada computador tem 1
+# interface apenas
+set host h0
+set host h1
+
+# Criação de 2 roteadores com 3 interfaces cada
+set router r0 2
+
+# Criação dos enlaces ligando os computadores e os roteadores
+# para criar a simulação abaixo:
+#
+#    h0 -------- r0 -------- h1
+#
+# O ’duplex-link’ diz que cada enlace tem capacidades em cada sentido
+# independentes. Ou seja, se configuro o enlace com 2Mbps, significa que
+# posso ter ao mesmo tempo 2Mbps fluindo num sentido e 2Mbps fluindo
+# no outro sentido. O atraso configurado é igual nos dois sentidos. Ou
+# seja, se configuro o link com 10ms significa que o atraso em um
+# sentido é 10ms e o atraso no outro sentido é 10ms (Esse é o atraso
+# sem contar com o enfileiramento nos roteadores e sem contar com o
+# tempo para transmitir os bits em função da capacidade do enlace!)
+# Obs.: roteadores tem várias portas, por isso é necessário colocar o
+# .0, .1, .2 para o simulador saber em qual porta o enlace está
+# conectado
+
+set duplex-link h0 r0.0 10Mbps 10ms
+set duplex-link h1 r0.1 10Mbps 10ms
+
+# Configuração dos hosts: endereço IP do computador, endereço IP do
+# roteador padrão e endereço IP do servidor DNS
+# Obs.: Considere que todas as redes sempre serão classe C, ou seja,
+# máscara = 255.255.255.0 
+
+set ip h0 10.0.0.2 10.0.0.1 192.168.1.1 
+set ip h1 10.1.1.2 10.1.1.1 192.168.1.1
+
+# Obs.: o endereço 1.1.1.1 representa um servidor DNS raiz que todos
+# os servidores DNS da simulação precisam ter configurados como o
+# servidor DNS deles (não vai ser usado para nada mas sempre tem que
+# ter essa configuração)
+
+# Configuração dos roteadores: porta, endereço IP [[porta, endereço
+# IP] ...]
+set ip r0 0 10.0.0.1 1 10.1.1.1
+
+# Configuração dos roteadores: rotas (obs.: nos roteadores todas as
+# rotas devem ser explı́citas apontando para outro roteador ou para a
+# porta. Não há roteador padrão no roteador. Não se preocupe com o
+# caso de comunicações com endereços inexistentes na
+# rede)
+set route r0 10.0.0.0 0 10.1.1.0 1
+
+# Configuração dos roteadores: tempo para processar 1 pacote, porta,
+# tamanho da fila da porta em quantidade de pacotes, [[porta, tamanho
+# ...] ...]
+set performance r0 100us 0 1000 1 1000
+
+# Configuração dos agentes da camada de aplicação. h0 e h1 vão rodar
+# clientes IRC. h2 vai ser um servidor IRC e h3 vai ser o servidor DNS
+# Obs.: não há necessidade de explicitar um cliente DNS. Todos os hosts
+# já tem um cliente DNS embutido
+set ircc h0 irc0
+set ircs h1 irc1
+
+# Configuração dos sniffers. Onde vou monitorar a rede. A saída tem que
+# aparecer na saída padrão e nos arquivos configurados abaixo.
+set sniffer r0.0 h0 "/tmp/sniffer1"
+
+# Configuração das comunicações entre os agentes. Defino o instante de
+# tempo em segundos quando o acesso deve ocorrer e o tipo de acesso a
+# ser feito entre o cliente e o servidor. Note que 1 conexão do IRC
+# foi feita com o nome da máquina, o que vai exigir um acesso DNS
+# (considere que as máquinas não possuem cache. Ou seja, elas
+# sempre vão consultar um servidor DNS). Um dos acessos entretanto,
+# está sendo feito direto pelo endereço IP, ou seja, nesse caso uma
+# consulta DNS não deverá ser realizada.
+simulate 0.5 irc0 "CONNECT 10.1.1.2 6667"
+simulate 1.5 irc0 "QUIT"
+finish 2.5
