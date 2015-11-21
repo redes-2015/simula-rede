@@ -81,7 +81,7 @@ class Router:
         """Processes a packet received from the network. This method is
            thread-safe, i.e., only one port can access it at a time."""
         self.lock.acquire()
-        time.sleep(self.timePerformance)  # TODO: Check time control
+        time.sleep(self.timePerformance)
         packet.reduceTTL()
         destination = packet.getDestinationIp()
         subnetwork = self.__findSubnetwork(destination)

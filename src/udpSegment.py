@@ -11,7 +11,6 @@ class UdpSegment(TransportSegment):
     def __init__(self, msg, originPort, destinationPort):
         """Initializes data on UDP header."""
         super().__init__(msg, originPort, destinationPort)
-        # TODO: Checksum
 
     def info(self):
         """Shows information regarding the UDP protocol about the segment."""
@@ -27,8 +26,3 @@ class UdpSegment(TransportSegment):
         info += "  Message: \"" + self.msg + "\""
 
         return info
-
-    def headerSize(self):
-        "Returns size of UDP header, in bytes."""
-        # TODO: Do checksum first, use 16 bits for each port
-        pass

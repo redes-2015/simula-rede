@@ -27,6 +27,8 @@ class Simulator:
         self.currentTime = 0    # Time when last simulate command was executed
         self.snifferFiles = []  # List of sniffer file objects
 
+        self.startTime = time.time()
+
     def start(self):
         """Starts the simulation."""
         # Process file
@@ -134,7 +136,7 @@ class Simulator:
         # 'pair' receives one of the two lists
         for pair in [[name, target], [target, name]]:
             # Here, 'pair' is a list with two values
-            sniffer = Sniffer(pair[0], pair[1], f)
+            sniffer = Sniffer(pair[0], pair[1], f, self.startTime)
             checkRouter = self.__isRouter(pair[0])
             if checkRouter is not None:
                 router = self.routers[checkRouter[0]]

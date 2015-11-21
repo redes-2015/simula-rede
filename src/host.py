@@ -18,6 +18,7 @@ class Host:
     def __init__(self, name):
         """Initializes a computer with the given hostname."""
         self.name = name
+        self.idCounter = 1
 
         # Addresses
         self.ipAddr = self.routerAddr = self.dnsAddr = None
@@ -83,6 +84,7 @@ class Host:
         if name is not None:
             segment = UdpSegment(name, 2000, self.dnsPort)
             datagram = IpDatagram(segment, self.ipAddr, self.dnsAddr)
+            datagram.setId(self.__nextPacketId())
             self.link.putTargetQueue(datagram)
             packet = self.netQueue.get()
 
@@ -94,6 +96,7 @@ class Host:
             self.__tcpEstablishConnection(command[1])
 
         packet = self.application.send(command)
+        packet.setId(self.__nextPacketId())
         self.link.putTargetQueue(packet)
 
         # IRC Client must wait for ACK packet
@@ -107,10 +110,12 @@ class Host:
         respPacket = self.application.receive(packet)
         if type(respPacket) is list:
             for p in respPacket:
+                p.setId(self.__nextPacketId())
                 self.link.putTargetQueue(p)
                 if p.getSegment().getFIN() is True:
                     self.__tcpCloseConnection(p)
         elif respPacket is not None:
+            respPacket.setId(self.__nextPacketId())
             self.link.putTargetQueue(respPacket)
 
     def runThread(self):
@@ -128,6 +133,12 @@ class Host:
             self.processPacket(packet)
             self.netQueue.task_done()
 
+    def __nextPacketId(self):
+        """Returns a unique ID to be given to a packet."""
+        packetId = self.name + " #" + str(self.idCounter)
+        self.idCounter += 1
+        return packetId
+
     def __tcpEstablishConnection(self, serverIp):
         """Establishes a TCP connection by doing a handshake with
            the server."""
@@ -137,6 +148,7 @@ class Host:
         segment = TcpSegment("", clientPort, self.ircPort)
         segment.setSYN()
         datagram = IpDatagram(segment, self.ipAddr, serverIp)
+        datagram.setId(self.__nextPacketId())
         self.link.putTargetQueue(datagram)
         packet = self.netQueue.get()
 
@@ -148,6 +160,7 @@ class Host:
         segment.setSeqNumber(1)
         datagram = IpDatagram(segment, self.ipAddr, packet.getOriginIp())
         self.netQueue.task_done()
+        datagram.setId(self.__nextPacketId())
         self.link.putTargetQueue(datagram)
 
         # Defines the randomized client port number
@@ -171,4 +184,6 @@ class Host:
 
         datagram = IpDatagram(segment, self.ipAddr, packet.getOriginIp())
         self.netQueue.task_done()
+
+        datagram.setId(self.__nextPacketId())
         self.link.putTargetQueue(datagram)

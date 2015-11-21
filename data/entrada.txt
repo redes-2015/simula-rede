@@ -84,6 +84,7 @@ set dnss h3 dns1
 # Configuração dos sniffers. Onde vou monitorar a rede. A saída tem que
 # aparecer na saída padrão e nos arquivos configurados abaixo.
 set sniffer r0.2 r1.0 "/tmp/sniffer1"
+set sniffer h1 r0.1 "/tmp/sniffer2"
 
 # Configuração das comunicações entre os agentes. Defino o instante de
 # tempo em segundos quando o acesso deve ocorrer e o tipo de acesso a
@@ -99,4 +100,4 @@ simulate 2.0 irc1 "USER usuario1"
 simulate 4.0 irc2 "USER usuario2"
 simulate 4.1 irc1 "QUIT"
 simulate 5.0 irc2 "QUIT"
-finish 7.0
+finish 6.0

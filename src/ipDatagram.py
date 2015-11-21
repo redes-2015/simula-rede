@@ -23,7 +23,6 @@ class IpDatagram:
         self.originIp = originIp
         self.destinationIp = destinationIp
         self.TTL = UNIX_TTL
-        # TODO: Checksum
 
     def info(self):
         """Returns information regarding the IP protocol about
@@ -43,6 +42,14 @@ class IpDatagram:
         info += self.segment.info()
 
         return info + '\n'
+
+    def setId(self, identifier):
+        """Sets the packet's unique ID as the specified value."""
+        self.identifier = identifier
+
+    def getId(self):
+        """Returns the packet's unique ID."""
+        return self.identifier
 
     def getOriginIp(self):
         """Returns the IP address of who sent the datagram."""
@@ -65,11 +72,6 @@ class IpDatagram:
             return UDP_ID
         else:
             raise Exception("Unexpected type of transport protocol!")
-
-    def headerSize(self):
-        "Returns size of UDP header, in bytes."""
-        # TODO: Do checksum first, use 16 bits for each port
-        pass
 
     def upperLayersSize(self):
         """Returns size of the upper layers, in bytes."""
