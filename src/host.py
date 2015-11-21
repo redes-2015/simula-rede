@@ -82,16 +82,8 @@ class Host:
         """Processes a command received from the simulation."""
         name = self.application.requireDns(command)
         if name is not None:
-            segment = UdpSegment(name, 2000, self.dnsPort)
-            datagram = IpDatagram(segment, self.ipAddr, self.dnsAddr)
-            datagram.setId(self.__nextPacketId())
-            self.link.putTargetQueue(datagram)
-            packet = self.netQueue.get()
-
-            # TODO: Make the below line more comfortable
-            command[1] = packet.getSegment().getMessage().split(',')[1]
-            self.netQueue.task_done()
-
+            # Connect to DNS server to ask for IP
+            command[1] = self.__dnsConnect(name)
         if command[0] == "CONNECT":
             self.__tcpEstablishConnection(command[1])
 
@@ -187,3 +179,16 @@ class Host:
 
         datagram.setId(self.__nextPacketId())
         self.link.putTargetQueue(datagram)
+
+    def __dnsConnect(self, name):
+        """Connects to the DNS server to obtain the given name's
+           corresponding IP."""
+        segment = UdpSegment(name, 2000, self.dnsPort)
+        datagram = IpDatagram(segment, self.ipAddr, self.dnsAddr)
+        datagram.setId(self.__nextPacketId())
+        self.link.putTargetQueue(datagram)
+        packet = self.netQueue.get()
+
+        ip = packet.getSegment().getMessage().split(',')[1]
+        self.netQueue.task_done()
+        return ip
