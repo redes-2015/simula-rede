@@ -1,7 +1,5 @@
 """Represents the IP protocol on the simulated network."""
 
-import sys
-
 from tcpSegment import TcpSegment
 from udpSegment import UdpSegment
 
@@ -31,17 +29,26 @@ class IpDatagram:
         info += "  To:   " + self.destinationIp + '\n'
         info += "  From: " + self.originIp + '\n'
         info += "  Transport Protocol: " + str(self.getTransportType()) + '\n'
-
-        # TODO: Check why getsizeof(self) returns 0 :P
-        segmentSize = sys.getsizeof(self.segment)
-        headerSize = sys.getsizeof(self) - segmentSize
-        info += ("  Size: %3d" % headerSize) + " (IP Header)\n"
-        info += ("        %3d" % segmentSize) + " (Above)\n"
+        info += "  Size: %d" % self.size() + '\n'
         info += "  TTL: " + str(self.TTL) + '\n'
 
         info += self.segment.info()
 
         return info + '\n'
+
+    def size(self):
+        """Returns the IP header size summed with the size of above layers."""
+        # IP header has a minimum size of 20 bytes:
+        # - 1 byte for version + IHL
+        # - 1 byte for DSCP + ECN
+        # - 2 bytes for total length
+        # - 2 bytes for identification
+        # - 2 bytes for flags + fragment offset
+        # - 1 byte for TTL
+        # - 1 byte for transport protocol type
+        # - 2 bytes for header Checksum
+        # - 8 bytes, 2 for each IP address
+        return 20 + self.segment.size()
 
     def setId(self, identifier):
         """Sets the packet's unique ID as the specified value."""

@@ -2,6 +2,8 @@
 
 from transportSegment import TransportSegment
 
+MSS = 1460  # Maximum Segment Size
+
 # -------------------------------------------------------------
 
 
@@ -35,6 +37,19 @@ class TcpSegment(TransportSegment):
         info += "  Message: \"" + self.msg + "\""
 
         return info
+
+    def size(self):
+        """Returns the TCP header size summed with the message size."""
+        # TCP has a minimum of 20 bytes for its header:
+        # - 4 bytes, 2 for each port
+        # - 4 bytes for acknowledgement number
+        # - 4 bytes for sequence number
+        # - 1 byte for data offset, reserved and flags
+        # - 1 byte for window size
+        # - 1 byte for checksum
+        # - 1 byte for urgent pointer
+        # There is also a +4 bytes for the MSS that belongs to options
+        return 24 + self.getMessageSize()
 
     def setSeqNumber(self, seqNumber):
         """Sets the TCP protocol's Sequence Number."""
