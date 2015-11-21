@@ -102,15 +102,14 @@ class Host:
             raise Exception("Must get an ACK packet!")
         self.netQueue.task_done()
 
-        if command[0] == "EXIT":
-            self.__tcpCloseConnection(packet)
-
     def processPacket(self, packet):
         """Processes a packet received from the network."""
         respPacket = self.application.receive(packet)
         if type(respPacket) is list:
             for p in respPacket:
                 self.link.putTargetQueue(p)
+                if p.getSegment().getFIN() is True:
+                    self.__tcpCloseConnection(p)
         elif respPacket is not None:
             self.link.putTargetQueue(respPacket)
 
@@ -161,13 +160,6 @@ class Host:
         clientPort = finalPacket.getSegment().getOriginPort()
 
         # Sends a FIN/ACK message to close connection
-        segment = TcpSegment("", clientPort, self.ircPort)
-        segment.setFIN()
-        segment.setACK()
-        segment.setAckNumber(serverPacket.getSegment().getAckNumber())
-        segment.setSeqNumber(serverPacket.getSegment().getSeqNumber())
-        datagram = IpDatagram(segment, self.ipAddr, serverIp)
-        self.link.putTargetQueue(datagram)
         packet = self.netQueue.get()
 
         # Receives packet containing server's SYN

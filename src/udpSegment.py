@@ -24,7 +24,7 @@ class UdpSegment(TransportSegment):
         info += ("        %3d" % msgSize) + " (Above)\n"
 
         info += ">>>> DNS" + '\n'
-        info += "  Message: \"" + self.msg.decode() + "\""
+        info += "  Message: \"" + self.msg + "\""
 
         return info
 

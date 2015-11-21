@@ -21,6 +21,8 @@ class IrcClient:
         self.ackNumber = None
         self.seqNumber = None
 
+        self.mustClose = False
+
         # Comandos parseados no cliente
         self.CONNECT = "CONNECT"
 
@@ -36,13 +38,14 @@ class IrcClient:
             self.ackNumber = self.seqNumber = 1
             self.serverIp = msgList[1]
 
+        if self.serverIp is None:
+            raise Exception("IRC client must CONNECT first!")
+
         segment = TcpSegment(msg, self.clientPort, self.serverPort)
         segment.setACK()
         segment.setAckNumber(self.ackNumber)
         segment.setSeqNumber(self.seqNumber)
-        datagram = IpDatagram(segment, self.clientIp, self.serverIp)
-        if self.serverIp is None:
-            raise Exception("IRC client must CONNECT first!")
+        datagram = IpDatagram(segment, self.clientIp, self.serverIp)        
 
         return datagram
 
@@ -50,10 +53,6 @@ class IrcClient:
         """Receives and parses a packet from the IRC server."""
         segment = packet.getSegment()
         msg = segment.getMessage()
-
-        # ACK packet from server; update seq and ack numbers
-        if msg == "":
-            return None
 
         # Packet contains a message from the server;
         # first, read message contained in the packet
@@ -66,8 +65,7 @@ class IrcClient:
             pass
         # Received QUIT confirmation
         elif msg[0] == '2':
-            self.clientPort = None
-            self.serverIp = None
+            self.mustClose = True
 
         # Then, create and send an ACK packet
         ackSegment = TcpSegment("", self.clientPort, self.serverPort)
@@ -81,6 +79,17 @@ class IrcClient:
         ackSegment.setSeqNumber(self.seqNumber)
 
         ackPacket = IpDatagram(ackSegment, self.clientIp, self.serverIp)
+
+        if self.mustClose:
+            self.mustClose = False
+            finSegment = TcpSegment("", self.clientPort, self.serverPort)
+            finSegment.setFIN()
+            finSegment.setAckNumber(self.ackNumber)
+            finSegment.setSeqNumber(self.seqNumber)
+            finPacket = IpDatagram(finSegment, self.clientIp, self.serverIp)
+            self.clientPort = None
+            self.serverIp = None
+            return [ackPacket, finPacket]
 
         return ackPacket
 

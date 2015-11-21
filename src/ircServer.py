@@ -52,7 +52,7 @@ class IrcServer:
             finSegment.setACK()
             finSegment.setAckNumber(ackNumber + 1)
             finSegment.setSeqNumber(seqNumber)
-            return IpDatagram(synSegment, self.serverIp, clientIp)
+            return IpDatagram(finSegment, self.serverIp, clientIp)
 
         # Received an ACK packet; do nothing
         elif msg == "":

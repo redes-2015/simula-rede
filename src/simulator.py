@@ -156,6 +156,10 @@ class Simulator:
         """Ends the simulation at the specified time."""
         # print("**FINISH [t = %g]**" % endTime)
         # TODO: Check how to control time
+        delta = endTime - self.currentTime
+        time.sleep(delta)
+        self.currentTime = endTime
+
         for f in self.snifferFiles:
             f.close()
         sys.exit(0)
