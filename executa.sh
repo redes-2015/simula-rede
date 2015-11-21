@@ -4,8 +4,8 @@
 # Diretório do projeto
 DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 
-# Diretório contendo código fonte
-SRCDIR="$DIR/src"
+SRCDIR="$DIR/src"       # Diretório contendo código fonte
+SLIDEDIR="$DIR/slides"  # Diretório contendo os slides
 
 # Nome do tar.gz e a pasta nele contido a serem entregues no PACA
 TARNAME="ep3.tar.gz"
@@ -48,7 +48,7 @@ for arg in "$@"; do
         uso;;
     -t)
         mkdir -p $TARDIR
-        cp -rf README.txt executa.sh $SRCDIR $TARDIR
+        cp -rf README.txt executa.sh $SRCDIR $SLIDEDIR/slides.pdf $TARDIR
         mv $TARDIR/README.txt $TARDIR/LEIAME
         find $TARDIR -name __pycache__ | xargs rm -rf
         tar -czf $TARNAME $TARDIR
