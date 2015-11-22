@@ -4,8 +4,9 @@
 # Diretório do projeto
 DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 
-SRCDIR="$DIR/src"       # Diretório contendo código fonte
-SLIDEDIR="$DIR/slides"  # Diretório contendo os slides
+SRCDIR="src"       # Diretório contendo código fonte
+DATADIR="data"     # Diretório contendo arquivos de teste
+SLIDEDIR="slides"  # Diretório contendo os slides
 
 # Nome do tar.gz e a pasta nele contido a serem entregues no PACA
 TARNAME="ep3.tar.gz"
@@ -48,10 +49,12 @@ for arg in "$@"; do
         uso;;
     -t)
         mkdir -p $TARDIR
-        cp -rf README.txt executa.sh $SRCDIR $SLIDEDIR/slides.pdf $TARDIR
+        cp -rf README.txt executa.sh $SRCDIR $TARDIR
+        cp -rf $DATADIR $TARDIR/$SRCDIR
+        libreoffice --headless --convert-to pdf --outdir $TARDIR $SLIDEDIR/slides.odp
         mv $TARDIR/README.txt $TARDIR/LEIAME
         find $TARDIR -name __pycache__ | xargs rm -rf
-        tar -czf $TARNAME $TARDIR
+        tar -cvf $TARNAME $TARDIR
         rm -rf $TARDIR
         echo -e "Arquivo \e[1;31m$TARNAME\e[0m criado com sucesso!"
         exit 0;;

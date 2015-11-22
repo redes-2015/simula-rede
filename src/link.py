@@ -27,7 +27,10 @@ class Link:
 
         if self.sniffer is not None:
             self.sniffer.write(packet)
-        self.targetQueue.put_nowait(packet)
+        try:
+            self.targetQueue.put_nowait(packet)
+        except queue.Full:
+            pass  # Discard packet if buffer is full
 
     def getBandwidth(self):
         """Returns the link's bandwidth."""
